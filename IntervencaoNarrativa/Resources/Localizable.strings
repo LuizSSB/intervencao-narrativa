@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  IntervencaoNarrativa
+
+  Created by Luiz Soares dos Santos Baglie on 2014/05/28.
+  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
+*/
+
+/* Common */
+"ok" = "OK";
+"cancel" = "Cancelar";
+"dismiss" = "Descartar";
+"error" = "Erro";
+"warning" = "Alerta";
+"saved" = "Salvo";
+"edit" = "Editar";
+"save" = "Salvar";
+"name" = "Nome";
+"confirm" = "Confirmação";
+
+/* Patients */
+"patients" = "Pacientes";
