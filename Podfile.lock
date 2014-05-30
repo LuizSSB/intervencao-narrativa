@@ -1,0 +1,13 @@
+PODS:
+  - APToast (1.1)
+  - MBProgressHUD (0.8)
+
+DEPENDENCIES:
+  - APToast
+  - MBProgressHUD
+
+SPEC CHECKSUMS:
+  APToast: aa52a78f99b0037490a7fdf148275d65871e0cde
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+
+COCOAPODS: 0.33.1
