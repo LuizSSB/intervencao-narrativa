@@ -7,6 +7,10 @@
 //
 
 #import "FTINStartViewController.h"
+#import "FTINPatientViewController.h"
+#import "FTINNewPatientViewControllerDelegate.h"
+
+NSString * const FTINSegueNewPatient = @"NewPatient";
 
 @interface FTINStartViewController ()
 @end
@@ -22,4 +26,14 @@
 {
     [super didReceiveMemoryWarning];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if([segue.identifier isEqualToString:FTINSegueNewPatient])
+	{
+		FTINNewPatientViewControllerDelegate *newPatientDelegate = [[FTINNewPatientViewControllerDelegate alloc] init];
+		((FTINPatientViewController *)segue.destinationViewController).delegate = newPatientDelegate;
+	}
+}
+
 @end

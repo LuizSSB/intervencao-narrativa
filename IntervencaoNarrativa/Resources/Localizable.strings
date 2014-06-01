@@ -20,3 +20,9 @@
 
 /* Patients */
 "patients" = "Pacientes";
+"new_patient" = "Novo paciente";
+"insert_patient" = "Inserir paciente";
+"patient_saved" = "Paciente salvo";
+
+/* Errors */
+"error_ftin_1" = "Dados inválidos.";

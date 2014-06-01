@@ -20,7 +20,6 @@
 {
 	[FTINMainSplitViewControllerDelegate setup];
 
-#warning TODO criar camada de dados
     return YES;
 }
 							
