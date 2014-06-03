@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
 @interface Patient : NSManagedObject
 
 @property (nonatomic, retain) NSDate * creationDate;

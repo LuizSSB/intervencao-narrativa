@@ -12,4 +12,11 @@
 
 + (void)setup;
 
++ (UIViewController *)currentDetailViewController;
+
++ (BOOL)masterViewControllerVisible;
++ (void)setMasterViewControllerVisible:(BOOL)visible;
+
++ (UIBarButtonItem *)barButtonToToggleMasterVisibility;
+
 @end

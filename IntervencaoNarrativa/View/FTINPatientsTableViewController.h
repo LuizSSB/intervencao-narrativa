@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FTINPatientTableViewSource.h"
 
-@interface FTINPatientsTableViewController : UITableViewController
+@interface FTINPatientsTableViewController : UITableViewController <FTINPatientTableViewSourceDelegate, UISearchDisplayDelegate>
 
 @end

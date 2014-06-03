@@ -113,4 +113,16 @@
 	_parentViewController = nil;
 }
 
+#pragma mark - Subject To PatientTransition Notifications
+
+- (BOOL)allowsEscapeToPatient:(Patient *)patient
+{
+	return NO;
+}
+
+- (BOOL)resonatesWithPatient:(Patient *)patient
+{
+	return NO;
+}
+
 @end

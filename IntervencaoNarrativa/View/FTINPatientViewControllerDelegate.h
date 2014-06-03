@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FTINSubjectToPatientTransitionNotifications.h"
 
 @class FTINPatientViewController;
 
-@protocol FTINPatientViewControllerDelegate <NSObject>
+@protocol FTINPatientViewControllerDelegate <NSObject, FTINSubjectToPatientTransitionNotifications>
 
 - (NSString *)patientViewControllerTitle:(FTINPatientViewController *)viewController;
 - (NSDate *)patientViewControllerRegistrationDate:(FTINPatientViewController *)viewController;

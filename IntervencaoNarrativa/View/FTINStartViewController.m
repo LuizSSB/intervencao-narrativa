@@ -17,6 +17,8 @@ NSString * const FTINSegueNewPatient = @"NewPatient";
 
 @implementation FTINStartViewController
 
+#pragma mark - Super Methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,6 +36,18 @@ NSString * const FTINSegueNewPatient = @"NewPatient";
 		FTINNewPatientViewControllerDelegate *newPatientDelegate = [[FTINNewPatientViewControllerDelegate alloc] init];
 		((FTINPatientViewController *)segue.destinationViewController).delegate = newPatientDelegate;
 	}
+}
+
+#pragma mark - Subject To Patient Transition Notifications
+
+- (BOOL)resonatesWithPatient:(Patient *)patient
+{
+	return NO;
+}
+
+- (BOOL)allowsEscapeToPatient:(Patient *)patient
+{
+	return YES;
 }
 
 @end

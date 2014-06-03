@@ -115,4 +115,16 @@
 	}
 }
 
+#pragma mark - Subject To PatientTransition Notifications
+
+- (BOOL)allowsEscapeToPatient:(Patient *)patient
+{
+	return NO;
+}
+
+- (BOOL)resonatesWithPatient:(Patient *)patient
+{
+	return [patient.name isEqualToString:self.patient.name] || patient.name == self.patient.name;
+}
+
 @end

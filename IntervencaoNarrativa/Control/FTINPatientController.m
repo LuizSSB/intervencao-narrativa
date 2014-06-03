@@ -90,17 +90,26 @@
 	
 	if(name.length)
 	{
-		[Patient all:@[sortDescriptor] success:^(id items) {
+		NSString *query = [NSString stringWithFormat:@"%@ CONTAINS[c] '%@'", NSStringFromSelector(@selector(name)), name];
+		[Patient where:query sort:@[sortDescriptor] success:^(id items) {
 			[self.delegate patientController:self gotPatients:items error:nil];
 		}];
 	}
 	else
 	{
-		NSString *query = [NSString stringWithFormat:@"%@ LIKE[cd] %@", NSStringFromSelector(@selector(name)), name];
-		[Patient where:query sort:@[sortDescriptor] success:^(id items) {
+		[Patient all:@[sortDescriptor] success:^(id items) {
 			[self.delegate patientController:self gotPatients:items error:nil];
 		}];
 	}
+}
+
+- (void)removePatient:(Patient *)patient
+{
+	[Patient destroyObject:patient success:^{
+		[self.delegate patientController:self removedPatient:patient error:nil];
+	} failure:^(NSError *error) {
+		[self.delegate patientController:self removedPatient:patient error:error];
+	}];
 }
 
 @end
