@@ -17,18 +17,21 @@
 
 - (void)setMasterVisible:(BOOL)masterVisible
 {
-	if(masterVisible != self.masterVisible)
-	{
-		SEL toggleSelector = NSSelectorFromString(@"toggleMasterVisible:");
-		
-		if([self respondsToSelector:toggleSelector])
-		{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-			[self performSelector:toggleSelector];
-#pragma clang diagnostic pop
-		}
-	}
+	// TODO validar, de fato, se isso pode na appstore ou não
+	// Felizmente, os requerimentos para o app realizar isso são baixíssimos,
+	// então sem rolo grande.
+//	if(masterVisible != self.masterVisible)
+//	{
+//		SEL toggleSelector = NSSelectorFromString(@"toggleMasterVisible:");
+//		
+//		if([self respondsToSelector:toggleSelector])
+//		{
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//			[self performSelector:toggleSelector];
+//#pragma clang diagnostic pop
+//		}
+//	}
 }
 
 @end
