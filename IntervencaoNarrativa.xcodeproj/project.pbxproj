@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0D9D36C8B43E466295899CA4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 564B2EB66BC4420587426308 /* libPods.a */; };
+		2527454A193D411200AF6412 /* FTINPatientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25274549193D411200AF6412 /* FTINPatientViewController.xib */; };
+		2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2527454C193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m */; };
+		25314892193BC81C0068B600 /* FTINPatientTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 25314891193BC81C0068B600 /* FTINPatientTableViewSource.m */; };
+		2531489B193C112F0068B600 /* FTINNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531489A193C112F0068B600 /* FTINNotifications.m */; };
+		2531489E193C14FC0068B600 /* FTINPatientTransitionsObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531489D193C14FC0068B600 /* FTINPatientTransitionsObserver.m */; };
 		2537BAF6193B678900D10878 /* FTINPatientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BAF5193B678900D10878 /* FTINPatientViewController.m */; };
 		2537BAFA193B68F200D10878 /* FTINDatePickerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BAF9193B68F200D10878 /* FTINDatePickerTextField.m */; };
 		2537BAFD193B698000D10878 /* FTINDatePickerPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BAFC193B698000D10878 /* FTINDatePickerPopoverController.m */; };
@@ -66,6 +71,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25274549193D411200AF6412 /* FTINPatientViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINPatientViewController.xib; sourceTree = "<group>"; };
+		2527454B193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+ToggleMasterVisibility.h"; sourceTree = "<group>"; };
+		2527454C193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+ToggleMasterVisibility.m"; sourceTree = "<group>"; };
+		25314890193BC81C0068B600 /* FTINPatientTableViewSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINPatientTableViewSource.h; sourceTree = "<group>"; };
+		25314891193BC81C0068B600 /* FTINPatientTableViewSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINPatientTableViewSource.m; sourceTree = "<group>"; };
+		25314899193C112F0068B600 /* FTINNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINNotifications.h; sourceTree = "<group>"; };
+		2531489A193C112F0068B600 /* FTINNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINNotifications.m; sourceTree = "<group>"; };
+		2531489C193C14FC0068B600 /* FTINPatientTransitionsObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINPatientTransitionsObserver.h; sourceTree = "<group>"; };
+		2531489D193C14FC0068B600 /* FTINPatientTransitionsObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINPatientTransitionsObserver.m; sourceTree = "<group>"; };
+		2531489F193C19C10068B600 /* FTINSubjectToPatientTransitionNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTINSubjectToPatientTransitionNotifications.h; sourceTree = "<group>"; };
 		2537BAF4193B678900D10878 /* FTINPatientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINPatientViewController.h; sourceTree = "<group>"; };
 		2537BAF5193B678900D10878 /* FTINPatientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINPatientViewController.m; sourceTree = "<group>"; };
 		2537BAF8193B68F200D10878 /* FTINDatePickerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDatePickerTextField.h; sourceTree = "<group>"; };
@@ -175,6 +190,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25314894193BC8310068B600 /* PatientsListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				25644D141936B391006C4E06 /* FTINPatientsTableViewController.h */,
+				25644D151936B391006C4E06 /* FTINPatientsTableViewController.m */,
+				25314890193BC81C0068B600 /* FTINPatientTableViewSource.h */,
+				25314891193BC81C0068B600 /* FTINPatientTableViewSource.m */,
+			);
+			name = PatientsListTableViewController;
+			sourceTree = "<group>";
+		};
 		2537BAF7193B68D600D10878 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +249,8 @@
 				2537BB5B193B730500D10878 /* UIView+SearchSubview.m */,
 				2537BB5C193B730500D10878 /* UIViewController+Visibility.h */,
 				2537BB5D193B730500D10878 /* UIViewController+Visibility.m */,
+				2527454B193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.h */,
+				2527454C193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -313,13 +341,15 @@
 			isa = PBXGroup;
 			children = (
 				2537BAF7193B68D600D10878 /* CustomViews */,
+				25314894193BC8310068B600 /* PatientsListTableViewController */,
+				256A97EC193BB38400358131 /* PatientViewContoller */,
 				25644D121936B391006C4E06 /* FTINStartViewController.h */,
 				25644D131936B391006C4E06 /* FTINStartViewController.m */,
-				25644D141936B391006C4E06 /* FTINPatientsTableViewController.h */,
-				25644D151936B391006C4E06 /* FTINPatientsTableViewController.m */,
 				25644D1C1936B619006C4E06 /* FTINMainSplitViewControllerDelegate.h */,
 				25644D1D1936B619006C4E06 /* FTINMainSplitViewControllerDelegate.m */,
-				256A97EC193BB38400358131 /* PatientViewContoller */,
+				2531489C193C14FC0068B600 /* FTINPatientTransitionsObserver.h */,
+				2531489D193C14FC0068B600 /* FTINPatientTransitionsObserver.m */,
+				2531489F193C19C10068B600 /* FTINSubjectToPatientTransitionNotifications.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +367,8 @@
 			children = (
 				256A97E3193BA1DB00358131 /* FTINPatientController.h */,
 				256A97E4193BA1DB00358131 /* FTINPatientController.m */,
+				25314899193C112F0068B600 /* FTINNotifications.h */,
+				2531489A193C112F0068B600 /* FTINNotifications.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -377,6 +409,7 @@
 				256A97EA193BB14F00358131 /* FTINNewPatientViewControllerDelegate.m */,
 				256A97ED193BBB0C00358131 /* FTINExistingPatientViewControllerDelegate.h */,
 				256A97EE193BBB0C00358131 /* FTINExistingPatientViewControllerDelegate.m */,
+				25274549193D411200AF6412 /* FTINPatientViewController.xib */,
 			);
 			name = PatientViewContoller;
 			sourceTree = "<group>";
@@ -463,6 +496,7 @@
 				25644CE01936B071006C4E06 /* InfoPlist.strings in Resources */,
 				25644D1A1936B3C7006C4E06 /* Localizable.strings in Resources */,
 				25644CE91936B071006C4E06 /* Main.storyboard in Resources */,
+				2527454A193D411200AF6412 /* FTINPatientViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +557,7 @@
 				2537BB63193B730500D10878 /* NSFileManager+Utils.m in Sources */,
 				2537BB6D193B730500D10878 /* UITableView+ScrollToBottom.m in Sources */,
 				2537BAFA193B68F200D10878 /* FTINDatePickerTextField.m in Sources */,
+				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
 				2537BB6A193B730500D10878 /* UIAlertView+DefaultAlerts.m in Sources */,
@@ -543,9 +578,12 @@
 				256A97EB193BB14F00358131 /* FTINNewPatientViewControllerDelegate.m in Sources */,
 				2537BB66193B730500D10878 /* NSObject+Properties.m in Sources */,
 				2537BB6B193B730500D10878 /* UIDevice+SystemVersion.m in Sources */,
+				25314892193BC81C0068B600 /* FTINPatientTableViewSource.m in Sources */,
+				2531489E193C14FC0068B600 /* FTINPatientTransitionsObserver.m in Sources */,
 				256A97E8193BA26D00358131 /* Patient.m in Sources */,
 				2537BAF6193B678900D10878 /* FTINPatientViewController.m in Sources */,
 				25644D171936B391006C4E06 /* FTINPatientsTableViewController.m in Sources */,
+				2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

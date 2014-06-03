@@ -9,6 +9,7 @@
 #import "FTINAppDelegate.h"
 
 #import "FTINMainSplitViewControllerDelegate.h"
+#import "FTINPatientTransitionsObserver.h"
 
 @implementation FTINAppDelegate
 
@@ -19,6 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[FTINMainSplitViewControllerDelegate setup];
+	[FTINPatientTransitionsObserver setup];
 
     return YES;
 }

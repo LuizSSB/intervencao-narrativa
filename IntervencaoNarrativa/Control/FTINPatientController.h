@@ -38,4 +38,6 @@
 
 - (void)getPatients:(NSString *)name;
 
+- (void)removePatient:(Patient *)patient;
+
 @end

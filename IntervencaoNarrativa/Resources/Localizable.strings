@@ -16,13 +16,17 @@
 "edit" = "Editar";
 "save" = "Salvar";
 "name" = "Nome";
-"confirm" = "Confirmação";
+"confirmation" = "Confirmação";
+
+/* Navigation */
+"can_change_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
 
 /* Patients */
 "patients" = "Pacientes";
 "new_patient" = "Novo paciente";
 "insert_patient" = "Inserir paciente";
 "patient_saved" = "Paciente salvo";
+"examiner_name" = "Avaliador: %@";
 
 /* Errors */
 "error_ftin_1" = "Dados inválidos.";

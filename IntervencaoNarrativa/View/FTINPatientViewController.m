@@ -8,6 +8,7 @@
 
 #import "FTINPatientViewController.h"
 #import "FTINDatePickerTextField.h"
+#import "FTINMainSplitViewControllerDelegate.h"
 
 @interface FTINPatientViewController ()
 
@@ -42,6 +43,9 @@
 {
     [super viewDidLoad];
 	[self setupPatientData];
+	
+	self.navigationItem.leftBarButtonItem = [FTINMainSplitViewControllerDelegate barButtonToToggleMasterVisibility];
+	self.navigationItem.leftItemsSupplementBackButton = YES;
 }
 
 #pragma mark - Instance methods
@@ -61,6 +65,7 @@
 {
 	[self.delegate patientViewControllerMustSave:self withName:self.patientNameTextField.text examinerName:self.examinerNameTextLabel.text birthdate:self.birthdateDatePickerTextField.date sex:self.sexSegmentedControl.selectedSegmentIndex handler:^(id result, NSError *error) {
 		[NSError alertOnError:error andDoOnSuccess:^{
+			[self setupPatientData];
 			[self showLocalizedToastText:@"patient_saved"];
 		}];
 	}];
@@ -85,6 +90,18 @@
 		
 		self.activitiesTableView.hidden = self.startActivityButton.hidden = ![self.delegate patientViewControllerShouldShowActivities:self];
 	}
+}
+
+#pragma mark - Subject To PatientTransition Notifications
+
+- (BOOL)allowsEscapeToPatient:(Patient *)patient
+{
+	return [self.delegate allowsEscapeToPatient:patient];
+}
+
+- (BOOL)resonatesWithPatient:(Patient *)patient
+{
+	return [self.delegate resonatesWithPatient:patient];
 }
 
 @end

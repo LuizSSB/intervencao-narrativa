@@ -7,7 +7,7 @@
 //
 
 #import "Patient.h"
-
+#import "DCModel.h"
 
 @implementation Patient
 
@@ -25,6 +25,11 @@
 - (void)setSex:(FTINSex)sex
 {
 	self.sexInteger = @(sex);
+}
+
++ (NSString *)primaryKey
+{
+	return NSStringFromSelector(@selector(name));
 }
 
 @end
