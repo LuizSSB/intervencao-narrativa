@@ -13,6 +13,8 @@
 #define DOCUMENTS_DIRECTORY (NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject)
 
 extern CGSize const AdBannerStandardSize;
+extern NSTimeInterval const FTINDefaultAnimationDuration;
+extern NSString const * FTINDefaultCellIdentifier;
 
 typedef void (^FTINOperationResult)(id result, NSError *error);
 

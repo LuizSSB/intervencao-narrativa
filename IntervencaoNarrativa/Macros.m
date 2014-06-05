@@ -7,3 +7,5 @@
 //
 
 CGSize const AdBannerStandardSize = {300, 50};
+NSTimeInterval const FTINDefaultAnimationDuration = .3;
+NSString const * FTINDefaultCellIdentifier = @"Cell";

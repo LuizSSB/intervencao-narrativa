@@ -10,6 +10,9 @@
 #import "FTINDatePickerTextField.h"
 #import "FTINMainSplitViewControllerDelegate.h"
 
+#warning TODO implementar certo essa puorra
+#import "FTINActivityViewController.h"
+
 @interface FTINPatientViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *registrationDateLabel;
@@ -73,6 +76,10 @@
 
 - (IBAction)startNewActivity:(id)sender
 {
+#warning TODO implementar certo essa porra
+	UIViewController *act = [[FTINActivityViewController alloc] init];
+	UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:act];
+	[self presentViewController:navigation animated:YES completion:nil];
 }
 
 - (void)setupPatientData

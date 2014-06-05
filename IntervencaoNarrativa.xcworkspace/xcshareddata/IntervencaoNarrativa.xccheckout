@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0EC61921-A381-42D9-985B-2F8F8690A928</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IntervencaoNarrativa</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D452CDA1-5A13-4CC1-9190-68CBA3F4ADAE</key>
+		<string>https://bitbucket.org/LuizSSB/intervencaonarrativa.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IntervencaoNarrativa.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D452CDA1-5A13-4CC1-9190-68CBA3F4ADAE</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/LuizSSB/intervencaonarrativa.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D452CDA1-5A13-4CC1-9190-68CBA3F4ADAE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D452CDA1-5A13-4CC1-9190-68CBA3F4ADAE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IntervencaoNarrativa</string>
+		</dict>
+	</array>
+</dict>
+</plist>

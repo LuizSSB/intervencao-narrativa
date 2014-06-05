@@ -17,6 +17,7 @@
 "save" = "Salvar";
 "name" = "Nome";
 "confirmation" = "Confirmação";
+"next>" = "Próximo >";
 
 /* Navigation */
 "can_change_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
@@ -27,6 +28,15 @@
 "insert_patient" = "Inserir paciente";
 "patient_saved" = "Paciente salvo";
 "examiner_name" = "Avaliador: %@";
+
+/* Activities */
+"hide_controls" = "Esconder controles";
+
+/* Descriptive Skill */
+"description_no_help" = "Descreve totalmente sem ajuda";
+"description_partially" = "Descreve parcialmente sem ajuda";
+"description_help" = "Descreve com muita ajuda";
+"description_none" = "Não descreve";
 
 /* Errors */
 "error_ftin_1" = "Dados inválidos.";
