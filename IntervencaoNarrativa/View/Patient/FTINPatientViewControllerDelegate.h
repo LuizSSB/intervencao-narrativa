@@ -24,4 +24,7 @@
 
 - (void)patientViewControllerMustSave:(FTINPatientViewController *)viewController withName:(NSString *)name examinerName:(NSString *)examiner birthdate:(NSDate *)birthdate sex:(FTINSex)sex handler:(FTINOperationResult)handler;
 
+@optional
+- (Patient *)patientViewControllerRequestsPatient:(FTINPatientViewController *)patient;
+
 @end

@@ -100,6 +100,11 @@
 	[self.controller editPatient:self.patient withName:name examiner:examiner sex:sex birthdate:birthdate];
 }
 
+- (Patient *)patientViewControllerRequestsPatient:(FTINPatientViewController *)patient
+{
+	return self.patient;
+}
+
 #pragma mark - Patient Controller Delegate
 
 - (void)patientController:(FTINPatientController *)controller editedPatient:(Patient *)patient error:(NSError *)error

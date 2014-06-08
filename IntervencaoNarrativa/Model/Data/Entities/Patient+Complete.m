@@ -20,4 +20,21 @@
 	self.sexInteger = @(sex);
 }
 
+static NSSortDescriptor *_patientActivitiesSortDescriptor;
+
+- (NSArray *)activitiesInOrder
+{
+	@synchronized([self class])
+	{
+		if(!_patientActivitiesSortDescriptor)
+		{
+			_patientActivitiesSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:NSStringFromSelector(@selector(creationDate)) ascending:YES];
+		}
+	}
+	
+	NSArray *ordered = [self.activities sortedArrayUsingDescriptors:@[_patientActivitiesSortDescriptor]];
+	return ordered;
+}
+
+
 @end

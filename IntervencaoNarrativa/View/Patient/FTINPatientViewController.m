@@ -26,6 +26,8 @@
 - (IBAction)save:(id)sender;
 - (IBAction)startNewActivity:(id)sender;
 
+@property (nonatomic, readonly) FTINActivitiesTableViewSource *tableViewSource;
+
 - (void)setupPatientData;
 
 @end
@@ -73,14 +75,37 @@
 
 - (IBAction)startNewActivity:(id)sender
 {
-	NSURL *activityUrl = [[NSBundle mainBundle] URLForResource:FTINDefaultActivityFileName withExtension:FTINDefaultActivityFileExtension];
-	NSError *error = nil;
-	FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithActivity:activityUrl andPatient:[(id)self.delegate valueForKey:NSStringFromSelector(@selector(patient))] error:&error];
-	activityViewController.delegate = self;
-	
-	[NSError alertOnError:error andDoOnSuccess:^{
-		[self presentViewController:activityViewController animated:YES completion:nil];
-	}];
+	if([self.delegate respondsToSelector:@selector(patientViewControllerRequestsPatient:)])
+	{
+		NSURL *activityUrl = [[NSBundle mainBundle] URLForResource:FTINDefaultActivityFileName withExtension:FTINDefaultActivityFileExtension];
+		NSError *error = nil;
+		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithActivity:activityUrl andPatient:[self.delegate patientViewControllerRequestsPatient:self] error:&error];
+		activityViewController.delegate = self;
+		
+		[NSError alertOnError:error andDoOnSuccess:^{
+			[self presentViewController:activityViewController animated:YES completion:nil];
+		}];
+	}
+}
+
+@synthesize tableViewSource = _tableViewSource;
+
+- (FTINActivitiesTableViewSource *)tableViewSource
+{
+	if([self.delegate respondsToSelector:@selector(patientViewControllerRequestsPatient:)])
+	{
+		if(!_tableViewSource)
+		{
+			Patient *patient = [self.delegate patientViewControllerRequestsPatient:self];
+			_tableViewSource = [[FTINActivitiesTableViewSource alloc] initWithPatient:patient andTableView:self.activitiesTableView];
+		}
+		
+		return _tableViewSource;
+	}
+	else
+	{
+		return nil;
+	}
 }
 
 - (void)setupPatientData
@@ -97,6 +122,9 @@
 		[self.saveButton setTitle:[self.delegate patientViewControllerSaveButtonTitle:self] forState:UIControlStateNormal];
 		
 		self.activitiesTableView.hidden = self.startActivityButton.hidden = ![self.delegate patientViewControllerShouldShowActivities:self];
+		self.activitiesTableView.dataSource = self.tableViewSource;
+		self.activitiesTableView.delegate = self.tableViewSource;
+		[self.tableViewSource update];
 	}
 }
 
@@ -110,7 +138,7 @@
 - (void)activityNavigationControllerFinished:(FTINActivityNavigationController *)navigationController
 {
 	[navigationController dismissViewControllerAnimated:YES completion:^{
-#warning TODO recarregar tabela magic
+		[self.tableViewSource update];
 		[self showLocalizedToastText:@"activity_completed"];
 	}];
 }

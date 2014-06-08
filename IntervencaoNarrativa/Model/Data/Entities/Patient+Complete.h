@@ -12,4 +12,6 @@
 
 @property (nonatomic) FTINSex sex;
 
+@property (nonatomic, readonly) NSArray *activitiesInOrder;
+
 @end

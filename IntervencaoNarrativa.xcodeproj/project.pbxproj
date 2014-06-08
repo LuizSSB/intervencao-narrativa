@@ -94,6 +94,7 @@
 		25DD4F6D19449B11001D8761 /* DescriptionSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD4F6C19449B11001D8761 /* DescriptionSubActivity.m */; };
 		25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD4F6F19449FFA001D8761 /* UIApplication+TopMostViewController.m */; };
 		25DD4F731944AE8D001D8761 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD4F721944AE8D001D8761 /* Activity.m */; };
+		25ED11ED1944FC2F007514AD /* FTINActivitiesTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ED11EC1944FC2F007514AD /* FTINActivitiesTableViewSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,6 +254,8 @@
 		25DD4F6F19449FFA001D8761 /* UIApplication+TopMostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TopMostViewController.m"; sourceTree = "<group>"; };
 		25DD4F711944AE8D001D8761 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		25DD4F721944AE8D001D8761 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		25ED11EB1944FC2F007514AD /* FTINActivitiesTableViewSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivitiesTableViewSource.h; sourceTree = "<group>"; };
+		25ED11EC1944FC2F007514AD /* FTINActivitiesTableViewSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivitiesTableViewSource.m; sourceTree = "<group>"; };
 		564B2EB66BC4420587426308 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -441,6 +444,8 @@
 				256357E619413CAE00E5762A /* FTINPatientsTableViewController.m */,
 				256357E719413CAE00E5762A /* FTINPatientTableViewSource.h */,
 				256357E819413CAE00E5762A /* FTINPatientTableViewSource.m */,
+				25ED11EB1944FC2F007514AD /* FTINActivitiesTableViewSource.h */,
+				25ED11EC1944FC2F007514AD /* FTINActivitiesTableViewSource.m */,
 			);
 			path = PatientList;
 			sourceTree = "<group>";
@@ -829,6 +834,7 @@
 				25CDAEB6194389D7003E1314 /* FTINActitivitiesFactory.m in Sources */,
 				2563580019413D0E00E5762A /* FTINDescriptionActivityViewController.m in Sources */,
 				25CDAEB8194389D7003E1314 /* FTINSubActivityDetails.m in Sources */,
+				25ED11ED1944FC2F007514AD /* FTINActivitiesTableViewSource.m in Sources */,
 				2537BB68193B730500D10878 /* NSString+ReplaceStrings.m in Sources */,
 				256357F519413CAE00E5762A /* FTINNewPatientViewControllerDelegate.m in Sources */,
 				25DD4F731944AE8D001D8761 /* Activity.m in Sources */,
