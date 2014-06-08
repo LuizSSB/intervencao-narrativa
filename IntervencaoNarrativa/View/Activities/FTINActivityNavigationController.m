@@ -30,6 +30,13 @@
 	_patient = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
+	[self.viewControllers[0] navigationItem].backBarButtonItem = nil;
+}
+
 #pragma mark - Instance methods
 
 @synthesize controller = _controller;

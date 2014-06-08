@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="activitiesTableView" destination="fWy-EE-leY" id="yWb-y3-l3x"/>
                 <outlet property="birthdateDatePickerTextField" destination="cB2-sf-pAi" id="q1t-vN-YLA"/>
-                <outlet property="examinerNameTextLabel" destination="v0f-jk-iE0" id="B5g-U2-UHT"/>
+                <outlet property="examinerNameTextField" destination="v0f-jk-iE0" id="MJe-St-gBs"/>
                 <outlet property="patientNameTextField" destination="5F3-ls-Haa" id="Qgh-Ha-8Le"/>
                 <outlet property="registrationDateLabel" destination="nl5-uP-Xdz" id="dqO-g1-Qxf"/>
                 <outlet property="saveButton" destination="R74-4x-kVw" id="W3R-BK-Ute"/>
@@ -75,6 +75,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="hideKeyboardsForGodsSake:" destination="-1" eventType="touchDown" id="aSD-Et-ors"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00/00/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl5-uP-Xdz">
                     <rect key="frame" x="337" y="56" width="88" height="21"/>

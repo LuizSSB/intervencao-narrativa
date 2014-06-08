@@ -43,7 +43,8 @@
 {
     [super viewDidLoad];
 	
-	self.navigationItem.backBarButtonItem = nil;
+	self.navigationItem.hidesBackButton = YES;
+	self.navigationItem.leftItemsSupplementBackButton = NO;
 	self.navigationItem.leftBarButtonItem = self.cancelButton;
 	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.editButtonItem.title = @"hide_controls".localizedString;
@@ -51,11 +52,6 @@
 	NSMutableArray *actionButtons = [NSMutableArray arrayWithArray:[self getActionBarButtons]];
 	[actionButtons addObject:self.nextButton];
 	self.actionToolbar.items = actionButtons;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
 }
 
 - (void)setEditing:(BOOL)editing
