@@ -11,5 +11,7 @@
 extern NSString * ftin_ErrorDomain;
 
 typedef enum : NSUInteger {
-    ftin_InvalidDataErrorCode = 1
+    ftin_InvalidDataErrorCode = 1,
+	ftin_InvalidSubActivityErrorCode = 2,
+	ftin_InvalidActivityErrorCode = 3
 } FTINErrorCodes;

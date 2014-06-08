@@ -95,7 +95,7 @@ static FTINPatientTransitionsObserver *_observer;
 			_currentPatient = notification.object;
 			_currentViewController = current;
 			
-			[[[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:@"can_change_screen".localizedString delegate:self cancelButtonTitle:@"cancel".localizedString otherButtonTitles:@"ok".localizedString, nil] show];
+			[[UIAlertView alertWithConfirmation:@"leave_current_screen".localizedString delegate:self] show];
 		}
 	}
 }
@@ -134,7 +134,7 @@ static FTINPatientTransitionsObserver *_observer;
 				_currentPatient = notification.object;
 				_currentViewController = current;
 				
-				[[[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:@"can_change_screen".localizedString delegate:self cancelButtonTitle:@"cancel".localizedString otherButtonTitles:@"ok".localizedString, nil] show];
+				[[UIAlertView alertWithConfirmation:@"leave_current_screen".localizedString delegate:self] show];
 			}
 		}
 	}

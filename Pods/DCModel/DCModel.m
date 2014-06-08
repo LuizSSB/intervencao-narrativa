@@ -32,7 +32,7 @@ typedef void (^DiskCallBack)(void);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 +(id)newObject:(NSDictionary*)dict
 {
-    NSEntityDescription *entity = [NSEntityDescription entityForName:[self entityName] inManagedObjectContext:[self objectCtx]];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:[self nameOfEntity] inManagedObjectContext:[self objectCtx]];
     id managedObject = [[[self class] alloc] initWithEntity:entity insertIntoManagedObjectContext:nil]; //NSManagedObject
     //id managedObject = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:nil];
     for(NSString* key in dict)
@@ -251,7 +251,7 @@ typedef void (^DiskCallBack)(void);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 +(NSArray*)where:(id)search sort:(NSArray*)sortDescriptors limit:(NSInteger)limit
 {
-    NSString* name = [self entityName];
+    NSString* name = [self nameOfEntity];
     if(name)
     {
         NSEntityDescription *entity = [NSEntityDescription entityForName:name inManagedObjectContext:[self objectCtx]];
@@ -304,7 +304,7 @@ typedef void (^DiskCallBack)(void);
     [diskQueue cancelAllOperations];
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-+(NSString*)entityName
++(NSString*)nameOfEntity
 {
     return [self getClassName:[self class]];
 }

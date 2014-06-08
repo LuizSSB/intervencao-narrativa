@@ -223,8 +223,11 @@ Creates a new object and adds it to the managed context. This saves/clears the o
 
 /**
  Returns the entityName of the coreData entity. By Default it returns the className.
+ 
+ LUIZ: Name changed from "entityName" to avoid conflict with method defined in 
+ JSONModel.
  */
-+(NSString*)entityName;
++(NSString*)nameOfEntity;
 
 //use to clear a all contents of a DB from disk.
 /**

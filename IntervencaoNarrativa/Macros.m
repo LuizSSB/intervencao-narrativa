@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
-CGSize const AdBannerStandardSize = {300, 50};
 NSTimeInterval const FTINDefaultAnimationDuration = .3;
+CGFloat const FTINBarButtonItemSpacing = 20.f;
 NSString const * FTINDefaultCellIdentifier = @"Cell";
+NSString const * FTINDefaultNamespace = @"FTIN";
+NSString * const FTINDefaultActivityFileName = @"mainActivity";
+NSString * const FTINDefaultActivityFileExtension = @"json";
+

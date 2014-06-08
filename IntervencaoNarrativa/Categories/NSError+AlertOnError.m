@@ -14,7 +14,7 @@
 {
 	if(error)
 	{
-		[[[UIApplication sharedApplication].delegate window].rootViewController showToastText:customMessage];
+		[[UIApplication sharedApplication].topMostViewController showToastText:customMessage];
 		return NO;
 	}
 	else

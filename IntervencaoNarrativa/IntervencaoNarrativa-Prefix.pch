@@ -32,6 +32,7 @@
 #import "UIAlertView+DefaultAlerts.h"
 #import "UIViewController+Visibility.h"
 #import "UIDevice+SystemVersion.h"
+#import "UIApplication+TopMostViewController.h"
 
 // Foundation Categories
 #import "NSNumber+TimeDescription.h"
