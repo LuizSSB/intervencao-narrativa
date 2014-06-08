@@ -22,4 +22,10 @@
 	return alert;
 }
 
++ (UIAlertView *)alertWithConfirmation:(NSString *)confirmationMessage delegate:(id<UIAlertViewDelegate>)delegate
+{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:confirmationMessage delegate:delegate cancelButtonTitle:@"cancel".localizedString otherButtonTitles:@"ok".localizedString, nil];
+	return alert;
+}
+
 @end

@@ -12,5 +12,6 @@
 
 + (UIAlertView *)alertViewWithError:(NSString *)errorMessage;
 + (UIAlertView *)alertViewWithWarning:(NSString *)errorMessage;
++ (UIAlertView *)alertWithConfirmation:(NSString *)confirmationMessage delegate:(id<UIAlertViewDelegate>)delegate;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "FTINExistingPatientViewControllerDelegate.h"
-#import "Patient.h"
+#import "Patient+Complete.h"
 
 @interface FTINExistingPatientViewControllerDelegate ()
 {

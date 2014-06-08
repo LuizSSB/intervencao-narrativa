@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "FTINPatientViewControllerDelegate.h"
 #import "FTINSubjectToPatientTransitionNotifications.h"
+#import "FTINActivityNavigationController.h"
 
-@interface FTINPatientViewController : UIViewController <FTINSubjectToPatientTransitionNotifications>
+@interface FTINPatientViewController : UIViewController <FTINSubjectToPatientTransitionNotifications, FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) id<FTINPatientViewControllerDelegate> delegate;
 

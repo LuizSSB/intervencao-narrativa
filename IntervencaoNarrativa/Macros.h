@@ -10,9 +10,15 @@
 #define FanChorusChantCreator_Macros_h
 
 #define AllocateArray(TYPE, UNITS) ((TYPE*)calloc(UNITS, sizeof(TYPE)))
+
 #define DOCUMENTS_DIRECTORY (NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject)
 
-extern CGSize const AdBannerStandardSize;
+extern NSTimeInterval const FTINDefaultAnimationDuration;
+extern CGFloat const FTINBarButtonItemSpacing;
+extern NSString const * FTINDefaultCellIdentifier;
+extern NSString const * FTINDefaultNamespace;
+extern NSString * const FTINDefaultActivityFileName;
+extern NSString * const FTINDefaultActivityFileExtension;
 
 typedef void (^FTINOperationResult)(id result, NSError *error);
 
@@ -20,5 +26,18 @@ typedef enum : NSUInteger {
     FTINSexMachoMan,
     FTINSexFemmeFatale,
 } FTINSex;
+
+typedef enum : NSUInteger {
+    FTINActivityTypeDescription,
+} FTINActivityType;
+
+typedef enum : NSUInteger {
+    FTINDescriptiveSkillNoHelp,
+    FTINDescriptiveSkillPartialHelp,
+    FTINDescriptiveSkillLottaHelp,
+	FTINDescriptiveSkillIncompetentFool
+} FTINDescriptiveSkill;
+
+@protocol NSString @end
 
 #endif

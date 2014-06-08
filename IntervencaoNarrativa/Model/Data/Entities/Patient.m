@@ -2,29 +2,26 @@
 //  Patient.m
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/06/01.
+//  Created by Luiz Soares dos Santos Baglie on 2014/06/08.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
 #import "Patient.h"
-#import "DCModel.h"
+#import "Activity.h"
+
 
 @implementation Patient
 
-@dynamic creationDate;
-@dynamic name;
-@dynamic examiner;
-@dynamic sexInteger;
 @dynamic birthdate;
+@dynamic creationDate;
+@dynamic examiner;
+@dynamic name;
+@dynamic sexInteger;
+@dynamic activities;
 
-- (FTINSex)sex
+- (void)awakeFromInsert
 {
-	return (FTINSex)self.sexInteger.unsignedIntegerValue;
-}
-
-- (void)setSex:(FTINSex)sex
-{
-	self.sexInteger = @(sex);
+	self.creationDate = [NSDate date];
 }
 
 + (NSString *)primaryKey

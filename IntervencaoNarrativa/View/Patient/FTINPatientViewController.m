@@ -73,6 +73,14 @@
 
 - (IBAction)startNewActivity:(id)sender
 {
+	NSURL *activityUrl = [[NSBundle mainBundle] URLForResource:FTINDefaultActivityFileName withExtension:FTINDefaultActivityFileExtension];
+	NSError *error = nil;
+	FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithActivity:activityUrl andPatient:[(id)self.delegate valueForKey:NSStringFromSelector(@selector(patient))] error:&error];
+	activityViewController.delegate = self;
+	
+	[NSError alertOnError:error andDoOnSuccess:^{
+		[self presentViewController:activityViewController animated:YES completion:nil];
+	}];
 }
 
 - (void)setupPatientData
@@ -90,6 +98,28 @@
 		
 		self.activitiesTableView.hidden = self.startActivityButton.hidden = ![self.delegate patientViewControllerShouldShowActivities:self];
 	}
+}
+
+#pragma mark - Activity Navigation Controller Delegate
+
+- (void)activityNavigationControllerCanceled:(FTINActivityNavigationController *)navigationController
+{
+	[navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)activityNavigationControllerFinished:(FTINActivityNavigationController *)navigationController
+{
+	[navigationController dismissViewControllerAnimated:YES completion:^{
+#warning TODO recarregar tabela magic
+		[self showLocalizedToastText:@"activity_completed"];
+	}];
+}
+
+- (void)activityNavigationController:(FTINActivityNavigationController *)navigationController failedToLoadBecauseOfError:(NSError *)error
+{
+	[NSError alertOnError:error andDoOnSuccess:^{
+		[self performSelector:@selector(activityNavigationControllerCanceled:) withObject:navigationController afterDelay:.5f];
+	}];
 }
 
 #pragma mark - Subject To PatientTransition Notifications

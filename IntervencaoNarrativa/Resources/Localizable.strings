@@ -17,9 +17,10 @@
 "save" = "Salvar";
 "name" = "Nome";
 "confirmation" = "Confirmação";
+"next>" = "Próximo >";
 
 /* Navigation */
-"can_change_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
+"leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
 
 /* Patients */
 "patients" = "Pacientes";
@@ -28,5 +29,19 @@
 "patient_saved" = "Paciente salvo";
 "examiner_name" = "Avaliador: %@";
 
+/* Activities */
+"hide_controls" = "Ocultar controles";
+"show_controls" = "Exibir controles";
+"leave_activity" = "Deseja mesmo encerrar a atividade?";
+"activity_completed" = "Atividade completa!";
+
+/* Descriptive Skill */
+"description_no_help" = "Descreve totalmente sem ajuda";
+"description_partially" = "Descreve parcialmente sem ajuda";
+"description_help" = "Descreve com muita ajuda";
+"description_none" = "Não descreve";
+
 /* Errors */
-"error_ftin_1" = "Dados inválidos.";
+"error_ftin_1" = "Dados inválidos. Preencha todos as informações.";
+"error_ftin_2" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityController.";
+"error_ftin_3" = "Arquivos de configuração da atividade inválidos, não constam com subatividades.";

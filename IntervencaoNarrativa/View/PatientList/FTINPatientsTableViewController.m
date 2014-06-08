@@ -1,5 +1,5 @@
 //
-//  FTINMasterViewController.m
+//  FTINPatientsTableViewController.m
 //  IntervencaoNarrativa
 //
 //  Created by Luiz Soares dos Santos Baglie on 2014/05/28.

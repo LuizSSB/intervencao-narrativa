@@ -8,7 +8,7 @@
 
 #import "FTINPatientController.h"
 #import "DCModel.h"
-#import "Patient.h"
+#import "Patient+Complete.h"
 
 @implementation FTINPatientController
 
