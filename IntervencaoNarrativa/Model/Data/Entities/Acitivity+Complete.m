@@ -22,7 +22,7 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 		}
 	}
 	
-	NSArray *subs = [self.subActivitites sortedArrayUsingDescriptors:@[_activitySubActivitesSortDescriptor]];
+	NSArray *subs = [self.subActivities sortedArrayUsingDescriptors:@[_activitySubActivitesSortDescriptor]];
 	return subs;
 }
 

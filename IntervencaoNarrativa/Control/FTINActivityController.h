@@ -2,39 +2,24 @@
 //  FTINActivityController.h
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/06/06.
+//  Created by Luiz Soares dos Santos Baglie on 2014/06/08.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@class FTINActivityController, FTINActivityDetails, SubActivity, FTINSubActivityDetails;
-
-@protocol FTINActivityControllerDelegate <NSObject>
-
-- (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)details error:(NSError *)error;
-
-- (void)activityController:(FTINActivityController *)controller savedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
-
-- (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error;
-
-@end
+@class FTINActivityDetails, FTINSubActivityDetails, Patient, Activity;
 
 @interface FTINActivityController : NSObject
 
-- (id)initWithActivityInFile:(NSURL *)activityUrl andPatient:(Patient *)patient andDelegate:(id<FTINActivityControllerDelegate>)delegate;
+- (FTINActivityDetails *)activityDetailsWithContentsOfURL:(NSURL *)fileUrl error:(NSError **)error;
 
-@property (nonatomic, readonly) NSURL *activityUrl;
-@property (nonatomic, readonly) FTINActivityDetails *activity;
-@property (nonatomic, readonly) Patient *patient;
-@property (nonatomic, weak) id<FTINActivityControllerDelegate> delegate;
+- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity resultHandler:(FTINOperationResult)handler;
 
-@property (nonatomic, readonly) BOOL hasNextSubActivity;
-- (FTINSubActivityDetails *)nextSubActivity;
+- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient resultHandler:(FTINOperationResult)handler;
 
-- (BOOL)start:(NSError **)error;
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
-- (void)finish;
-- (void)cancel;
+- (void)cancelActivity:(FTINActivityDetails *)activity resultHandler:(FTINOperationResult)handler;
+
+- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler;
 
 @end

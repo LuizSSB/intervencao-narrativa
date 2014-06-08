@@ -5,7 +5,7 @@
         <attribute name="finalized" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="activities" inverseEntity="Patient" syncable="YES"/>
-        <relationship name="subActivitites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubActivity" inverseName="parentActivity" inverseEntity="SubActivity" syncable="YES"/>
+        <relationship name="subActivities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubActivity" inverseName="parentActivity" inverseEntity="SubActivity" syncable="YES"/>
     </entity>
     <entity name="DescriptionSubActivity" representedClassName="DescriptionSubActivity" parentEntity="SubActivity" syncable="YES">
         <attribute name="describedElements" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -22,12 +22,12 @@
     <entity name="SubActivity" representedClassName="SubActivity" isAbstract="YES" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivitites" inverseEntity="Activity" syncable="YES"/>
+        <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivities" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="73"/>
-        <element name="Patient" positionX="0" positionY="0" width="128" height="133"/>
-        <element name="SubActivity" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Activity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="DescriptionSubActivity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Patient" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="SubActivity" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

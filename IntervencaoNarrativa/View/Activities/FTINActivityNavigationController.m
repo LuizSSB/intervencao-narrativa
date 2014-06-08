@@ -13,7 +13,7 @@
 {
 }
 
-@property (nonatomic, readonly) FTINActivityController *controller;
+@property (nonatomic, readonly) FTINActivityFlowController *controller;
 
 - (void)goToNextSubActivity:(BOOL)animated;
 
@@ -33,11 +33,11 @@
 #pragma mark - Instance methods
 
 @synthesize controller = _controller;
-- (FTINActivityController *)controller
+- (FTINActivityFlowController *)controller
 {
 	if(!_controller)
 	{
-		_controller = [[FTINActivityController alloc] initWithActivityInFile:self.activityFile andPatient:self.patient andDelegate:self];
+		_controller = [[FTINActivityFlowController alloc] initWithActivityInFile:self.activityFile andPatient:self.patient andDelegate:self];
 	}
 	
 	return _controller;
@@ -86,7 +86,7 @@
 
 #pragma mark - Activity Controller Delegate
 
-- (void)activityController:(FTINActivityController *)controller savedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
+- (void)activityFlowController:(FTINActivityFlowController *)controller savedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
 		if(self.controller.hasNextSubActivity)
@@ -100,14 +100,14 @@
 	}];
 }
 
-- (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)details error:(NSError *)error
+- (void)activityFlowController:(FTINActivityFlowController *)controller savedActivity:(FTINActivityDetails *)details error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerFinished:self];
 	}];
 }
 
-- (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error
+- (void)activityFlowController:(FTINActivityFlowController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerCanceled:self];

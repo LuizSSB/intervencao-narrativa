@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FTINActivityController.h"
+#import "FTINActivityFlowController.h"
 #import "FTINActivityViewController.h"
 
 @class FTINActivityNavigationController, Patient;
@@ -22,7 +22,7 @@
 
 @end
 
-@interface FTINActivityNavigationController : UINavigationController <FTINActivityControllerDelegate, FTINActivityViewControllerDelegate>
+@interface FTINActivityNavigationController : UINavigationController <FTINActivityFlowControllerDelegate, FTINActivityViewControllerDelegate>
 
 @property (nonatomic, readonly) NSURL *activityFile;
 @property (nonatomic, readonly) Patient *patient;

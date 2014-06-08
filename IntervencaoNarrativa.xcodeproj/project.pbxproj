@@ -39,7 +39,7 @@
 		2537BB6E193B730500D10878 /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB59193B730500D10878 /* UIView+Border.m */; };
 		2537BB6F193B730500D10878 /* UIView+SearchSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB5B193B730500D10878 /* UIView+SearchSubview.m */; };
 		2537BB70193B730500D10878 /* UIViewController+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB5D193B730500D10878 /* UIViewController+Visibility.m */; };
-		255F79971942877200C94AB3 /* FTINActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255F79961942877200C94AB3 /* FTINActivityController.m */; };
+		255F79971942877200C94AB3 /* FTINActivityFlowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255F79961942877200C94AB3 /* FTINActivityFlowController.m */; };
 		255F79A21942963700C94AB3 /* playground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 255F79A11942963700C94AB3 /* playground.jpg */; };
 		256357BF19413A6200E5762A /* Patient+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357BE19413A6200E5762A /* Patient+Complete.m */; };
 		256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357C319413CAE00E5762A /* FTINActivityViewController.m */; };
@@ -95,6 +95,7 @@
 		25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD4F6F19449FFA001D8761 /* UIApplication+TopMostViewController.m */; };
 		25DD4F731944AE8D001D8761 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD4F721944AE8D001D8761 /* Activity.m */; };
 		25ED11ED1944FC2F007514AD /* FTINActivitiesTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ED11EC1944FC2F007514AD /* FTINActivitiesTableViewSource.m */; };
+		25ED11F019450D0A007514AD /* FTINActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ED11EF19450D0A007514AD /* FTINActivityController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,8 +161,8 @@
 		2537BB5B193B730500D10878 /* UIView+SearchSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SearchSubview.m"; sourceTree = "<group>"; };
 		2537BB5C193B730500D10878 /* UIViewController+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Visibility.h"; sourceTree = "<group>"; };
 		2537BB5D193B730500D10878 /* UIViewController+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Visibility.m"; sourceTree = "<group>"; };
-		255F79951942877200C94AB3 /* FTINActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityController.h; sourceTree = "<group>"; };
-		255F79961942877200C94AB3 /* FTINActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityController.m; sourceTree = "<group>"; };
+		255F79951942877200C94AB3 /* FTINActivityFlowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityFlowController.h; sourceTree = "<group>"; };
+		255F79961942877200C94AB3 /* FTINActivityFlowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityFlowController.m; sourceTree = "<group>"; };
 		255F79A11942963700C94AB3 /* playground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = playground.jpg; sourceTree = "<group>"; };
 		256357BD19413A6200E5762A /* Patient+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Patient+Complete.h"; sourceTree = "<group>"; };
 		256357BE19413A6200E5762A /* Patient+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Patient+Complete.m"; sourceTree = "<group>"; };
@@ -256,6 +257,8 @@
 		25DD4F721944AE8D001D8761 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		25ED11EB1944FC2F007514AD /* FTINActivitiesTableViewSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivitiesTableViewSource.h; sourceTree = "<group>"; };
 		25ED11EC1944FC2F007514AD /* FTINActivitiesTableViewSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivitiesTableViewSource.m; sourceTree = "<group>"; };
+		25ED11EE19450D0A007514AD /* FTINActivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityController.h; sourceTree = "<group>"; };
+		25ED11EF19450D0A007514AD /* FTINActivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityController.m; sourceTree = "<group>"; };
 		564B2EB66BC4420587426308 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -579,8 +582,10 @@
 				256A97E4193BA1DB00358131 /* FTINPatientController.m */,
 				25314899193C112F0068B600 /* FTINNotifications.h */,
 				2531489A193C112F0068B600 /* FTINNotifications.m */,
-				255F79951942877200C94AB3 /* FTINActivityController.h */,
-				255F79961942877200C94AB3 /* FTINActivityController.m */,
+				255F79951942877200C94AB3 /* FTINActivityFlowController.h */,
+				255F79961942877200C94AB3 /* FTINActivityFlowController.m */,
+				25ED11EE19450D0A007514AD /* FTINActivityController.h */,
+				25ED11EF19450D0A007514AD /* FTINActivityController.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -845,7 +850,7 @@
 				256357F819413CAE00E5762A /* FTINPatientsTableViewController.m in Sources */,
 				25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */,
 				2537BB6F193B730500D10878 /* UIView+SearchSubview.m in Sources */,
-				255F79971942877200C94AB3 /* FTINActivityController.m in Sources */,
+				255F79971942877200C94AB3 /* FTINActivityFlowController.m in Sources */,
 				256A97E5193BA1DB00358131 /* FTINPatientController.m in Sources */,
 				2537BB66193B730500D10878 /* NSObject+Properties.m in Sources */,
 				25CDAEB7194389D7003E1314 /* FTINActivityDetails.m in Sources */,
@@ -853,6 +858,7 @@
 				25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */,
 				2537BB6B193B730500D10878 /* UIDevice+SystemVersion.m in Sources */,
 				256357F319413CAE00E5762A /* FTINStartViewController.m in Sources */,
+				25ED11F019450D0A007514AD /* FTINActivityController.m in Sources */,
 				256357EF19413CAE00E5762A /* FTINDatePickerTextField.m in Sources */,
 				2598A9A91943A33D00EEEF24 /* FTINActivityViewControllerFactory.m in Sources */,
 				252986061943411600826834 /* DescriptionSubActivity+Complete.m in Sources */,

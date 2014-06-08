@@ -33,41 +33,4 @@
 			  ] containsObject:propertyName];
 }
 
-#pragma mark - Instance methods
-
-- (BOOL)load:(NSError *__autoreleasing *)error
-{
-	NSString *contentExtension = [[self.contentFile componentsSeparatedByString:@"."] lastObject];
-	NSString *contentName = [self.contentFile substringToIndex:[self.contentFile rangeOfString:[@"." stringByAppendingString:contentExtension]].location
-							 ];
-	NSURL *contentUrl = [[NSBundle mainBundle] URLForResource:contentName withExtension:contentExtension];
-	
-	if(!contentUrl)
-	{
-		contentUrl = [NSURL fileURLWithPath:self.contentFile];
-	}
-	
-	self.content = [FTINActitivitiesFactory subActivityContentOfType:self.type withContentsofURL:contentUrl error:error];
-	
-	if(!*error)
-	{
-		self.data = [FTINActitivitiesFactory subActivityDataOfType:self.type];
-		return YES;
-	}
-	
-	return NO;
-}
-
-- (BOOL)save:(NSError *__autoreleasing *)error
-{
-	if([self.data valid:error])
-	{
-		self.data.parentActivity = self.parentActivity.data;
-		[self.data.parentActivity addSubActivititesObject:self.data];
-		return YES;
-	}
-	
-	return NO;
-}
-
 @end

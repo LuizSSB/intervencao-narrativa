@@ -17,14 +17,14 @@
 @property (nonatomic, retain) NSNumber * finalized;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) Patient *patient;
-@property (nonatomic, retain) NSSet *subActivitites;
+@property (nonatomic, retain) NSSet *subActivities;
 @end
 
 @interface Activity (CoreDataGeneratedAccessors)
 
-- (void)addSubActivititesObject:(SubActivity *)value;
-- (void)removeSubActivititesObject:(SubActivity *)value;
-- (void)addSubActivitites:(NSSet *)values;
-- (void)removeSubActivitites:(NSSet *)values;
+- (void)addSubActivitiesObject:(SubActivity *)value;
+- (void)removeSubActivitiesObject:(SubActivity *)value;
+- (void)addSubActivities:(NSSet *)values;
+- (void)removeSubActivities:(NSSet *)values;
 
 @end

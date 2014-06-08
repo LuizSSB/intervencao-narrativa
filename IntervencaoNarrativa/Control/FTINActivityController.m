@@ -2,106 +2,154 @@
 //  FTINActivityController.m
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/06/06.
+//  Created by Luiz Soares dos Santos Baglie on 2014/06/08.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
 #import "FTINActivityController.h"
+#import "FTINActitivitiesFactory.h"
 #import "FTINActivityDetails.h"
+#import "FTINSubActivityDetails.h"
 
-@interface FTINActivityController ()
-{
-	NSInteger _currentActivityIdx;
-}
+#import "DCModel.h"
+#import "Activity.h"
+#import "SubActivity+Complete.h"
+#import "Patient+Complete.h"
+
+@interface FTINActivityDetails()
+
+- (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError **)error;
+- (BOOL)loadSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError **)error;
 
 @end
 
 @implementation FTINActivityController
 
-#pragma mark - Super methods
-
-- (void)dealloc
-{
-	_activity = nil;
-	_activityUrl = nil;
-	_patient = nil;
-}
-
 #pragma mark - Instance methods
 
-- (instancetype)initWithActivityInFile:(NSURL *)activityUrl andPatient:(Patient *)patient andDelegate:(id<FTINActivityControllerDelegate>)delegate
+- (FTINActivityDetails *)activityDetailsWithContentsOfURL:(NSURL *)fileUrl error:(NSError *__autoreleasing *)error
 {
-    self = [super init];
-    if (self) {
-		_activityUrl = activityUrl;
-		_patient = patient;
-		self.delegate = delegate;
-    }
-    return self;
+	do
+	{
+		NSString *json = [NSString stringWithContentsOfURL:fileUrl encoding:NSUTF8StringEncoding error:error];
+		
+		if(*error) break;
+		
+		JSONModelError *jsonError = nil;
+		FTINActivityDetails *activity = [[FTINActivityDetails alloc] initWithString:json error:&jsonError];
+		
+		if (jsonError) {
+			*error = jsonError;
+			break;
+		}
+		
+		[self loadActivity:activity error:error];
+		
+		if(*error) break;
+		
+		return activity;
+	}
+	while(NO);
+	
+	return nil;
 }
 
-#pragma mark - Sub activity iteration
-
-- (BOOL)hasNextSubActivity
+- (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError *__autoreleasing *)error;
 {
-	return _currentActivityIdx + 1 < self.activity.subActivities.count;
+	activity.data = [Activity newObject];
+	activity.data.title = activity.title;
+	
+	for (FTINSubActivityDetails *subactivity in activity.subActivities)
+	{
+		if(![self loadSubActivity:subactivity error:error])
+		{
+			return NO;
+		}
+		
+		subactivity.parentActivity = activity;
+	}
+	
+	return YES;
 }
 
-- (FTINSubActivityDetails *)nextSubActivity
+- (BOOL)loadSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *__autoreleasing *)error
 {
-	return self.activity.subActivities[++_currentActivityIdx];
-}
-
-#pragma mark - Data control
-
-- (BOOL)start:(NSError *__autoreleasing *)error
-{
-	FTINActivityDetails *activity = [FTINActivityDetails activityDetailsWithContentsOfURL:self.activityUrl forPatient:self.patient error:error];
+	NSString *contentExtension = [[subActivity.contentFile componentsSeparatedByString:@"."] lastObject];
+	NSString *contentName = [subActivity.contentFile substringToIndex:[subActivity.contentFile rangeOfString:[@"." stringByAppendingString:contentExtension]].location
+							 ];
+	NSURL *contentUrl = [[NSBundle mainBundle] URLForResource:contentName withExtension:contentExtension];
+	
+	if(!contentUrl)
+	{
+		contentUrl = [NSURL fileURLWithPath:subActivity.contentFile];
+	}
+	
+	subActivity.content = [FTINActitivitiesFactory subActivityContentOfType:subActivity.type withContentsofURL:contentUrl error:error];
 	
 	if(!*error)
 	{
-		if(activity.subActivities.count)
-		{
-			_currentActivityIdx = -1;
-			_activity = activity;
-			return YES;
-		}
-		else
-		{
-			*error = [NSError ftin_createErrorWithCode:ftin_InvalidActivityErrorCode];
-		}
+		subActivity.data = [FTINActitivitiesFactory subActivityDataOfType:subActivity.type];
+		return YES;
 	}
 	
 	return NO;
 }
 
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
+- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity resultHandler:(FTINOperationResult)resultHandler
 {
 	NSError *error = nil;
 	
-	if(subActivity != self.activity.subActivities[_currentActivityIdx])
+	if([subActivity.data valid:&error])
 	{
-		error = [NSError ftin_createErrorWithCode:ftin_InvalidSubActivityErrorCode];
-	}
-	else
-	{
-		[subActivity save:&error];
+		subActivity.data.parentActivity = subActivity.parentActivity.data;
+		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];
 	}
 	
-	[self.delegate activityController:self savedSubActivity:subActivity error:error];
+	resultHandler(subActivity, error);
 }
 
-- (void)finish
+- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient resultHandler:(FTINOperationResult)resultHandler
 {
-	[self.activity save:^(id result, NSError *error) {
-		[self.delegate activityController:self savedActivity:result error:error];
-	}];
+	activity.data.finalized = @YES;
+	
+	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:activity.data];
+	
+	for (FTINSubActivityDetails *subs in activity.subActivities) {
+		[dataToInsert addObject:subs.data];
+	}
+	
+	void (^errorHandler)(NSError *) = ^(NSError *error)
+	{
+		resultHandler(activity, error);
+	};
+	
+	[Activity saveObjects:dataToInsert success:^(id items) {
+		activity.data.patient = patient;
+		[activity.data.patient addActivitiesObject:activity.data];
+		
+		[Activity saveObjects:@[activity.data, activity.data.patient] success:^(id items) {
+			resultHandler(activity, nil);
+		} failure:errorHandler];
+	} failure:errorHandler];
 }
 
-- (void)cancel
+- (void)cancelActivity:(FTINActivityDetails *)activity resultHandler:(FTINOperationResult)resultHandler
 {
-	[self.activity cancel:^(id result, NSError *error) {
-		[self.delegate activityController:self canceledActivity:result error:error];
+	[self deleteActivity:activity.data resultHandler:resultHandler];
+}
+
+- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler
+{
+	NSMutableArray *subActivitiesData = [NSMutableArray arrayWithObject:activity];
+	
+	for (SubActivity *subs in activity.subActivities) {
+		[subActivitiesData addObject:subs];
+	}
+	
+	[SubActivity destroyObjects:subActivitiesData success:^{
+		resultHandler(activity, nil);
+	} failure:^(NSError *error) {
+		resultHandler(activity, error);
 	}];
 }
 

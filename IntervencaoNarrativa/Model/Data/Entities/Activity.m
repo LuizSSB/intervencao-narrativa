@@ -17,7 +17,7 @@
 @dynamic finalized;
 @dynamic title;
 @dynamic patient;
-@dynamic subActivitites;
+@dynamic subActivities;
 
 - (void)awakeFromInsert
 {

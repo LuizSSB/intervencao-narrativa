@@ -24,12 +24,4 @@
 @property (nonatomic) Activity *data;
 @property (nonatomic) Patient *patient;
 
-- (void)loadOnlyData;
-- (BOOL)loadEverything:(NSError **)error;
-
-- (void)save:(FTINOperationResult)result;
-- (void)cancel:(FTINOperationResult)result;
-
-+ (FTINActivityDetails *)activityDetailsWithContentsOfURL:(NSURL *)fileUrl forPatient:(Patient *)patient error:(NSError **)error;
-
 @end
