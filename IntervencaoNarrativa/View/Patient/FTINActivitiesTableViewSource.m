@@ -12,8 +12,11 @@
 
 @interface FTINActivitiesTableViewSource ()
 {
-	NSArray *_orderedActivities;
+	NSMutableArray *_orderedActivities;
+	NSIndexPath *_actionIndexPath;
 }
+
+@property (nonatomic, readonly) FTINActivityController *controller;
 
 @end
 
@@ -26,6 +29,7 @@
 	_patient = nil;
 	_parentTableView = nil;
 	_orderedActivities = nil;
+	_actionIndexPath = nil;
 }
 
 #pragma mark - Instance methods
@@ -45,11 +49,23 @@
 	[self.parentTableView reloadData];
 }
 
+@synthesize controller = _controller;
+
+- (FTINActivityController *)controller
+{
+	if(!_controller)
+	{
+		_controller = [[FTINActivityController alloc] initWithDelegate:self];
+	}
+	
+	return _controller;
+}
+
 #pragma mark - Table View Source methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	_orderedActivities = self.patient.activitiesInOrder;
+	_orderedActivities = [NSMutableArray arrayWithArray:self.patient.activitiesInOrder];
 	return self.patient.activities.count;
 }
 
@@ -79,6 +95,20 @@
 	return .1f;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (editingStyle == UITableViewCellEditingStyleDelete)
+	{
+		_actionIndexPath = indexPath;
+		[self.controller deleteActivity:_orderedActivities[indexPath.row]];
+	}
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -87,6 +117,16 @@
 	{
 		[self.delegate activitiesTableViewSource:self selectedActivity:_orderedActivities[indexPath.row]];
 	}
+}
+
+#pragma mark - Activity Controller Delegate
+
+- (void)activityController:(FTINActivityController *)controller deletedActivity:(Activity *)Activity error:(NSError *)error
+{
+	[NSError alertOnError:error andDoOnSuccess:^{
+//		[_orderedActivities removeObjectAtIndex:_actionIndexPath.row];
+		[self.parentTableView deleteRowsAtIndexPaths:@[_actionIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+	}];
 }
 
 @end

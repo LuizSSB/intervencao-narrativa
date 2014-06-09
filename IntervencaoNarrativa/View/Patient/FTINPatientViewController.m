@@ -78,13 +78,8 @@
 	if([self.delegate respondsToSelector:@selector(patientViewControllerRequestsPatient:)])
 	{
 		NSURL *activityUrl = [[NSBundle mainBundle] URLForResource:FTINDefaultActivityFileName withExtension:FTINDefaultActivityFileExtension];
-		NSError *error = nil;
-		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithActivity:activityUrl andPatient:[self.delegate patientViewControllerRequestsPatient:self] error:&error];
-		activityViewController.delegate = self;
-		
-		[NSError alertOnError:error andDoOnSuccess:^{
-			[self presentViewController:activityViewController animated:YES completion:nil];
-		}];
+		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithActivity:activityUrl andPatient:[self.delegate patientViewControllerRequestsPatient:self] andDelegate:self];
+		[self presentViewController:activityViewController animated:YES completion:nil];
 	}
 }
 
@@ -143,11 +138,9 @@
 	}];
 }
 
-- (void)activityNavigationController:(FTINActivityNavigationController *)navigationController failedToLoadBecauseOfError:(NSError *)error
+- (void)activityNavigationController:(FTINActivityNavigationController *)navigationController failed:(NSError *)error
 {
-	[NSError alertOnError:error andDoOnSuccess:^{
-		[self performSelector:@selector(activityNavigationControllerCanceled:) withObject:navigationController afterDelay:.5f];
-	}];
+	[navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Subject To PatientTransition Notifications

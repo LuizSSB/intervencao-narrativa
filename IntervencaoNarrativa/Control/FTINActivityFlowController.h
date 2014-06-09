@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FTINActivityController.h"
 
 @class FTINActivityFlowController, FTINActivityDetails, SubActivity, FTINSubActivityDetails;
 
 @protocol FTINActivityFlowControllerDelegate <NSObject>
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller savedActivity:(FTINActivityDetails *)details error:(NSError *)error;
 
@@ -20,7 +23,7 @@
 
 @end
 
-@interface FTINActivityFlowController : NSObject
+@interface FTINActivityFlowController : NSObject <FTINActivityControllerDelegate>
 
 - (id)initWithActivityInFile:(NSURL *)activityUrl andPatient:(Patient *)patient andDelegate:(id<FTINActivityFlowControllerDelegate>)delegate;
 
@@ -29,10 +32,11 @@
 @property (nonatomic, readonly) Patient *patient;
 @property (nonatomic, weak) id<FTINActivityFlowControllerDelegate> delegate;
 
+@property (nonatomic, readonly) BOOL started;
 @property (nonatomic, readonly) BOOL hasNextSubActivity;
 - (FTINSubActivityDetails *)nextSubActivity;
 
-- (BOOL)start:(NSError **)error;
+- (void)start;
 - (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)finish;
 - (void)cancel;

@@ -18,7 +18,7 @@
 
 - (void)activityNavigationControllerCanceled:(FTINActivityNavigationController *)navigationController;
 
-- (void)activityNavigationController:(FTINActivityNavigationController *)navigationController failedToLoadBecauseOfError:(NSError *)error;
+- (void)activityNavigationController:(FTINActivityNavigationController *)navigationController failed:(NSError *)error;
 
 @end
 
@@ -28,6 +28,6 @@
 @property (nonatomic, readonly) Patient *patient;
 @property (nonatomic, weak) id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate> delegate;
 
-- (id)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient error:(NSError **)error;
+- (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate;
 
 @end

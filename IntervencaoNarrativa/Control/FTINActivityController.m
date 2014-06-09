@@ -20,6 +20,7 @@
 
 - (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError **)error;
 - (BOOL)loadSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError **)error;
+- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler;
 
 @end
 
@@ -27,31 +28,45 @@
 
 #pragma mark - Instance methods
 
-- (FTINActivityDetails *)activityDetailsWithContentsOfURL:(NSURL *)fileUrl error:(NSError *__autoreleasing *)error
+- (instancetype)initWithDelegate:(id<FTINActivityControllerDelegate>)delegate
 {
+    self = [super init];
+    if (self) {
+        self.delegate = delegate;
+    }
+    return self;
+}
+
+// TODO Luiz: tornar assíncrono
+- (void)loadActivityWithContentsOfURL:(NSURL *)fileUrl
+{
+	NSError *error = nil;
+	
 	do
 	{
-		NSString *json = [NSString stringWithContentsOfURL:fileUrl encoding:NSUTF8StringEncoding error:error];
+		NSString *json = [NSString stringWithContentsOfURL:fileUrl encoding:NSUTF8StringEncoding error:&error];
 		
-		if(*error) break;
+		if(error) break;
 		
 		JSONModelError *jsonError = nil;
 		FTINActivityDetails *activity = [[FTINActivityDetails alloc] initWithString:json error:&jsonError];
 		
 		if (jsonError) {
-			*error = jsonError;
+			error = jsonError;
 			break;
 		}
 		
-		[self loadActivity:activity error:error];
+		[self loadActivity:activity error:&error];
 		
-		if(*error) break;
+		if(error) break;
 		
-		return activity;
+		[self.delegate activityController:self loadedActivity:activity error:error];
+		
+		return;
 	}
 	while(NO);
 	
-	return nil;
+	[self.delegate activityController:self loadedActivity:nil error:error];
 }
 
 - (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError *__autoreleasing *)error;
@@ -95,7 +110,9 @@
 	return NO;
 }
 
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity resultHandler:(FTINOperationResult)resultHandler
+// TODO Luiz: no momento, não é necessário, mas, no futuro, provavelmente será
+// assíncrono.
+- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
 {
 	NSError *error = nil;
 	
@@ -105,10 +122,10 @@
 		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];
 	}
 	
-	resultHandler(subActivity, error);
+	[self.delegate activityController:self savedSubActivity:subActivity error:error];
 }
 
-- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient resultHandler:(FTINOperationResult)resultHandler
+- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
 {
 	activity.data.finalized = @YES;
 	
@@ -120,7 +137,7 @@
 	
 	void (^errorHandler)(NSError *) = ^(NSError *error)
 	{
-		resultHandler(activity, error);
+		[self.delegate activityController:self savedActivity:activity error:error];
 	};
 	
 	[Activity saveObjects:dataToInsert success:^(id items) {
@@ -128,14 +145,23 @@
 		[activity.data.patient addActivitiesObject:activity.data];
 		
 		[Activity saveObjects:@[activity.data, activity.data.patient] success:^(id items) {
-			resultHandler(activity, nil);
+			[self.delegate activityController:self savedActivity:activity error:nil];
 		} failure:errorHandler];
 	} failure:errorHandler];
 }
 
-- (void)cancelActivity:(FTINActivityDetails *)activity resultHandler:(FTINOperationResult)resultHandler
+- (void)cancelActivity:(FTINActivityDetails *)activity
 {
-	[self deleteActivity:activity.data resultHandler:resultHandler];
+	[self deleteActivity:activity.data resultHandler:^(id result, NSError *error) {
+		[self.delegate activityController:self canceledActivity:activity error:error];
+	}];
+}
+
+- (void)deleteActivity:(Activity *)activity
+{
+	[self deleteActivity:activity resultHandler:^(id result, NSError *error) {
+		[self.delegate activityController:self deletedActivity:activity error:error];
+	}];
 }
 
 - (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler

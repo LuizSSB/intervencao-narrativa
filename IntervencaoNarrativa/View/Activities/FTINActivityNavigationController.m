@@ -11,6 +11,7 @@
 
 @interface FTINActivityNavigationController ()
 {
+	NSError *_pendingError;
 }
 
 @property (nonatomic, readonly) FTINActivityFlowController *controller;
@@ -30,6 +31,15 @@
 	_patient = nil;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	
+	if (_pendingError) {
+		[self.delegate activityNavigationController:self failed:_pendingError];
+	}
+}
+
 #pragma mark - Instance methods
 
 @synthesize controller = _controller;
@@ -43,22 +53,15 @@
 	return _controller;
 }
 
-- (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient error:(NSError *__autoreleasing *)error
+- (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate
 {
-	*error = nil;
     self = [super initWithRootViewController:[[UIViewController alloc] init]];
     if (self) {
         _activityFile = activityFile;
 		_patient = patient;
+		self.delegate = delegate;
 		
-		if([self.controller start:error])
-		{
-			[self goToNextSubActivity:NO];
-		}
-		else
-		{
-			return nil;
-		}
+		[self.controller start];
     }
     return self;
 }
@@ -84,7 +87,18 @@
 	[self.controller cancel];
 }
 
-#pragma mark - Activity Controller Delegate
+#pragma mark - Activity Flow Controller Delegate
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error
+{
+	if([NSError alertOnError:error andDoOnSuccess:^{
+		_pendingError = nil;
+		[self goToNextSubActivity:NO];
+	}])
+	{
+		_pendingError = error;
+	};
+}
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller savedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {

@@ -7,7 +7,6 @@
 //
 
 #import "FTINActivityFlowController.h"
-#import "FTINActivityController.h"
 #import "FTINActivityDetails.h"
 
 @interface FTINActivityFlowController ()
@@ -49,13 +48,18 @@
 {
 	if(!_dataController)
 	{
-		_dataController = [[FTINActivityController alloc] init];
+		_dataController = [[FTINActivityController alloc] initWithDelegate:self];
 	}
 	
 	return _dataController;
 }
 
 #pragma mark - Sub activity iteration
+
+- (BOOL)started
+{
+	return _activity != nil;
+}
 
 - (BOOL)hasNextSubActivity
 {
@@ -69,25 +73,9 @@
 
 #pragma mark - Data control
 
-- (BOOL)start:(NSError *__autoreleasing *)error
+- (void)start
 {
-	FTINActivityDetails *activity = [self.dataController activityDetailsWithContentsOfURL:self.activityUrl error:error];
-	
-	if(!*error)
-	{
-		if(activity.subActivities.count)
-		{
-			_currentActivityIdx = -1;
-			_activity = activity;
-			return YES;
-		}
-		else
-		{
-			*error = [NSError ftin_createErrorWithCode:ftin_InvalidActivityErrorCode];
-		}
-	}
-	
-	return NO;
+	[self.dataController loadActivityWithContentsOfURL:self.activityUrl];
 }
 
 - (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
@@ -100,24 +88,53 @@
 	}
 	else
 	{
-		[self.dataController saveSubActivity:subActivity resultHandler:^(id result, NSError *error) {
-			[self.delegate activityFlowController:self savedSubActivity:result error:error];
-		}];
+		[self.dataController saveSubActivity:subActivity];
 	}
 }
 
 - (void)finish
 {
-	[self.dataController saveActivity:self.activity forPatient:self.patient resultHandler:^(id result, NSError *error) {
-		[self.delegate activityFlowController:self savedActivity:result error:error];
-	}];
+	[self.dataController saveActivity:self.activity forPatient:self.patient];
 }
 
 - (void)cancel
 {
-	[self.dataController cancelActivity:self.activity resultHandler:^(id result, NSError *error) {
-		[self.delegate activityFlowController:self canceledActivity:result error:error];
-	}];
+	[self.dataController cancelActivity:self.activity];
+}
+
+#pragma mark - Activity Controller Delegate
+
+- (void)activityController:(FTINActivityController *)controller loadedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	if(!error)
+	{
+		if(activity.subActivities.count)
+		{
+			_currentActivityIdx = -1;
+			_activity = activity;
+		}
+		else
+		{
+			error = [NSError ftin_createErrorWithCode:ftin_InvalidActivityErrorCode];
+		}
+	}
+	
+	return [self.delegate activityFlowController:self startedWithError:error];
+}
+
+- (void)activityController:(FTINActivityController *)controller savedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self savedSubActivity:subActivity error:error];
+}
+
+- (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self savedActivity:activity error:error];
+}
+
+- (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self canceledActivity:activity error:error];
 }
 
 @end

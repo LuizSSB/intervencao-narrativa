@@ -8,18 +8,38 @@
 
 #import <Foundation/Foundation.h>
 
-@class FTINActivityDetails, FTINSubActivityDetails, Patient, Activity;
+@class FTINActivityController, FTINActivityDetails, FTINSubActivityDetails, Patient, Activity;
+
+@protocol FTINActivityControllerDelegate <NSObject>
+
+@optional
+
+- (void)activityController:(FTINActivityController *)controller loadedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
+
+- (void)activityController:(FTINActivityController *)controller savedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error;
+
+- (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
+
+- (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error;
+
+- (void)activityController:(FTINActivityController *)controller deletedActivity:(Activity *)Activity error:(NSError *)error;
+
+@end
 
 @interface FTINActivityController : NSObject
 
-- (FTINActivityDetails *)activityDetailsWithContentsOfURL:(NSURL *)fileUrl error:(NSError **)error;
+@property (nonatomic, weak) id<FTINActivityControllerDelegate> delegate;
 
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity resultHandler:(FTINOperationResult)handler;
+- (id)initWithDelegate:(id<FTINActivityControllerDelegate>)delegate;
 
-- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient resultHandler:(FTINOperationResult)handler;
+- (void)loadActivityWithContentsOfURL:(NSURL *)fileUrl;
 
-- (void)cancelActivity:(FTINActivityDetails *)activity resultHandler:(FTINOperationResult)handler;
+- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
 
-- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler;
+- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient;
+
+- (void)cancelActivity:(FTINActivityDetails *)activity;
+
+- (void)deleteActivity:(Activity *)activity;
 
 @end

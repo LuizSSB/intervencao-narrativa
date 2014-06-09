@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FTINActivityController.h"
 
 @class FTINActivitiesTableViewSource, Activity, Patient;
 
@@ -20,7 +21,7 @@
 
 @end
 
-@interface FTINActivitiesTableViewSource : NSObject <UITableViewDelegate, UITableViewDataSource>
+@interface FTINActivitiesTableViewSource : NSObject <UITableViewDelegate, UITableViewDataSource, FTINActivityControllerDelegate>
 
 @property (nonatomic, readonly) Patient *patient;
 @property (nonatomic) UITableView *parentTableView;
