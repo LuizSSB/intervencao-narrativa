@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *registrationDateLabel;
 @property (weak, nonatomic) IBOutlet UITextField *patientNameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *examinerNameTextLabel;
+@property (weak, nonatomic) IBOutlet UITextField *examinerNameTextField;
 @property (weak, nonatomic) IBOutlet FTINDatePickerTextField *birthdateDatePickerTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sexSegmentedControl;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *activitiesTableView;
 
 - (IBAction)goToNextInput:(UITextField *)sender;
+- (IBAction)hideKeyboardsForGodsSake:(id)sender;
 
 - (IBAction)save:(id)sender;
 - (IBAction)startNewActivity:(id)sender;
@@ -63,9 +64,15 @@
 	[[self.view viewWithTag:sender.tag + 1] becomeFirstResponder];
 }
 
+- (IBAction)hideKeyboardsForGodsSake:(id)sender
+{
+	[self.patientNameTextField resignFirstResponder];
+	[self.examinerNameTextField resignFirstResponder];
+}
+
 - (IBAction)save:(id)sender
 {
-	[self.delegate patientViewControllerMustSave:self withName:self.patientNameTextField.text examinerName:self.examinerNameTextLabel.text birthdate:self.birthdateDatePickerTextField.date sex:self.sexSegmentedControl.selectedSegmentIndex handler:^(id result, NSError *error) {
+	[self.delegate patientViewControllerMustSave:self withName:self.patientNameTextField.text examinerName:self.examinerNameTextField.text birthdate:self.birthdateDatePickerTextField.date sex:self.sexSegmentedControl.selectedSegmentIndex handler:^(id result, NSError *error) {
 		[NSError alertOnError:error andDoOnSuccess:^{
 			[self setupPatientData];
 			[self showLocalizedToastText:@"patient_saved"];
@@ -111,7 +118,7 @@
 	{
 		self.registrationDateLabel.text = [[self.delegate patientViewControllerRegistrationDate:self] formattedDateWithStyle:NSDateFormatterShortStyle];
 		self.patientNameTextField.text = [self.delegate patientViewControllerPatientName:self];
-		self.examinerNameTextLabel.text = [self.delegate patientViewControllerExaminerName:self];
+		self.examinerNameTextField.text = [self.delegate patientViewControllerExaminerName:self];
 		self.birthdateDatePickerTextField.date = [self.delegate patientViewControllerBirthdate:self];
 		self.sexSegmentedControl.selectedSegmentIndex = [self.delegate patientViewControllerSex:self];
 		[self.saveButton setTitle:[self.delegate patientViewControllerSaveButtonTitle:self] forState:UIControlStateNormal];

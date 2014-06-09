@@ -38,6 +38,8 @@
 	if (_pendingError) {
 		[self.delegate activityNavigationController:self failed:_pendingError];
 	}
+	
+	[self.viewControllers[0] navigationItem].backBarButtonItem = nil;
 }
 
 #pragma mark - Instance methods

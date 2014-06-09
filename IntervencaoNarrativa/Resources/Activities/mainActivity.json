@@ -8,6 +8,22 @@
 					 {
 					 "type":0,
 					 "contentFile":"backyard.json"
+					 },
+					 {
+					 "type":0,
+					 "contentFile":"soccer.json"
+					 },
+					 {
+					 "type":0,
+					 "contentFile":"doll.json"
+					 },
+					 {
+					 "type":0,
+					 "contentFile":"pcgamer.json"
+					 },
+					 {
+					 "type":0,
+					 "contentFile":"mcdonalds.json"
 					 }
 	]
 }
