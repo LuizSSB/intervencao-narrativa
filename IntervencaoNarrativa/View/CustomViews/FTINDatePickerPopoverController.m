@@ -23,7 +23,6 @@
 
 - (void)dealloc
 {
-	[_datePicker removeObserver:self forKeyPath:NSStringFromSelector(@selector(date))];
 	_datePicker = nil;
 	_date = nil;
 }
