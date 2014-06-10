@@ -11,6 +11,8 @@
 @interface FTINDatePickerPopoverController : UIPopoverController
 
 @property (nonatomic) NSDate *date;
+@property (nonatomic) NSDate *minimumDate;
+@property (nonatomic) NSDate *maximumDate;
 
 - (id)initWithDate:(NSDate *)date;
 

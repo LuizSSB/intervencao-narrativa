@@ -7,7 +7,7 @@
 //
 
 #import "FTINActivityDetails.h"
-#import "FTINSubActivityDetails.h"
+#import "Acitivity+Complete.h"
 
 @implementation FTINActivityDetails
 
@@ -15,9 +15,9 @@
 
 - (void)dealloc
 {
+	self.data = nil;
 	self.title = nil;
 	self.subActivities = nil;
-	self.data = nil;
 	self.patient = nil;
 }
 
@@ -27,6 +27,28 @@
 			  NSStringFromSelector(@selector(data)),
 			  NSStringFromSelector(@selector(patient))
 			  ] containsObject:propertyName];
+}
+
+#pragma mark - Instance methods
+
+- (void)setTitle:(NSString *)title
+{
+	_title = title;
+	
+	if(self.data)
+	{
+		self.data.title = title;
+	}
+}
+
+- (void)setData:(Activity *)data
+{
+	_data = data;
+	
+	if(!data.title.length)
+	{
+		data.title = self.title;
+	}
 }
 
 @end

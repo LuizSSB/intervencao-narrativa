@@ -29,6 +29,7 @@ extern CGSize const FTINChoicePopoverMaximumSize;
 
 - (id)initWithChoices:(NSArray *)choices;
 
+- (NSSet *)selectedChoicesIndexes;
 - (NSDictionary *)getSelectedChoices;
 - (void)chooseItemAtIndex:(NSInteger)index;
 - (void)rejectItemAtIndex:(NSInteger)index;

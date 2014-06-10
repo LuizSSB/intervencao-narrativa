@@ -74,9 +74,16 @@
 	[self.skillChoiceViewController dismissPopoverAnimated:YES];
 	[self.elementsChoiceViewController dismissPopoverAnimated:YES];
 	
+	DescriptionSubActivity *descriptionActivity = (DescriptionSubActivity *)self.subActivity.data;
+	
 	if(self.skillChoiceViewController.hasSelectedChoice)
 	{
-		((DescriptionSubActivity *)self.subActivity.data).descriptiveSkill = self.skillChoiceViewController.selectedSkill;
+		descriptionActivity.descriptiveSkill = self.skillChoiceViewController.selectedSkill;
+	}
+	
+	if(self.elementsChoiceViewController.hasSelectedChoice)
+	{
+		descriptionActivity.describedElements = self.elementsChoiceViewController.selectedChoicesIndexes;
 	}
 	
 	return YES;

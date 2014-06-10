@@ -132,6 +132,11 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	}
 }
 
+- (NSSet *)selectedChoicesIndexes
+{
+	return _selectedChoicesIndexes;
+}
+
 - (NSDictionary *)getSelectedChoices
 {
 	NSMutableDictionary *choices = [NSMutableDictionary dictionary];

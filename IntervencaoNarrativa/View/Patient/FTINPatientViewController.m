@@ -47,6 +47,8 @@
     [super viewDidLoad];
 	[self setupPatientData];
 	
+	self.birthdateDatePickerTextField.maximumDate = [NSDate date];
+	
 	self.navigationItem.leftBarButtonItem = [FTINMainSplitViewControllerDelegate barButtonToToggleMasterVisibility];
 	self.navigationItem.leftItemsSupplementBackButton = YES;
 }

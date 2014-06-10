@@ -69,6 +69,26 @@ static void *FTINDatePickedContext = &FTINDatePickedContext;
 	self.text = [date formattedDateWithStyle:NSDateFormatterShortStyle];
 }
 
+- (NSDate *)minimumDate
+{
+	return self.datePickerController.minimumDate;
+}
+
+- (void)setMinimumDate:(NSDate *)minimumDate
+{
+	self.datePickerController.minimumDate = minimumDate;
+}
+
+- (NSDate *)maximumDate
+{
+	return self.datePickerController.maximumDate;
+}
+
+- (void)setMaximumDate:(NSDate *)maximumDate
+{
+	self.datePickerController.maximumDate = maximumDate;
+}
+
 @synthesize datePickerController = _datePickerController;
 
 - (FTINDatePickerPopoverController *)datePickerController

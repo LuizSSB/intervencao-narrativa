@@ -7,10 +7,8 @@
 //
 
 #import "FTINSubActivityDetails.h"
-#import "FTINActivityDetails.h"
-#import "FTINActitivitiesFactory.h"
+#import "FTINSubActivityContent.h"
 #import "SubActivity+Complete.h"
-#import "Acitivity+Complete.h"
 
 @implementation FTINSubActivityDetails
 
@@ -18,9 +16,9 @@
 
 - (void)dealloc
 {
+	self.data = nil;
 	self.contentFile = nil;
 	self.content = nil;
-	self.data = nil;
 	self.parentActivity = nil;
 }
 
@@ -31,6 +29,27 @@
 			  NSStringFromSelector(@selector(parentActivity)),
 			  NSStringFromSelector(@selector(content))
 			  ] containsObject:propertyName];
+}
+
+#pragma mark - Instance methods
+
+- (void)setContent:(FTINSubActivityContent *)content
+{
+	_content = content;
+	
+	if(self.data)
+	{
+		self.data.title = content.title;
+	}
+}
+
+- (void)setData:(SubActivity *)data
+{
+	_data = data;
+	
+	if (!data.title.length) {
+		_data.title = self.content.title;
+	}
 }
 
 @end

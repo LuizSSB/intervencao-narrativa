@@ -63,6 +63,26 @@
 	_datePicker.date = date;
 }
 
+- (NSDate *)minimumDate
+{
+	return self.datePicker.minimumDate;
+}
+
+- (void)setMinimumDate:(NSDate *)minimumDate
+{
+	self.datePicker.minimumDate = minimumDate;
+}
+
+- (NSDate *)maximumDate
+{
+	return self.datePicker.maximumDate;
+}
+
+- (void)setMaximumDate:(NSDate *)maximumDate
+{
+	self.datePicker.maximumDate = maximumDate;
+}
+
 @synthesize datePicker = _datePicker;
 
 - (UIDatePicker *)datePicker
