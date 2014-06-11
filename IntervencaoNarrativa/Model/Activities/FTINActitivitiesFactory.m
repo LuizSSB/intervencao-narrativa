@@ -54,7 +54,8 @@
 			typeName = @"Description";
 			break;
 			
-		default:
+		case FTINActivityTypeArrangement:
+			typeName = @"Arrangement";
 			break;
 	}
 	

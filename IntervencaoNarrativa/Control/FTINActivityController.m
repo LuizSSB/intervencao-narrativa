@@ -90,8 +90,8 @@
 - (BOOL)loadSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *__autoreleasing *)error
 {
 	NSString *contentExtension = [[subActivity.contentFile componentsSeparatedByString:@"."] lastObject];
-	NSString *contentName = [subActivity.contentFile substringToIndex:[subActivity.contentFile rangeOfString:[@"." stringByAppendingString:contentExtension]].location
-							 ];
+	NSString *contentName = [subActivity.contentFile substringToIndex:[subActivity.contentFile rangeOfString:[@"." stringByAppendingString:contentExtension]].location];
+	
 	NSURL *contentUrl = [[NSBundle mainBundle] URLForResource:contentName withExtension:contentExtension];
 	
 	if(!contentUrl)

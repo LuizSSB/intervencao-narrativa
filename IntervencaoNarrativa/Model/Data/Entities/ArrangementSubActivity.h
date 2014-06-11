@@ -1,5 +1,5 @@
 //
-//  DescriptionSubActivity.h
+//  ArrangementSubActivity.h
 //  IntervencaoNarrativa
 //
 //  Created by Luiz Soares dos Santos Baglie on 2014/06/10.
@@ -11,9 +11,9 @@
 #import "SubActivity.h"
 
 
-@interface DescriptionSubActivity : SubActivity
+@interface ArrangementSubActivity : SubActivity
 
-@property (nonatomic, retain) id describedElements;
-@property (nonatomic, retain) NSNumber * descriptiveSkillNumber;
+@property (nonatomic, retain) NSNumber * arrangementSkillNumber;
+@property (nonatomic, retain) NSNumber * narrativeSkillNumber;
 
 @end

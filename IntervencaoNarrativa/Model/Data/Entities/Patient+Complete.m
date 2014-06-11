@@ -12,12 +12,12 @@
 
 - (FTINSex)sex
 {
-	return (FTINSex) self.sexInteger.integerValue;
+	return (FTINSex) self.sexNumber.integerValue;
 }
 
 - (void)setSex:(FTINSex)sex
 {
-	self.sexInteger = @(sex);
+	self.sexNumber = @(sex);
 }
 
 static NSSortDescriptor *_patientActivitiesSortDescriptor;

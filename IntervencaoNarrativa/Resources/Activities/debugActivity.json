@@ -1,0 +1,13 @@
+{
+	"title":"Atividade",
+	"subActivities":[
+					 {
+					 "type":0,
+					 "contentFile":"playground.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"apple.json"
+					 }
+					 ]
+}

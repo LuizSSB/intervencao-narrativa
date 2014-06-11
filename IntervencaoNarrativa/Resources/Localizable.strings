@@ -41,6 +41,16 @@
 "description_help" = "Descreve com muita ajuda";
 "description_none" = "Não descreve";
 
+/* Narrative Skill */
+"narrated_no_help" = "Narrou totalmente sem ajuda";
+"narrated_partially" = "Narrou parcialmente sem ajuda";
+"narrated_help" = "Narrou com muita ajuda";
+"narrated_none" = "Não narrou";
+
+/* Arrangement */
+"arranged_help" = "Ordenou com ajuda";
+"arranged_no_help" = "Ordenou sem ajuda";
+
 /* Errors */
 "error_ftin_1" = "Dados inválidos. Preencha todos as informações.";
 "error_ftin_2" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityFlowController.";

@@ -40,9 +40,7 @@
 		2537BB6F193B730500D10878 /* UIView+SearchSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB5B193B730500D10878 /* UIView+SearchSubview.m */; };
 		2537BB70193B730500D10878 /* UIViewController+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB5D193B730500D10878 /* UIViewController+Visibility.m */; };
 		254940A819468A7B00E5DACB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */; };
-		254940BA19468D0100E5DACB /* DescriptionSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940B919468D0100E5DACB /* DescriptionSubActivity.m */; };
 		254940BD19468D0100E5DACB /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940BC19468D0100E5DACB /* SubActivity.m */; };
-		254940C019468D0100E5DACB /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940BF19468D0100E5DACB /* Patient.m */; };
 		254940C319468D0100E5DACB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940C219468D0100E5DACB /* Activity.m */; };
 		254940C619468D0100E5DACB /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940C519468D0100E5DACB /* BaseEntity.m */; };
 		255F79971942877200C94AB3 /* FTINActivityFlowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255F79961942877200C94AB3 /* FTINActivityFlowController.m */; };
@@ -87,6 +85,19 @@
 		256A97C1193B763300358131 /* ErrorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A97C0193B763300358131 /* ErrorInfo.m */; };
 		256A97C4193B777A00358131 /* Macros.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A97C3193B777A00358131 /* Macros.m */; };
 		256A97E5193BA1DB00358131 /* FTINPatientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A97E4193BA1DB00358131 /* FTINPatientController.m */; };
+		256BF1BA1947CA0000FD8BB3 /* FTINArrangementActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1B91947CA0000FD8BB3 /* FTINArrangementActivityContent.m */; };
+		256BF1BE1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1BC1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m */; };
+		256BF1BF1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256BF1BD1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib */; };
+		256BF1C21947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1C11947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.m */; };
+		256BF1C51947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1C41947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.m */; };
+		256BF1C81947D50F00FD8BB3 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1C71947D50F00FD8BB3 /* Patient.m */; };
+		256BF1CB1947D51000FD8BB3 /* ArrangementSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1CA1947D51000FD8BB3 /* ArrangementSubActivity.m */; };
+		256BF1CE1947D51000FD8BB3 /* DescriptionSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1CD1947D51000FD8BB3 /* DescriptionSubActivity.m */; };
+		256BF1D11947D58900FD8BB3 /* ArrangementSubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1D01947D58900FD8BB3 /* ArrangementSubActivity+Complete.m */; };
+		256BF1D41947E4B600FD8BB3 /* apple.json in Resources */ = {isa = PBXBuildFile; fileRef = 256BF1D31947E4B600FD8BB3 /* apple.json */; };
+		256BF1D81947E61200FD8BB3 /* apple_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 256BF1D61947E61200FD8BB3 /* apple_0.jpg */; };
+		256BF1D91947E61200FD8BB3 /* apple_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 256BF1D71947E61200FD8BB3 /* apple_1.jpg */; };
+		256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = 256BF1DA1947E6CB00FD8BB3 /* debugActivity.json */; };
 		2598A9A91943A33D00EEEF24 /* FTINActivityViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */; };
 		259A247B1945181D00DC5E99 /* FTINActivitiesTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 259A247A1945181D00DC5E99 /* FTINActivitiesTableViewSource.m */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
@@ -163,12 +174,8 @@
 		2537BB5C193B730500D10878 /* UIViewController+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Visibility.h"; sourceTree = "<group>"; };
 		2537BB5D193B730500D10878 /* UIViewController+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Visibility.m"; sourceTree = "<group>"; };
 		254940A719468A7B00E5DACB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		254940B819468D0100E5DACB /* DescriptionSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionSubActivity.h; sourceTree = "<group>"; };
-		254940B919468D0100E5DACB /* DescriptionSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionSubActivity.m; sourceTree = "<group>"; };
 		254940BB19468D0100E5DACB /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
 		254940BC19468D0100E5DACB /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
-		254940BE19468D0100E5DACB /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
-		254940BF19468D0100E5DACB /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
 		254940C119468D0100E5DACB /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		254940C219468D0100E5DACB /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		254940C419468D0100E5DACB /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
@@ -242,6 +249,27 @@
 		256A97C3193B777A00358131 /* Macros.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Macros.m; sourceTree = "<group>"; };
 		256A97E3193BA1DB00358131 /* FTINPatientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINPatientController.h; sourceTree = "<group>"; };
 		256A97E4193BA1DB00358131 /* FTINPatientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINPatientController.m; sourceTree = "<group>"; };
+		256BF1B81947CA0000FD8BB3 /* FTINArrangementActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINArrangementActivityContent.h; sourceTree = "<group>"; };
+		256BF1B91947CA0000FD8BB3 /* FTINArrangementActivityContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINArrangementActivityContent.m; sourceTree = "<group>"; };
+		256BF1BB1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINArrangementActivityViewController.h; sourceTree = "<group>"; };
+		256BF1BC1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINArrangementActivityViewController.m; sourceTree = "<group>"; };
+		256BF1BD1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINArrangementActivityViewController.xib; sourceTree = "<group>"; };
+		256BF1C01947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINNarrativeSkillChoiceViewController.h; sourceTree = "<group>"; };
+		256BF1C11947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINNarrativeSkillChoiceViewController.m; sourceTree = "<group>"; };
+		256BF1C31947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINArrangementSkillChoiceViewController.h; sourceTree = "<group>"; };
+		256BF1C41947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINArrangementSkillChoiceViewController.m; sourceTree = "<group>"; };
+		256BF1C61947D50F00FD8BB3 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
+		256BF1C71947D50F00FD8BB3 /* Patient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Patient.m; sourceTree = "<group>"; };
+		256BF1C91947D51000FD8BB3 /* ArrangementSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrangementSubActivity.h; sourceTree = "<group>"; };
+		256BF1CA1947D51000FD8BB3 /* ArrangementSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrangementSubActivity.m; sourceTree = "<group>"; };
+		256BF1CC1947D51000FD8BB3 /* DescriptionSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionSubActivity.h; sourceTree = "<group>"; };
+		256BF1CD1947D51000FD8BB3 /* DescriptionSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionSubActivity.m; sourceTree = "<group>"; };
+		256BF1CF1947D58900FD8BB3 /* ArrangementSubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ArrangementSubActivity+Complete.h"; sourceTree = "<group>"; };
+		256BF1D01947D58900FD8BB3 /* ArrangementSubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ArrangementSubActivity+Complete.m"; sourceTree = "<group>"; };
+		256BF1D31947E4B600FD8BB3 /* apple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = apple.json; sourceTree = "<group>"; };
+		256BF1D61947E61200FD8BB3 /* apple_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple_0.jpg; sourceTree = "<group>"; };
+		256BF1D71947E61200FD8BB3 /* apple_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple_1.jpg; sourceTree = "<group>"; };
+		256BF1DA1947E6CB00FD8BB3 /* debugActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = debugActivity.json; sourceTree = "<group>"; };
 		2598A9A71943A33D00EEEF24 /* FTINActivityViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityViewControllerFactory.h; sourceTree = "<group>"; };
 		2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityViewControllerFactory.m; sourceTree = "<group>"; };
 		259A24791945181D00DC5E99 /* FTINActivitiesTableViewSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivitiesTableViewSource.h; sourceTree = "<group>"; };
@@ -347,6 +375,7 @@
 		255F799F194295E000C94AB3 /* Activites */ = {
 			isa = PBXGroup;
 			children = (
+				256BF1D51947E5F300FD8BB3 /* Arrangement */,
 				255F79A0194295E000C94AB3 /* Description */,
 			);
 			path = Activites;
@@ -396,6 +425,9 @@
 				256357FF19413D0E00E5762A /* FTINDescriptionActivityViewController.xib */,
 				2598A9A71943A33D00EEEF24 /* FTINActivityViewControllerFactory.h */,
 				2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */,
+				256BF1BB1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.h */,
+				256BF1BC1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m */,
+				256BF1BD1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -407,10 +439,14 @@
 				256357C619413CAE00E5762A /* FTINChoice.m */,
 				256357C719413CAE00E5762A /* FTINChoiceViewController.h */,
 				256357C819413CAE00E5762A /* FTINChoiceViewController.m */,
-				256357C919413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.h */,
-				256357CA19413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.m */,
 				256357CB19413CAE00E5762A /* FTINSingleChoiceViewController.h */,
 				256357CC19413CAE00E5762A /* FTINSingleChoiceViewController.m */,
+				256357C919413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.h */,
+				256357CA19413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.m */,
+				256BF1C01947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.h */,
+				256BF1C11947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.m */,
+				256BF1C31947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.h */,
+				256BF1C41947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.m */,
 			);
 			path = Choices;
 			sourceTree = "<group>";
@@ -461,6 +497,7 @@
 			children = (
 				2563580C1941473000E5762A /* SubActivities */,
 				2563580B1941473000E5762A /* mainActivity.json */,
+				256BF1DA1947E6CB00FD8BB3 /* debugActivity.json */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -468,6 +505,7 @@
 		2563580C1941473000E5762A /* SubActivities */ = {
 			isa = PBXGroup;
 			children = (
+				256BF1D21947E48100FD8BB3 /* Arrangement */,
 				2563580D1941473000E5762A /* Description */,
 			);
 			path = SubActivities;
@@ -614,26 +652,47 @@
 			isa = PBXGroup;
 			children = (
 				254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */,
-				254940C419468D0100E5DACB /* BaseEntity.h */,
-				254940C519468D0100E5DACB /* BaseEntity.m */,
-				254940C119468D0100E5DACB /* Activity.h */,
-				254940C219468D0100E5DACB /* Activity.m */,
-				254940BE19468D0100E5DACB /* Patient.h */,
-				254940BF19468D0100E5DACB /* Patient.m */,
-				254940BB19468D0100E5DACB /* SubActivity.h */,
-				254940BC19468D0100E5DACB /* SubActivity.m */,
-				254940B819468D0100E5DACB /* DescriptionSubActivity.h */,
-				254940B919468D0100E5DACB /* DescriptionSubActivity.m */,
 				252986071943420500826834 /* Acitivity+Complete.h */,
 				252986081943420500826834 /* Acitivity+Complete.m */,
+				254940C119468D0100E5DACB /* Activity.h */,
+				254940C219468D0100E5DACB /* Activity.m */,
+				256BF1C91947D51000FD8BB3 /* ArrangementSubActivity.h */,
+				256BF1CA1947D51000FD8BB3 /* ArrangementSubActivity.m */,
+				254940C419468D0100E5DACB /* BaseEntity.h */,
+				254940C519468D0100E5DACB /* BaseEntity.m */,
 				252986041943411600826834 /* DescriptionSubActivity+Complete.h */,
 				252986051943411600826834 /* DescriptionSubActivity+Complete.m */,
-				25CDAE9319435360003E1314 /* SubActivity+Complete.h */,
-				25CDAE9419435360003E1314 /* SubActivity+Complete.m */,
+				256BF1CC1947D51000FD8BB3 /* DescriptionSubActivity.h */,
+				256BF1CD1947D51000FD8BB3 /* DescriptionSubActivity.m */,
 				256357BD19413A6200E5762A /* Patient+Complete.h */,
 				256357BE19413A6200E5762A /* Patient+Complete.m */,
+				256BF1C61947D50F00FD8BB3 /* Patient.h */,
+				256BF1C71947D50F00FD8BB3 /* Patient.m */,
+				25CDAE9319435360003E1314 /* SubActivity+Complete.h */,
+				25CDAE9419435360003E1314 /* SubActivity+Complete.m */,
+				254940BB19468D0100E5DACB /* SubActivity.h */,
+				254940BC19468D0100E5DACB /* SubActivity.m */,
+				256BF1CF1947D58900FD8BB3 /* ArrangementSubActivity+Complete.h */,
+				256BF1D01947D58900FD8BB3 /* ArrangementSubActivity+Complete.m */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		256BF1D21947E48100FD8BB3 /* Arrangement */ = {
+			isa = PBXGroup;
+			children = (
+				256BF1D31947E4B600FD8BB3 /* apple.json */,
+			);
+			path = Arrangement;
+			sourceTree = "<group>";
+		};
+		256BF1D51947E5F300FD8BB3 /* Arrangement */ = {
+			isa = PBXGroup;
+			children = (
+				256BF1D61947E61200FD8BB3 /* apple_0.jpg */,
+				256BF1D71947E61200FD8BB3 /* apple_1.jpg */,
+			);
+			path = Arrangement;
 			sourceTree = "<group>";
 		};
 		25CDAEA8194389D7003E1314 /* Activities */ = {
@@ -654,10 +713,12 @@
 		25CDAEA9194389D7003E1314 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */,
-				25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */,
 				25CDAEAC194389D7003E1314 /* FTINSubActivityContent.h */,
 				25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */,
+				25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */,
+				25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */,
+				256BF1B81947CA0000FD8BB3 /* FTINArrangementActivityContent.h */,
+				256BF1B91947CA0000FD8BB3 /* FTINArrangementActivityContent.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -744,21 +805,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				256BF1BF1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
 				251F9CA11943F37D00A65131 /* pcgamer.json in Resources */,
+				256BF1D81947E61200FD8BB3 /* apple_0.jpg in Resources */,
 				251F9C9D1943F32400A65131 /* soccer.json in Resources */,
 				251F9C981943F2A600A65131 /* mcdonalds.jpg in Resources */,
 				25644CE01936B071006C4E06 /* InfoPlist.strings in Resources */,
 				251F9C971943F2A600A65131 /* doll.jpg in Resources */,
 				251F9C9B1943F2D600A65131 /* backyard.json in Resources */,
+				256BF1D41947E4B600FD8BB3 /* apple.json in Resources */,
 				251F9C951943F2A600A65131 /* soccer.jpg in Resources */,
 				255F79A21942963700C94AB3 /* playground.jpg in Resources */,
+				256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */,
 				25644D1A1936B3C7006C4E06 /* Localizable.strings in Resources */,
 				256358101941473000E5762A /* playground.json in Resources */,
 				251F9CA31943F3AE00A65131 /* mcdonalds.json in Resources */,
 				251F9C961943F2A600A65131 /* backyard.jpg in Resources */,
 				2563580119413D0E00E5762A /* FTINDescriptionActivityViewController.xib in Resources */,
 				251F9C9F1943F35800A65131 /* doll.json in Resources */,
+				256BF1D91947E61200FD8BB3 /* apple_1.jpg in Resources */,
 				251F9C991943F2A600A65131 /* pcgamer.jpg in Resources */,
 				25644CE91936B071006C4E06 /* Main.storyboard in Resources */,
 				256357F719413CAE00E5762A /* FTINPatientViewController.xib in Resources */,
@@ -835,7 +901,7 @@
 				254940C619468D0100E5DACB /* BaseEntity.m in Sources */,
 				259A247B1945181D00DC5E99 /* FTINActivitiesTableViewSource.m in Sources */,
 				254940C319468D0100E5DACB /* Activity.m in Sources */,
-				254940BA19468D0100E5DACB /* DescriptionSubActivity.m in Sources */,
+				256BF1C81947D50F00FD8BB3 /* Patient.m in Sources */,
 				254940A819468A7B00E5DACB /* DataModel.xcdatamodeld in Sources */,
 				256357F619413CAE00E5762A /* FTINPatientViewController.m in Sources */,
 				2537BB6E193B730500D10878 /* UIView+Border.m in Sources */,
@@ -848,11 +914,16 @@
 				256357F219413CAE00E5762A /* FTINPatientTransitionsObserver.m in Sources */,
 				25CDAEB6194389D7003E1314 /* FTINActitivitiesFactory.m in Sources */,
 				2563580019413D0E00E5762A /* FTINDescriptionActivityViewController.m in Sources */,
+				256BF1CB1947D51000FD8BB3 /* ArrangementSubActivity.m in Sources */,
+				256BF1CE1947D51000FD8BB3 /* DescriptionSubActivity.m in Sources */,
 				25CDAEB8194389D7003E1314 /* FTINSubActivityDetails.m in Sources */,
 				2537BB68193B730500D10878 /* NSString+ReplaceStrings.m in Sources */,
 				256357F519413CAE00E5762A /* FTINNewPatientViewControllerDelegate.m in Sources */,
 				25644CE61936B071006C4E06 /* FTINAppDelegate.m in Sources */,
+				256BF1BA1947CA0000FD8BB3 /* FTINArrangementActivityContent.m in Sources */,
+				256BF1C51947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.m in Sources */,
 				2537BB5F193B730500D10878 /* FileUtils.m in Sources */,
+				256BF1C21947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.m in Sources */,
 				2537BB67193B730500D10878 /* NSString+LocalizedString.m in Sources */,
 				256357F919413CAE00E5762A /* FTINPatientTableViewSource.m in Sources */,
 				256357F819413CAE00E5762A /* FTINPatientsTableViewController.m in Sources */,
@@ -860,7 +931,9 @@
 				2537BB6F193B730500D10878 /* UIView+SearchSubview.m in Sources */,
 				255F79971942877200C94AB3 /* FTINActivityFlowController.m in Sources */,
 				256A97E5193BA1DB00358131 /* FTINPatientController.m in Sources */,
+				256BF1D11947D58900FD8BB3 /* ArrangementSubActivity+Complete.m in Sources */,
 				2537BB66193B730500D10878 /* NSObject+Properties.m in Sources */,
+				256BF1BE1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m in Sources */,
 				25CDAEB7194389D7003E1314 /* FTINActivityDetails.m in Sources */,
 				256357BF19413A6200E5762A /* Patient+Complete.m in Sources */,
 				25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */,
@@ -870,7 +943,6 @@
 				256357EF19413CAE00E5762A /* FTINDatePickerTextField.m in Sources */,
 				2598A9A91943A33D00EEEF24 /* FTINActivityViewControllerFactory.m in Sources */,
 				252986061943411600826834 /* DescriptionSubActivity+Complete.m in Sources */,
-				254940C019468D0100E5DACB /* Patient.m in Sources */,
 				256357F019413CAE00E5762A /* ToastController.m in Sources */,
 				25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */,
 				2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */,
