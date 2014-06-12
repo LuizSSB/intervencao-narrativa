@@ -148,4 +148,17 @@ CGFloat const FTINImageArrangementViewCellSpacing = 35.f;
 	[_items insertObject:item atIndex:toIndexPath.row];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	//FIX duns bug do UICollectionView
+	for (UIView *view in self.subviews)
+	{
+		if(![view isKindOfClass:[UICollectionViewCell class]])
+		{
+			[view removeFromSuperview];
+		}
+	}
+	[self reloadData];
+}
+
 @end
