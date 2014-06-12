@@ -46,7 +46,7 @@
 	}
 	while (NO);
 	
-	*error = [NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode];
+	*error = [NSError ftin_createErrorWithCode:ftin_InvalidUserSuppliedDataErrorCode];
 	return NO;
 }
 

@@ -31,6 +31,13 @@
 	_patient = nil;
 }
 
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+	self.navigationBar.translucent = NO;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];

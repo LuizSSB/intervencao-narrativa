@@ -11,14 +11,17 @@
 #import "FTINNarrativeSkillChoiceViewController.h"
 
 #import "FTINSubActivityDetails.h"
-#import "FTINArrangementActivityContent.h"
+#import "FTINArrangementSubActivityContent.h"
 #import "ArrangementSubActivity+Complete.h"
+
+#import "FTINImageArrangementView.h"
 
 @interface FTINArrangementActivityViewController ()
 {
-	FTINArrangementActivityContent *_content;
+	FTINArrangementSubActivityContent *_content;
 }
 
+@property (weak, nonatomic) IBOutlet FTINImageArrangementView *itemsArrangementView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *arrangementBarButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *narrativeSkillBarButton;
 
@@ -41,6 +44,16 @@
 	_arrangementViewController = nil;
 	_narrationViewController = nil;
 	_content = nil;
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+	self.itemsArrangementView.items = _content.elementsImages;
+	
+	[self.itemsArrangementView sizeToFit];
+	self.itemsArrangementView.center = self.view.center;
 }
 
 - (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate
@@ -82,7 +95,7 @@
 		tr00Activity.arrangementSkill = self.arrangementViewController.selectedSkill;
 	}
 	
-#warning TODO terminar de implementar
+	tr00Activity.itemsArrangement = self.itemsArrangementView.items;
 	
 	return YES;
 }

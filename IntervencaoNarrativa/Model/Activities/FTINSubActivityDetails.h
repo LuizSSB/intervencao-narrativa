@@ -23,4 +23,6 @@
 @property (nonatomic) SubActivity *data;
 @property (nonatomic, weak) FTINActivityDetails *parentActivity;
 
+- (BOOL)valid:(NSError **)error;
+
 @end

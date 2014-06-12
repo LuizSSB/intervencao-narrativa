@@ -8,8 +8,12 @@
 
 #import "JSONModel.h"
 
+@class SubActivity;
+
 @interface FTINSubActivityContent : JSONModel
 
 @property (nonatomic) NSString *title;
+
+- (BOOL)validateWithData:(SubActivity *)data error:(NSError **)error;
 
 @end

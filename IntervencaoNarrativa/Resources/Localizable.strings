@@ -55,3 +55,5 @@
 "error_ftin_1" = "Dados inválidos. Preencha todos as informações.";
 "error_ftin_2" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityFlowController.";
 "error_ftin_3" = "Arquivos de configuração da atividade inválidos, não constam com subatividades.";
+"error_ftin_4" = "Dados errados trafegando pela aplicação.";
+"error_ftin_5" = "Ordenação errada.";

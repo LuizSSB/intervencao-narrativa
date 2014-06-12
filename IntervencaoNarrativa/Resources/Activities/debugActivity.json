@@ -2,12 +2,20 @@
 	"title":"Atividade",
 	"subActivities":[
 					 {
-					 "type":0,
-					 "contentFile":"playground.json"
+					 "type":1,
+					 "contentFile":"apple.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"apple.json"
+					 "contentFile":"lemonade.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"toothfairy.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"fish.json"
 					 }
 					 ]
 }

@@ -10,4 +10,9 @@
 
 @implementation FTINSubActivityContent
 
+- (BOOL)validateWithData:(SubActivity *)data error:(NSError *__autoreleasing *)error
+{
+	return YES;
+}
+
 @end

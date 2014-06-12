@@ -80,7 +80,6 @@
 
 - (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
 {
-	
 	if(subActivity != self.activity.subActivities[_currentActivityIdx])
 	{
 		NSError *error = [NSError ftin_createErrorWithCode:ftin_InvalidSubActivityErrorCode];

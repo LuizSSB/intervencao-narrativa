@@ -116,7 +116,7 @@
 {
 	NSError *error = nil;
 	
-	if([subActivity.data valid:&error])
+	if([subActivity valid:&error])
 	{
 		subActivity.data.parentActivity = subActivity.parentActivity.data;
 		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];

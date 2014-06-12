@@ -9,9 +9,8 @@
 #import "FTINSubActivityContent.h"
 #import "JSONModel.h"
 
-@interface FTINArrangementActivityContent : FTINSubActivityContent
+@interface FTINArrangementSubActivityContent : FTINSubActivityContent
 
 @property (nonatomic) NSArray<NSString> *elementsImages;
-@property (nonatomic) NSArray<NSNumber> *correctOrder;
 
 @end
