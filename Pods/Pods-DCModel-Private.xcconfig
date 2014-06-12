@@ -1,5 +1,5 @@
 #include "Pods-DCModel.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/DCModel" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/APToast" "${PODS_ROOT}/Headers/DCModel" "${PODS_ROOT}/Headers/JSONModel" "${PODS_ROOT}/Headers/MBProgressHUD"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/DCModel" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/APToast" "${PODS_ROOT}/Headers/DCModel" "${PODS_ROOT}/Headers/JSONModel" "${PODS_ROOT}/Headers/LXReorderableCollectionViewFlowLayout" "${PODS_ROOT}/Headers/MBProgressHUD"
 OTHER_LDFLAGS = -ObjC ${PODS_DCMODEL_OTHER_LDFLAGS}
 PODS_ROOT = ${SRCROOT}
