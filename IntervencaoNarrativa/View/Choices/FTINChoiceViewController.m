@@ -41,6 +41,15 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	}
 }
 
+- (instancetype)init
+{
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+		[self setup];
+    }
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
@@ -92,12 +101,17 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 
 - (instancetype)initWithChoices:(NSArray *)choices
 {
-    self = [super initWithStyle:UITableViewStylePlain];
+    self = [self initWithStyle:UITableViewStylePlain];
     if (self) {
+		[self setup];
 		self.choices = choices;
-		_selectedChoicesIndexes = [NSMutableSet set];
     }
     return self;
+}
+
+- (void)setup
+{
+	_selectedChoicesIndexes = [NSMutableSet set];
 }
 
 - (void)setChoices:(NSArray *)choices
@@ -151,7 +165,7 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 
 - (void)chooseItemAtIndex:(NSInteger)index
 {
-	if(index > self.choices.count)
+	if(index > self.choices.count || index < 0)
 	{
 		return;
 	}
@@ -162,16 +176,16 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 		[_selectedChoicesIndexes addObject:choice];
 		[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 		
-		if([self.delegate respondsToSelector:@selector(choiceTableViewController:choseItemAtIndex:withMetadata:)])
+		if([self.delegate respondsToSelector:@selector(choiceViewController:choseItemAtIndex:withMetadata:)])
 		{
-			[self.delegate choiceTableViewController:self choseItemAtIndex:index withMetadata:self.choices[index]];
+			[self.delegate choiceViewController:self choseItemAtIndex:index withMetadata:self.choices[index]];
 		}
 	}
 }
 
 - (void)rejectItemAtIndex:(NSInteger)index
 {
-	if(index > self.choices.count)
+	if(index > self.choices.count || index < 0)
 	{
 		return;
 	}
@@ -182,9 +196,9 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 		[_selectedChoicesIndexes removeObject:choice];
 		[self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 		
-		if([self.delegate respondsToSelector:@selector(choiceTableViewController:rejectedItemAtIndex:withMetadata:)])
+		if([self.delegate respondsToSelector:@selector(choiceViewController:rejectedItemAtIndex:withMetadata:)])
 		{
-			[self.delegate choiceTableViewController:self rejectedItemAtIndex:index withMetadata:self.choices[index]];
+			[self.delegate choiceViewController:self rejectedItemAtIndex:index withMetadata:self.choices[index]];
 		}
 	}
 }

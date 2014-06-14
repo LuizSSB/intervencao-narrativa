@@ -50,6 +50,7 @@
 	self.editButtonItem.title = @"hide_controls".localizedString;
 	
 	NSMutableArray *actionButtons = [NSMutableArray arrayWithArray:[self getActionBarButtons]];
+	[actionButtons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
 	[actionButtons addObject:self.nextButton];
 	self.actionToolbar.items = actionButtons;
 }

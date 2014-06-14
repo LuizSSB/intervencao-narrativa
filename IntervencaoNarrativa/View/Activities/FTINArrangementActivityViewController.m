@@ -50,7 +50,7 @@
 {
 	[super viewDidLoad];
 	
-	self.itemsArrangementView.items = _content.elementsImages;
+	self.itemsArrangementView.items = _content.elements;
 	
 	[self.itemsArrangementView sizeToFit];
 	self.itemsArrangementView.center = self.view.center;
@@ -73,8 +73,7 @@
 	return @[
 			 self.arrangementBarButton,
 			 fixedSpace,
-			 self.narrativeSkillBarButton,
-			 [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
+			 self.narrativeSkillBarButton
 			 ];
 }
 

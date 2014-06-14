@@ -24,7 +24,7 @@
 			
 			ArrangementSubActivity *tr00Activity = (id) data;
 			
-			if(tr00Activity.itemsArrangement.count != self.elementsImages.count)
+			if(tr00Activity.itemsArrangement.count != self.elements.count)
 			{
 				*error = [NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode];
 				break;
@@ -32,15 +32,17 @@
 			
 			NSInteger idx = 0;
 			for (NSString *image in tr00Activity.itemsArrangement) {
-				if(![image isEqualToString:_elementsImages[idx++]])
+				if(![image isEqualToString:_elements[idx++]])
 				{
-					*error = [NSError ftin_createErrorWithCode:ftin_WrongArrangementOrder];
+					*error = [NSError ftin_createErrorWithCode:ftin_WrongArrangementOrderErrorCode];
+					tr00Activity.arrangedCorrectly = @NO;
 					break;
 				}
 			}
 			
 			if(*error) break;
 			
+			tr00Activity.arrangedCorrectly = @YES;
 			return YES;
 		}
 		while (NO);
