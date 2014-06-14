@@ -20,6 +20,7 @@
 // Constants
 
 extern NSTimeInterval const FTINDefaultAnimationDuration;
+extern NSTimeInterval const FTINDefaultAnimationShortDuration;
 extern CGFloat const FTINBarButtonItemSpacing;
 extern NSString const * FTINDefaultCellIdentifier;
 extern NSString const * FTINDefaultNamespace;

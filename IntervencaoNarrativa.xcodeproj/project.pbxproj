@@ -111,6 +111,16 @@
 		25A37C71194C9CC700DFC749 /* FTINEnvironmentActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C6F194C9CC700DFC749 /* FTINEnvironmentActivityViewController.m */; };
 		25A37C72194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C70194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib */; };
 		25A37C75194CAF2F00DFC749 /* home1.json in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C74194CAF2F00DFC749 /* home1.json */; };
+		25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C77194CC17F00DFC749 /* FTINDraggableItemBoxView.m */; };
+		25A37C7A194CC19800DFC749 /* FTINDraggableItemBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C79194CC19800DFC749 /* FTINDraggableItemBoxView.xib */; };
+		25A37C82194CD43400DFC749 /* bed.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C7C194CD43400DFC749 /* bed.jpg */; };
+		25A37C83194CD43400DFC749 /* bola.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C7D194CD43400DFC749 /* bola.jpg */; };
+		25A37C84194CD43400DFC749 /* desk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C7E194CD43400DFC749 /* desk.jpg */; };
+		25A37C85194CD43400DFC749 /* endtable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C7F194CD43400DFC749 /* endtable.jpg */; };
+		25A37C86194CD43400DFC749 /* lamp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C80194CD43400DFC749 /* lamp.jpg */; };
+		25A37C87194CD43400DFC749 /* wardrobe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C81194CD43400DFC749 /* wardrobe.jpg */; };
+		25A37C89194CD53D00DFC749 /* homebackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C88194CD53D00DFC749 /* homebackground.jpg */; };
+		25A37C8C194CF85200DFC749 /* UIView+PutOnScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
 		25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */; };
 		25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */; };
@@ -374,6 +384,18 @@
 		25A37C6F194C9CC700DFC749 /* FTINEnvironmentActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnvironmentActivityViewController.m; sourceTree = "<group>"; };
 		25A37C70194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINEnvironmentActivityViewController.xib; sourceTree = "<group>"; };
 		25A37C74194CAF2F00DFC749 /* home1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home1.json; sourceTree = "<group>"; };
+		25A37C76194CC17F00DFC749 /* FTINDraggableItemBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDraggableItemBoxView.h; sourceTree = "<group>"; };
+		25A37C77194CC17F00DFC749 /* FTINDraggableItemBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINDraggableItemBoxView.m; sourceTree = "<group>"; };
+		25A37C79194CC19800DFC749 /* FTINDraggableItemBoxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINDraggableItemBoxView.xib; sourceTree = "<group>"; };
+		25A37C7C194CD43400DFC749 /* bed.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bed.jpg; sourceTree = "<group>"; };
+		25A37C7D194CD43400DFC749 /* bola.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bola.jpg; sourceTree = "<group>"; };
+		25A37C7E194CD43400DFC749 /* desk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = desk.jpg; sourceTree = "<group>"; };
+		25A37C7F194CD43400DFC749 /* endtable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = endtable.jpg; sourceTree = "<group>"; };
+		25A37C80194CD43400DFC749 /* lamp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lamp.jpg; sourceTree = "<group>"; };
+		25A37C81194CD43400DFC749 /* wardrobe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wardrobe.jpg; sourceTree = "<group>"; };
+		25A37C88194CD53D00DFC749 /* homebackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homebackground.jpg; sourceTree = "<group>"; };
+		25A37C8A194CF85200DFC749 /* UIView+PutOnScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PutOnScreen.h"; sourceTree = "<group>"; };
+		25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PutOnScreen.m"; sourceTree = "<group>"; };
 		25CDAE9319435360003E1314 /* SubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SubActivity+Complete.h"; sourceTree = "<group>"; };
 		25CDAE9419435360003E1314 /* SubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SubActivity+Complete.m"; sourceTree = "<group>"; };
 		25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionSubActivityContent.h; sourceTree = "<group>"; };
@@ -533,6 +555,8 @@
 				25682A07194A3510005F017F /* UIView+Centralize.m */,
 				25682A09194A387C005F017F /* NSArray+Shuffling.h */,
 				25682A0A194A387C005F017F /* NSArray+Shuffling.m */,
+				25A37C8A194CF85200DFC749 /* UIView+PutOnScreen.h */,
+				25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -548,6 +572,7 @@
 		255F799F194295E000C94AB3 /* Activites */ = {
 			isa = PBXGroup;
 			children = (
+				25A37C7B194CD43400DFC749 /* Environment */,
 				256BF1D51947E5F300FD8BB3 /* Arrangement */,
 				255F79A0194295E000C94AB3 /* Description */,
 			);
@@ -642,6 +667,9 @@
 				252D10D919493056006D2F3E /* FTINImageArrangementView.m */,
 				252D10DE1949359C006D2F3E /* FTINCollectionViewCell.h */,
 				252D10DF1949359C006D2F3E /* FTINCollectionViewCell.m */,
+				25A37C76194CC17F00DFC749 /* FTINDraggableItemBoxView.h */,
+				25A37C77194CC17F00DFC749 /* FTINDraggableItemBoxView.m */,
+				25A37C79194CC19800DFC749 /* FTINDraggableItemBoxView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -959,6 +987,20 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
+		25A37C7B194CD43400DFC749 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				25A37C88194CD53D00DFC749 /* homebackground.jpg */,
+				25A37C7C194CD43400DFC749 /* bed.jpg */,
+				25A37C7D194CD43400DFC749 /* bola.jpg */,
+				25A37C7E194CD43400DFC749 /* desk.jpg */,
+				25A37C7F194CD43400DFC749 /* endtable.jpg */,
+				25A37C80194CD43400DFC749 /* lamp.jpg */,
+				25A37C81194CD43400DFC749 /* wardrobe.jpg */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		25CDAEA8194389D7003E1314 /* Activities */ = {
 			isa = PBXGroup;
 			children = (
@@ -1072,7 +1114,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				256BF1BF1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib in Resources */,
+				25A37C86194CD43400DFC749 /* lamp.jpg in Resources */,
 				25FF3311194A51EC0080DC6F /* gift.jpg in Resources */,
+				25A37C83194CD43400DFC749 /* bola.jpg in Resources */,
 				25FF3305194A51EC0080DC6F /* fish.jpg in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
 				25FF330A194A51EC0080DC6F /* fish6.jpg in Resources */,
@@ -1086,6 +1130,7 @@
 				25FF3303194A51EC0080DC6F /* eggs4.jpg in Resources */,
 				25FF330D194A51EC0080DC6F /* flower.jpg in Resources */,
 				25FF331C194A51EC0080DC6F /* lemonade3.jpg in Resources */,
+				25A37C84194CD43400DFC749 /* desk.jpg in Resources */,
 				25FF332C194A51EC0080DC6F /* toothfairy6.jpg in Resources */,
 				25FF3317194A51EC0080DC6F /* hotwheels.jpg in Resources */,
 				25FF3329194A51EC0080DC6F /* toothfairy3.jpg in Resources */,
@@ -1102,7 +1147,10 @@
 				25FF332A194A51EC0080DC6F /* toothfairy4.jpg in Resources */,
 				251F9C9D1943F32400A65131 /* soccer.json in Resources */,
 				25FF3316194A51EC0080DC6F /* glass4.jpg in Resources */,
+				25A37C87194CD43400DFC749 /* wardrobe.jpg in Resources */,
+				25A37C7A194CC19800DFC749 /* FTINDraggableItemBoxView.xib in Resources */,
 				251F9C981943F2A600A65131 /* mcdonalds.jpg in Resources */,
+				25A37C82194CD43400DFC749 /* bed.jpg in Resources */,
 				25FF3330194A52300080DC6F /* school.json in Resources */,
 				25644CE01936B071006C4E06 /* InfoPlist.strings in Resources */,
 				251F9C971943F2A600A65131 /* doll.jpg in Resources */,
@@ -1118,6 +1166,7 @@
 				25FF330B194A51EC0080DC6F /* fish7.jpg in Resources */,
 				256BF1D41947E4B600FD8BB3 /* apple.json in Resources */,
 				25FF330F194A51EC0080DC6F /* flower3.jpg in Resources */,
+				25A37C85194CD43400DFC749 /* endtable.jpg in Resources */,
 				25FF3321194A51EC0080DC6F /* school2.jpg in Resources */,
 				25FF32F5194A51EC0080DC6F /* ball.jpg in Resources */,
 				25FF32FC194A51EC0080DC6F /* cage5.jpg in Resources */,
@@ -1128,6 +1177,7 @@
 				25A37C72194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib in Resources */,
 				256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */,
 				25FF3314194A51EC0080DC6F /* glass2.jpg in Resources */,
+				25A37C89194CD53D00DFC749 /* homebackground.jpg in Resources */,
 				25644D1A1936B3C7006C4E06 /* Localizable.strings in Resources */,
 				256358101941473000E5762A /* playground.json in Resources */,
 				25FF3325194A51EC0080DC6F /* school6.jpg in Resources */,
@@ -1225,6 +1275,7 @@
 				254940BD19468D0100E5DACB /* SubActivity.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
+				25A37C8C194CF85200DFC749 /* UIView+PutOnScreen.m in Sources */,
 				2537BB63193B730500D10878 /* NSFileManager+Utils.m in Sources */,
 				252D10E01949359C006D2F3E /* FTINCollectionViewCell.m in Sources */,
 				252985FA19433B9700826834 /* FTINActivityNavigationController.m in Sources */,
@@ -1249,6 +1300,7 @@
 				25A37C64194C982E00DFC749 /* ArrangementSubActivity.m in Sources */,
 				2537BB60193B730500D10878 /* NSDate+FormattedDate.m in Sources */,
 				256357EA19413CAE00E5762A /* FTINChoice.m in Sources */,
+				25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */,
 				256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */,
 				256357EE19413CAE00E5762A /* FTINDatePickerPopoverController.m in Sources */,
 				256357EC19413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.m in Sources */,

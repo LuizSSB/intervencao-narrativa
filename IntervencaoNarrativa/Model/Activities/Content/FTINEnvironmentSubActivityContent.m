@@ -69,4 +69,16 @@
 	return [objects setByAddingObjectsFromSet:self.incorrectElements];
 }
 
+- (NSArray *)allElementsArray
+{
+	NSSet *allobjects = self.allElements;
+	NSMutableArray *array = [NSMutableArray arrayWithCapacity:allobjects.count];
+	
+	for (id obj in allobjects) {
+		[array addObject:obj];
+	}
+	
+	return array;
+}
+
 @end

@@ -46,8 +46,11 @@
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationItem.leftItemsSupplementBackButton = NO;
 	self.navigationItem.leftBarButtonItem = self.cancelButton;
-	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	self.editButtonItem.title = @"hide_controls".localizedString;
+	
+	NSMutableArray *rightButtons = [NSMutableArray arrayWithObject:self.editButtonItem];
+	[rightButtons addObjectsFromArray:[self getNavigationItemRightBarButtons]];
+	self.navigationItem.rightBarButtonItems = rightButtons;
 	
 	NSMutableArray *actionButtons = [NSMutableArray arrayWithArray:[self getActionBarButtons]];
 	[actionButtons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
@@ -90,6 +93,11 @@
 - (NSArray *)getActionBarButtons
 {
 	return @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
+}
+
+- (NSArray *)getNavigationItemRightBarButtons
+{
+	return @[];
 }
 
 #pragma mark - Instance methods

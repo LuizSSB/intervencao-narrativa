@@ -12,7 +12,7 @@
 CGSize const FTINImageArrangementViewCellSize = {200, 250};
 CGFloat const FTINImageArrangementViewCellSpacing = 35.f;
 
-@interface FTINImageArrangementView ()
+@interface FTINImageArrangementView () <UICollectionViewDelegate, LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout>
 {
 	NSMutableArray *_items;
 }

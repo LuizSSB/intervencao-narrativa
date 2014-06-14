@@ -6,8 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTINEnvironmentActivityViewController">
             <connections>
+                <outlet property="draggableElementBox" destination="ahS-Mn-Nrb" id="hBI-XA-I40"/>
                 <outlet property="narrationBarButton" destination="jq5-lt-w6Y" id="a79-qe-PyE"/>
                 <outlet property="organizationBarButton" destination="L1v-0h-DTb" id="12O-WK-QN6"/>
+                <outlet property="resetBarButton" destination="LdQ-Fg-VMM" id="MfX-Np-FHy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,6 +17,13 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahS-Mn-Nrb" customClass="FTINDraggableItemBoxView">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
@@ -29,6 +38,11 @@
         <barButtonItem title="Narração" id="jq5-lt-w6Y">
             <connections>
                 <action selector="showNarrationChoices:" destination="-1" id="7Cj-JX-gcb"/>
+            </connections>
+        </barButtonItem>
+        <barButtonItem title="Reiniciar montagem" id="LdQ-Fg-VMM">
+            <connections>
+                <action selector="reset:" destination="-1" id="zId-Ks-fWz"/>
             </connections>
         </barButtonItem>
     </objects>

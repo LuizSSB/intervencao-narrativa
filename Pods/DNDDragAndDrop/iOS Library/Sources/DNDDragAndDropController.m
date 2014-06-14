@@ -38,8 +38,19 @@
 
 #pragma mark - Getting Views
 
+- (UIViewController *)topMostViewController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+	
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+	
+    return topController;
+}
+
 - (UIView *)dragPaneView {
-    return self.window.rootViewController.view;
+    return [self topMostViewController].view;
 }
 
 - (UIView *)dropTargetAtLocation:(CGPoint)location {

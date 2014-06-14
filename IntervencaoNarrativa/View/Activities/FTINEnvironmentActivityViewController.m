@@ -8,6 +8,9 @@
 
 #import "FTINEnvironmentActivityViewController.h"
 #import "FTINCoherenceChoiceViewController.h"
+
+#import "FTINDraggableItemBoxView.h"
+
 #import "FTINSubActivityDetails.h"
 #import "FTINEnvironmentSubActivityContent.h"
 #import "EnvironmentSubActivity+Complete.h"
@@ -17,11 +20,14 @@
 	FTINEnvironmentSubActivityContent *_content;
 }
 
+@property (weak, nonatomic) IBOutlet FTINDraggableItemBoxView *draggableElementBox;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *organizationBarButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *narrationBarButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *resetBarButton;
 
 - (IBAction)showOrganizationChoices:(UIBarButtonItem *)sender;
 - (IBAction)showNarrationChoices:(UIBarButtonItem *)sender;
+- (IBAction)reset:(id)sender;
 
 @property (nonatomic, strong) FTINCoherenceChoiceViewController *organizationViewController;
 @property (nonatomic, strong) FTINCoherenceChoiceViewController *narrationViewController;
@@ -39,6 +45,15 @@
 	_narrationViewController = nil;
 	_organizationBarButton = nil;
 	_narrationBarButton = nil;
+	_resetBarButton = nil;
+}
+
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	
+	self.draggableElementBox.toolboxElementsImagesNames = _content.allElementsArray;
+	self.draggableElementBox.backgroundImageView.image = [UIImage imageNamed:_content.background];
 }
 
 - (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate
@@ -48,6 +63,11 @@
         _content = (id) subactivity.content;
     }
     return self;
+}
+
+- (NSArray *)getNavigationItemRightBarButtons
+{
+	return @[self.resetBarButton];
 }
 
 - (NSArray *)getActionBarButtons
@@ -76,7 +96,7 @@
 		data.narrationCoherence = self.narrationViewController.selectedCoherence;
 	}
 	
-#warning TODO terminar de setar os role;
+	data.selectedItems = self.draggableElementBox.chosenElementsImagesNames;
 	
 	return YES;
 }
@@ -91,6 +111,11 @@
 - (IBAction)showNarrationChoices:(UIBarButtonItem *)sender {
 	[self.organizationViewController dismissPopoverAnimated:YES];
 	[self.narrationViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
+}
+
+- (IBAction)reset:(id)sender
+{
+	[self.draggableElementBox reset];
 }
 
 @synthesize organizationViewController = _organizationViewController;

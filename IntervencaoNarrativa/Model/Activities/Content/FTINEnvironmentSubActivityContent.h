@@ -17,5 +17,6 @@
 
 // Non serialized
 @property (nonatomic, readonly) NSSet *allElements;
+@property (nonatomic, readonly) NSArray *allElementsArray;
 
 @end
