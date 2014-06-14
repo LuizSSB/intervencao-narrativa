@@ -52,4 +52,9 @@
 	}
 }
 
+- (BOOL)valid:(NSError *__autoreleasing *)error
+{
+	return [self.data valid:error] && [self.content validateWithData:self.data error:error];
+}
+
 @end

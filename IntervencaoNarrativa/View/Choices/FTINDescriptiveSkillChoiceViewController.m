@@ -25,6 +25,8 @@
     return self;
 }
 
+#pragma mark - Instance methods
+
 - (FTINDescriptiveSkill)selectedSkill
 {
 	return (FTINDescriptiveSkill) self.selectedChoiceIndex;
@@ -34,8 +36,6 @@
 {
 	self.selectedChoiceIndex = selectedSkill;
 }
-
-#pragma mark - Instance methods
 
 static NSArray *_choices;
 

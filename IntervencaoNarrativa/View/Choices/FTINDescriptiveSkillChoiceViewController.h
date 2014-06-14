@@ -8,7 +8,7 @@
 
 #import "FTINSingleChoiceViewController.h"
 
-@interface FTINDescriptiveSkillChoiceViewController : FTINSingleChoiceViewController <FTINChoiceTableViewControllerDelegate>
+@interface FTINDescriptiveSkillChoiceViewController : FTINSingleChoiceViewController
 
 @property (nonatomic) FTINDescriptiveSkill selectedSkill;
 

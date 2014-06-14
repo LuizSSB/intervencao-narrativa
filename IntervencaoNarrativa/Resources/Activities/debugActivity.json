@@ -1,0 +1,21 @@
+{
+	"title":"Atividade",
+	"subActivities":[
+					 {
+					 "type":1,
+					 "contentFile":"apple.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"lemonade.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"toothfairy.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"fish.json"
+					 }
+					 ]
+}

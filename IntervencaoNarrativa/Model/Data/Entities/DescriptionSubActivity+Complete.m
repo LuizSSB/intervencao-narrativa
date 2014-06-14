@@ -12,19 +12,19 @@
 
 - (FTINDescriptiveSkill)descriptiveSkill
 {
-	return (FTINDescriptiveSkill) self.descriptiveSkillInteger.integerValue;
+	return (FTINDescriptiveSkill) self.descriptiveSkillNumber.integerValue;
 }
 
 - (void)setDescriptiveSkill:(FTINDescriptiveSkill)descriptiveSkill
 {
-	self.descriptiveSkillInteger = @(descriptiveSkill);
+	self.descriptiveSkillNumber = @(descriptiveSkill);
 }
 
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
-	if(!self.descriptiveSkillInteger || self.descriptiveSkillInteger.integerValue < 0)
+	if(!self.descriptiveSkillNumber || self.descriptiveSkillNumber.integerValue < 0 || self.descriptiveSkillNumber.integerValue > FTINDescriptiveSkillIncompetentFool)
 	{
-		*error = [NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode];
+		*error = [NSError ftin_createErrorWithCode:ftin_InvalidUserSuppliedDataErrorCode];
 		return NO;
 	}
 	

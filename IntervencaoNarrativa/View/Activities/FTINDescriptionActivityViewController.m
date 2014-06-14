@@ -38,6 +38,7 @@
 	self.describedItensBarButton = nil;
 	_elementsChoiceViewController = nil;
 	_skillChoiceViewController = nil;
+	_content = nil;
 }
 
 - (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate

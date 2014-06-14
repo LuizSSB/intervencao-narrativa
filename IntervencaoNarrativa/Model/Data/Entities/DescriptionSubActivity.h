@@ -2,7 +2,7 @@
 //  DescriptionSubActivity.h
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/06/09.
+//  Created by Luiz Soares dos Santos Baglie on 2014/06/10.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
@@ -14,6 +14,6 @@
 @interface DescriptionSubActivity : SubActivity
 
 @property (nonatomic, retain) id describedElements;
-@property (nonatomic, retain) NSNumber * descriptiveSkillInteger;
+@property (nonatomic, retain) NSNumber * descriptiveSkillNumber;
 
 @end

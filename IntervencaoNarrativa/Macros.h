@@ -9,9 +9,15 @@
 #ifndef FanChorusChantCreator_Macros_h
 #define FanChorusChantCreator_Macros_h
 
+// -----------------------------------------------------------------------------
+// Tr00 macross
+
 #define AllocateArray(TYPE, UNITS) ((TYPE*)calloc(UNITS, sizeof(TYPE)))
 
 #define DOCUMENTS_DIRECTORY (NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject)
+
+// -----------------------------------------------------------------------------
+// Constants
 
 extern NSTimeInterval const FTINDefaultAnimationDuration;
 extern CGFloat const FTINBarButtonItemSpacing;
@@ -20,7 +26,13 @@ extern NSString const * FTINDefaultNamespace;
 extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
 
+// -----------------------------------------------------------------------------
+// Blocks types
+
 typedef void (^FTINOperationResult)(id result, NSError *error);
+
+// -----------------------------------------------------------------------------
+// Enums
 
 typedef enum : NSUInteger {
     FTINSexMachoMan,
@@ -29,6 +41,7 @@ typedef enum : NSUInteger {
 
 typedef enum : NSUInteger {
     FTINActivityTypeDescription,
+	FTINActivityTypeArrangement
 } FTINActivityType;
 
 typedef enum : NSUInteger {
@@ -38,6 +51,23 @@ typedef enum : NSUInteger {
 	FTINDescriptiveSkillIncompetentFool
 } FTINDescriptiveSkill;
 
+typedef enum : NSUInteger {
+    FTINNarrativeSkillNoHelp,
+    FTINNarrativeSkillPartialHelp,
+	FTINNarrativeSkillLottaHelp,
+    FTINNarrativeSkillIncompetentFool
+} FTINNarrativeSkill;
+
+typedef enum : NSUInteger {
+    FTINArrangementSkillNoHelp,
+    FTINArrangementSkillHelped
+} FTINArrangementSkill;
+
+// -----------------------------------------------------------------------------
+// Protocols with same name as Foundation types
+// These are to be used with JSONModel DTOs which deal with arrays
+
 @protocol NSString @end
+@protocol NSNumber @end
 
 #endif

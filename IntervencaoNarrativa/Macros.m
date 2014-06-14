@@ -10,6 +10,9 @@ NSTimeInterval const FTINDefaultAnimationDuration = .3;
 CGFloat const FTINBarButtonItemSpacing = 20.f;
 NSString const * FTINDefaultCellIdentifier = @"Cell";
 NSString const * FTINDefaultNamespace = @"FTIN";
-NSString * const FTINDefaultActivityFileName = @"mainActivity";
+
+#warning FIXME voltar para mainActivity antes de distribuir
+//NSString * const FTINDefaultActivityFileName = @"mainActivity";
+NSString * const FTINDefaultActivityFileName = @"debugActivity";
 NSString * const FTINDefaultActivityFileExtension = @"json";
 
