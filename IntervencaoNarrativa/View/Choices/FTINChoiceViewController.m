@@ -232,7 +232,7 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	
 	self.tableView.scrollEnabled = popoverHeight == FTINChoicePopoverMaximumSize.height;
 	
-	self.parentPopover.popoverContentSize = CGSizeMake(FTINChoicePopoverMaximumSize.width, popoverHeight);
+	self.parentPopover.popoverContentSize = CGSizeMake(MAX(FTINChoicePopoverMaximumSize.width, self.popoverWidth), popoverHeight);
 	
 	[self.parentPopover presentPopoverFromBarButtonItem:button permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }

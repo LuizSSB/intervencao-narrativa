@@ -35,13 +35,17 @@
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivities" inverseEntity="Activity" syncable="YES"/>
     </entity>
+    <entity name="WhyGameSubActivity" representedClassName="WhyGameSubActivity" parentEntity="SubActivity" syncable="YES">
+        <attribute name="answerSkillNumber" attributeType="Integer 16" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Activity" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="ArrangementSubActivity" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="BaseEntity" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="DescriptionSubActivity" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Patient" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="SubActivity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Activity" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ArrangementSubActivity" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="BaseEntity" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Patient" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="SubActivity" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="60"/>
     </elements>
 </model>

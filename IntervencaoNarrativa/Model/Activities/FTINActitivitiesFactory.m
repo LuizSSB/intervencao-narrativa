@@ -61,6 +61,10 @@
 		case FTINActivityTypeEnvironment:
 			typeName = @"Environment";
 			break;
+			
+		case FTINActivityTypeWhyGame:
+			typeName = @"WhyGame";
+			break;
 	}
 	
 	if (!namespace)

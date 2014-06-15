@@ -2,12 +2,8 @@
 	"title":"Atividade",
 	"subActivities":[
 					 {
-					 "type":2,
-					 "contentFile":"home1.json"
-					 },
-					 {
-					 "type":2,
-					 "contentFile":"home2.json"
+					 "type":3,
+					 "contentFile":"whygame.json"
 					 },
 					 ]
 }

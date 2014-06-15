@@ -9,7 +9,7 @@
 #import "FTINImageArrangementView.h"
 #import "FTINCollectionViewCell.h"
 
-CGSize const FTINImageArrangementViewCellSize = {200, 250};
+CGSize const FTINImageArrangementViewCellSize = {200.f, 250.f};
 CGFloat const FTINImageArrangementViewCellSpacing = 35.f;
 
 @interface FTINImageArrangementView () <UICollectionViewDelegate, LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout>

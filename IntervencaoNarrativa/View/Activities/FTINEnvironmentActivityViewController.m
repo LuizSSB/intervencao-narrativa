@@ -16,9 +16,6 @@
 #import "EnvironmentSubActivity+Complete.h"
 
 @interface FTINEnvironmentActivityViewController ()
-{
-	FTINEnvironmentSubActivityContent *_content;
-}
 
 @property (weak, nonatomic) IBOutlet FTINDraggableItemBoxView *draggableElementBox;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *organizationBarButton;
@@ -40,7 +37,6 @@
 
 - (void)dealloc
 {
-	_content = nil;
 	_organizationViewController = nil;
 	_narrationViewController = nil;
 	_organizationBarButton = nil;
@@ -52,17 +48,9 @@
 {
 	[super viewDidLoad];
 	
+	FTINEnvironmentSubActivityContent *_content = (FTINEnvironmentSubActivityContent *) self.subActivity.content;
 	self.draggableElementBox.toolboxElementsImagesNames = _content.allElementsArray;
 	self.draggableElementBox.backgroundImageView.image = [UIImage imageNamed:_content.background];
-}
-
-- (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate
-{
-    self = [super initWithSubActivity:subactivity andDelegate:delegate];
-    if (self) {
-        _content = (id) subactivity.content;
-    }
-    return self;
 }
 
 - (NSArray *)getNavigationItemRightBarButtons

@@ -43,7 +43,8 @@ typedef enum : NSUInteger {
 typedef enum : NSUInteger {
     FTINActivityTypeDescription,
 	FTINActivityTypeArrangement,
-	FTINActivityTypeEnvironment
+	FTINActivityTypeEnvironment,
+	FTINActivityTypeWhyGame
 } FTINActivityType;
 
 typedef enum : NSUInteger {
@@ -69,6 +70,13 @@ typedef enum : NSUInteger {
     FTINCoherenceOrganized,
     FTINCoherenceUnorganized
 } FTINCoherence;
+
+typedef enum : NSUInteger {
+    FTINAnswerSkillWellStructuredAndCoherent,
+    FTINAnswerSkillLittleStructured,
+    FTINAnswerSkillLittleCoherent,
+	FTINAnswerSkillIncompetentFool
+} FTINAnswerSkill;
 
 // -----------------------------------------------------------------------------
 // Protocols with same name as Foundation types

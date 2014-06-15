@@ -12,4 +12,6 @@
 
 @property (nonatomic) FTINArrangementSkill selectedSkill;
 
++ (NSArray *)defaultChoices;
+
 @end

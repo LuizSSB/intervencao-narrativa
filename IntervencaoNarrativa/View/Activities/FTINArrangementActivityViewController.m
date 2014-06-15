@@ -17,9 +17,6 @@
 #import "FTINImageArrangementView.h"
 
 @interface FTINArrangementActivityViewController ()
-{
-	FTINArrangementSubActivityContent *_content;
-}
 
 @property (weak, nonatomic) IBOutlet FTINImageArrangementView *itemsArrangementView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *arrangementBarButton;
@@ -43,26 +40,16 @@
 	self.narrativeSkillBarButton = nil;
 	_arrangementViewController = nil;
 	_narrationViewController = nil;
-	_content = nil;
 }
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	
-	self.itemsArrangementView.items = _content.elements;
+	self.itemsArrangementView.items = ((FTINArrangementSubActivityContent *) self.subActivity.content).elements;
 	
 	[self.itemsArrangementView sizeToFit];
 	self.itemsArrangementView.center = self.view.center;
-}
-
-- (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate
-{
-    self = [super initWithSubActivity:subactivity andDelegate:delegate];
-    if (self) {
-        _content = (id) subactivity.content;
-    }
-    return self;
 }
 
 - (NSArray *)getActionBarButtons
