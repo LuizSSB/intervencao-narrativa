@@ -11,7 +11,7 @@
 #import "FTINCollectionViewCell.h"
 
 CGFloat const FTINDraggableItemBoxViewToolSpacing = 8.f;
-CGFloat const FTINDraggableItemBoxViewDragOpacity = .75f;
+CGFloat const FTINDraggableItemBoxViewDragOpacity = 1.;
 CGFloat const FTINDraggableItemBoxCellCornerRadius = 5.f;
 CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 #define FTINDraggableItemBoxSelectionBorderColor [UIColor colorWithRed:6.f/255.f green:134.f/255.f blue:1.f alpha:1]
@@ -60,6 +60,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 		
 		_dragDropController = [[DNDDragAndDropController alloc] init];
 		[_dragDropController registerDropTarget:self.containerBox withDelegate:self];
+		[_dragDropController registerDropTarget:self.toolboxCollectionView withDelegate:self];
 		
 		_unchosenElementsImagesNames = [NSMutableArray array];
 		_chosenElementsImagesNames = [NSMutableDictionary dictionary];
@@ -136,55 +137,86 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	UIView *copy = [self copyCell:(id)operation.dragSourceView];
 	copy.layer.opacity = 0.f;
 	
-	[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+	[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
+		operation.dragSourceView.layer.opacity = 0.f;
 		copy.layer.opacity = FTINDraggableItemBoxViewDragOpacity;
 	}];
 	
 	return copy;
 }
 
-#pragma mark - Drag Target Delegate
-
-- (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target
-{
-	CGRect copyFrame = operation.draggingView.frame;
-	copyFrame.origin = [operation locationInView:target];
-	copyFrame.origin.x -= copyFrame.size.width / 2.f;
-	copyFrame.origin.y -= copyFrame.size.height / 2.f;
-	
-	UIView *copy = [self copyCell:(id)operation.draggingView];
-	copy.frame = copyFrame;
-	[target addSubview:copy];
-	[target removeBorder];
-	[copy setLocationInsideSuperview:YES];
-	
-	[copy addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelectedElement:)]];
-	
-	NSString *selectedImage = _unchosenElementsImagesNames[copy.tag];
-	[_unchosenElementsImagesNames removeObjectAtIndex:copy.tag];
-	[_chosenElementsImagesNames setObject:selectedImage forKey:@(copy.hash)];
-	[_chosenElementsViews addObject:copy];
-	[self.toolboxCollectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:copy.tag inSection:0]]];
-	
-	// Luiz: Gambibambi pois UICollectionView não atualiza as células.
-	self.toolboxCollectionView.userInteractionEnabled = NO;
-	[self.toolboxCollectionView performSelector:@selector(reloadData) withObject:nil afterDelay:.4];
-}
-
 - (void)dragOperationWillCancel:(DNDDragOperation *)operation
 {
-    [operation removeDraggingViewAnimatedWithDuration:0.2 animations:^(UIView *dv) {
+    [operation removeDraggingViewAnimatedWithDuration:FTINDefaultAnimationDuration animations:^(UIView *dv) {
 		CGPoint location = operation.dragSourceView.center;
 		location.y += operation.dragSourceView.frame.size.height / 2.f;
 		
         dv.alpha = 0.0f;
         dv.center = location;
+		
+		operation.dragSourceView.layer.opacity = 1.f;
     }];
+}
+
+#pragma mark - Drag Target Delegate
+
+- (void)dragOperation:(DNDDragOperation *)operation didDropInDropTarget:(UIView *)target
+{
+	[target removeBorder];
+	
+	if(target == self.toolboxCollectionView)
+	{
+		if(target != operation.dragSourceView.superview)
+		{
+			[self removeSelectedElement:operation.dragSourceView.gestureRecognizers[0]];
+			
+			// Luiz: Gambimilambi para não vazar memória.
+			[_dragDropController performSelector:@selector(unregisterDragSource:) withObject:operation.dragSourceView afterDelay:.4];
+		}
+	}
+	else
+	{
+		UIView *finalView;
+		
+		if(operation.dragSourceView.superview != target)
+		{
+			finalView = [self copyCell:(id)operation.draggingView];
+			[finalView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelectedElement:)]];
+			
+			[target addSubview:finalView];
+			[_dragDropController registerDragSource:finalView withDelegate:self];
+						
+			NSString *selectedImage = _unchosenElementsImagesNames[finalView.tag];
+			[_unchosenElementsImagesNames removeObjectAtIndex:finalView.tag];
+			[_chosenElementsImagesNames setObject:selectedImage forKey:@(finalView.hash)];
+			[_chosenElementsViews addObject:finalView];
+			[self.toolboxCollectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:finalView.tag inSection:0]]];
+			
+			// Luiz: Gambibambi pois UICollectionView não atualiza as células.
+			self.toolboxCollectionView.userInteractionEnabled = NO;
+			[self.toolboxCollectionView performSelector:@selector(reloadData) withObject:nil afterDelay:.4];
+		}
+		else
+		{
+			finalView = operation.dragSourceView;
+			operation.dragSourceView.layer.opacity = 1.f;
+		}
+		
+		CGRect copyFrame = operation.draggingView.frame;
+		copyFrame.origin = [operation locationInView:target];
+		copyFrame.origin.x -= copyFrame.size.width / 2.f;
+		copyFrame.origin.y -= copyFrame.size.height / 2.f;
+		finalView.frame = copyFrame;
+		[finalView setLocationInsideSuperview:YES];
+	}
 }
 
 - (void)dragOperation:(DNDDragOperation *)operation didEnterDropTarget:(UIView *)target
 {
-	[target setBorder:FTINDraggableItemBoxSelectionBorderColor withWidth:FTINDraggableItemBoxSelectionBorderWidth];
+	if(operation.dragSourceView.superview != target)
+	{
+		[target setBorder:FTINDraggableItemBoxSelectionBorderColor withWidth:FTINDraggableItemBoxSelectionBorderWidth];
+	}
 }
 
 - (void)dragOperation:(DNDDragOperation *)operation didLeaveDropTarget:(UIView *)target
