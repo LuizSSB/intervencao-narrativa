@@ -15,5 +15,7 @@ typedef enum : NSUInteger {
 	ftin_InvalidSubActivityErrorCode = 2,
 	ftin_InvalidActivityErrorCode = 3,
 	ftin_InvalidDataErrorCode = 4,
-	ftin_WrongArrangementOrder = 5
+	ftin_WrongArrangementOrderErrorCode = 5,
+	ftin_EnvironmentLackingErrorCode = 6,
+	ftin_EnvironmentOverflowErrorCode = 7,
 } FTINErrorCodes;

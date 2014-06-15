@@ -1,0 +1,14 @@
+{
+	"title":"Casa",
+	"correctElements":[
+		"bed.jpg",
+		"lamp.jpg",
+		"endtable.jpg",
+		"desk.jpg",
+		"wardrobe.jpg"
+	],
+	"incorrectElements":[
+		"bola.jpg"
+	],
+	"background":"homebackground.jpg"
+}

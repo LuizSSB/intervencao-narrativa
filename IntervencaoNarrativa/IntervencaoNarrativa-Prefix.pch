@@ -33,6 +33,7 @@
 #import "UIViewController+Visibility.h"
 #import "UIDevice+SystemVersion.h"
 #import "UIApplication+TopMostViewController.h"
+#import "UIView+PutOnScreen.h"
 
 // Foundation Categories
 #import "NSNumber+TimeDescription.h"

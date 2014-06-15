@@ -65,8 +65,7 @@
 	return @[
 			 self.describedItensBarButton,
 			 fixedSpace,
-			 self.descriptiveSkillBarButton,
-			 [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]
+			 self.descriptiveSkillBarButton
 			 ];
 }
 

@@ -2,7 +2,7 @@
 //  ArrangementSubActivity.m
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/06/12.
+//  Created by Luiz Soares dos Santos Baglie on 2014/06/14.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
@@ -11,9 +11,9 @@
 
 @implementation ArrangementSubActivity
 
-@dynamic arrangementSkillNumber;
-@dynamic narrativeSkillNumber;
-@dynamic itemsArrangement;
 @dynamic arrangedCorrectly;
+@dynamic arrangementSkillNumber;
+@dynamic itemsArrangement;
+@dynamic narrativeSkillNumber;
 
 @end

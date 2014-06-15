@@ -16,13 +16,10 @@
 
 #pragma mark - Super methods
 
-- (instancetype)initWithChoices:(NSArray *)choices
+- (void)setup
 {
-    self = [super initWithChoices:choices];
-    if (self) {
-        _selectedChoiceIndex = -1;
-    }
-    return self;
+	[super setup];
+	_selectedChoiceIndex = -1;
 }
 
 - (void)chooseItemAtIndex:(NSInteger)index
@@ -58,7 +55,7 @@
 	}
 }
 
-- (void)setDelegate:(id<FTINChoiceTableViewControllerDelegate>)delegate
+- (void)setDelegate:(id<FTINChoiceViewControllerDelegate>)delegate
 {
 	[super setDelegate:delegate];
 	
@@ -69,6 +66,8 @@
 }
 
 #pragma mark - Instance methods
+
+@synthesize selectedChoiceIndex = _selectedChoiceIndex;
 
 - (void)setSelectedChoiceIndex:(NSInteger)selectedChoiceIndex
 {

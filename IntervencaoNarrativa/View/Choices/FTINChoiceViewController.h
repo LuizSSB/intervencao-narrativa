@@ -12,22 +12,23 @@ extern CGSize const FTINChoicePopoverMaximumSize;
 
 @class FTINChoiceViewController, FTINChoice;
 
-@protocol FTINChoiceTableViewControllerDelegate <NSObject>
+@protocol FTINChoiceViewControllerDelegate <NSObject>
 
 @optional
 
-- (void)choiceTableViewController:(FTINChoiceViewController *)choiceViewController choseItemAtIndex:(NSInteger)itemIndex withMetadata:(FTINChoice *)metadata;
+- (void)choiceViewController:(FTINChoiceViewController *)choiceViewController choseItemAtIndex:(NSInteger)itemIndex withMetadata:(FTINChoice *)metadata;
 
-- (void)choiceTableViewController:(FTINChoiceViewController *)choiceViewController rejectedItemAtIndex:(NSInteger)itemIndex withMetadata:(FTINChoice *)metadata;
+- (void)choiceViewController:(FTINChoiceViewController *)choiceViewController rejectedItemAtIndex:(NSInteger)itemIndex withMetadata:(FTINChoice *)metadata;
 
 @end
 
 @interface FTINChoiceViewController : UITableViewController
 
 @property (nonatomic) NSArray *choices;
-@property (nonatomic, weak) id<FTINChoiceTableViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<FTINChoiceViewControllerDelegate> delegate;
 
 - (id)initWithChoices:(NSArray *)choices;
+- (void)setup;
 
 - (NSSet *)selectedChoicesIndexes;
 - (NSDictionary *)getSelectedChoices;

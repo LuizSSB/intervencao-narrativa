@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FTINCollectionViewCell : UICollectionViewCell
+@interface FTINCollectionViewCell : UICollectionViewCell <NSCopying>
 
 @property (nonatomic) IBOutlet UIImageView *backgroundImageView;
 

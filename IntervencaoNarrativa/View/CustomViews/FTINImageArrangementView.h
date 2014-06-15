@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LXReorderableCollectionViewFlowLayout.h"
 
-@interface FTINImageArrangementView : UICollectionView <UICollectionViewDelegate, LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout>
+@interface FTINImageArrangementView : UICollectionView
 
 @property (nonatomic) NSArray *items;
 

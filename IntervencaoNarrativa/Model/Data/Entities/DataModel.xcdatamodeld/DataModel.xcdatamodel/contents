@@ -7,9 +7,9 @@
         <relationship name="subActivities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubActivity" inverseName="parentActivity" inverseEntity="SubActivity" syncable="YES"/>
     </entity>
     <entity name="ArrangementSubActivity" representedClassName="ArrangementSubActivity" parentEntity="SubActivity" syncable="YES">
-        <attribute name="arrangedCorrectly" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="arrangedCorrectly" attributeType="Boolean" syncable="YES"/>
         <attribute name="arrangementSkillNumber" attributeType="Integer 16" syncable="YES"/>
-        <attribute name="itemsArrangement" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="itemsArrangement" attributeType="Transformable" syncable="YES"/>
         <attribute name="narrativeSkillNumber" attributeType="Integer 16" syncable="YES"/>
     </entity>
     <entity name="BaseEntity" representedClassName="BaseEntity" isAbstract="YES" syncable="YES">
@@ -18,6 +18,11 @@
     <entity name="DescriptionSubActivity" representedClassName="DescriptionSubActivity" parentEntity="SubActivity" syncable="YES">
         <attribute name="describedElements" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="descriptiveSkillNumber" attributeType="Integer 16" syncable="YES"/>
+    </entity>
+    <entity name="EnvironmentSubActivity" representedClassName="EnvironmentSubActivity" parentEntity="SubActivity" syncable="YES">
+        <attribute name="narrationCoherenceNumber" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="organizationCoherenceNumber" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="selectedItems" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="Patient" representedClassName="Patient" parentEntity="BaseEntity" syncable="YES">
         <attribute name="birthdate" attributeType="Date" syncable="YES"/>
@@ -31,11 +36,12 @@
         <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivities" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="-54" positionY="27" width="128" height="103"/>
-        <element name="ArrangementSubActivity" positionX="-36" positionY="45" width="128" height="105"/>
-        <element name="BaseEntity" positionX="-36" positionY="27" width="128" height="58"/>
-        <element name="DescriptionSubActivity" positionX="0" positionY="63" width="128" height="73"/>
-        <element name="Patient" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="SubActivity" positionX="-18" positionY="45" width="128" height="73"/>
+        <element name="Activity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="ArrangementSubActivity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="BaseEntity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="DescriptionSubActivity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Patient" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="SubActivity" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

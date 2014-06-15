@@ -57,6 +57,10 @@
 		case FTINActivityTypeArrangement:
 			typeName = @"Arrangement";
 			break;
+			
+		case FTINActivityTypeEnvironment:
+			typeName = @"Environment";
+			break;
 	}
 	
 	if (!namespace)

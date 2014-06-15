@@ -55,6 +55,17 @@
 	self.backgroundView = self.backgroundImageView;
 }
 
+#pragma mark - Copying
+
+- (id)copyWithZone:(NSZone *)zone
+{
+	FTINCollectionViewCell *copy = [[FTINCollectionViewCell allocWithZone:zone] initWithFrame:self.frame];
+	copy.backgroundImageView.image = self.backgroundImageView.image;
+	copy.tag = self.tag;
+	
+	return copy;
+}
+
 #pragma mark - Instance methods
 
 - (UIImageView *)backgroundImageView

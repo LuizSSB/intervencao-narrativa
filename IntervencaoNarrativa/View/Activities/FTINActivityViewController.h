@@ -34,5 +34,6 @@
 - (BOOL)prepareToGoToNextActivity;
 
 - (NSArray *)getActionBarButtons;
+- (NSArray *)getNavigationItemRightBarButtons;
 
 @end

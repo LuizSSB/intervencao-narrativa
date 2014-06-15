@@ -11,6 +11,6 @@
 
 @interface FTINArrangementSubActivityContent : FTINSubActivityContent
 
-@property (nonatomic) NSArray<NSString> *elementsImages;
+@property (nonatomic) NSArray<NSString> *elements;
 
 @end
