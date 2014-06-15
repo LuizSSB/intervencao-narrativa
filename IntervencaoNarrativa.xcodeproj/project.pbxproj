@@ -55,6 +55,11 @@
 		25603352194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603351194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m */; };
 		25603356194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603354194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m */; };
 		25603357194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */; };
+		2560335A194DCB8A00AE9C26 /* FTINQuestionCardsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603359194DCB8A00AE9C26 /* FTINQuestionCardsView.m */; };
+		2560335C194DCEA400AE9C26 /* cardback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2560335B194DCEA400AE9C26 /* cardback.jpg */; };
+		25603360194DD6C700AE9C26 /* FTINQuestionCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2560335E194DD6C700AE9C26 /* FTINQuestionCardViewController.m */; };
+		25603361194DD6C700AE9C26 /* FTINQuestionCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2560335F194DD6C700AE9C26 /* FTINQuestionCardViewController.xib */; };
+		25603364194DF8DB00AE9C26 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25603363194DF8DB00AE9C26 /* help@2x.png */; };
 		256357BF19413A6200E5762A /* Patient+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357BE19413A6200E5762A /* Patient+Complete.m */; };
 		256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357C319413CAE00E5762A /* FTINActivityViewController.m */; };
 		256357EA19413CAE00E5762A /* FTINChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357C619413CAE00E5762A /* FTINChoice.m */; };
@@ -304,6 +309,13 @@
 		25603353194DC42D00AE9C26 /* FTINWhyGameActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINWhyGameActivityViewController.h; sourceTree = "<group>"; };
 		25603354194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINWhyGameActivityViewController.m; sourceTree = "<group>"; };
 		25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINWhyGameActivityViewController.xib; sourceTree = "<group>"; };
+		25603358194DCB8A00AE9C26 /* FTINQuestionCardsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINQuestionCardsView.h; sourceTree = "<group>"; };
+		25603359194DCB8A00AE9C26 /* FTINQuestionCardsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINQuestionCardsView.m; sourceTree = "<group>"; };
+		2560335B194DCEA400AE9C26 /* cardback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cardback.jpg; sourceTree = "<group>"; };
+		2560335D194DD6C700AE9C26 /* FTINQuestionCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINQuestionCardViewController.h; sourceTree = "<group>"; };
+		2560335E194DD6C700AE9C26 /* FTINQuestionCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINQuestionCardViewController.m; sourceTree = "<group>"; };
+		2560335F194DD6C700AE9C26 /* FTINQuestionCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINQuestionCardViewController.xib; sourceTree = "<group>"; };
+		25603363194DF8DB00AE9C26 /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
 		256357BD19413A6200E5762A /* Patient+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Patient+Complete.h"; sourceTree = "<group>"; };
 		256357BE19413A6200E5762A /* Patient+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Patient+Complete.m"; sourceTree = "<group>"; };
 		256357C219413CAE00E5762A /* FTINActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityViewController.h; sourceTree = "<group>"; };
@@ -596,6 +608,8 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				25603363194DF8DB00AE9C26 /* help@2x.png */,
+				2560335B194DCEA400AE9C26 /* cardback.jpg */,
 				255F799F194295E000C94AB3 /* Activites */,
 			);
 			path = Images;
@@ -630,6 +644,18 @@
 				25603342194DBBE300AE9C26 /* whygame.json */,
 			);
 			path = WhyGame;
+			sourceTree = "<group>";
+		};
+		25603362194DF51E00AE9C26 /* QuestionCards */ = {
+			isa = PBXGroup;
+			children = (
+				25603358194DCB8A00AE9C26 /* FTINQuestionCardsView.h */,
+				25603359194DCB8A00AE9C26 /* FTINQuestionCardsView.m */,
+				2560335D194DD6C700AE9C26 /* FTINQuestionCardViewController.h */,
+				2560335E194DD6C700AE9C26 /* FTINQuestionCardViewController.m */,
+				2560335F194DD6C700AE9C26 /* FTINQuestionCardViewController.xib */,
+			);
+			name = QuestionCards;
 			sourceTree = "<group>";
 		};
 		256357C019413CAE00E5762A /* View */ = {
@@ -702,6 +728,7 @@
 		256357CD19413CAE00E5762A /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				25603362194DF51E00AE9C26 /* QuestionCards */,
 				256357CE19413CAE00E5762A /* FTINDatePickerPopoverController.h */,
 				256357CF19413CAE00E5762A /* FTINDatePickerPopoverController.m */,
 				256357D019413CAE00E5762A /* FTINDatePickerTextField.h */,
@@ -1178,6 +1205,7 @@
 				25A37C83194CD43400DFC749 /* bola.jpg in Resources */,
 				25FF3305194A51EC0080DC6F /* fish.jpg in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
+				2560335C194DCEA400AE9C26 /* cardback.jpg in Resources */,
 				25FF330A194A51EC0080DC6F /* fish6.jpg in Resources */,
 				25FF3308194A51EC0080DC6F /* fish4.jpg in Resources */,
 				25A37C9E194D371700DFC749 /* elephant.jpg in Resources */,
@@ -1203,6 +1231,7 @@
 				256BF1D81947E61200FD8BB3 /* apple_0.jpg in Resources */,
 				25FF32F6194A51EC0080DC6F /* ball2.jpg in Resources */,
 				25FF32FD194A51EC0080DC6F /* drawing.jpg in Resources */,
+				25603361194DD6C700AE9C26 /* FTINQuestionCardViewController.xib in Resources */,
 				25FF3307194A51EC0080DC6F /* fish3.jpg in Resources */,
 				25FF3304194A51EC0080DC6F /* eggs5.jpg in Resources */,
 				25FF332A194A51EC0080DC6F /* toothfairy4.jpg in Resources */,
@@ -1251,6 +1280,7 @@
 				251F9CA31943F3AE00A65131 /* mcdonalds.json in Resources */,
 				25FF3326194A51EC0080DC6F /* school7.jpg in Resources */,
 				251F9C961943F2A600A65131 /* backyard.jpg in Resources */,
+				25603364194DF8DB00AE9C26 /* help@2x.png in Resources */,
 				2563580119413D0E00E5762A /* FTINDescriptionActivityViewController.xib in Resources */,
 				25FF3324194A51EC0080DC6F /* school5.jpg in Resources */,
 				25FF3302194A51EC0080DC6F /* eggs3.jpg in Resources */,
@@ -1338,6 +1368,7 @@
 				25644CE21936B071006C4E06 /* main.m in Sources */,
 				252D10DA19493056006D2F3E /* FTINImageArrangementView.m in Sources */,
 				2537BB70193B730500D10878 /* UIViewController+Visibility.m in Sources */,
+				2560335A194DCB8A00AE9C26 /* FTINQuestionCardsView.m in Sources */,
 				254940BD19468D0100E5DACB /* SubActivity.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
@@ -1347,6 +1378,7 @@
 				252D10E01949359C006D2F3E /* FTINCollectionViewCell.m in Sources */,
 				252985FA19433B9700826834 /* FTINActivityNavigationController.m in Sources */,
 				2537BB6D193B730500D10878 /* UITableView+ScrollToBottom.m in Sources */,
+				25603360194DD6C700AE9C26 /* FTINQuestionCardViewController.m in Sources */,
 				256357EB19413CAE00E5762A /* FTINChoiceViewController.m in Sources */,
 				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,

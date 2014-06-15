@@ -8,16 +8,15 @@
 
 #import "FTINWhyGameActivityViewController.h"
 #import "FTINAnswerSkillChoiceViewController.h"
+#import "FTINQuestionCardsView.h"
 
 #import "FTINSubActivityDetails.h"
 #import "FTINWhyGameSubActivityContent.h"
 #import "WhyGameSubActivity+Complete.h"
 
 @interface FTINWhyGameActivityViewController ()
-{
-	FTINWhyGameSubActivityContent *_content;
-}
 
+@property (weak, nonatomic) IBOutlet FTINQuestionCardsView *questionCardsView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *answerSkillBarButton;
 - (IBAction)showAnswerSkill:(id)sender;
 
@@ -31,7 +30,6 @@
 
 - (void)dealloc
 {
-	_content = nil;
 	self.answerSkillBarButton = nil;
 	_answerViewController = nil;
 }
@@ -39,15 +37,16 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	
+	self.questionCardsView.questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
+	self.questionCardsView.center = self.view.center;
+	
 }
 
-- (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
-    self = [super initWithSubActivity:subactivity andDelegate:delegate];
-    if (self) {
-        _content = (id) subactivity.content;
-    }
-    return self;
+	[super setEditing:editing animated:YES];
+	self.questionCardsView.showsAnswers = editing;
 }
 
 - (NSArray *)getActionBarButtons

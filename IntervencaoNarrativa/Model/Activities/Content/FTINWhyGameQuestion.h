@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
 @protocol FTINWhyGameQuestion;
-@interface FTINWhyGameQuestion : NSObject
+@interface FTINWhyGameQuestion : JSONModel
 
 @property (nonatomic) NSString *question;
 @property (nonatomic) NSString *answer;

@@ -62,6 +62,8 @@
 "answer_little_structured" = "Resposta pouco estruturada";
 "answer_little_coherent" = "Resposta pouco coerente";
 "answer_none" = "Não respondeu";
+"show_answer" = "Ver resposta";
+"hide_answer" = "Ocultar resposta";
 
 /* Errors */
 "error_ftin_1" = "Dados inválidos. Preencha todos as informações.";
