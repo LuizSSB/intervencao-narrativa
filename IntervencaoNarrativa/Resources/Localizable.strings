@@ -57,6 +57,12 @@
 "arranged_help" = "Ordenou com ajuda";
 "arranged_no_help" = "Ordenou sem ajuda";
 
+/* Answer */
+"answer_well_structured_coherent" = "Resposta bem estruturada e coerente";
+"answer_little_structured" = "Resposta pouco estruturada";
+"answer_little_coherent" = "Resposta pouco coerente";
+"answer_none" = "Não respondeu";
+
 /* Errors */
 "error_ftin_1" = "Dados inválidos. Preencha todos as informações.";
 "error_ftin_2" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityFlowController.";

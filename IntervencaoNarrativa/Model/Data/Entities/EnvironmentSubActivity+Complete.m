@@ -30,7 +30,6 @@
 	self.narrationCoherenceNumber = @(narrationCoherence);
 }
 
-
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
 	do

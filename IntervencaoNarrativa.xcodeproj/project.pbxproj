@@ -47,6 +47,14 @@
 		254940C619468D0100E5DACB /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940C519468D0100E5DACB /* BaseEntity.m */; };
 		255F79971942877200C94AB3 /* FTINActivityFlowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255F79961942877200C94AB3 /* FTINActivityFlowController.m */; };
 		255F79A21942963700C94AB3 /* playground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 255F79A11942963700C94AB3 /* playground.jpg */; };
+		25603343194DBBE300AE9C26 /* whygame.json in Resources */ = {isa = PBXBuildFile; fileRef = 25603342194DBBE300AE9C26 /* whygame.json */; };
+		25603346194DC1B100AE9C26 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603345194DC1B100AE9C26 /* WhyGameSubActivity.m */; };
+		25603349194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603348194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m */; };
+		2560334C194DC22900AE9C26 /* FTINWhyGameQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2560334B194DC22900AE9C26 /* FTINWhyGameQuestion.m */; };
+		2560334F194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2560334E194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m */; };
+		25603352194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603351194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m */; };
+		25603356194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603354194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m */; };
+		25603357194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */; };
 		256357BF19413A6200E5762A /* Patient+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357BE19413A6200E5762A /* Patient+Complete.m */; };
 		256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357C319413CAE00E5762A /* FTINActivityViewController.m */; };
 		256357EA19413CAE00E5762A /* FTINChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 256357C619413CAE00E5762A /* FTINChoice.m */; };
@@ -282,6 +290,20 @@
 		255F79951942877200C94AB3 /* FTINActivityFlowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityFlowController.h; sourceTree = "<group>"; };
 		255F79961942877200C94AB3 /* FTINActivityFlowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityFlowController.m; sourceTree = "<group>"; };
 		255F79A11942963700C94AB3 /* playground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = playground.jpg; sourceTree = "<group>"; };
+		25603342194DBBE300AE9C26 /* whygame.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = whygame.json; sourceTree = "<group>"; };
+		25603344194DC1B100AE9C26 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
+		25603345194DC1B100AE9C26 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
+		25603347194DC1C200AE9C26 /* WhyGameSubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhyGameSubActivity+Complete.h"; sourceTree = "<group>"; };
+		25603348194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WhyGameSubActivity+Complete.m"; sourceTree = "<group>"; };
+		2560334A194DC22900AE9C26 /* FTINWhyGameQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINWhyGameQuestion.h; sourceTree = "<group>"; };
+		2560334B194DC22900AE9C26 /* FTINWhyGameQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINWhyGameQuestion.m; sourceTree = "<group>"; };
+		2560334D194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINWhyGameSubActivityContent.h; sourceTree = "<group>"; };
+		2560334E194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINWhyGameSubActivityContent.m; sourceTree = "<group>"; };
+		25603350194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINAnswerSkillChoiceViewController.h; sourceTree = "<group>"; };
+		25603351194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINAnswerSkillChoiceViewController.m; sourceTree = "<group>"; };
+		25603353194DC42D00AE9C26 /* FTINWhyGameActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINWhyGameActivityViewController.h; sourceTree = "<group>"; };
+		25603354194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINWhyGameActivityViewController.m; sourceTree = "<group>"; };
+		25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINWhyGameActivityViewController.xib; sourceTree = "<group>"; };
 		256357BD19413A6200E5762A /* Patient+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Patient+Complete.h"; sourceTree = "<group>"; };
 		256357BE19413A6200E5762A /* Patient+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Patient+Complete.m"; sourceTree = "<group>"; };
 		256357C219413CAE00E5762A /* FTINActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityViewController.h; sourceTree = "<group>"; };
@@ -602,6 +624,14 @@
 			path = Description;
 			sourceTree = "<group>";
 		};
+		25603341194DBBD500AE9C26 /* WhyGame */ = {
+			isa = PBXGroup;
+			children = (
+				25603342194DBBE300AE9C26 /* whygame.json */,
+			);
+			path = WhyGame;
+			sourceTree = "<group>";
+		};
 		256357C019413CAE00E5762A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -639,6 +669,9 @@
 				25A37C6E194C9CC700DFC749 /* FTINEnvironmentActivityViewController.h */,
 				25A37C6F194C9CC700DFC749 /* FTINEnvironmentActivityViewController.m */,
 				25A37C70194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib */,
+				25603353194DC42D00AE9C26 /* FTINWhyGameActivityViewController.h */,
+				25603354194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m */,
+				25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -660,6 +693,8 @@
 				256BF1C41947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.m */,
 				25A37C6B194C99FD00DFC749 /* FTINCoherenceChoiceViewController.h */,
 				25A37C6C194C99FD00DFC749 /* FTINCoherenceChoiceViewController.m */,
+				25603350194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.h */,
+				25603351194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m */,
 			);
 			path = Choices;
 			sourceTree = "<group>";
@@ -725,6 +760,7 @@
 		2563580C1941473000E5762A /* SubActivities */ = {
 			isa = PBXGroup;
 			children = (
+				25603341194DBBD500AE9C26 /* WhyGame */,
 				25A37C73194CAF2300DFC749 /* Environment */,
 				256BF1D21947E48100FD8BB3 /* Arrangement */,
 				2563580D1941473000E5762A /* Description */,
@@ -899,6 +935,10 @@
 				25CDAE9419435360003E1314 /* SubActivity+Complete.m */,
 				254940BB19468D0100E5DACB /* SubActivity.h */,
 				254940BC19468D0100E5DACB /* SubActivity.m */,
+				25603347194DC1C200AE9C26 /* WhyGameSubActivity+Complete.h */,
+				25603348194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m */,
+				25603344194DC1B100AE9C26 /* WhyGameSubActivity.h */,
+				25603345194DC1B100AE9C26 /* WhyGameSubActivity.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1042,6 +1082,10 @@
 				256BF1B91947CA0000FD8BB3 /* FTINArrangementSubActivityContent.m */,
 				25A37C5F194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.h */,
 				25A37C60194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m */,
+				2560334A194DC22900AE9C26 /* FTINWhyGameQuestion.h */,
+				2560334B194DC22900AE9C26 /* FTINWhyGameQuestion.m */,
+				2560334D194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.h */,
+				2560334E194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -1171,6 +1215,7 @@
 				25FF3330194A52300080DC6F /* school.json in Resources */,
 				25644CE01936B071006C4E06 /* InfoPlist.strings in Resources */,
 				251F9C971943F2A600A65131 /* doll.jpg in Resources */,
+				25603357194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib in Resources */,
 				25FF331A194A51EC0080DC6F /* lemonade.jpg in Resources */,
 				25FF3315194A51EC0080DC6F /* glass3.jpg in Resources */,
 				25FF3300194A51EC0080DC6F /* eggs.jpg in Resources */,
@@ -1230,6 +1275,7 @@
 				25644CE91936B071006C4E06 /* Main.storyboard in Resources */,
 				25FF32F9194A51EC0080DC6F /* cage2.jpg in Resources */,
 				25A37C75194CAF2F00DFC749 /* home1.json in Resources */,
+				25603343194DBBE300AE9C26 /* whygame.json in Resources */,
 				25FF3328194A51EC0080DC6F /* toothfairy2.jpg in Resources */,
 				25FF3336194A52580080DC6F /* glass.json in Resources */,
 				25FF3332194A523B0080DC6F /* lemonade.json in Resources */,
@@ -1295,6 +1341,7 @@
 				254940BD19468D0100E5DACB /* SubActivity.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
+				25603356194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m in Sources */,
 				25A37C8C194CF85200DFC749 /* UIView+PutOnScreen.m in Sources */,
 				2537BB63193B730500D10878 /* NSFileManager+Utils.m in Sources */,
 				252D10E01949359C006D2F3E /* FTINCollectionViewCell.m in Sources */,
@@ -1319,10 +1366,12 @@
 				256357ED19413CAE00E5762A /* FTINSingleChoiceViewController.m in Sources */,
 				25A37C64194C982E00DFC749 /* ArrangementSubActivity.m in Sources */,
 				2537BB60193B730500D10878 /* NSDate+FormattedDate.m in Sources */,
+				2560334F194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m in Sources */,
 				256357EA19413CAE00E5762A /* FTINChoice.m in Sources */,
 				25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */,
 				256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */,
 				256357EE19413CAE00E5762A /* FTINDatePickerPopoverController.m in Sources */,
+				25603349194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m in Sources */,
 				256357EC19413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.m in Sources */,
 				256357F219413CAE00E5762A /* FTINPatientTransitionsObserver.m in Sources */,
 				25CDAEB6194389D7003E1314 /* FTINActitivitiesFactory.m in Sources */,
@@ -1353,8 +1402,10 @@
 				256357BF19413A6200E5762A /* Patient+Complete.m in Sources */,
 				25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */,
 				25A37C67194C982F00DFC749 /* EnvironmentSubActivity.m in Sources */,
+				25603352194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m in Sources */,
 				2537BB6B193B730500D10878 /* UIDevice+SystemVersion.m in Sources */,
 				256357F319413CAE00E5762A /* FTINStartViewController.m in Sources */,
+				2560334C194DC22900AE9C26 /* FTINWhyGameQuestion.m in Sources */,
 				25ED11F019450D0A007514AD /* FTINActivityController.m in Sources */,
 				25A37C71194C9CC700DFC749 /* FTINEnvironmentActivityViewController.m in Sources */,
 				256357EF19413CAE00E5762A /* FTINDatePickerTextField.m in Sources */,
@@ -1362,6 +1413,7 @@
 				252986061943411600826834 /* DescriptionSubActivity+Complete.m in Sources */,
 				256357F019413CAE00E5762A /* ToastController.m in Sources */,
 				25682A0B194A387C005F017F /* NSArray+Shuffling.m in Sources */,
+				25603346194DC1B100AE9C26 /* WhyGameSubActivity.m in Sources */,
 				25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */,
 				2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */,
 			);
