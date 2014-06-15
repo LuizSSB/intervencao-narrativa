@@ -1,0 +1,16 @@
+{
+	"title":"Casa 2 A Missão",
+	"correctElements":[
+					   "bed.jpg",
+					   "lamp.jpg",
+					   "toycar.jpg",
+					   "endtable.jpg",
+					   "wardrobe.jpg"
+					   ],
+	"incorrectElements":[
+						 "elephant.jpg",
+						 "pan.jpg",
+						 "tree.jpg",
+						 ],
+	"background":"homebackground.jpg"
+}

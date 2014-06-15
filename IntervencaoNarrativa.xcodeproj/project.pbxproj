@@ -121,6 +121,11 @@
 		25A37C87194CD43400DFC749 /* wardrobe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C81194CD43400DFC749 /* wardrobe.jpg */; };
 		25A37C89194CD53D00DFC749 /* homebackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C88194CD53D00DFC749 /* homebackground.jpg */; };
 		25A37C8C194CF85200DFC749 /* UIView+PutOnScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */; };
+		25A37C9E194D371700DFC749 /* elephant.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C9A194D371700DFC749 /* elephant.jpg */; };
+		25A37C9F194D371700DFC749 /* pan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C9B194D371700DFC749 /* pan.jpg */; };
+		25A37CA0194D371700DFC749 /* toycar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C9C194D371700DFC749 /* toycar.jpg */; };
+		25A37CA1194D371700DFC749 /* tree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C9D194D371700DFC749 /* tree.jpg */; };
+		25A37CA3194D372E00DFC749 /* home2.json in Resources */ = {isa = PBXBuildFile; fileRef = 25A37CA2194D372E00DFC749 /* home2.json */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
 		25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */; };
 		25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */; };
@@ -396,6 +401,11 @@
 		25A37C88194CD53D00DFC749 /* homebackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homebackground.jpg; sourceTree = "<group>"; };
 		25A37C8A194CF85200DFC749 /* UIView+PutOnScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PutOnScreen.h"; sourceTree = "<group>"; };
 		25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PutOnScreen.m"; sourceTree = "<group>"; };
+		25A37C9A194D371700DFC749 /* elephant.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = elephant.jpg; sourceTree = "<group>"; };
+		25A37C9B194D371700DFC749 /* pan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pan.jpg; sourceTree = "<group>"; };
+		25A37C9C194D371700DFC749 /* toycar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = toycar.jpg; sourceTree = "<group>"; };
+		25A37C9D194D371700DFC749 /* tree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tree.jpg; sourceTree = "<group>"; };
+		25A37CA2194D372E00DFC749 /* home2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = home2.json; sourceTree = "<group>"; };
 		25CDAE9319435360003E1314 /* SubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SubActivity+Complete.h"; sourceTree = "<group>"; };
 		25CDAE9419435360003E1314 /* SubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SubActivity+Complete.m"; sourceTree = "<group>"; };
 		25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionSubActivityContent.h; sourceTree = "<group>"; };
@@ -983,6 +993,7 @@
 			isa = PBXGroup;
 			children = (
 				25A37C74194CAF2F00DFC749 /* home1.json */,
+				25A37CA2194D372E00DFC749 /* home2.json */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -990,6 +1001,10 @@
 		25A37C7B194CD43400DFC749 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				25A37C9A194D371700DFC749 /* elephant.jpg */,
+				25A37C9B194D371700DFC749 /* pan.jpg */,
+				25A37C9C194D371700DFC749 /* toycar.jpg */,
+				25A37C9D194D371700DFC749 /* tree.jpg */,
 				25A37C88194CD53D00DFC749 /* homebackground.jpg */,
 				25A37C7C194CD43400DFC749 /* bed.jpg */,
 				25A37C7D194CD43400DFC749 /* bola.jpg */,
@@ -1121,10 +1136,12 @@
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
 				25FF330A194A51EC0080DC6F /* fish6.jpg in Resources */,
 				25FF3308194A51EC0080DC6F /* fish4.jpg in Resources */,
+				25A37C9E194D371700DFC749 /* elephant.jpg in Resources */,
 				25FF332B194A51EC0080DC6F /* toothfairy5.jpg in Resources */,
 				25FF32F7194A51EC0080DC6F /* ball3.jpg in Resources */,
 				25FF3312194A51EC0080DC6F /* gift2.jpg in Resources */,
 				25FF333C194A528B0080DC6F /* fish.json in Resources */,
+				25A37C9F194D371700DFC749 /* pan.jpg in Resources */,
 				25FF3327194A51EC0080DC6F /* toothfairy.jpg in Resources */,
 				251F9CA11943F37D00A65131 /* pcgamer.json in Resources */,
 				25FF3303194A51EC0080DC6F /* eggs4.jpg in Resources */,
@@ -1173,6 +1190,7 @@
 				25FF3344194A52C20080DC6F /* cage.json in Resources */,
 				25FF331F194A51EC0080DC6F /* lipstick2.jpg in Resources */,
 				251F9C951943F2A600A65131 /* soccer.jpg in Resources */,
+				25A37CA3194D372E00DFC749 /* home2.json in Resources */,
 				255F79A21942963700C94AB3 /* playground.jpg in Resources */,
 				25A37C72194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib in Resources */,
 				256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */,
@@ -1180,6 +1198,7 @@
 				25A37C89194CD53D00DFC749 /* homebackground.jpg in Resources */,
 				25644D1A1936B3C7006C4E06 /* Localizable.strings in Resources */,
 				256358101941473000E5762A /* playground.json in Resources */,
+				25A37CA0194D371700DFC749 /* toycar.jpg in Resources */,
 				25FF3325194A51EC0080DC6F /* school6.jpg in Resources */,
 				25FF331B194A51EC0080DC6F /* lemonade2.jpg in Resources */,
 				25FF32FA194A51EC0080DC6F /* cage3.jpg in Resources */,
@@ -1201,6 +1220,7 @@
 				25FF331D194A51EC0080DC6F /* lemonade4.jpg in Resources */,
 				25FF3306194A51EC0080DC6F /* fish2.jpg in Resources */,
 				25FF333E194A52960080DC6F /* flower.json in Resources */,
+				25A37CA1194D371700DFC749 /* tree.jpg in Resources */,
 				25FF32F8194A51EC0080DC6F /* cage.jpg in Resources */,
 				256BF1D91947E61200FD8BB3 /* apple_1.jpg in Resources */,
 				251F9C991943F2A600A65131 /* pcgamer.jpg in Resources */,
