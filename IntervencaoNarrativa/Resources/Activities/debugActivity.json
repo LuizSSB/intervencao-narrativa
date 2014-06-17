@@ -2,8 +2,64 @@
 	"title":"Atividade",
 	"subActivities":[
 					 {
+					 "type":1,
+					 "contentFile":"apple.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"lipstick.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"gift.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"ball.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"drawing.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"hotwheels.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"glass.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"flower.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"lemonade.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"eggs.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"cage.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"toothfairy.json"
+					 },
+					 {
+					 "type":2,
+					 "contentFile":"home1.json"
+					 },
+					 {
+					 "type":2,
+					 "contentFile":"home2.json"
+					 },
+					 {
 					 "type":3,
 					 "contentFile":"whygame.json"
-					 },
+					 }
 					 ]
 }

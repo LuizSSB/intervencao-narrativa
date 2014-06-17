@@ -145,7 +145,11 @@ static NSString * const kLXCollectionViewKeyPath = @"collectionView";
 
 - (void)invalidateLayoutIfNecessary {
     NSIndexPath *newIndexPath = [self.collectionView indexPathForItemAtPoint:self.currentView.center];
-    NSIndexPath *previousIndexPath = self.selectedItemIndexPath;
+	
+	// HACK: it is necessary to recreate the indexPath because when furiously
+	// using the UICollectionView, previousIndexPath magically ends up nil in
+	// the block down there, what causes the app to crash.
+    NSIndexPath *previousIndexPath = [NSIndexPath indexPathForRow:self.selectedItemIndexPath.row inSection:self.selectedItemIndexPath.section];
     
     if ((newIndexPath == nil) || [newIndexPath isEqual:previousIndexPath]) {
         return;

@@ -27,7 +27,7 @@
     for (NSUInteger idx = 0; idx < count; ++idx)
 	{
         NSInteger remainingCount = count - idx;
-        NSInteger exchangeIndex = idx + arc4random_uniform(remainingCount);
+        NSInteger exchangeIndex = idx + arc4random_uniform((u_int32_t)remainingCount);
         [self exchangeObjectAtIndex:idx withObjectAtIndex:exchangeIndex];
     }
 }

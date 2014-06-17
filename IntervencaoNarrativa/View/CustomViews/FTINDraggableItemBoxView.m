@@ -173,6 +173,13 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 			// Luiz: Gambimilambi para não vazar memória.
 			[_dragDropController performSelector:@selector(unregisterDragSource:) withObject:operation.dragSourceView afterDelay:.4];
 		}
+		else
+		{
+			[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
+				operation.draggingView.layer.opacity = 0.f;
+				operation.dragSourceView.layer.opacity = 1.f;
+			}];
+		}
 	}
 	else
 	{

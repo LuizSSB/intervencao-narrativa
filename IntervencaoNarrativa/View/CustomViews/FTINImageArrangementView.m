@@ -11,6 +11,7 @@
 
 CGSize const FTINImageArrangementViewCellSize = {200.f, 250.f};
 CGFloat const FTINImageArrangementViewCellSpacing = 35.f;
+NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 
 @interface FTINImageArrangementView () <UICollectionViewDelegate, LXReorderableCollectionViewDataSource, LXReorderableCollectionViewDelegateFlowLayout>
 {
@@ -77,6 +78,18 @@ CGFloat const FTINImageArrangementViewCellSpacing = 35.f;
 		CGFloat space = (FTINImageArrangementViewCellSize.width + FTINImageArrangementViewCellSpacing);
 		fitSize.width -= space;
 	}
+	
+	if(!CGSizeEqualToSize(size, CGSizeMake(INFINITY, INFINITY))) {
+		CGFloat rows = floorf(fitSize.height / FTINImageArrangementViewCellSize.height);
+		CGFloat columns = floorf(fitSize.width / FTINImageArrangementViewCellSize.width);
+		
+		while (rows * columns > self.items.count + 1) {
+			CGFloat space = (FTINImageArrangementViewCellSize.width + FTINImageArrangementViewCellSpacing);
+			fitSize.width -= space;
+			--columns;
+		}
+	}
+	
 
 	return CGSizeMake(MIN(size.width, fitSize.width), MIN(size.height, fitSize.height));
 }
@@ -97,7 +110,7 @@ CGFloat const FTINImageArrangementViewCellSpacing = 35.f;
 	}
 	
 	LXReorderableCollectionViewFlowLayout *layout = (LXReorderableCollectionViewFlowLayout *)self.collectionViewLayout;
-	layout.longPressGestureRecognizer.minimumPressDuration = .01;
+	layout.longPressGestureRecognizer.minimumPressDuration = FTINImageArrangementViewMinimumPressDuration;
 	layout.minimumInteritemSpacing = FTINImageArrangementViewCellSpacing;
 	
 	[self sizeToFit];

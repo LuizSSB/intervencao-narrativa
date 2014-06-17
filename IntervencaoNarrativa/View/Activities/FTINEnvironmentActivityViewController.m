@@ -72,6 +72,9 @@
 
 - (BOOL)prepareToGoToNextActivity
 {
+	[self.narrationViewController dismissPopoverAnimated:YES];
+	[self.organizationViewController dismissPopoverAnimated:YES];
+	
 	EnvironmentSubActivity *data = (id) self.subActivity.data;
 	
 	if(self.organizationViewController.hasSelectedChoice)
