@@ -18,7 +18,7 @@
 		do
 		{
 			if(![data isKindOfClass:[ArrangementSubActivity class]]) {
-				*error = [NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode];
+				[NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode inReference:error];
 				break;
 			}
 			
@@ -26,7 +26,7 @@
 			
 			if(tr00Activity.itemsArrangement.count != self.elements.count)
 			{
-				*error = [NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode];
+				[NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode inReference:error];
 				break;
 			}
 			
@@ -34,7 +34,7 @@
 			for (NSString *image in tr00Activity.itemsArrangement) {
 				if(![image isEqualToString:_elements[idx++]])
 				{
-					*error = [NSError ftin_createErrorWithCode:ftin_WrongArrangementOrderErrorCode];
+					[NSError ftin_createErrorWithCode:ftin_WrongArrangementOrderErrorCode inReference:error];
 					tr00Activity.arrangedCorrectly = @NO;
 					break;
 				}

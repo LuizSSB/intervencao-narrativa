@@ -142,12 +142,26 @@
 }
 
 @synthesize nextButton = _nextButton;
+
 - (UIBarButtonItem *)nextButton
 {
 	if(!_nextButton)
 	{
+		if ([self.delegate respondsToSelector:@selector(activityViewControllerCustomizedNextBarButton:)])
+		{
+			_nextButton = [self.delegate activityViewControllerCustomizedNextBarButton:self];
+			
+			if(_nextButton)
+			{
+				_nextButton.target = self;
+				_nextButton.action = @selector(goToNextActivity:);
+				return _nextButton;
+			}
+		}
+		
 		_nextButton = [[UIBarButtonItem alloc] initWithTitle:@"next>".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(goToNextActivity:)];
 	}
+	
 	return _nextButton;
 }
 

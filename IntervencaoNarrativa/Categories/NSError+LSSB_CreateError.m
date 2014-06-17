@@ -17,10 +17,29 @@
 	return [self ftin_createErrorWithCode:code andCustomMessage:errorMessage];
 }
 
+
 +(NSError *)ftin_createErrorWithCode:(NSInteger)code andCustomMessage:(NSString *)customMsg
 {
 	NSError *error = [NSError errorWithDomain:ftin_ErrorDomain code:code userInfo:[NSMutableDictionary dictionaryWithObject:customMsg forKey:NSLocalizedDescriptionKey]];
 	return error;
+}
+
++ (BOOL)ftin_createErrorWithCode:(NSInteger)code inReference:(NSError *__autoreleasing *)error
+{
+	NSString *errorMessage = [@"error_ftin_" stringByAppendingFormat:@"%ld", (long)code].localizedString;
+	
+	return [self ftin_createErrorWithCode:code andCustomMessage:errorMessage inReference:error];
+}
+
++ (BOOL)ftin_createErrorWithCode:(NSInteger)code andCustomMessage:(NSString *)customMsg inReference:(NSError *__autoreleasing *)error
+{
+	if(error)
+	{
+		*error = [self ftin_createErrorWithCode:code andCustomMessage:customMsg];
+		return YES;
+	}
+	
+	return NO;
 }
 
 @end

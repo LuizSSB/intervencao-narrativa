@@ -10,6 +10,9 @@
 
 @interface NSError (ftin_CreateError)
 
++ (BOOL)ftin_createErrorWithCode:(NSInteger)code inReference:(NSError **)error;
++ (BOOL)ftin_createErrorWithCode:(NSInteger)code andCustomMessage:(NSString *)customMsg inReference:(NSError **)error;
+
 + (NSError *)ftin_createErrorWithCode:(NSInteger)code;
 + (NSError *)ftin_createErrorWithCode:(NSInteger)code andCustomMessage:(NSString *)customMsg;
 

@@ -24,7 +24,7 @@
 {
 	if(!self.descriptiveSkillNumber || self.descriptiveSkillNumber.integerValue < 0 || self.descriptiveSkillNumber.integerValue > FTINDescriptiveSkillIncompetentFool)
 	{
-		*error = [NSError ftin_createErrorWithCode:ftin_InvalidUserSuppliedDataErrorCode];
+		[NSError ftin_createErrorWithCode:ftin_InvalidUserSuppliedDataErrorCode inReference:error];
 		return NO;
 	}
 	

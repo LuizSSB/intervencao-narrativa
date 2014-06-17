@@ -18,6 +18,7 @@
 "name" = "Nome";
 "confirmation" = "Confirmação";
 "next>" = "Próximo >";
+"finalize" = "Finalizar";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";

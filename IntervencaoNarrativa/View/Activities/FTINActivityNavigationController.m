@@ -96,6 +96,11 @@
 	[self.controller cancel];
 }
 
+- (UIBarButtonItem *)activityViewControllerCustomizedNextBarButton:(FTINActivityViewController *)viewController
+{
+	return self.controller.hasNextSubActivity ? nil : [[UIBarButtonItem alloc] initWithTitle:@"finalize".localizedString style:UIBarButtonItemStyleDone target:nil action:nil];
+}
+
 #pragma mark - Activity Flow Controller Delegate
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error

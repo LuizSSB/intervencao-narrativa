@@ -30,7 +30,7 @@
 		do
 		{
 			if(![data isKindOfClass:[EnvironmentSubActivity class]]) {
-				*error = [NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode];
+				[NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode inReference:error];
 				break;
 			}
 			
@@ -38,7 +38,7 @@
 			
 			if(tr00Activity.selectedItems.count != self.correctElements.count)
 			{
-				*error = [NSError ftin_createErrorWithCode:ftin_EnvironmentLackingErrorCode];
+				[NSError ftin_createErrorWithCode:ftin_EnvironmentLackingErrorCode inReference:error];
 				break;
 			}
 			
@@ -46,7 +46,7 @@
 			{
 				if(![self.correctElements containsObject:element])
 				{
-					*error = [NSError ftin_createErrorWithCode:ftin_EnvironmentOverflowErrorCode];
+					[NSError ftin_createErrorWithCode:ftin_EnvironmentOverflowErrorCode inReference:error];
 					break;
 				}
 			}

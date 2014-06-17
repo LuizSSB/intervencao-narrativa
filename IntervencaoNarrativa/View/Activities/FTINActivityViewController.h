@@ -16,6 +16,10 @@
 
 - (void)activityViewControllerCanceled:(FTINActivityViewController *)viewController;
 
+@optional
+
+- (UIBarButtonItem *)activityViewControllerCustomizedNextBarButton:(FTINActivityViewController *)viewController;
+
 @end
 
 @interface FTINActivityViewController : UIViewController <UIAlertViewDelegate>
