@@ -71,6 +71,7 @@
 "error_ftin_2" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityFlowController.";
 "error_ftin_3" = "Arquivos de configuração da atividade inválidos, não constam com subatividades.";
 "error_ftin_4" = "Dados errados trafegando pela aplicação.";
-"error_ftin_5" = "Ordenação errada.";
+"error_ftin_5" = "Ordenação incorreta, tente novamente.";
 "error_ftin_6" = "A quantidade itens que fazem parte do ambiente está errada.";
 "error_ftin_7" = "O ambiente possui itens que não fazem parte dele.";
+"error_ftin_8" = "Favor apontar o desempenho da criança nos marcadores abaixo.";
