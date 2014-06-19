@@ -46,7 +46,7 @@
 	}
 	while (NO);
 	
-	[NSError ftin_createErrorWithCode:ftin_InvalidUserSuppliedDataErrorCode inReference:error];
+	[NSError ftin_createErrorWithCode:ftin_PerformanceDataMissingErrorCode inReference:error];
 	return NO;
 }
 

@@ -67,6 +67,8 @@ static void *FTINDatePickedContext = &FTINDatePickedContext;
 	_date = date;
 	_datePickerController.date = date;
 	self.text = [date formattedDateWithStyle:NSDateFormatterShortStyle];
+	
+	[self sendActionsForControlEvents:UIControlEventEditingChanged];
 }
 
 - (NSDate *)minimumDate

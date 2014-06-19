@@ -124,7 +124,7 @@
 
 - (BOOL)allowsEscapeToPatient:(Patient *)patient
 {
-	return NO;
+	return YES;
 }
 
 - (BOOL)resonatesWithPatient:(Patient *)patient

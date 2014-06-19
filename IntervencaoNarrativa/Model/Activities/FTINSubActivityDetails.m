@@ -54,7 +54,7 @@
 
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
-	return [self.data valid:error] && [self.content validateWithData:self.data error:error];
+	return [self.content validateWithData:self.data error:error] && [self.data valid:error];
 }
 
 @end

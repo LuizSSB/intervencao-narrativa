@@ -11,6 +11,9 @@
 #import "FTINMainSplitViewControllerDelegate.h"
 
 @interface FTINPatientViewController ()
+{
+	BOOL _userChangedSomething;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *registrationDateLabel;
 @property (weak, nonatomic) IBOutlet UITextField *patientNameTextField;
@@ -21,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *startActivityButton;
 @property (weak, nonatomic) IBOutlet UITableView *activitiesTableView;
 
+- (IBAction)inputFieldValueChanged:(id)sender;
+- (IBAction)textFieldChanged:(id)sender;
 - (IBAction)goToNextInput:(UITextField *)sender;
 - (IBAction)hideKeyboardsForGodsSake:(id)sender;
 
@@ -40,6 +45,7 @@
 - (void)dealloc
 {
 	_delegate = nil;
+	_tableViewSource = nil;
 }
 
 - (void)viewDidLoad
@@ -59,6 +65,16 @@
 {
 	_delegate = delegate;
 	[self setupPatientData];
+}
+
+- (IBAction)inputFieldValueChanged:(id)sender
+{
+	_userChangedSomething = YES;
+}
+
+- (IBAction)textFieldChanged:(id)sender
+{
+	_userChangedSomething = YES;
 }
 
 - (IBAction)goToNextInput:(UITextField *)sender
@@ -129,6 +145,8 @@
 		self.activitiesTableView.dataSource = self.tableViewSource;
 		self.activitiesTableView.delegate = self.tableViewSource;
 		[self.tableViewSource update];
+		
+		_userChangedSomething = NO;
 	}
 }
 
@@ -156,6 +174,11 @@
 
 - (BOOL)allowsEscapeToPatient:(Patient *)patient
 {
+	if(_userChangedSomething)
+	{
+		return NO;
+	}
+	
 	return [self.delegate allowsEscapeToPatient:patient];
 }
 

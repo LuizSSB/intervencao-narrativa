@@ -3,11 +3,27 @@
 	"subActivities":[
 					 {
 					 "type":1,
-					 "contentFile":"apple.json"
+					 "contentFile":"toothfairy.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"lipstick.json"
+					 "contentFile":"toothfairy.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"toothfairy.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"toothfairy.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"toothfairy.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"toothfairy.json"
 					 },
 					 {
 					 "type":2,
