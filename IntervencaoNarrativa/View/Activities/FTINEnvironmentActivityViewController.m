@@ -53,6 +53,15 @@
 	self.draggableElementBox.backgroundImageView.image = [UIImage imageNamed:_content.background];
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+	[super setEditing:editing animated:animated];
+	
+	NSArray *rightButtons = editing ? @[self.editButtonItem] : @[self.editButtonItem, self.resetBarButton];	
+	
+	[self.navigationItem setRightBarButtonItems:rightButtons animated:YES];
+}
+
 - (NSArray *)getNavigationItemRightBarButtons
 {
 	return @[self.resetBarButton];

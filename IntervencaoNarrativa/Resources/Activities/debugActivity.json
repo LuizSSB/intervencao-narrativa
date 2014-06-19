@@ -2,14 +2,6 @@
 	"title":"Atividade",
 	"subActivities":[
 					 {
-					 "type":1,
-					 "contentFile":"apple.json"
-					 },
-					 {
-					 "type":1,
-					 "contentFile":"lipstick.json"
-					 },
-					 {
 					 "type":2,
 					 "contentFile":"home1.json"
 					 },

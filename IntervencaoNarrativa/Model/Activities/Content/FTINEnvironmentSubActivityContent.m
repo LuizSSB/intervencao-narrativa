@@ -25,38 +25,31 @@
 
 - (BOOL)validateWithData:(SubActivity *)data error:(NSError *__autoreleasing *)error
 {
-	if([super validateWithData:data error:error])
+	do
 	{
-		do
-		{
-			if(![data isKindOfClass:[EnvironmentSubActivity class]]) {
-				[NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode inReference:error];
-				break;
-			}
-			
-			EnvironmentSubActivity *tr00Activity = (id) data;
-			
-			if(tr00Activity.selectedItems.count != self.correctElements.count)
-			{
-				[NSError ftin_createErrorWithCode:ftin_EnvironmentLackingErrorCode inReference:error];
-				break;
-			}
-			
-			for (NSString *element in tr00Activity.selectedItems)
-			{
-				if(![self.correctElements containsObject:element])
-				{
-					[NSError ftin_createErrorWithCode:ftin_EnvironmentOverflowErrorCode inReference:error];
-					break;
-				}
-			}
-			
-			if(*error) break;
-			
-			return YES;
+		if(![super validateWithData:data error:error]) break;
+		
+		if(![data isKindOfClass:[EnvironmentSubActivity class]]) {
+			[NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode inReference:error];
+			break;
 		}
-		while (NO);
+		
+		EnvironmentSubActivity *tr00Activity = (id) data;
+				
+		for (NSString *element in tr00Activity.selectedItems)
+		{
+			if(![self.correctElements containsObject:element])
+			{
+				[NSError ftin_createErrorWithCode:ftin_EnvironmentOverflowErrorCode inReference:error];
+				break;
+			}
+		}
+		
+		if(*error) break;
+		
+		return YES;
 	}
+	while (NO);
 	
 	return NO;
 }

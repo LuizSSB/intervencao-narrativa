@@ -14,10 +14,8 @@
 - (BOOL)validateWithData:(SubActivity *)data error:(NSError *__autoreleasing *)error
 {
 	do
-	{		
-		[super validateWithData:data error:error];
-		
-		if(*error) break;
+	{
+		if(![super validateWithData:data error:error]) break;
 		
 		if(![data isKindOfClass:[ArrangementSubActivity class]])
 		{
