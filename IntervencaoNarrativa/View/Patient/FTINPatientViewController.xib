@@ -59,6 +59,8 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="alphabet" returnKeyType="next"/>
                     <connections>
                         <action selector="goToNextInput:" destination="-1" eventType="editingDidEndOnExit" id="hWK-9b-Aqd"/>
+                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="gom-Ve-ajC"/>
+                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Pae-6D-uZF"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Avaliador" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="v0f-jk-iE0">
@@ -68,6 +70,8 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="alphabet" returnKeyType="next"/>
                     <connections>
                         <action selector="goToNextInput:" destination="-1" eventType="editingDidEndOnExit" id="aVk-3B-Ol1"/>
+                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="Umn-vX-Hgh"/>
+                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Eha-eZ-tQZ"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nascimento" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cB2-sf-pAi" customClass="FTINDatePickerTextField">
@@ -77,6 +81,8 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="hideKeyboardsForGodsSake:" destination="-1" eventType="touchDown" id="aSD-Et-ors"/>
+                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="V2P-0e-JXD"/>
+                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Rzh-uu-SY7"/>
                     </connections>
                 </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00/00/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl5-uP-Xdz">
@@ -92,6 +98,9 @@
                         <segment title="Masculino"/>
                         <segment title="Feminino"/>
                     </segments>
+                    <connections>
+                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="uh7-Xy-sQN"/>
+                    </connections>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R74-4x-kVw">
                     <rect key="frame" x="346" y="271" width="144" height="30"/>
