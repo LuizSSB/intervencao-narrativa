@@ -161,6 +161,11 @@ NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 	[_items insertObject:item atIndex:toIndexPath.row];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout willEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	collectionView.userInteractionEnabled = NO;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout didEndDraggingItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	//FIX duns bug do UICollectionView
@@ -168,10 +173,12 @@ NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 	{
 		if(![view isKindOfClass:[UICollectionViewCell class]])
 		{
+			NSLog(@"Extra view: %@", view);
 			[view removeFromSuperview];
 		}
 	}
 	[self reloadData];
+	collectionView.userInteractionEnabled = YES;
 }
 
 @end
