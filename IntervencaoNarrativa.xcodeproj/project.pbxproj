@@ -52,6 +52,11 @@
 		253823BB1956197B0016991A /* FTINReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823BA1956197B0016991A /* FTINReportController.m */; };
 		253823BD19562AE30016991A /* FTINActivityResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253823BC19562AE30016991A /* FTINActivityResultViewController.xib */; };
 		253823BF195630430016991A /* FTINActivityReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 253823BE195630430016991A /* FTINActivityReportViewController.xib */; };
+		253823C119563CDD0016991A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253823C019563CDD0016991A /* MessageUI.framework */; };
+		253823C419563D270016991A /* FTINCompleteReportMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823C319563D270016991A /* FTINCompleteReportMailViewController.m */; };
+		253823C7195641B80016991A /* FTINMailComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823C6195641B80016991A /* FTINMailComposeViewController.m */; };
+		253823CA1956438B0016991A /* FTINSingleReportMailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823C91956438B0016991A /* FTINSingleReportMailViewController.m */; };
+		253823CD195644760016991A /* UIView+AsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823CC195644760016991A /* UIView+AsImage.m */; };
 		254940A819468A7B00E5DACB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */; };
 		254940BD19468D0100E5DACB /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940BC19468D0100E5DACB /* SubActivity.m */; };
 		254940C319468D0100E5DACB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940C219468D0100E5DACB /* Activity.m */; };
@@ -315,6 +320,15 @@
 		253823BA1956197B0016991A /* FTINReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINReportController.m; sourceTree = "<group>"; };
 		253823BC19562AE30016991A /* FTINActivityResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINActivityResultViewController.xib; sourceTree = "<group>"; };
 		253823BE195630430016991A /* FTINActivityReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINActivityReportViewController.xib; sourceTree = "<group>"; };
+		253823C019563CDD0016991A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		253823C219563D270016991A /* FTINCompleteReportMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINCompleteReportMailViewController.h; sourceTree = "<group>"; };
+		253823C319563D270016991A /* FTINCompleteReportMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINCompleteReportMailViewController.m; sourceTree = "<group>"; };
+		253823C5195641B80016991A /* FTINMailComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINMailComposeViewController.h; sourceTree = "<group>"; };
+		253823C6195641B80016991A /* FTINMailComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINMailComposeViewController.m; sourceTree = "<group>"; };
+		253823C81956438B0016991A /* FTINSingleReportMailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINSingleReportMailViewController.h; sourceTree = "<group>"; };
+		253823C91956438B0016991A /* FTINSingleReportMailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINSingleReportMailViewController.m; sourceTree = "<group>"; };
+		253823CB195644760016991A /* UIView+AsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AsImage.h"; sourceTree = "<group>"; };
+		253823CC195644760016991A /* UIView+AsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AsImage.m"; sourceTree = "<group>"; };
 		254940A719468A7B00E5DACB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		254940BB19468D0100E5DACB /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
 		254940BC19468D0100E5DACB /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
@@ -564,6 +578,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				253823C119563CDD0016991A /* MessageUI.framework in Frameworks */,
 				25644CD61936B070006C4E06 /* CoreGraphics.framework in Frameworks */,
 				25644CDA1936B071006C4E06 /* CoreData.framework in Frameworks */,
 				25644CD81936B070006C4E06 /* UIKit.framework in Frameworks */,
@@ -631,6 +646,8 @@
 				25682A0A194A387C005F017F /* NSArray+Shuffling.m */,
 				25A37C8A194CF85200DFC749 /* UIView+PutOnScreen.h */,
 				25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */,
+				253823CB195644760016991A /* UIView+AsImage.h */,
+				253823CC195644760016991A /* UIView+AsImage.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -644,6 +661,12 @@
 				253823B6195616840016991A /* FTINActivityReportViewController.h */,
 				253823B7195616840016991A /* FTINActivityReportViewController.m */,
 				253823BE195630430016991A /* FTINActivityReportViewController.xib */,
+				253823C219563D270016991A /* FTINCompleteReportMailViewController.h */,
+				253823C319563D270016991A /* FTINCompleteReportMailViewController.m */,
+				253823C5195641B80016991A /* FTINMailComposeViewController.h */,
+				253823C6195641B80016991A /* FTINMailComposeViewController.m */,
+				253823C81956438B0016991A /* FTINSingleReportMailViewController.h */,
+				253823C91956438B0016991A /* FTINSingleReportMailViewController.m */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -901,6 +924,7 @@
 		25644CD21936B070006C4E06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				253823C019563CDD0016991A /* MessageUI.framework */,
 				25644CD31936B070006C4E06 /* Foundation.framework */,
 				25644CD51936B070006C4E06 /* CoreGraphics.framework */,
 				25644CD71936B070006C4E06 /* UIKit.framework */,
@@ -1453,8 +1477,10 @@
 				253823BB1956197B0016991A /* FTINReportController.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
+				253823C7195641B80016991A /* FTINMailComposeViewController.m in Sources */,
 				25603356194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m in Sources */,
 				25A37C8C194CF85200DFC749 /* UIView+PutOnScreen.m in Sources */,
+				253823CA1956438B0016991A /* FTINSingleReportMailViewController.m in Sources */,
 				2537BB63193B730500D10878 /* NSFileManager+Utils.m in Sources */,
 				252D10E01949359C006D2F3E /* FTINCollectionViewCell.m in Sources */,
 				252985FA19433B9700826834 /* FTINActivityNavigationController.m in Sources */,
@@ -1513,6 +1539,7 @@
 				256BF1D11947D58900FD8BB3 /* ArrangementSubActivity+Complete.m in Sources */,
 				2537BB66193B730500D10878 /* NSObject+Properties.m in Sources */,
 				253823A31955D1320016991A /* FTINReportFormatter.m in Sources */,
+				253823C419563D270016991A /* FTINCompleteReportMailViewController.m in Sources */,
 				256BF1BE1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m in Sources */,
 				25CDAEB7194389D7003E1314 /* FTINActivityDetails.m in Sources */,
 				256357BF19413A6200E5762A /* Patient+Complete.m in Sources */,
@@ -1521,6 +1548,7 @@
 				25603352194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m in Sources */,
 				2537BB6B193B730500D10878 /* UIDevice+SystemVersion.m in Sources */,
 				256357F319413CAE00E5762A /* FTINStartViewController.m in Sources */,
+				253823CD195644760016991A /* UIView+AsImage.m in Sources */,
 				2560334C194DC22900AE9C26 /* FTINWhyGameQuestion.m in Sources */,
 				25ED11F019450D0A007514AD /* FTINActivityController.m in Sources */,
 				25A37C71194C9CC700DFC749 /* FTINEnvironmentActivityViewController.m in Sources */,

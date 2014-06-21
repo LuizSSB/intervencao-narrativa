@@ -47,6 +47,7 @@
 
 /* Reports */
 "report" = "Relatório";
+"full_report_mail_subject" = "[IntervençãoNarrativa] %@ em %@ - %@";
 
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";
@@ -87,3 +88,4 @@
 "error_ftin_6" = "A quantidade itens que fazem parte do ambiente está errada.";
 "error_ftin_7" = "O ambiente possui itens que não fazem parte dele.";
 "error_ftin_8" = "Favor apontar o desempenho da criança nos marcadores abaixo.";
+"error_ftin_9" = "Não é possível enviar email no momento. Verifique se há uma conta de email configurada.";

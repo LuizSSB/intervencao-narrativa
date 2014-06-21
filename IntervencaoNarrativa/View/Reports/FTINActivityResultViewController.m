@@ -9,6 +9,7 @@
 #import "FTINActivityResultViewController.h"
 #import "FTINActivityReportViewController.h"
 #import "Acitivity+Complete.h"
+#import "FTINCompleteReportMailViewController.h"
 
 NSString * const FTINSegueReport = @"Report";
 
@@ -123,7 +124,13 @@ typedef enum : NSUInteger {
 	switch (indexPath.section)
 	{
 		case FTINActivityResultViewControllerSectionActions:
-#warning TODO Mandar para a tela de email
+		{
+			NSError *error = nil;
+			UIViewController *mailVC = [[FTINCompleteReportMailViewController alloc] initWithActivity:self.activity error:&error];
+			[NSError alertOnError:error andDoOnSuccess:^{
+				[self presentViewController:mailVC animated:YES completion:nil];
+			}];
+		}
 			break;
 		
 		case FTINActivityResultViewControllerSectionReports:

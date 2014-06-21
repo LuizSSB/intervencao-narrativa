@@ -8,6 +8,7 @@
 
 #import "FTINActivityReportViewController.h"
 #import "FTINReportController.h"
+#import "FTINSingleReportMailViewController.h"
 #import "MBProgressHUD.h"
 
 #import "Acitivity+Complete.h"
@@ -71,6 +72,10 @@
 
 - (IBAction)doAction:(id)sender
 {
+	NSError *error = nil;
+	UIViewController *mailVC = [[FTINSingleReportMailViewController alloc] initWithActivity:self.activity andView:self.contentWebView error:&error];	[NSError alertOnError:error andDoOnSuccess:^{
+		[self presentViewController:mailVC animated:YES completion:nil];
+	}];
 }
 
 @synthesize controller = _controller;
