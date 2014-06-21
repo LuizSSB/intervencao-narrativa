@@ -173,7 +173,6 @@ NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 	{
 		if(![view isKindOfClass:[UICollectionViewCell class]])
 		{
-			NSLog(@"Extra view: %@", view);
 			[view removeFromSuperview];
 		}
 	}

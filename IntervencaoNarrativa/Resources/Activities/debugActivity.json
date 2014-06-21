@@ -2,8 +2,32 @@
 	"title":"Atividade",
 	"subActivities":[
 					 {
+					 "type":0,
+					 "contentFile":"playground.json"
+					 },
+					 {
+					 "type":0,
+					 "contentFile":"soccer.json"
+					 },
+					 {
+					 "type":0,
+					 "contentFile":"pcgamer.json"
+					 },
+					 {
 					 "type":1,
-					 "contentFile":"toothfairy.json"
+					 "contentFile":"apple.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"hotwheels.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"glass.json"
+					 },
+					 {
+					 "type":1,
+					 "contentFile":"cage.json"
 					 },
 					 {
 					 "type":1,
@@ -11,19 +35,11 @@
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"toothfairy.json"
+					 "contentFile":"school.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"toothfairy.json"
-					 },
-					 {
-					 "type":1,
-					 "contentFile":"toothfairy.json"
-					 },
-					 {
-					 "type":1,
-					 "contentFile":"toothfairy.json"
+					 "contentFile":"fish.json"
 					 },
 					 {
 					 "type":2,
