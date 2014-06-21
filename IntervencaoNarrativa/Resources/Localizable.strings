@@ -36,6 +36,18 @@
 "leave_activity" = "Deseja mesmo encerrar a atividade?";
 "activity_completed" = "Atividade completa!";
 
+/* Activity Data */
+"FTINActivityResultViewController_0" = "Relatórios";
+"FTINActivityResultViewController_0_0" = "Atividades Descrição de Figuras e Ações";
+"FTINActivityResultViewController_0_1" = "Atividades Ordenação e Narração";
+"FTINActivityResultViewController_0_2" = "Atividades Montando o ambiente";
+"FTINActivityResultViewController_0_3" = "Jogo do Porquê";
+"FTINActivityResultViewController_1" = "Outras ações";
+"FTINActivityResultViewController_1_0" = "Enviar por email";
+
+/* Reports */
+"report" = "Relatório";
+
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";
 "description_partially" = "Descreve parcialmente sem ajuda";

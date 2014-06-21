@@ -7,6 +7,8 @@
 //
 
 #import "Acitivity+Complete.h"
+#import "SubActivity+Complete.h"
+#import "FTINActitivitiesFactory.h"
 
 @implementation Activity (Complete)
 
@@ -24,6 +26,25 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	
 	NSArray *subs = [self.subActivities sortedArrayUsingDescriptors:@[_activitySubActivitesSortDescriptor]];
 	return subs;
+}
+
+// Aparentemente, o método isKindOfClass: falha com objetos do CoreData.
+// Então comparamos string mesmo.
+- (NSArray *)subActivitiesOfType:(FTINActivityType)type
+{
+	Class typeClass = [FTINActitivitiesFactory classBasedOnSubActivityType:type withNamespace:nil andPrefix:nil andSuffix:NSStringFromClass([SubActivity class])];
+	NSString *typeClassName = NSStringFromClass(typeClass);
+	NSMutableArray *activities = [NSMutableArray array];
+	
+	for (SubActivity *subActivity in self.subActivitesInOrder)
+	{
+		if([NSStringFromClass(subActivity.class) isEqualToString:typeClassName])
+		{
+			[activities addObject:subActivity];
+		}
+	}
+	
+	return activities;
 }
 
 @end

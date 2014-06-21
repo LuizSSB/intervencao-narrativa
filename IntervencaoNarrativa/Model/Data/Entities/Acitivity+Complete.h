@@ -12,4 +12,6 @@
 
 @property (readonly) NSArray *subActivitesInOrder;
 
+- (NSArray *)subActivitiesOfType:(FTINActivityType)type;
+
 @end

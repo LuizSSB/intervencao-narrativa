@@ -9,6 +9,7 @@
 #import "FTINPatientViewController.h"
 #import "FTINDatePickerTextField.h"
 #import "FTINMainSplitViewControllerDelegate.h"
+#import "FTINActivityResultViewController.h"
 
 @interface FTINPatientViewController ()
 {
@@ -118,6 +119,7 @@
 		{
 			Patient *patient = [self.delegate patientViewControllerRequestsPatient:self];
 			_tableViewSource = [[FTINActivitiesTableViewSource alloc] initWithPatient:patient andTableView:self.activitiesTableView];
+			_tableViewSource.delegate = self;
 		}
 		
 		return _tableViewSource;
@@ -148,6 +150,14 @@
 		
 		_userChangedSomething = NO;
 	}
+}
+
+#pragma mark - Activities Table View Source Delegate
+
+- (void)activitiesTableViewSource:(FTINActivitiesTableViewSource *)source selectedActivity:(Activity *)activity
+{
+	UIViewController *viewController = [FTINActivityResultViewController viewControllerWithActivity:activity];
+	[self presentViewController:viewController animated:YES completion:nil];
 }
 
 #pragma mark - Activity Navigation Controller Delegate

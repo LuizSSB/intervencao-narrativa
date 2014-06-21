@@ -22,10 +22,11 @@
 extern NSTimeInterval const FTINDefaultAnimationDuration;
 extern NSTimeInterval const FTINDefaultAnimationShortDuration;
 extern CGFloat const FTINBarButtonItemSpacing;
-extern NSString const * FTINDefaultCellIdentifier;
-extern NSString const * FTINDefaultNamespace;
+extern NSString * const FTINDefaultCellIdentifier;
+extern NSString * const FTINDefaultNamespace;
 extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
+extern NSString * const FTINDefaultCheckedValue;
 
 // -----------------------------------------------------------------------------
 // Blocks types
