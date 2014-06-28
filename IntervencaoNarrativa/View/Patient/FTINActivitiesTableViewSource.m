@@ -8,7 +8,7 @@
 
 #import "FTINActivitiesTableViewSource.h"
 #import "Patient+Complete.h"
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 
 @interface FTINActivitiesTableViewSource ()
 {
@@ -124,7 +124,6 @@
 - (void)activityController:(FTINActivityController *)controller deletedActivity:(Activity *)Activity error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
-//		[_orderedActivities removeObjectAtIndex:_actionIndexPath.row];
 		[self.parentTableView deleteRowsAtIndexPaths:@[_actionIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}];
 }

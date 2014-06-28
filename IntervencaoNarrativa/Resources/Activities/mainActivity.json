@@ -3,167 +3,167 @@
 	"subActivities":[
 					 {
 					 "type":0,
-					 "difficulty":0,
+					 "difficultyLevel":0,
 					 "contentFile":"d_2_pc.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":0,
+					 "difficultyLevel":0,
 					 "contentFile":"d_2_pc.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":0,
+					 "difficultyLevel":0,
 					 "contentFile":"d_2_pc.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":1,
+					 "difficultyLevel":1,
 					 "contentFile":"d_3_doll.json",
 					 },
 					 {
 					 "type":0,
-					 "difficulty":1,
+					 "difficultyLevel":1,
 					 "contentFile":"d_3_doll.json",
 					 },
 					 {
 					 "type":0,
-					 "difficulty":1,
+					 "difficultyLevel":1,
 					 "contentFile":"d_3_doll.json",
 					 },
 					 {
 					 "type":0,
-					 "difficulty":2,
+					 "difficultyLevel":2,
 					 "contentFile":"d_4_play.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":2,
+					 "difficultyLevel":2,
 					 "contentFile":"d_4_back.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":2,
+					 "difficultyLevel":2,
 					 "contentFile":"d_4_ball.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":3,
+					 "difficultyLevel":3,
 					 "contentFile":"d_6_hamb.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":3,
+					 "difficultyLevel":3,
 					 "contentFile":"d_6_hamb.json"
 					 },
 					 {
 					 "type":0,
-					 "difficulty":3,
+					 "difficultyLevel":3,
 					 "contentFile":"d_6_hamb.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":0,
+					 "difficultyLevel":0,
 					 "contentFile":"a_2_aple.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":0,
+					 "difficultyLevel":0,
 					 "contentFile":"a_2_lip.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":0,
+					 "difficultyLevel":0,
 					 "contentFile":"a_2_gift.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":1,
+					 "difficultyLevel":1,
 					 "contentFile":"a_3_ball.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":1,
+					 "difficultyLevel":1,
 					 "contentFile":"a_3_draw.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":1,
+					 "difficultyLevel":1,
 					 "contentFile":"a_3_car.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":2,
+					 "difficultyLevel":2,
 					 "contentFile":"a_4_glas.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":2,
+					 "difficultyLevel":2,
 					 "contentFile":"a_4_rose.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":2,
+					 "difficultyLevel":2,
 					 "contentFile":"a_5_lemo.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":3,
+					 "difficultyLevel":3,
 					 "contentFile":"a_5_eggs.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":3,
+					 "difficultyLevel":3,
 					 "contentFile":"a_5_cage.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":3,
+					 "difficultyLevel":3,
 					 "contentFile":"a_5_cage.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":4,
+					 "difficultyLevel":4,
 					 "contentFile":"a_6_fairy.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":4,
+					 "difficultyLevel":4,
 					 "contentFile":"a_6_fairy.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":4,
+					 "difficultyLevel":4,
 					 "contentFile":"a_6_fairy.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":5,
+					 "difficultyLevel":5,
 					 "contentFile":"a_7_educ.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":5,
+					 "difficultyLevel":5,
 					 "contentFile":"a_7_educ.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":5,
+					 "difficultyLevel":5,
 					 "contentFile":"a_7_educ.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":6,
+					 "difficultyLevel":6,
 					 "contentFile":"a_8_fish.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":6,
+					 "difficultyLevel":6,
 					 "contentFile":"a_8_fish.json"
 					 },
 					 {
 					 "type":1,
-					 "difficulty":6,
+					 "difficultyLevel":6,
 					 "contentFile":"a_8_fish.json"
 					 },
 					 {

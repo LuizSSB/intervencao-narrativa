@@ -12,4 +12,6 @@
 
 @property (readonly) NSArray *subActivitesInOrder;
 
+@property (nonatomic) BOOL finalized;
+
 @end

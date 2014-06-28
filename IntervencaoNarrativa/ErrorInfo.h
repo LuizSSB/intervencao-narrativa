@@ -23,6 +23,7 @@ typedef enum : NSUInteger {
 	FTINErrorCodeInvalidActivity = 3000,
 	FTINErrorCodePerformanceDataMissing = 3001,
 	FTINErrorCodeInvalidSubActivity = 3002,
+	FTINErrorCodeNonSkippableSubActivity = 3003,
 	
 	FTINErrorCodeWrongArrangementOrder = 6000,
 	FTINErrorCodeEnvironmentLacking = 6001,

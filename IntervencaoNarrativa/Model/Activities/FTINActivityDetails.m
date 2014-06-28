@@ -7,7 +7,7 @@
 //
 
 #import "FTINActivityDetails.h"
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 
 @implementation FTINActivityDetails
 

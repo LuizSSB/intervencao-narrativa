@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 
 @implementation Activity (Complete)
 
@@ -24,6 +24,16 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	
 	NSArray *subs = [self.subActivities sortedArrayUsingDescriptors:@[_activitySubActivitesSortDescriptor]];
 	return subs;
+}
+
+- (BOOL)finalized
+{
+	return self.finalizedNumber.boolValue;
+}
+
+- (void)setFinalized:(BOOL)finalized
+{
+	self.finalizedNumber = @(finalized);
 }
 
 @end

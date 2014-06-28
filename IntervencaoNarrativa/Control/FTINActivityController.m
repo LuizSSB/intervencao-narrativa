@@ -12,7 +12,7 @@
 #import "FTINSubActivityDetails.h"
 
 #import "DCModel.h"
-#import "Activity.h"
+#import "Activity+Complete.h"
 #import "SubActivity+Complete.h"
 #import "Patient+Complete.h"
 
@@ -122,12 +122,31 @@
 		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];
 	}
 	
+	subActivity.data.skipped = NO;
 	[self.delegate activityController:self savedSubActivity:subActivity error:error];
+}
+
+- (void)skipSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	NSError *error = nil;
+	
+	if(!subActivity.skippable)
+	{
+		error = [NSError ftin_createErrorWithCode:FTINErrorCodeNonSkippableSubActivity];
+	}
+	else
+	{
+		subActivity.data.skipped = YES;
+		subActivity.data.parentActivity = subActivity.parentActivity.data;
+		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];
+	}
+	
+	[self.delegate activityController:self skippedSubActivity:subActivity error:error];
 }
 
 - (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
 {
-	activity.data.finalized = @YES;
+	activity.data.finalized = YES;
 	
 	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:activity.data];
 	

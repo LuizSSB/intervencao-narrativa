@@ -18,10 +18,13 @@
 		251F9C9F1943F35800A65131 /* d_3_doll.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F9C9E1943F35800A65131 /* d_3_doll.json */; };
 		251F9CA11943F37D00A65131 /* d_2_pc.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F9CA01943F37D00A65131 /* d_2_pc.json */; };
 		251F9CA31943F3AE00A65131 /* d_6_hamb.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F9CA21943F3AE00A65131 /* d_6_hamb.json */; };
+		25208CEB195F15E900B8B5E7 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25208CEA195F15E900B8B5E7 /* Activity.m */; };
+		25208CF1195F16D700B8B5E7 /* ArrangementSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25208CF0195F16D700B8B5E7 /* ArrangementSubActivity.m */; };
+		25208CF4195F16D800B8B5E7 /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25208CF3195F16D800B8B5E7 /* SubActivity.m */; };
 		2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2527454C193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m */; };
 		252985FA19433B9700826834 /* FTINActivityNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252985F919433B9700826834 /* FTINActivityNavigationController.m */; };
 		252986061943411600826834 /* DescriptionSubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 252986051943411600826834 /* DescriptionSubActivity+Complete.m */; };
-		252986091943420500826834 /* Acitivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 252986081943420500826834 /* Acitivity+Complete.m */; };
+		252986091943420500826834 /* Activity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 252986081943420500826834 /* Activity+Complete.m */; };
 		252D10DA19493056006D2F3E /* FTINImageArrangementView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252D10D919493056006D2F3E /* FTINImageArrangementView.m */; };
 		252D10E01949359C006D2F3E /* FTINCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252D10DF1949359C006D2F3E /* FTINCollectionViewCell.m */; };
 		2531489B193C112F0068B600 /* FTINNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531489A193C112F0068B600 /* FTINNotifications.m */; };
@@ -42,8 +45,6 @@
 		2537BB6F193B730500D10878 /* UIView+SearchSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB5B193B730500D10878 /* UIView+SearchSubview.m */; };
 		2537BB70193B730500D10878 /* UIViewController+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB5D193B730500D10878 /* UIViewController+Visibility.m */; };
 		254940A819468A7B00E5DACB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */; };
-		254940BD19468D0100E5DACB /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940BC19468D0100E5DACB /* SubActivity.m */; };
-		254940C319468D0100E5DACB /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940C219468D0100E5DACB /* Activity.m */; };
 		254940C619468D0100E5DACB /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 254940C519468D0100E5DACB /* BaseEntity.m */; };
 		255F79971942877200C94AB3 /* FTINActivityFlowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255F79961942877200C94AB3 /* FTINActivityFlowController.m */; };
 		255F79A21942963700C94AB3 /* d_4_play.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 255F79A11942963700C94AB3 /* d_4_play.jpg */; };
@@ -117,7 +118,6 @@
 		2598A9A91943A33D00EEEF24 /* FTINActivityViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */; };
 		259A247B1945181D00DC5E99 /* FTINActivitiesTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 259A247A1945181D00DC5E99 /* FTINActivitiesTableViewSource.m */; };
 		25A37C61194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C60194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m */; };
-		25A37C64194C982E00DFC749 /* ArrangementSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C63194C982E00DFC749 /* ArrangementSubActivity.m */; };
 		25A37C67194C982F00DFC749 /* EnvironmentSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C66194C982F00DFC749 /* EnvironmentSubActivity.m */; };
 		25A37C6A194C985300DFC749 /* EnvironmentSubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C69194C985300DFC749 /* EnvironmentSubActivity+Complete.m */; };
 		25A37C6D194C99FD00DFC749 /* FTINCoherenceChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C6C194C99FD00DFC749 /* FTINCoherenceChoiceViewController.m */; };
@@ -239,14 +239,20 @@
 		251F9C9E1943F35800A65131 /* d_3_doll.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_3_doll.json; sourceTree = "<group>"; };
 		251F9CA01943F37D00A65131 /* d_2_pc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_2_pc.json; sourceTree = "<group>"; };
 		251F9CA21943F3AE00A65131 /* d_6_hamb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_6_hamb.json; sourceTree = "<group>"; };
+		25208CE9195F15E900B8B5E7 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		25208CEA195F15E900B8B5E7 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		25208CEF195F16D700B8B5E7 /* ArrangementSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrangementSubActivity.h; sourceTree = "<group>"; };
+		25208CF0195F16D700B8B5E7 /* ArrangementSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrangementSubActivity.m; sourceTree = "<group>"; };
+		25208CF2195F16D700B8B5E7 /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
+		25208CF3195F16D800B8B5E7 /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
 		2527454B193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+ToggleMasterVisibility.h"; sourceTree = "<group>"; };
 		2527454C193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+ToggleMasterVisibility.m"; sourceTree = "<group>"; };
 		252985F819433B9700826834 /* FTINActivityNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityNavigationController.h; sourceTree = "<group>"; };
 		252985F919433B9700826834 /* FTINActivityNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityNavigationController.m; sourceTree = "<group>"; };
 		252986041943411600826834 /* DescriptionSubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DescriptionSubActivity+Complete.h"; sourceTree = "<group>"; };
 		252986051943411600826834 /* DescriptionSubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DescriptionSubActivity+Complete.m"; sourceTree = "<group>"; };
-		252986071943420500826834 /* Acitivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Acitivity+Complete.h"; sourceTree = "<group>"; };
-		252986081943420500826834 /* Acitivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Acitivity+Complete.m"; sourceTree = "<group>"; };
+		252986071943420500826834 /* Activity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Activity+Complete.h"; sourceTree = "<group>"; };
+		252986081943420500826834 /* Activity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Activity+Complete.m"; sourceTree = "<group>"; };
 		252D10D819493056006D2F3E /* FTINImageArrangementView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINImageArrangementView.h; sourceTree = "<group>"; };
 		252D10D919493056006D2F3E /* FTINImageArrangementView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINImageArrangementView.m; sourceTree = "<group>"; };
 		252D10DE1949359C006D2F3E /* FTINCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINCollectionViewCell.h; sourceTree = "<group>"; };
@@ -286,10 +292,6 @@
 		2537BB5C193B730500D10878 /* UIViewController+Visibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Visibility.h"; sourceTree = "<group>"; };
 		2537BB5D193B730500D10878 /* UIViewController+Visibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Visibility.m"; sourceTree = "<group>"; };
 		254940A719468A7B00E5DACB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		254940BB19468D0100E5DACB /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
-		254940BC19468D0100E5DACB /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
-		254940C119468D0100E5DACB /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		254940C219468D0100E5DACB /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		254940C419468D0100E5DACB /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
 		254940C519468D0100E5DACB /* BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEntity.m; sourceTree = "<group>"; };
 		255F79951942877200C94AB3 /* FTINActivityFlowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityFlowController.h; sourceTree = "<group>"; };
@@ -411,8 +413,6 @@
 		259A247A1945181D00DC5E99 /* FTINActivitiesTableViewSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivitiesTableViewSource.m; sourceTree = "<group>"; };
 		25A37C5F194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnvironmentSubActivityContent.h; sourceTree = "<group>"; };
 		25A37C60194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnvironmentSubActivityContent.m; sourceTree = "<group>"; };
-		25A37C62194C982E00DFC749 /* ArrangementSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrangementSubActivity.h; sourceTree = "<group>"; };
-		25A37C63194C982E00DFC749 /* ArrangementSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrangementSubActivity.m; sourceTree = "<group>"; };
 		25A37C65194C982F00DFC749 /* EnvironmentSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentSubActivity.h; sourceTree = "<group>"; };
 		25A37C66194C982F00DFC749 /* EnvironmentSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentSubActivity.m; sourceTree = "<group>"; };
 		25A37C68194C985300DFC749 /* EnvironmentSubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EnvironmentSubActivity+Complete.h"; sourceTree = "<group>"; };
@@ -936,14 +936,14 @@
 			isa = PBXGroup;
 			children = (
 				254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */,
-				252986071943420500826834 /* Acitivity+Complete.h */,
-				252986081943420500826834 /* Acitivity+Complete.m */,
-				254940C119468D0100E5DACB /* Activity.h */,
-				254940C219468D0100E5DACB /* Activity.m */,
+				252986071943420500826834 /* Activity+Complete.h */,
+				252986081943420500826834 /* Activity+Complete.m */,
+				25208CE9195F15E900B8B5E7 /* Activity.h */,
+				25208CEA195F15E900B8B5E7 /* Activity.m */,
 				256BF1CF1947D58900FD8BB3 /* ArrangementSubActivity+Complete.h */,
 				256BF1D01947D58900FD8BB3 /* ArrangementSubActivity+Complete.m */,
-				25A37C62194C982E00DFC749 /* ArrangementSubActivity.h */,
-				25A37C63194C982E00DFC749 /* ArrangementSubActivity.m */,
+				25208CEF195F16D700B8B5E7 /* ArrangementSubActivity.h */,
+				25208CF0195F16D700B8B5E7 /* ArrangementSubActivity.m */,
 				254940C419468D0100E5DACB /* BaseEntity.h */,
 				254940C519468D0100E5DACB /* BaseEntity.m */,
 				252986041943411600826834 /* DescriptionSubActivity+Complete.h */,
@@ -960,8 +960,8 @@
 				256BF1C71947D50F00FD8BB3 /* Patient.m */,
 				25CDAE9319435360003E1314 /* SubActivity+Complete.h */,
 				25CDAE9419435360003E1314 /* SubActivity+Complete.m */,
-				254940BB19468D0100E5DACB /* SubActivity.h */,
-				254940BC19468D0100E5DACB /* SubActivity.m */,
+				25208CF2195F16D700B8B5E7 /* SubActivity.h */,
+				25208CF3195F16D800B8B5E7 /* SubActivity.m */,
 				25603347194DC1C200AE9C26 /* WhyGameSubActivity+Complete.h */,
 				25603348194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m */,
 				25603344194DC1B100AE9C26 /* WhyGameSubActivity.h */,
@@ -1363,13 +1363,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2537BB65193B730500D10878 /* NSNumber+TimeDescription.m in Sources */,
-				252986091943420500826834 /* Acitivity+Complete.m in Sources */,
+				252986091943420500826834 /* Activity+Complete.m in Sources */,
 				256357F419413CAE00E5762A /* FTINExistingPatientViewControllerDelegate.m in Sources */,
 				25644CE21936B071006C4E06 /* main.m in Sources */,
 				252D10DA19493056006D2F3E /* FTINImageArrangementView.m in Sources */,
 				2537BB70193B730500D10878 /* UIViewController+Visibility.m in Sources */,
 				2560335A194DCB8A00AE9C26 /* FTINQuestionCardsView.m in Sources */,
-				254940BD19468D0100E5DACB /* SubActivity.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
 				25603356194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m in Sources */,
@@ -1380,27 +1379,28 @@
 				2537BB6D193B730500D10878 /* UITableView+ScrollToBottom.m in Sources */,
 				25603360194DD6C700AE9C26 /* FTINQuestionCardViewController.m in Sources */,
 				256357EB19413CAE00E5762A /* FTINChoiceViewController.m in Sources */,
+				25208CEB195F15E900B8B5E7 /* Activity.m in Sources */,
 				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
+				25208CF4195F16D800B8B5E7 /* SubActivity.m in Sources */,
 				2537BB6A193B730500D10878 /* UIAlertView+DefaultAlerts.m in Sources */,
 				256A97C1193B763300358131 /* ErrorInfo.m in Sources */,
 				25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */,
 				2537BB69193B730500D10878 /* NSThread+AsyncBlock.m in Sources */,
 				254940C619468D0100E5DACB /* BaseEntity.m in Sources */,
 				259A247B1945181D00DC5E99 /* FTINActivitiesTableViewSource.m in Sources */,
-				254940C319468D0100E5DACB /* Activity.m in Sources */,
 				256BF1C81947D50F00FD8BB3 /* Patient.m in Sources */,
 				25682A08194A3510005F017F /* UIView+Centralize.m in Sources */,
 				254940A819468A7B00E5DACB /* DataModel.xcdatamodeld in Sources */,
 				256357F619413CAE00E5762A /* FTINPatientViewController.m in Sources */,
 				2537BB6E193B730500D10878 /* UIView+Border.m in Sources */,
 				256357ED19413CAE00E5762A /* FTINSingleChoiceViewController.m in Sources */,
-				25A37C64194C982E00DFC749 /* ArrangementSubActivity.m in Sources */,
 				2537BB60193B730500D10878 /* NSDate+FormattedDate.m in Sources */,
 				2560334F194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m in Sources */,
 				256357EA19413CAE00E5762A /* FTINChoice.m in Sources */,
 				25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */,
+				25208CF1195F16D700B8B5E7 /* ArrangementSubActivity.m in Sources */,
 				256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */,
 				256357EE19413CAE00E5762A /* FTINDatePickerPopoverController.m in Sources */,
 				25603349194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m in Sources */,

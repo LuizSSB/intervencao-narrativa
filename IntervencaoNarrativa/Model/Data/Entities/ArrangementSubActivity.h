@@ -2,7 +2,7 @@
 //  ArrangementSubActivity.h
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/06/14.
+//  Created by Luiz Soares dos Santos Baglie on 2014/06/28.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 
 @interface ArrangementSubActivity : SubActivity
 
-@property (nonatomic, retain) NSNumber * arrangedCorrectly;
+@property (nonatomic, retain) NSNumber * arrangedCorrectlyNumber;
 @property (nonatomic, retain) NSNumber * arrangementSkillNumber;
 @property (nonatomic, retain) NSArray * itemsArrangement;
 @property (nonatomic, retain) NSNumber * narrativeSkillNumber;

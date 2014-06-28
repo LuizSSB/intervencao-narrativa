@@ -15,4 +15,14 @@
 	return YES;
 }
 
+- (BOOL)skipped
+{
+	return self.skippedNumber.boolValue;
+}
+
+- (void)setSkipped:(BOOL)skipped
+{
+	self.skippedNumber = @(skipped);
+}
+
 @end

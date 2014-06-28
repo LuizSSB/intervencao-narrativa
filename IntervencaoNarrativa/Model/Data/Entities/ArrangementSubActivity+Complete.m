@@ -50,4 +50,14 @@
 	return NO;
 }
 
+- (BOOL)arrangedCorrectly
+{
+	return self.arrangedCorrectlyNumber.boolValue;
+}
+
+- (void)setArrangedCorrectly:(BOOL)arrangedCorrectly
+{
+	self.arrangedCorrectlyNumber = @(arrangedCorrectly);
+}
+
 @end

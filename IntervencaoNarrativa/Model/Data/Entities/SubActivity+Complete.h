@@ -12,4 +12,6 @@
 
 - (BOOL)valid:(NSError **)error;
 
+@property (nonatomic) BOOL skipped;
+
 @end
