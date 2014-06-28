@@ -49,7 +49,7 @@
 	}
 	else
 	{
-		[self.delegate patientController:self addedPatient:nil error:[NSError ftin_createErrorWithCode:ftin_InvalidUserSuppliedDataErrorCode]];
+		[self.delegate patientController:self addedPatient:nil error:[NSError ftin_createErrorWithCode:FTINErrorCodeInvalidUserSuppliedData]];
 	}
 	
 }
@@ -80,7 +80,7 @@
 	}
 	else
 	{
-		[self.delegate patientController:self editedPatient:patient error:[NSError ftin_createErrorWithCode:ftin_InvalidUserSuppliedDataErrorCode]];
+		[self.delegate patientController:self editedPatient:patient error:[NSError ftin_createErrorWithCode:FTINErrorCodeInvalidUserSuppliedData]];
 	}
 }
 

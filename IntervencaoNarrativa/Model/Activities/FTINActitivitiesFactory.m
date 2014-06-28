@@ -37,12 +37,12 @@
 
 + (Class)classBasedOnSubActivityType:(FTINActivityType)type withSuffix:(NSString *)suffix
 {
-	return [self classBasedOnSubActivityType:type withNamespace:FTINDefaultNamespace.description andPrefix:nil andSuffix:suffix];
+	return [self classBasedOnSubActivityType:type withNamespace:FTINDefaultNamespace andPrefix:nil andSuffix:suffix];
 }
 
 + (Class)classBasedOnSubActivityType:(FTINActivityType)type withPrefix:(NSString *)prefix andSuffix:(NSString *)suffix
 {
-	return [self classBasedOnSubActivityType:type withNamespace:FTINDefaultNamespace.description andPrefix:prefix andSuffix:suffix];
+	return [self classBasedOnSubActivityType:type withNamespace:FTINDefaultNamespace andPrefix:prefix andSuffix:suffix];
 }
 
 + (Class)classBasedOnSubActivityType:(FTINActivityType)type withNamespace:(NSString *)namespace andPrefix:(NSString *)prefix andSuffix:(NSString *)suffix

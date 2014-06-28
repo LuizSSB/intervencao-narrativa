@@ -12,6 +12,7 @@
 @interface FTINActivityFlowController ()
 {
 	NSInteger _currentActivityIdx;
+	BOOL _activitySequenceWronged;
 }
 
 @property (nonatomic, readonly) FTINActivityController *dataController;
@@ -82,7 +83,7 @@
 {
 	if(subActivity != self.activity.subActivities[_currentActivityIdx])
 	{
-		NSError *error = [NSError ftin_createErrorWithCode:ftin_InvalidSubActivityErrorCode];
+		NSError *error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidSubActivity];
 		[self.delegate activityFlowController:self savedSubActivity:subActivity error:error];
 	}
 	else
@@ -114,7 +115,7 @@
 		}
 		else
 		{
-			error = [NSError ftin_createErrorWithCode:ftin_InvalidActivityErrorCode];
+			error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidActivity];
 		}
 	}
 	

@@ -20,7 +20,7 @@
 
 - (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError **)error;
 - (BOOL)loadSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError **)error;
-- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler;
+- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationHandler)resultHandler;
 
 @end
 
@@ -164,7 +164,7 @@
 	}];
 }
 
-- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler
+- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationHandler)resultHandler
 {
 	NSMutableArray *subActivitiesData = [NSMutableArray arrayWithObject:activity];
 	

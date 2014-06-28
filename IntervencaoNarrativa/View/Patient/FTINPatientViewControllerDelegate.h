@@ -22,7 +22,7 @@
 - (NSString *)patientViewControllerSaveButtonTitle:(FTINPatientViewController *)viewController;
 - (BOOL)patientViewControllerShouldShowActivities:(FTINPatientViewController *)viewController;
 
-- (void)patientViewControllerMustSave:(FTINPatientViewController *)viewController withName:(NSString *)name examinerName:(NSString *)examiner birthdate:(NSDate *)birthdate sex:(FTINSex)sex handler:(FTINOperationResult)handler;
+- (void)patientViewControllerMustSave:(FTINPatientViewController *)viewController withName:(NSString *)name examinerName:(NSString *)examiner birthdate:(NSDate *)birthdate sex:(FTINSex)sex handler:(FTINOperationHandler)handler;
 
 @optional
 - (Patient *)patientViewControllerRequestsPatient:(FTINPatientViewController *)patient;

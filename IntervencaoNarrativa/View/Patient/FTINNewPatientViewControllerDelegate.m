@@ -12,7 +12,7 @@
 
 @interface FTINNewPatientViewControllerDelegate ()
 {
-	FTINOperationResult _insertHandler;
+	FTINOperationHandler _insertHandler;
 	FTINPatientViewController *_parentViewController;
 }
 
@@ -87,7 +87,7 @@
 	return NO;
 }
 
-- (void)patientViewControllerMustSave:(FTINPatientViewController *)viewController withName:(NSString *)name examinerName:(NSString *)examiner birthdate:(NSDate *)birthdate sex:(FTINSex)sex handler:(FTINOperationResult)handler
+- (void)patientViewControllerMustSave:(FTINPatientViewController *)viewController withName:(NSString *)name examinerName:(NSString *)examiner birthdate:(NSDate *)birthdate sex:(FTINSex)sex handler:(FTINOperationHandler)handler
 {
 	_parentViewController = viewController;
 	_insertHandler = handler;
