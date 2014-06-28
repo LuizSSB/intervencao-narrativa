@@ -3,55 +3,55 @@
 	"subActivities":[
 					 {
 					 "type":0,
-					 "contentFile":"playground.json"
+					 "contentFile":"d_4_play.json"
 					 },
 					 {
 					 "type":0,
-					 "contentFile":"soccer.json"
+					 "contentFile":"d_4_ball.json"
 					 },
 					 {
 					 "type":0,
-					 "contentFile":"pcgamer.json"
+					 "contentFile":"d_2_pc.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"apple.json"
+					 "contentFile":"a_2_aple.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"hotwheels.json"
+					 "contentFile":"a_3_car.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"glass.json"
+					 "contentFile":"a_4_glas.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"cage.json"
+					 "contentFile":"a_5_cage.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"toothfairy.json"
+					 "contentFile":"a_6_fairy.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"school.json"
+					 "contentFile":"a_7_educ.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"fish.json"
+					 "contentFile":"a_8_fish.json"
 					 },
 					 {
 					 "type":2,
-					 "contentFile":"home1.json"
+					 "contentFile":"m_5x1.json"
 					 },
 					 {
 					 "type":2,
-					 "contentFile":"home2.json"
+					 "contentFile":"m_5x3.json"
 					 },
 					 {
 					 "type":3,
-					 "contentFile":"whygame.json"
+					 "contentFile":"y_6.json"
 					 }
 					 ]
 }

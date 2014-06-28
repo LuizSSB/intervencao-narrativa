@@ -3,95 +3,180 @@
 	"subActivities":[
 					 {
 					 "type":0,
-					 "contentFile":"playground.json"
+					 "difficulty":0,
+					 "contentFile":"d_2_pc.json"
 					 },
 					 {
 					 "type":0,
-					 "contentFile":"backyard.json"
+					 "difficulty":0,
+					 "contentFile":"d_2_pc.json"
 					 },
 					 {
 					 "type":0,
-					 "contentFile":"soccer.json"
+					 "difficulty":0,
+					 "contentFile":"d_2_pc.json"
 					 },
 					 {
 					 "type":0,
-					 "contentFile":"doll.json"
+					 "difficulty":1,
+					 "contentFile":"d_3_doll.json",
 					 },
 					 {
 					 "type":0,
-					 "contentFile":"pcgamer.json"
+					 "difficulty":1,
+					 "contentFile":"d_3_doll.json",
 					 },
 					 {
 					 "type":0,
-					 "contentFile":"mcdonalds.json"
+					 "difficulty":1,
+					 "contentFile":"d_3_doll.json",
+					 },
+					 {
+					 "type":0,
+					 "difficulty":2,
+					 "contentFile":"d_4_play.json"
+					 },
+					 {
+					 "type":0,
+					 "difficulty":2,
+					 "contentFile":"d_4_back.json"
+					 },
+					 {
+					 "type":0,
+					 "difficulty":2,
+					 "contentFile":"d_4_ball.json"
+					 },
+					 {
+					 "type":0,
+					 "difficulty":3,
+					 "contentFile":"d_6_hamb.json"
+					 },
+					 {
+					 "type":0,
+					 "difficulty":3,
+					 "contentFile":"d_6_hamb.json"
+					 },
+					 {
+					 "type":0,
+					 "difficulty":3,
+					 "contentFile":"d_6_hamb.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"apple.json"
+					 "difficulty":0,
+					 "contentFile":"a_2_aple.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"lipstick.json"
+					 "difficulty":0,
+					 "contentFile":"a_2_lip.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"gift.json"
+					 "difficulty":0,
+					 "contentFile":"a_2_gift.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"ball.json"
+					 "difficulty":1,
+					 "contentFile":"a_3_ball.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"drawing.json"
+					 "difficulty":1,
+					 "contentFile":"a_3_draw.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"hotwheels.json"
+					 "difficulty":1,
+					 "contentFile":"a_3_car.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"glass.json"
+					 "difficulty":2,
+					 "contentFile":"a_4_glas.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"flower.json"
+					 "difficulty":2,
+					 "contentFile":"a_4_rose.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"lemonade.json"
+					 "difficulty":2,
+					 "contentFile":"a_5_lemo.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"eggs.json"
+					 "difficulty":3,
+					 "contentFile":"a_5_eggs.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"cage.json"
+					 "difficulty":3,
+					 "contentFile":"a_5_cage.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"toothfairy.json"
+					 "difficulty":3,
+					 "contentFile":"a_5_cage.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"school.json"
+					 "difficulty":4,
+					 "contentFile":"a_6_fairy.json"
 					 },
 					 {
 					 "type":1,
-					 "contentFile":"fish.json"
+					 "difficulty":4,
+					 "contentFile":"a_6_fairy.json"
+					 },
+					 {
+					 "type":1,
+					 "difficulty":4,
+					 "contentFile":"a_6_fairy.json"
+					 },
+					 {
+					 "type":1,
+					 "difficulty":5,
+					 "contentFile":"a_7_educ.json"
+					 },
+					 {
+					 "type":1,
+					 "difficulty":5,
+					 "contentFile":"a_7_educ.json"
+					 },
+					 {
+					 "type":1,
+					 "difficulty":5,
+					 "contentFile":"a_7_educ.json"
+					 },
+					 {
+					 "type":1,
+					 "difficulty":6,
+					 "contentFile":"a_8_fish.json"
+					 },
+					 {
+					 "type":1,
+					 "difficulty":6,
+					 "contentFile":"a_8_fish.json"
+					 },
+					 {
+					 "type":1,
+					 "difficulty":6,
+					 "contentFile":"a_8_fish.json"
 					 },
 					 {
 					 "type":2,
-					 "contentFile":"home1.json"
+					 "contentFile":"m_5x1.json"
 					 },
 					 {
 					 "type":2,
-					 "contentFile":"home2.json"
+					 "contentFile":"m_5x3.json"
 					 },
 					 {
 					 "type":3,
-					 "contentFile":"whygame.json"
+					 "contentFile":"y_6.json"
 					 }
 	]
 }

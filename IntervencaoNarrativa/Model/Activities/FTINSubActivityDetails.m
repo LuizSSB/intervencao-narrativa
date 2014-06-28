@@ -10,6 +10,8 @@
 #import "FTINSubActivityContent.h"
 #import "SubActivity+Complete.h"
 
+NSInteger const FTINSubActivityDifficultyLevelNone = -1;
+
 @implementation FTINSubActivityDetails
 
 #pragma mark - Super methods
@@ -22,16 +24,38 @@
 	self.parentActivity = nil;
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.difficultyLevel = FTINSubActivityDifficultyLevelNone;
+    }
+    return self;
+}
+
 + (BOOL)propertyIsIgnored:(NSString *)propertyName
 {
 	return [@[
 			  NSStringFromSelector(@selector(data)),
 			  NSStringFromSelector(@selector(parentActivity)),
-			  NSStringFromSelector(@selector(content))
+			  NSStringFromSelector(@selector(content)),
+			  NSStringFromSelector(@selector(skippable))
+			  ] containsObject:propertyName];
+}
+
++ (BOOL)propertyIsOptional:(NSString *)propertyName
+{
+	return [@[
+			  NSStringFromSelector(@selector(difficultyLevel))
 			  ] containsObject:propertyName];
 }
 
 #pragma mark - Instance methods
+
+- (BOOL)skippable
+{
+	return self.difficultyLevel > FTINSubActivityDifficultyLevelNone;
+}
 
 - (void)setContent:(FTINSubActivityContent *)content
 {
