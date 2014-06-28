@@ -114,6 +114,20 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 	}
 }
 
+- (void)skipSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	if(subActivity != self.activity.subActivities[_currentActivityIdx])
+	{
+		NSError *error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidSubActivity];
+		[self.delegate activityFlowController:self savedSubActivity:subActivity error:error];
+	}
+	else
+	{
+		_lastSavedSubActivity = subActivity;
+		[self checkIfCanSkipNextActivity];
+	}
+}
+
 - (void)finish
 {
 	[self.dataController saveActivity:self.activity forPatient:self.patient];
@@ -126,7 +140,8 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 
 - (BOOL)canSkipCurrentDifficultyLevel
 {
-	return [self.activity.subActivities[_currentActivityIdx] skippable];
+	FTINSubActivityDetails *subActivity = self.activity.subActivities[_currentActivityIdx];
+	return subActivity.allowsAutoSkip;
 }
 
 - (void)resetLevelData
@@ -186,6 +201,7 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 		}
 		else if(!error && !_userFailedInLevel && ++_completedActivitiesInLevel >= FTINMinimumActivityCompletionToSkip)
 		{
+			_lastSavedSubActivity = subActivity;
 			[self checkIfCanSkipNextActivity];
 			return;
 		}
@@ -196,12 +212,16 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 
 - (void)activityController:(FTINActivityController *)controller skippedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
-	if(![NSError alertOnError:error andDoOnSuccess:^{
-		[self checkIfCanSkipNextActivity];
-	}])
+	if(error)
 	{
 		[self.delegate activityFlowController:self savedSubActivity:_lastSavedSubActivity error:nil];
-	};
+	}
+	else
+	{
+		[self checkIfCanSkipNextActivity];
+	}
+	
+	[self.delegate activityFlowController:self skippedSubActivity:subActivity error:error];
 }
 
 - (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)activity error:(NSError *)error

@@ -10,6 +10,8 @@
 #import "FTINSubActivityDetails.h"
 #import "FTINSubActivityContent.h"
 
+NSInteger const FTINAlertTagActivityCancel = 1;
+
 @interface FTINActivityViewController ()
 {
 }
@@ -49,7 +51,7 @@
 	self.editButtonItem.title = @"hide_controls".localizedString;
 	
 	NSMutableArray *rightButtons = [NSMutableArray arrayWithObject:self.editButtonItem];
-	[rightButtons addObjectsFromArray:[self getNavigationItemRightBarButtons]];
+	[rightButtons addObjectsFromArray:[self getNavigationItemRightBarButtons].reverseObjectEnumerator.allObjects];
 	self.navigationItem.rightBarButtonItems = rightButtons;
 	
 	NSMutableArray *actionButtons = [NSMutableArray arrayWithArray:[self getActionBarButtons]];
@@ -167,7 +169,9 @@
 
 - (void)cancelActivity:(id)sender
 {
-	[[UIAlertView alertWithConfirmation:@"leave_activity".localizedString delegate:self] show];
+	UIAlertView *alertView = [UIAlertView alertWithConfirmation:@"leave_activity".localizedString delegate:self];
+	alertView.tag = FTINAlertTagActivityCancel;
+	[alertView show];
 }
 
 - (void)goToNextActivity:(id)sender
@@ -189,7 +193,10 @@
 {
 	if(buttonIndex != alertView.cancelButtonIndex)
 	{
-		[self.delegate activityViewControllerCanceled:self];
+		if(alertView.tag == FTINAlertTagActivityCancel)
+		{
+			[self.delegate activityViewControllerCanceled:self];
+		}
 	}
 }
 

@@ -16,6 +16,8 @@
 
 - (void)activityViewControllerCanceled:(FTINActivityViewController *)viewController;
 
+- (void)activityViewControllerWantsToSkip:(FTINActivityViewController *)viewController;
+
 @optional
 
 - (UIBarButtonItem *)activityViewControllerCustomizedNextBarButton:(FTINActivityViewController *)viewController;

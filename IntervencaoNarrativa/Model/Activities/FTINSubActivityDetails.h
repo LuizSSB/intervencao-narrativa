@@ -20,6 +20,7 @@ extern NSInteger const FTINSubActivityDifficultyLevelNone;
 @property (nonatomic) FTINActivityType type;
 @property (nonatomic) NSString *contentFile;
 @property (nonatomic) NSInteger difficultyLevel;
+@property (nonatomic) BOOL allowsAutoSkip;
 
 // Non-serializable
 @property (nonatomic) FTINSubActivityContent *content;

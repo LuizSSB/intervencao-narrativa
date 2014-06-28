@@ -35,6 +35,7 @@
 "show_controls" = "Exibir controles";
 "leave_activity" = "Deseja mesmo encerrar a atividade?";
 "activity_completed" = "Atividade completa!";
+"skip_level" = "Deseja mesmo pular este nível de dificuldade?";
 
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";

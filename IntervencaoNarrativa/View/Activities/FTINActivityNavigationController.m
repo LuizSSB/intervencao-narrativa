@@ -101,6 +101,11 @@
 	return self.controller.hasNextSubActivity ? nil : [[UIBarButtonItem alloc] initWithTitle:@"finalize".localizedString style:UIBarButtonItemStyleDone target:nil action:nil];
 }
 
+- (void)activityViewControllerWantsToSkip:(FTINActivityViewController *)viewController
+{
+	[self.controller skipSubActivity:viewController.subActivity];
+}
+
 #pragma mark - Activity Flow Controller Delegate
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error
@@ -140,6 +145,11 @@
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerCanceled:self];
 	}];
+}
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
+{
+	[NSError alertOnError:error andDoOnSuccess:nil];
 }
 
 @end

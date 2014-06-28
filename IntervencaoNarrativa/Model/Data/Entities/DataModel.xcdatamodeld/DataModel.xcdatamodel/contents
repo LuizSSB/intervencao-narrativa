@@ -17,7 +17,7 @@
     </entity>
     <entity name="DescriptionSubActivity" representedClassName="DescriptionSubActivity" parentEntity="SubActivity" syncable="YES">
         <attribute name="describedElements" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="descriptiveSkillNumber" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="descriptiveSkillNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
     </entity>
     <entity name="EnvironmentSubActivity" representedClassName="EnvironmentSubActivity" parentEntity="SubActivity" syncable="YES">
         <attribute name="narrationCoherenceNumber" attributeType="Integer 16" syncable="YES"/>
@@ -43,7 +43,7 @@
         <element name="Activity" positionX="0" positionY="0" width="128" height="105"/>
         <element name="ArrangementSubActivity" positionX="0" positionY="0" width="128" height="103"/>
         <element name="BaseEntity" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="73"/>
         <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Patient" positionX="0" positionY="0" width="128" height="120"/>
         <element name="SubActivity" positionX="0" positionY="0" width="128" height="88"/>

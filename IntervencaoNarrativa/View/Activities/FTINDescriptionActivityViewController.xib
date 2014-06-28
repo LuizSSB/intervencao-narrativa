@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTINDescriptionActivityViewController">
             <connections>
+                <outlet property="advanceLevelBarButton" destination="dfp-1d-jwb" id="SoM-ak-uB5"/>
                 <outlet property="describedItensBarButton" destination="eKc-t9-KYE" id="Lqp-rn-Lif"/>
                 <outlet property="descriptiveSkillBarButton" destination="4hC-jq-aIA" id="BjU-CR-GEe"/>
                 <outlet property="mainImageView" destination="NUQ-W3-DjM" id="y16-HP-Zcc"/>
@@ -36,6 +37,11 @@
         <barButtonItem title="Habilidade descritiva" id="4hC-jq-aIA">
             <connections>
                 <action selector="showDescriptiveSkill:" destination="-1" id="7db-BS-F5U"/>
+            </connections>
+        </barButtonItem>
+        <barButtonItem title="Avançar dificuldade" id="dfp-1d-jwb">
+            <connections>
+                <action selector="advanceLevel:" destination="-1" id="oNw-uu-jQW"/>
             </connections>
         </barButtonItem>
     </objects>

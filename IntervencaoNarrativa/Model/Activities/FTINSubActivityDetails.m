@@ -29,6 +29,7 @@ NSInteger const FTINSubActivityDifficultyLevelNone = -1;
     self = [super init];
     if (self) {
         self.difficultyLevel = FTINSubActivityDifficultyLevelNone;
+		self.allowsAutoSkip = NO;
     }
     return self;
 }
@@ -46,7 +47,8 @@ NSInteger const FTINSubActivityDifficultyLevelNone = -1;
 + (BOOL)propertyIsOptional:(NSString *)propertyName
 {
 	return [@[
-			  NSStringFromSelector(@selector(difficultyLevel))
+			  NSStringFromSelector(@selector(difficultyLevel)),
+			  NSStringFromSelector(@selector(allowsAutoSkip)),
 			  ] containsObject:propertyName];
 }
 

@@ -2,109 +2,64 @@
 	"title":"Atividade",
 	"subActivities":[
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":0,
-					 "contentFile":"a_2_aple.json"
+					 "contentFile":"d_2_pc.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":0,
-					 "contentFile":"a_2_lip.json"
+					 "contentFile":"d_2_pc.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":0,
-					 "contentFile":"a_2_gift.json"
+					 "contentFile":"d_2_pc.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":1,
-					 "contentFile":"a_3_ball.json"
+					 "contentFile":"d_3_doll.json",
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":1,
-					 "contentFile":"a_3_draw.json"
+					 "contentFile":"d_3_doll.json",
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":1,
-					 "contentFile":"a_3_car.json"
+					 "contentFile":"d_3_doll.json",
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":2,
-					 "contentFile":"a_4_glas.json"
+					 "contentFile":"d_4_play.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":2,
-					 "contentFile":"a_4_rose.json"
+					 "contentFile":"d_4_back.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":2,
-					 "contentFile":"a_5_lemo.json"
+					 "contentFile":"d_4_ball.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":3,
-					 "contentFile":"a_5_eggs.json"
+					 "contentFile":"d_6_hamb.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":3,
-					 "contentFile":"a_5_cage.json"
+					 "contentFile":"d_6_hamb.json"
 					 },
 					 {
-					 "type":1,
+					 "type":0,
 					 "difficultyLevel":3,
-					 "contentFile":"a_5_cage.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":4,
-					 "contentFile":"a_6_fairy.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":4,
-					 "contentFile":"a_6_fairy.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":4,
-					 "contentFile":"a_6_fairy.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":5,
-					 "contentFile":"a_7_educ.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":5,
-					 "contentFile":"a_7_educ.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":5,
-					 "contentFile":"a_7_educ.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":6,
-					 "contentFile":"a_8_fish.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":6,
-					 "contentFile":"a_8_fish.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":6,
-					 "contentFile":"a_8_fish.json"
+					 "contentFile":"d_6_hamb.json"
 					 }
 					 ]
 }
