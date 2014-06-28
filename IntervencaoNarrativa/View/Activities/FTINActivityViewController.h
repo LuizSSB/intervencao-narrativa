@@ -16,7 +16,9 @@
 
 - (void)activityViewControllerCanceled:(FTINActivityViewController *)viewController;
 
-- (void)activityViewControllerWantsToSkip:(FTINActivityViewController *)viewController;
+- (void)activityViewControllerSkipped:(FTINActivityViewController *)viewController;
+
+- (void)activityViewControllerPaused:(FTINActivityViewController *)viewController;
 
 @optional
 

@@ -18,9 +18,9 @@
 		251F9C9F1943F35800A65131 /* d_3_doll.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F9C9E1943F35800A65131 /* d_3_doll.json */; };
 		251F9CA11943F37D00A65131 /* d_2_pc.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F9CA01943F37D00A65131 /* d_2_pc.json */; };
 		251F9CA31943F3AE00A65131 /* d_6_hamb.json in Resources */ = {isa = PBXBuildFile; fileRef = 251F9CA21943F3AE00A65131 /* d_6_hamb.json */; };
-		25208CEB195F15E900B8B5E7 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25208CEA195F15E900B8B5E7 /* Activity.m */; };
 		25208CF1195F16D700B8B5E7 /* ArrangementSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25208CF0195F16D700B8B5E7 /* ArrangementSubActivity.m */; };
 		25208CF4195F16D800B8B5E7 /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25208CF3195F16D800B8B5E7 /* SubActivity.m */; };
+		25208D00195F798200B8B5E7 /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25208CFF195F798200B8B5E7 /* Activity.m */; };
 		2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2527454C193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m */; };
 		252985FA19433B9700826834 /* FTINActivityNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252985F919433B9700826834 /* FTINActivityNavigationController.m */; };
 		252986061943411600826834 /* DescriptionSubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 252986051943411600826834 /* DescriptionSubActivity+Complete.m */; };
@@ -239,12 +239,12 @@
 		251F9C9E1943F35800A65131 /* d_3_doll.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_3_doll.json; sourceTree = "<group>"; };
 		251F9CA01943F37D00A65131 /* d_2_pc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_2_pc.json; sourceTree = "<group>"; };
 		251F9CA21943F3AE00A65131 /* d_6_hamb.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_6_hamb.json; sourceTree = "<group>"; };
-		25208CE9195F15E900B8B5E7 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
-		25208CEA195F15E900B8B5E7 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		25208CEF195F16D700B8B5E7 /* ArrangementSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrangementSubActivity.h; sourceTree = "<group>"; };
 		25208CF0195F16D700B8B5E7 /* ArrangementSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrangementSubActivity.m; sourceTree = "<group>"; };
 		25208CF2195F16D700B8B5E7 /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
 		25208CF3195F16D800B8B5E7 /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
+		25208CFE195F798200B8B5E7 /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
+		25208CFF195F798200B8B5E7 /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
 		2527454B193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+ToggleMasterVisibility.h"; sourceTree = "<group>"; };
 		2527454C193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+ToggleMasterVisibility.m"; sourceTree = "<group>"; };
 		252985F819433B9700826834 /* FTINActivityNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityNavigationController.h; sourceTree = "<group>"; };
@@ -935,11 +935,11 @@
 		256A97CA193B98F300358131 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				25208CFE195F798200B8B5E7 /* Activity.h */,
+				25208CFF195F798200B8B5E7 /* Activity.m */,
 				254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */,
 				252986071943420500826834 /* Activity+Complete.h */,
 				252986081943420500826834 /* Activity+Complete.m */,
-				25208CE9195F15E900B8B5E7 /* Activity.h */,
-				25208CEA195F15E900B8B5E7 /* Activity.m */,
 				256BF1CF1947D58900FD8BB3 /* ArrangementSubActivity+Complete.h */,
 				256BF1D01947D58900FD8BB3 /* ArrangementSubActivity+Complete.m */,
 				25208CEF195F16D700B8B5E7 /* ArrangementSubActivity.h */,
@@ -1379,8 +1379,8 @@
 				2537BB6D193B730500D10878 /* UITableView+ScrollToBottom.m in Sources */,
 				25603360194DD6C700AE9C26 /* FTINQuestionCardViewController.m in Sources */,
 				256357EB19413CAE00E5762A /* FTINChoiceViewController.m in Sources */,
-				25208CEB195F15E900B8B5E7 /* Activity.m in Sources */,
 				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
+				25208D00195F798200B8B5E7 /* Activity.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
 				25208CF4195F16D800B8B5E7 /* SubActivity.m in Sources */,

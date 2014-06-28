@@ -110,7 +110,7 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 	
 	if(alertView.cancelButtonIndex != buttonIndex && alertView.tag == FTINAlertTagActivitySkip)
 	{
-		[self.delegate activityViewControllerWantsToSkip:self];
+		[self.delegate activityViewControllerSkipped:self];
 	}
 }
 

@@ -22,6 +22,8 @@
 
 - (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
+- (void)activityController:(FTINActivityController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
+
 - (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
 - (void)activityController:(FTINActivityController *)controller deletedActivity:(Activity *)Activity error:(NSError *)error;
@@ -36,15 +38,18 @@
 
 - (void)loadActivityWithContentsOfURL:(NSURL *)fileUrl;
 
+- (void)loadUnfinishedActivity:(Activity *)activity;
+
 - (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
 
 - (void)skipSubActivity:(FTINSubActivityDetails *)subActivity;
 
 - (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient;
 
+- (void)pauseActivity:(FTINActivityDetails *)activity inSubActivity:(NSInteger)subActivityIndex forPatient:(Patient *)patient;
+
 - (void)cancelActivity:(FTINActivityDetails *)activity;
 
 - (void)deleteActivity:(Activity *)activity;
-
 
 @end

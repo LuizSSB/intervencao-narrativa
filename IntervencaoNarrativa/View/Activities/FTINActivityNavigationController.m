@@ -9,6 +9,8 @@
 #import "FTINActivityNavigationController.h"
 #import "FTINActivityViewControllerFactory.h"
 
+#import "Activity+Complete.h"
+
 @interface FTINActivityNavigationController ()
 {
 	NSError *_pendingError;
@@ -75,6 +77,19 @@
     return self;
 }
 
+- (instancetype)initWithUnfinishedActivity:(Activity *)activity andDelegate:(id<FTINActivityNavigationControllerDelegate,UINavigationControllerDelegate>)delegate
+{
+	self = [super initWithRootViewController:[[UIViewController alloc] init]];
+	if(self)
+	{
+		_patient = activity.patient;
+		self.delegate = delegate;
+		
+		[self.controller startWithUnfinishedActivity:activity];
+	}
+	return self;
+}
+
 - (void)goToNextSubActivity:(BOOL)animated
 {
 	[self popToRootViewControllerAnimated:NO];
@@ -101,9 +116,14 @@
 	return self.controller.hasNextSubActivity ? nil : [[UIBarButtonItem alloc] initWithTitle:@"finalize".localizedString style:UIBarButtonItemStyleDone target:nil action:nil];
 }
 
-- (void)activityViewControllerWantsToSkip:(FTINActivityViewController *)viewController
+- (void)activityViewControllerSkipped:(FTINActivityViewController *)viewController
 {
 	[self.controller skipSubActivity:viewController.subActivity];
+}
+
+- (void)activityViewControllerPaused:(FTINActivityViewController *)viewController
+{
+	[self.controller pauseInSubActivity:viewController.subActivity];
 }
 
 #pragma mark - Activity Flow Controller Delegate
@@ -150,6 +170,13 @@
 - (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:nil];
+}
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[NSError alertOnError:error andDoOnSuccess:^{
+		[self.delegate activityNavigationControllerPaused:self];
+	}];
 }
 
 @end

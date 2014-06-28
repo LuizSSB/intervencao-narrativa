@@ -16,6 +16,8 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 {
 }
 
+- (void)pause:(id)sender;
+
 @end
 
 @implementation FTINActivityViewController
@@ -47,7 +49,11 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationItem.leftItemsSupplementBackButton = NO;
-	self.navigationItem.leftBarButtonItem = self.cancelButton;
+	self.navigationItem.leftBarButtonItems = @[
+											   self.cancelButton,
+											   [[UIBarButtonItem alloc] initWithTitle:@"pause".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(pause:)]
+											   ];
+	
 	self.editButtonItem.title = @"hide_controls".localizedString;
 	
 	NSMutableArray *rightButtons = [NSMutableArray arrayWithObject:self.editButtonItem];
@@ -172,6 +178,11 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	UIAlertView *alertView = [UIAlertView alertWithConfirmation:@"leave_activity".localizedString delegate:self];
 	alertView.tag = FTINAlertTagActivityCancel;
 	[alertView show];
+}
+
+- (void)pause:(id)sender
+{
+	[self.delegate activityViewControllerPaused:self];
 }
 
 - (void)goToNextActivity:(id)sender

@@ -10,6 +10,8 @@
 #import "FTINDatePickerTextField.h"
 #import "FTINMainSplitViewControllerDelegate.h"
 
+#import "Activity+Complete.h"
+
 @interface FTINPatientViewController ()
 {
 	BOOL _userChangedSomething;
@@ -118,6 +120,7 @@
 		{
 			Patient *patient = [self.delegate patientViewControllerRequestsPatient:self];
 			_tableViewSource = [[FTINActivitiesTableViewSource alloc] initWithPatient:patient andTableView:self.activitiesTableView];
+			_tableViewSource.delegate = self;
 		}
 		
 		return _tableViewSource;
@@ -154,7 +157,9 @@
 
 - (void)activityNavigationControllerCanceled:(FTINActivityNavigationController *)navigationController
 {
-	[navigationController dismissViewControllerAnimated:YES completion:nil];
+	[navigationController dismissViewControllerAnimated:YES completion:^{
+		[self.tableViewSource update];
+	}];
 }
 
 - (void)activityNavigationControllerFinished:(FTINActivityNavigationController *)navigationController
@@ -168,6 +173,25 @@
 - (void)activityNavigationController:(FTINActivityNavigationController *)navigationController failed:(NSError *)error
 {
 	[navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)activityNavigationControllerPaused:(FTINActivityNavigationController *)navigationController
+{
+	[navigationController dismissViewControllerAnimated:YES completion:^{
+		[self.tableViewSource update];
+		[self showLocalizedToastText:@"activity_paused"];
+	}];
+}
+
+#pragma mark - Activities Table View Source Delegate
+
+- (void)activitiesTableViewSource:(FTINActivitiesTableViewSource *)source selectedActivity:(Activity *)activity
+{
+	if(!activity.finalized)
+	{
+		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithUnfinishedActivity:activity andDelegate:self];
+		[self presentViewController:activityViewController animated:YES completion:nil];
+	}
 }
 
 #pragma mark - Subject To PatientTransition Notifications

@@ -15,6 +15,8 @@
 
 @dynamic finalizedNumber;
 @dynamic title;
+@dynamic currentActivityIndexNumber;
+@dynamic baseFile;
 @dynamic patient;
 @dynamic subActivities;
 

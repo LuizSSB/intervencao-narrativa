@@ -21,6 +21,8 @@
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
 
+- (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
+
 - (void)activityFlowController:(FTINActivityFlowController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
 @end
@@ -39,9 +41,11 @@
 - (FTINSubActivityDetails *)nextSubActivity;
 
 - (void)start;
+- (void)startWithUnfinishedActivity:(Activity *)activity;
 - (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)skipSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)finish;
+- (void)pauseInSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)cancel;
 
 @end

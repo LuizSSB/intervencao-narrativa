@@ -19,6 +19,8 @@
 "confirmation" = "Confirmação";
 "next>" = "Próximo >";
 "finalize" = "Finalizar";
+"pause" = "Pausar";
+"unfinished" = "INACABADA";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
@@ -36,6 +38,7 @@
 "leave_activity" = "Deseja mesmo encerrar a atividade?";
 "activity_completed" = "Atividade completa!";
 "skip_level" = "Deseja mesmo pular este nível de dificuldade?";
+"activity_paused" = "Atividade pausada. Selecione-a na lista abaixo para retomar o progresso.";
 
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";

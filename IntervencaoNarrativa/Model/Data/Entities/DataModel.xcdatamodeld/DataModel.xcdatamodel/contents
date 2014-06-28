@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Activity" representedClassName="Activity" parentEntity="BaseEntity" syncable="YES">
+        <attribute name="baseFile" attributeType="String" syncable="YES"/>
+        <attribute name="currentActivityIndexNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="finalizedNumber" attributeType="Boolean" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="activities" inverseEntity="Patient" syncable="YES"/>
@@ -40,7 +42,7 @@
         <attribute name="answerSkillNumber" attributeType="Integer 16" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Activity" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="Activity" positionX="0" positionY="0" width="128" height="135"/>
         <element name="ArrangementSubActivity" positionX="0" positionY="0" width="128" height="103"/>
         <element name="BaseEntity" positionX="0" positionY="0" width="128" height="60"/>
         <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="73"/>

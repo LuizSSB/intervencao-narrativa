@@ -80,7 +80,7 @@
 	
 	Activity *activity = _orderedActivities[indexPath.row];
 	cell.textLabel.text = [activity.creationDate formattedDateTimeWithDateStyle:NSDateFormatterFullStyle andTimeStyle:NSDateFormatterShortStyle];
-	cell.detailTextLabel.text = activity.title;
+	cell.detailTextLabel.text = activity.finalized ? activity.title : @"unfinished".localizedString;
 	
 	return cell;
 }

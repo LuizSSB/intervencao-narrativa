@@ -9,6 +9,8 @@
 #import "FTINActivityFlowController.h"
 #import "FTINActivityDetails.h"
 
+#import "Activity+Complete.h"
+
 NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 
 @interface FTINActivityFlowController ()
@@ -98,7 +100,14 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 
 - (void)start
 {
+	_currentActivityIdx = -1;
 	[self.dataController loadActivityWithContentsOfURL:self.activityUrl];
+}
+
+- (void)startWithUnfinishedActivity:(Activity *)activity
+{
+	_currentActivityIdx = activity.currentActivityIndex - 1;
+	[self.dataController loadUnfinishedActivity:activity];
 }
 
 - (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
@@ -131,6 +140,19 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 - (void)finish
 {
 	[self.dataController saveActivity:self.activity forPatient:self.patient];
+}
+
+- (void)pauseInSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	if(subActivity != self.activity.subActivities[_currentActivityIdx])
+	{
+		NSError *error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidSubActivity];
+		[self.delegate activityFlowController:self pausedActivity:self.activity error:error];
+	}
+	else
+	{
+		[self.dataController pauseActivity:self.activity inSubActivity:_currentActivityIdx forPatient:self.patient];
+	}
 }
 
 - (void)cancel
@@ -178,7 +200,6 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 	{
 		if(activity.subActivities.count)
 		{
-			_currentActivityIdx = -1;
 			_activity = activity;
 			[self resetLevelData];
 		}
@@ -232,6 +253,11 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 - (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error
 {
 	[self.delegate activityFlowController:self canceledActivity:activity error:error];
+}
+
+- (void)activityController:(FTINActivityController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self pausedActivity:activity error:error];
 }
 
 @end

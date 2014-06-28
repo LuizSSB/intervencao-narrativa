@@ -20,6 +20,8 @@
 
 - (void)activityNavigationController:(FTINActivityNavigationController *)navigationController failed:(NSError *)error;
 
+- (void)activityNavigationControllerPaused:(FTINActivityNavigationController *)navigationController;
+
 @end
 
 @interface FTINActivityNavigationController : UINavigationController <FTINActivityFlowControllerDelegate, FTINActivityViewControllerDelegate>
@@ -29,5 +31,7 @@
 @property (nonatomic, weak) id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate> delegate;
 
 - (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate;
+
+- (instancetype)initWithUnfinishedActivity:(Activity *)activity andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate;
 
 @end

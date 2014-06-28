@@ -16,6 +16,8 @@
 
 @property (nonatomic, retain) NSNumber * finalizedNumber;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * currentActivityIndexNumber;
+@property (nonatomic, retain) NSString * baseFile;
 @property (nonatomic, retain) Patient *patient;
 @property (nonatomic, retain) NSSet *subActivities;
 @end

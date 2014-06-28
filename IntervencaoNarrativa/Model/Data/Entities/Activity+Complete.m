@@ -36,4 +36,29 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	self.finalizedNumber = @(finalized);
 }
 
+- (NSInteger)currentActivityIndex
+{
+	return self.currentActivityIndexNumber.integerValue;
+}
+
+- (void)setCurrentActivityIndex:(NSInteger)currentActivityIndex
+{
+	self.currentActivityIndexNumber = @(currentActivityIndex);
+}
+
+- (SubActivity *)currentActivity
+{
+	return self.subActivitesInOrder[self.currentActivityIndex];
+}
+
+- (void)setCurrentActivity:(SubActivity *)currentActivity
+{
+	NSInteger index = [self.subActivitesInOrder indexOfObject:currentActivity];
+	
+	if (index != NSNotFound)
+	{
+		self.currentActivityIndex = index;
+	}
+}
+
 @end
