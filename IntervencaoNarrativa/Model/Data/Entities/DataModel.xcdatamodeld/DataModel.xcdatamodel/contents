@@ -22,8 +22,8 @@
         <attribute name="descriptiveSkillNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
     </entity>
     <entity name="EnvironmentSubActivity" representedClassName="EnvironmentSubActivity" parentEntity="SubActivity" syncable="YES">
-        <attribute name="narrationCoherenceNumber" attributeType="Integer 16" syncable="YES"/>
-        <attribute name="organizationCoherenceNumber" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="narrationCoherenceNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="organizationCoherenceNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
         <attribute name="selectedItems" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="Patient" representedClassName="Patient" parentEntity="BaseEntity" syncable="YES">
@@ -39,7 +39,7 @@
         <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivities" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="WhyGameSubActivity" representedClassName="WhyGameSubActivity" parentEntity="SubActivity" syncable="YES">
-        <attribute name="answerSkillNumber" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="answerSkillNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
     </entity>
     <elements>
         <element name="Activity" positionX="0" positionY="0" width="128" height="135"/>

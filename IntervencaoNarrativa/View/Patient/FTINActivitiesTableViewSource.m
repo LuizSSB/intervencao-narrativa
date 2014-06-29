@@ -75,12 +75,29 @@
 	
 	if(!cell)
 	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:FTINDefaultCellIdentifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:FTINDefaultCellIdentifier];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
 	Activity *activity = _orderedActivities[indexPath.row];
 	cell.textLabel.text = [activity.creationDate formattedDateTimeWithDateStyle:NSDateFormatterFullStyle andTimeStyle:NSDateFormatterShortStyle];
-	cell.detailTextLabel.text = activity.finalized ? activity.title : @"unfinished".localizedString;
+	
+	UIColor *textColor;
+	NSString *detailText;
+	
+	if(activity.finalized)
+	{
+		textColor = [UIColor blueColor];
+		detailText = @"finished".localizedString;
+	}
+	else
+	{
+		textColor = [UIColor redColor];
+		detailText = @"unfinished".localizedString;
+	}
+	
+	cell.detailTextLabel.textColor = textColor;
+	cell.detailTextLabel.text = detailText;
 	
 	return cell;
 }

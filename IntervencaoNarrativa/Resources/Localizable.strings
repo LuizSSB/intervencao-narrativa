@@ -20,7 +20,8 @@
 "next>" = "Próximo >";
 "finalize" = "Finalizar";
 "pause" = "Pausar";
-"unfinished" = "INACABADA";
+"unfinished" = "Pausada";
+"finished" = "Finalizada";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
