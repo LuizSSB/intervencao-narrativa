@@ -17,6 +17,9 @@
 #import "FTINImageArrangementView.h"
 
 @interface FTINArrangementActivityViewController ()
+{
+	ArrangementSubActivity *_subActivityData;
+}
 
 @property (weak, nonatomic) IBOutlet FTINImageArrangementView *itemsArrangementView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *arrangementBarButton;
@@ -40,14 +43,27 @@
 	self.narrativeSkillBarButton = nil;
 	_arrangementViewController = nil;
 	_narrationViewController = nil;
+	_subActivityData = nil;
 }
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	
-	self.itemsArrangementView.items = ((FTINArrangementSubActivityContent *) self.subActivity.content).elements;
-	
+	_subActivityData = (ArrangementSubActivity *)self.subActivity.data;
+
+	if(_subActivityData.completed)
+	{
+		[self.itemsArrangementView setItems:_subActivityData.itemsArrangement shuffling:NO];
+		self.arrangementViewController.selectedSkill = _subActivityData.arrangementSkill;
+		self.narrationViewController.selectedSkill = _subActivityData.narrativeSkill;
+		self.itemsArrangementView.userInteractionEnabled = NO;
+	}
+	else
+	{
+		self.itemsArrangementView.items = ((FTINArrangementSubActivityContent *) self.subActivity.content).elements;
+	}
+		
 	[self.itemsArrangementView sizeToFit];
 	self.itemsArrangementView.center = self.view.center;
 }
@@ -69,19 +85,18 @@
 	[self.narrationViewController dismissPopoverAnimated:YES];
 	[self.arrangementViewController dismissPopoverAnimated:YES];
 	
-	ArrangementSubActivity *tr00Activity = (ArrangementSubActivity *)self.subActivity.data;
 	
 	if(self.narrationViewController.hasSelectedChoice)
 	{
-		tr00Activity.narrativeSkill = self.narrationViewController.selectedSkill;
+		_subActivityData.narrativeSkill = self.narrationViewController.selectedSkill;
 	}
 	
 	if(self.arrangementViewController.hasSelectedChoice)
 	{
-		tr00Activity.arrangementSkill = self.arrangementViewController.selectedSkill;
+		_subActivityData.arrangementSkill = self.arrangementViewController.selectedSkill;
 	}
 	
-	tr00Activity.itemsArrangement = self.itemsArrangementView.items;
+	_subActivityData.itemsArrangement = self.itemsArrangementView.items;
 	
 	return YES;
 }

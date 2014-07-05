@@ -16,6 +16,9 @@
 #import "EnvironmentSubActivity+Complete.h"
 
 @interface FTINEnvironmentActivityViewController ()
+{
+	EnvironmentSubActivity *_subActivityData;
+}
 
 @property (weak, nonatomic) IBOutlet FTINDraggableItemBoxView *draggableElementBox;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *organizationBarButton;
@@ -42,6 +45,7 @@
 	_organizationBarButton = nil;
 	_narrationBarButton = nil;
 	_resetBarButton = nil;
+	_subActivityData = nil;
 }
 
 - (void)viewDidLoad
@@ -51,6 +55,14 @@
 	FTINEnvironmentSubActivityContent *_content = (FTINEnvironmentSubActivityContent *) self.subActivity.content;
 	self.draggableElementBox.toolboxElementsImagesNames = _content.allElementsArray;
 	self.draggableElementBox.backgroundImageView.image = [UIImage imageNamed:_content.background];
+
+	if (_subActivityData.completed)
+	{
+		self.draggableElementBox.chosenElementsImagesNames = _subActivityData.selectedItems;
+		self.draggableElementBox.userInteractionEnabled = NO;
+		self.narrationViewController.selectedCoherence = _subActivityData.narrationCoherence;
+		self.organizationViewController.selectedCoherence = _subActivityData.organizationCoherence;
+	}
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -62,9 +74,18 @@
 	[self.navigationItem setRightBarButtonItems:rightButtons animated:YES];
 }
 
+- (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate
+{
+    self = [super initWithSubActivity:subactivity andDelegate:delegate];
+    if (self) {
+		_subActivityData = (id) self.subActivity.data;
+    }
+    return self;
+}
+
 - (NSArray *)getNavigationItemRightBarButtons
 {
-	return @[self.resetBarButton];
+	return _subActivityData.completed ? nil : @[self.resetBarButton];
 }
 
 - (NSArray *)getActionBarButtons
@@ -84,19 +105,17 @@
 	[self.narrationViewController dismissPopoverAnimated:YES];
 	[self.organizationViewController dismissPopoverAnimated:YES];
 	
-	EnvironmentSubActivity *data = (id) self.subActivity.data;
-	
 	if(self.organizationViewController.hasSelectedChoice)
 	{
-		data.organizationCoherence = self.organizationViewController.selectedCoherence;
+		_subActivityData.organizationCoherence = self.organizationViewController.selectedCoherence;
 	}
 	
 	if(self.narrationViewController.hasSelectedChoice)
 	{
-		data.narrationCoherence = self.narrationViewController.selectedCoherence;
+		_subActivityData.narrationCoherence = self.narrationViewController.selectedCoherence;
 	}
 	
-	data.selectedItems = self.draggableElementBox.chosenElementsImagesNames;
+	_subActivityData.selectedItems = self.draggableElementBox.chosenElementsImagesNames;
 	
 	return YES;
 }
@@ -115,7 +134,7 @@
 
 - (IBAction)reset:(id)sender
 {
-	[self.draggableElementBox reset];
+	[self.draggableElementBox reset:YES];
 }
 
 @synthesize organizationViewController = _organizationViewController;

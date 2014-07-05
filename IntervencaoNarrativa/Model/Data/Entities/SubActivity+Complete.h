@@ -14,4 +14,6 @@
 
 @property (nonatomic) BOOL skipped;
 
+@property (nonatomic) BOOL completed;
+
 @end

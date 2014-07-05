@@ -21,6 +21,9 @@
 - (void)loadActivityDetailsFromURL:(NSURL *)url resultHandler:(FTINOperationHandler)resultHandler;
 - (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError **)error;
 - (BOOL)loadSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError **)error;
+
+- (void)saveActivity:(FTINActivityDetails *)activity withPatient:(Patient *)patient resultHandler:(FTINOperationHandler)resultHandler;
+
 - (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationHandler)resultHandler;
 
 @end
@@ -77,6 +80,9 @@
 			for (FTINSubActivityDetails *subActivity in result.subActivities)
 			{
 				subActivity.data = [FTINActitivitiesFactory subActivityDataOfType:subActivity.type];
+				subActivity.data.creationDate = [NSDate date];
+				subActivity.data.parentActivity = result.data;
+				[result.data addSubActivitiesObject:subActivity.data];
 			}
 		}
 		
@@ -84,6 +90,7 @@
 	}];
 }
 
+// TODO Luiz: tornar assíncrono
 - (void)loadUnfinishedActivity:(Activity *)activity
 {
 	[self loadActivityDetailsFromURL:[NSURL URLWithString:activity.baseFile] resultHandler:^(FTINActivityDetails *result, NSError *error) {
@@ -138,18 +145,12 @@
 
 // TODO Luiz: no momento, não é necessário, mas, no futuro, provavelmente será
 // assíncrono.
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
+- (void)completeSubActivity:(FTINSubActivityDetails *)subActivity
 {
 	NSError *error = nil;
-	
-	if([subActivity valid:&error])
-	{
-		subActivity.data.parentActivity = subActivity.parentActivity.data;
-		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];
-	}
-	
+	subActivity.data.completed = [subActivity valid:&error];
 	subActivity.data.skipped = NO;
-	[self.delegate activityController:self savedSubActivity:subActivity error:error];
+	[self.delegate activityController:self completedSubActivity:subActivity error:error];
 }
 
 - (void)skipSubActivity:(FTINSubActivityDetails *)subActivity
@@ -160,70 +161,65 @@
 	{
 		error = [NSError ftin_createErrorWithCode:FTINErrorCodeNonSkippableSubActivity];
 	}
-	else
+	else if(!subActivity.data.completed)
 	{
 		subActivity.data.skipped = YES;
-		subActivity.data.parentActivity = subActivity.parentActivity.data;
-		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];
 	}
 	
 	[self.delegate activityController:self skippedSubActivity:subActivity error:error];
 }
 
-- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
+- (void)finalizeActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
 {
-	activity.data.finalized = YES;
-	
-	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:activity.data];
-	
-	for (FTINSubActivityDetails *subs in activity.subActivities) {
-		[dataToInsert addObject:subs.data];
+	for (SubActivity *sub in activity.data.subActivities)
+	{
+		if(!sub.completed)
+		{
+			[self.delegate activityController:self finalizedActivity:activity error:[NSError ftin_createErrorWithCode:FTINErrorCodeNotAllSubActivitiesCompleted]];
+			return;
+		}
 	}
 	
-	void (^errorHandler)(NSError *) = ^(NSError *error)
-	{
-		[self.delegate activityController:self savedActivity:activity error:error];
-	};
-	
-	[Activity saveObjects:dataToInsert success:^(id items) {
-		activity.data.patient = patient;
-		[activity.data.patient addActivitiesObject:activity.data];
-		
-		[Activity saveObjects:@[activity.data, activity.data.patient] success:^(id items) {
-			errorHandler(nil);
-		} failure:errorHandler];
-	} failure:errorHandler];
+	activity.data.finalized = YES;
+	[self saveActivity:activity withPatient:patient resultHandler:^(id result, NSError *error) {
+		[self.delegate activityController:self finalizedActivity:activity error:error];
+	}];
 }
 
 - (void)pauseActivity:(FTINActivityDetails *)activity inSubActivity:(NSInteger)subActivityIndex forPatient:(Patient *)patient
 {
 	activity.data.finalized = NO;
 	activity.data.currentActivityIndex = subActivityIndex;
+	
+	[self saveActivity:activity withPatient:patient resultHandler:^(id result, NSError *error) {
+		[self.delegate activityController:self pausedActivity:activity error:error];
+	}];
+}
+
+- (void)saveActivity:(FTINActivityDetails *)activity withPatient:(Patient *)patient resultHandler:(FTINOperationHandler)resultHandler
+{
 	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:activity.data];
-	
-	for (FTINSubActivityDetails *subs in activity.subActivities) {
-		if(!subs.data.parentActivity)
-		{
-			subs.data.parentActivity = activity.data;
-			[activity.data addSubActivitiesObject:subs.data];
-		}
-		
-		[dataToInsert addObject:subs.data];
-	}
-	
+	[dataToInsert addObjectsFromArray:activity.data.subActivitesInOrder];
 	
 	void (^errorHandler)(NSError *) = ^(NSError *error)
 	{
-		[self.delegate activityController:self pausedActivity:activity error:error];
+		resultHandler(nil, error);
 	};
 	
 	[Activity saveObjects:dataToInsert success:^(id items) {
-		activity.data.patient = patient;
-		[activity.data.patient addActivitiesObject:activity.data];
-		
-		[Activity saveObjects:@[activity.data, activity.data.patient] success:^(id items) {
+		if(activity.data.patient)
+		{
 			errorHandler(nil);
-		} failure:errorHandler];
+		}
+		else
+		{
+			activity.data.patient = patient;
+			[activity.data.patient addActivitiesObject:activity.data];
+			
+			[Activity saveObjects:@[activity.data, activity.data.patient] success:^(id items) {
+				errorHandler(nil);
+			} failure:errorHandler];
+		}
 	} failure:errorHandler];
 }
 
@@ -244,11 +240,7 @@
 - (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationHandler)resultHandler
 {
 	NSMutableArray *subActivitiesData = [NSMutableArray arrayWithObject:activity];
-
-	// TODO definir a ligação das subatividades como cascade
-	for (SubActivity *subs in activity.subActivities) {
-		[subActivitiesData addObject:subs];
-	}
+	[subActivitiesData addObjectsFromArray:activity.subActivitesInOrder];
 	
 	[SubActivity destroyObjects:subActivitiesData success:^{
 		resultHandler(activity, nil);

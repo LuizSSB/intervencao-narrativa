@@ -12,8 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic) NSArray *toolboxElementsImagesNames;
-@property (nonatomic, readonly) NSSet *chosenElementsImagesNames;
+@property (nonatomic) NSSet *chosenElementsImagesNames;
 
-- (void)reset;
+- (void)reset:(BOOL)animated;
 
 @end

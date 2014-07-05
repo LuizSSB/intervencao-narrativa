@@ -17,6 +17,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 }
 
 - (void)pause:(id)sender;
+- (void)setupNavigationItemBarButtons:(BOOL)animated;
 
 @end
 
@@ -27,8 +28,8 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 - (void)dealloc
 {
 	_actionToolbar = nil;
-	_cancelButton = nil;
-	_nextButton = nil;
+	_cancelBarButton = nil;
+	_nextBarButton = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,8 +39,8 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	if(!self.visible)
 	{
 		_actionToolbar = nil;
-		_cancelButton = nil;
-		_nextButton = nil;
+		_cancelBarButton = nil;
+		_nextBarButton = nil;
 	}
 }
 
@@ -49,20 +50,13 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationItem.leftItemsSupplementBackButton = NO;
-	self.navigationItem.leftBarButtonItems = @[
-											   self.cancelButton,
-											   [[UIBarButtonItem alloc] initWithTitle:@"pause".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(pause:)]
-											   ];
-	
 	self.editButtonItem.title = @"hide_controls".localizedString;
 	
-	NSMutableArray *rightButtons = [NSMutableArray arrayWithObject:self.editButtonItem];
-	[rightButtons addObjectsFromArray:[self getNavigationItemRightBarButtons].reverseObjectEnumerator.allObjects];
-	self.navigationItem.rightBarButtonItems = rightButtons;
+	[self setupNavigationItemBarButtons:NO];
 	
 	NSMutableArray *actionButtons = [NSMutableArray arrayWithArray:[self getActionBarButtons]];
 	[actionButtons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
-	[actionButtons addObject:self.nextButton];
+	[actionButtons addObject:self.nextBarButton];
 	self.actionToolbar.items = actionButtons;
 }
 
@@ -75,22 +69,22 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 {
 	[super setEditing:editing animated:animated];
 	
-	UIBarButtonItem *leftButton;
 	CGRect toolbarFrame = self.actionToolbar.frame;
 	toolbarFrame.origin.y = self.view.frame.size.height;
 	
 	if(!editing)
 	{
-		leftButton = self.cancelButton;
+		[self setupNavigationItemBarButtons:animated];
 		toolbarFrame.origin.y -= toolbarFrame.size.height;
 		self.editButtonItem.title = @"hide_controls".localizedString;
 	}
 	else
 	{
+		[self.navigationItem setLeftBarButtonItems:nil animated:animated];
+		[self.navigationItem setRightBarButtonItems:@[self.editButtonItem] animated:animated];
 		self.editButtonItem.title = @"show_controls".localizedString;
 	}
 	
-	[self.navigationItem setLeftBarButtonItem:leftButton animated:YES];
 	[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
 		self.actionToolbar.frame = toolbarFrame;
 	}];
@@ -121,13 +115,24 @@ NSInteger const FTINAlertTagActivityCancel = 1;
     return self;
 }
 
-@synthesize cancelButton = _cancelButton;
-- (UIBarButtonItem *)cancelButton
+@synthesize cancelBarButton = _cancelBarButton;
+
+- (UIBarButtonItem *)cancelBarButton
 {
-	if(!_cancelButton) {
-		_cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"cancel".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(cancelActivity:)];
+	if(!_cancelBarButton) {
+		_cancelBarButton = [[UIBarButtonItem alloc] initWithTitle:@"cancel".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(cancelActivity:)];
 	}
-	return _cancelButton;
+	return _cancelBarButton;
+}
+
+@synthesize pauseBarButton = _pauseBarButton;
+
+- (UIBarButtonItem *)pauseBarButton
+{
+	if(!_pauseBarButton) {
+		_pauseBarButton = [[UIBarButtonItem alloc] initWithTitle:@"pause".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(pause:)];
+	}
+	return _pauseBarButton;
 }
 
 @synthesize actionToolbar = _actionToolbar;
@@ -149,28 +154,28 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	return _actionToolbar;
 }
 
-@synthesize nextButton = _nextButton;
+@synthesize nextBarButton = _nextBarButton;
 
-- (UIBarButtonItem *)nextButton
+- (UIBarButtonItem *)nextBarButton
 {
-	if(!_nextButton)
+	if(!_nextBarButton)
 	{
 		if ([self.delegate respondsToSelector:@selector(activityViewControllerCustomizedNextBarButton:)])
 		{
-			_nextButton = [self.delegate activityViewControllerCustomizedNextBarButton:self];
+			_nextBarButton = [self.delegate activityViewControllerCustomizedNextBarButton:self];
 			
-			if(_nextButton)
+			if(_nextBarButton)
 			{
-				_nextButton.target = self;
-				_nextButton.action = @selector(goToNextActivity:);
-				return _nextButton;
+				_nextBarButton.target = self;
+				_nextBarButton.action = @selector(goToNextActivity:);
+				return _nextBarButton;
 			}
 		}
 		
-		_nextButton = [[UIBarButtonItem alloc] initWithTitle:@"next>".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(goToNextActivity:)];
+		_nextBarButton = [[UIBarButtonItem alloc] initWithTitle:@"next>".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(goToNextActivity:)];
 	}
 	
-	return _nextButton;
+	return _nextBarButton;
 }
 
 - (void)cancelActivity:(id)sender
@@ -196,6 +201,21 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 - (BOOL)prepareToGoToNextActivity
 {
 	return YES;
+}
+
+- (void)setupNavigationItemBarButtons:(BOOL)animated
+{
+	[self.navigationItem setLeftBarButtonItems:@[self.cancelBarButton, self.pauseBarButton] animated:animated];
+	
+	NSMutableArray *rightButtons = [NSMutableArray arrayWithObject:self.editButtonItem];
+	
+	if([self.delegate respondsToSelector:@selector(activityViewControllerAdditionalRightBarButtonItems:)])
+	{
+		[rightButtons addObjectsFromArray:[self.delegate activityViewControllerAdditionalRightBarButtonItems:self].reverseObjectEnumerator.allObjects];
+	}
+	
+	[rightButtons addObjectsFromArray:[self getNavigationItemRightBarButtons].reverseObjectEnumerator.allObjects];
+	[self.navigationItem setRightBarButtonItems:rightButtons animated:animated];
 }
 
 #pragma mark - Alert View Delegate

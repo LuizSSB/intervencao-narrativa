@@ -79,6 +79,10 @@ typedef enum : NSUInteger {
 } FTINAnswerSkill;
 
 // -----------------------------------------------------------------------------
+// Utilitary functions
+NSString * FTINActivityTypeTitle(FTINActivityType type);
+
+// -----------------------------------------------------------------------------
 // Protocols with same name as Foundation types
 // These are to be used with JSONModel DTOs that deal with arrays
 

@@ -15,6 +15,9 @@
 #import "WhyGameSubActivity+Complete.h"
 
 @interface FTINWhyGameActivityViewController ()
+{
+	WhyGameSubActivity *_subActivityData;
+}
 
 @property (weak, nonatomic) IBOutlet FTINQuestionCardsView *questionCardsView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *answerSkillBarButton;
@@ -32,6 +35,7 @@
 {
 	self.answerSkillBarButton = nil;
 	_answerViewController = nil;
+	_subActivityData = nil;
 }
 
 - (void)viewDidLoad
@@ -41,6 +45,12 @@
 	self.questionCardsView.questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
 	self.questionCardsView.center = self.view.center;
 	
+	_subActivityData = (id) self.subActivity.data;
+	
+	if(_subActivityData.completed)
+	{
+		self.answerViewController.selectedSkill = _subActivityData.answerSkill;
+	}
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -60,7 +70,7 @@
 	
 	if(self.answerViewController.hasSelectedChoice)
 	{
-		[(WhyGameSubActivity *)self.subActivity.data setAnswerSkill:self.answerViewController.selectedSkill];
+		[_subActivityData setAnswerSkill:self.answerViewController.selectedSkill];
 	}
 	
 	return YES;

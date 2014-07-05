@@ -15,9 +15,9 @@
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error;
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller savedActivity:(FTINActivityDetails *)details error:(NSError *)error;
+- (void)activityFlowController:(FTINActivityFlowController *)controller finishedActivity:(FTINActivityDetails *)details error:(NSError *)error;
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller savedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
+- (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
 
@@ -36,13 +36,16 @@
 @property (nonatomic, readonly) Patient *patient;
 @property (nonatomic, weak) id<FTINActivityFlowControllerDelegate> delegate;
 
-@property (nonatomic, readonly) BOOL started;
+@property (nonatomic, readonly) FTINSubActivityDetails *currentSubActivity;
+@property (nonatomic, readonly) NSUInteger incompleteActivities;
 @property (nonatomic, readonly) BOOL hasNextSubActivity;
 - (FTINSubActivityDetails *)nextSubActivity;
+- (FTINSubActivityDetails *)jumpToSubActivityAtIndex:(NSUInteger)activityIndex;
+- (void)jumpToSubActivity:(FTINSubActivityDetails *)subActivity;
 
 - (void)start;
 - (void)startWithUnfinishedActivity:(Activity *)activity;
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
+- (void)completeSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)skipSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)finish;
 - (void)pauseInSubActivity:(FTINSubActivityDetails *)subActivity;

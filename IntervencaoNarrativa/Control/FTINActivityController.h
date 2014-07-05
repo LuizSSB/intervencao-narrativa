@@ -16,11 +16,11 @@
 
 - (void)activityController:(FTINActivityController *)controller loadedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
-- (void)activityController:(FTINActivityController *)controller savedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error;
+- (void)activityController:(FTINActivityController *)controller completedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error;
 
 - (void)activityController:(FTINActivityController *)controller skippedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error;
 
-- (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
+- (void)activityController:(FTINActivityController *)controller finalizedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
 - (void)activityController:(FTINActivityController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
@@ -40,11 +40,11 @@
 
 - (void)loadUnfinishedActivity:(Activity *)activity;
 
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
+- (void)completeSubActivity:(FTINSubActivityDetails *)subActivity;
 
 - (void)skipSubActivity:(FTINSubActivityDetails *)subActivity;
 
-- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient;
+- (void)finalizeActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient;
 
 - (void)pauseActivity:(FTINActivityDetails *)activity inSubActivity:(NSInteger)subActivityIndex forPatient:(Patient *)patient;
 

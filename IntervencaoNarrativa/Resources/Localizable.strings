@@ -17,7 +17,7 @@
 "save" = "Salvar";
 "name" = "Nome";
 "confirmation" = "Confirmação";
-"next>" = "Próximo >";
+"next>" = "Próximo";
 "finalize" = "Finalizar";
 "pause" = "Pausar";
 "unfinished" = "Pausada";
@@ -40,6 +40,12 @@
 "activity_completed" = "Atividade completa!";
 "skip_level" = "Deseja mesmo pular este nível de dificuldade?";
 "activity_paused" = "Atividade pausada. Selecione-a na lista abaixo para retomar o progresso.";
+"activities" = "Atividades";
+"activity_whygame" = "Jogo do porquê";
+"activity_arrangement" = "Ordenação e narração de cenas";
+"activity_description" = "Descrição e narração de cena";
+"activity_environment" = "Montagem de ambiente";
+"do_skipped_activity" = "Essa atividade foi pulada. Deseja realizá-la agora?";
 
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";
@@ -79,6 +85,8 @@
 "error_ftin_3001" = "Favor apontar o desempenho da criança nos marcadores abaixo.";
 "error_ftin_3002" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityFlowController.";
 "error_ftin_3003" = "Atividade não pode ser pulada";
+"error_ftin_3004" = "É preciso terminar todas as atividades para finalizar.";
+"error_ftin_3005" = "Atividade fora dos limites.";
 
 "error_ftin_6000" = "Ordenação incorreta, tente novamente.";
 "error_ftin_6001" = "A quantidade itens que fazem parte do ambiente está errada.";

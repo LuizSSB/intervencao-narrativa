@@ -24,6 +24,9 @@ typedef enum : NSUInteger {
 	FTINErrorCodePerformanceDataMissing = 3001,
 	FTINErrorCodeInvalidSubActivity = 3002,
 	FTINErrorCodeNonSkippableSubActivity = 3003,
+	FTINErrorCodeNotAllSubActivitiesCompleted = 3004,
+	FTINErrorCodeActivityOutOfBounds = 3005,
+	FTINErrorCodeSubActivityOutOfBounds = 3005,
 	
 	FTINErrorCodeWrongArrangementOrder = 6000,
 	FTINErrorCodeEnvironmentLacking = 6001,

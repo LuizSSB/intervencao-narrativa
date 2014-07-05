@@ -23,6 +23,26 @@
 - (void)setSkipped:(BOOL)skipped
 {
 	self.skippedNumber = @(skipped);
+	
+	if(skipped)
+	{
+		self.completed = YES;
+	}
+}
+
+- (BOOL)completed
+{
+	return self.completedNumber.boolValue;
+}
+
+- (void)setCompleted:(BOOL)completed
+{
+	self.completedNumber = @(completed);
+	
+	if(self.skipped && !completed)
+	{
+		self.skipped = NO;
+	}
 }
 
 @end

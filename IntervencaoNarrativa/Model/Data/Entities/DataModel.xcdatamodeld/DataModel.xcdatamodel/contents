@@ -34,7 +34,8 @@
         <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="patient" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="SubActivity" representedClassName="SubActivity" isAbstract="YES" parentEntity="BaseEntity" syncable="YES">
-        <attribute name="skippedNumber" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="completedNumber" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="skippedNumber" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivities" inverseEntity="Activity" syncable="YES"/>
     </entity>
@@ -48,7 +49,7 @@
         <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="73"/>
         <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Patient" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="SubActivity" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="SubActivity" positionX="0" positionY="0" width="128" height="105"/>
         <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="60"/>
     </elements>
 </model>

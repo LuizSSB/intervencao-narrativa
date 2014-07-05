@@ -17,6 +17,9 @@
 NSInteger const FTINAlertTagActivitySkip = 2;
 
 @interface FTINDescriptionActivityViewController ()
+{
+	DescriptionSubActivity *_subActivityData;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *descriptiveSkillBarButton;
@@ -44,6 +47,7 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 	_elementsChoiceViewController = nil;
 	_skillChoiceViewController = nil;
 	_content = nil;
+	_subActivityData = nil;
 }
 
 - (instancetype)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate
@@ -51,6 +55,7 @@ NSInteger const FTINAlertTagActivitySkip = 2;
     self = [super initWithSubActivity:subactivity andDelegate:delegate];
     if (self) {
         _content = (id) subactivity.content;
+		_subActivityData = (id) subactivity.data;
     }
     return self;
 }
@@ -60,10 +65,25 @@ NSInteger const FTINAlertTagActivitySkip = 2;
     [super viewDidLoad];
 	
 	self.mainImageView.image = [UIImage imageNamed:self.content.image];
+	
+	if(_subActivityData.completed)
+	{
+		for (NSNumber *element in _subActivityData.describedElements)
+		{
+			[self.elementsChoiceViewController chooseItemAtIndex:element.integerValue];
+		}
+		
+		self.skillChoiceViewController.selectedSkill = _subActivityData.descriptiveSkill;
+	}
 }
 
 - (NSArray *)getNavigationItemRightBarButtons
 {
+	if (_subActivityData.completed)
+	{
+		return @[];
+	}
+	
 	UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
 	fixedSpace.width = FTINBarButtonItemSpacing;
 	return @[
@@ -89,16 +109,14 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 	[self.skillChoiceViewController dismissPopoverAnimated:YES];
 	[self.elementsChoiceViewController dismissPopoverAnimated:YES];
 	
-	DescriptionSubActivity *descriptionActivity = (DescriptionSubActivity *)self.subActivity.data;
-	
 	if(self.skillChoiceViewController.hasSelectedChoice)
 	{
-		descriptionActivity.descriptiveSkill = self.skillChoiceViewController.selectedSkill;
+		_subActivityData.descriptiveSkill = self.skillChoiceViewController.selectedSkill;
 	}
 	
 	if(self.elementsChoiceViewController.hasSelectedChoice)
 	{
-		descriptionActivity.describedElements = self.elementsChoiceViewController.selectedChoicesIndexes;
+		_subActivityData.describedElements = self.elementsChoiceViewController.selectedChoicesIndexes;
 	}
 	
 	return YES;
