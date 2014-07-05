@@ -75,7 +75,7 @@
 {
 	if(!_parentPopover)
 	{
-		_parentPopover = [[UIPopoverController alloc] initWithContentViewController:[[UINavigationController alloc] initWithRootViewController:self]];
+		_parentPopover = [[UIPopoverController alloc] initWithContentViewController:self];
 	}
 	
 	return _parentPopover;
@@ -112,7 +112,23 @@
 	FTINSubActivityDetails *subActivity = self.activity.subActivities[indexPath.row];
 	cell.textLabel.text = [[self.indexFormatter stringFromNumber:@(indexPath.row + 1)] stringByAppendingFormat:@" - %@", subActivity.content.title];
 	cell.detailTextLabel.text = FTINActivityTypeTitle(subActivity.type);
-	cell.accessoryType = subActivity.data.completed ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+	cell.accessoryView = nil;
+	
+	if (subActivity.data.completed)
+	{
+		if(subActivity.data.skipped)
+		{
+			cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jump"]];
+		}
+		else
+		{
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		}
+	}
+	else
+	{
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
 	
 	NSString *imageName;
 	

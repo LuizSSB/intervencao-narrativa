@@ -10,6 +10,8 @@
 #import "FTINSubActivityDetails.h"
 #import "FTINSubActivityContent.h"
 
+#import "SubActivity+Complete.h"
+
 NSInteger const FTINAlertTagActivityCancel = 1;
 
 @interface FTINActivityViewController ()
@@ -58,6 +60,16 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	[actionButtons addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
 	[actionButtons addObject:self.nextBarButton];
 	self.actionToolbar.items = actionButtons;
+	
+	if(self.subActivity.data.completed)
+	{
+		UIView *completionOverlay = [[UIView alloc] initWithFrame:self.view.bounds];
+		completionOverlay.backgroundColor = [UIColor blackColor];
+		completionOverlay.layer.opacity = .65f;
+		[self.view addSubview:completionOverlay];
+		
+		[self.view bringSubviewToFront:self.actionToolbar];
+	}
 }
 
 - (void)setEditing:(BOOL)editing
@@ -136,6 +148,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 }
 
 @synthesize actionToolbar = _actionToolbar;
+
 - (UIToolbar *)actionToolbar
 {
 	if(!_actionToolbar)

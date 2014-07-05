@@ -142,6 +142,7 @@
 		25A37CA1194D371700DFC749 /* m_tree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C9D194D371700DFC749 /* m_tree.jpg */; };
 		25A37CA3194D372E00DFC749 /* m_5x3.json in Resources */ = {isa = PBXBuildFile; fileRef = 25A37CA2194D372E00DFC749 /* m_5x3.json */; };
 		25B2A54619688A9200F93178 /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2A54519688A9200F93178 /* SubActivity.m */; };
+		25B2A5481968C12A00F93178 /* jump@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B2A5471968C12A00F93178 /* jump@2x.png */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
 		25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */; };
 		25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */; };
@@ -447,6 +448,7 @@
 		25A37CA2194D372E00DFC749 /* m_5x3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m_5x3.json; sourceTree = "<group>"; };
 		25B2A54419688A9200F93178 /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
 		25B2A54519688A9200F93178 /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
+		25B2A5471968C12A00F93178 /* jump@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jump@2x.png"; sourceTree = "<group>"; };
 		25CDAE9319435360003E1314 /* SubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SubActivity+Complete.h"; sourceTree = "<group>"; };
 		25CDAE9419435360003E1314 /* SubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SubActivity+Complete.m"; sourceTree = "<group>"; };
 		25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionSubActivityContent.h; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				25B2A5471968C12A00F93178 /* jump@2x.png */,
 				257F57F41966187B00D82411 /* blank@2x.png */,
 				257F57F21966187300D82411 /* selected@2x.png */,
 				25603363194DF8DB00AE9C26 /* help@2x.png */,
@@ -1235,6 +1238,7 @@
 				25FF332C194A51EC0080DC6F /* a_6_fairy_5.jpg in Resources */,
 				25FF3317194A51EC0080DC6F /* a_3_car_0.jpg in Resources */,
 				25FF3329194A51EC0080DC6F /* a_6_fairy_2.jpg in Resources */,
+				25B2A5481968C12A00F93178 /* jump@2x.png in Resources */,
 				25FF3318194A51EC0080DC6F /* a_3_car_1.jpg in Resources */,
 				25FF3334194A52480080DC6F /* a_6_fairy.json in Resources */,
 				25FF3309194A51EC0080DC6F /* a_8_fish_4.jpg in Resources */,
