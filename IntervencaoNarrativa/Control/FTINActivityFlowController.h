@@ -19,7 +19,7 @@
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
+- (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivitiesOfType:(FTINActivityType)type andDifficultyLevel:(NSInteger)difficultyLevel automatically:(BOOL)automatically error:(NSError *)error;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
@@ -46,7 +46,7 @@
 - (void)start;
 - (void)startWithUnfinishedActivity:(Activity *)activity;
 - (void)completeSubActivity:(FTINSubActivityDetails *)subActivity;
-- (void)skipSubActivity:(FTINSubActivityDetails *)subActivity;
+- (void)skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)finish;
 - (void)pauseInSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)cancel;

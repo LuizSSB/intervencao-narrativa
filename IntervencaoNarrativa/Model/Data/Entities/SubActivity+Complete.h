@@ -16,4 +16,6 @@
 
 @property (nonatomic) BOOL completed;
 
+@property (nonatomic) NSInteger tries;
+
 @end

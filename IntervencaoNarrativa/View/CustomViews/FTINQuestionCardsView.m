@@ -226,6 +226,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 		self.questionViewController.question = self.questions[indexPath.row];
 		[self.superview addSubview:self.closeQuestionOverlayButton];
 		[self.superview addSubview:self.questionViewController.view];
+		[NSThread sleepForTimeInterval:.2];
 		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
 			self.closeQuestionOverlayButton.layer.opacity = FTINQuestionCardsViewOverlayOpacity;
 			

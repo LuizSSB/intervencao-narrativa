@@ -148,7 +148,21 @@
 - (void)completeSubActivity:(FTINSubActivityDetails *)subActivity
 {
 	NSError *error = nil;
-	subActivity.data.completed = [subActivity valid:&error];
+	
+	if([subActivity valid:&error])
+	{
+		subActivity.data.completed = YES;
+	}
+	else
+	{
+		subActivity.data.completed = NO;
+		
+		if([error.domain isEqualToString:FTINErrorDomainSubActivity])
+		{
+			subActivity.data.tries++;
+		}
+	}
+	
 	subActivity.data.skipped = NO;
 	[self.delegate activityController:self completedSubActivity:subActivity error:error];
 }

@@ -147,7 +147,7 @@
 
 - (void)activityViewControllerSkipped:(FTINActivityViewController *)viewController
 {
-	[self.controller skipSubActivity:viewController.subActivity];
+	[self.controller skipLevelOfSubActivity:viewController.subActivity];
 }
 
 - (void)activityViewControllerPaused:(FTINActivityViewController *)viewController
@@ -202,9 +202,16 @@
 	}];
 }
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
+- (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivitiesOfType:(FTINActivityType)type andDifficultyLevel:(NSInteger)difficultyLevel automatically:(BOOL)automatically error:(NSError *)error
 {
-	[NSError alertOnError:error andDoOnSuccess:nil];
+	if (!automatically)
+	{
+		[self activityFlowController:controller completedSubActivity:nil error:error];
+	}
+	else
+	{
+		[NSError alertOnError:error andDoOnSuccess:nil];
+	}
 }
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error

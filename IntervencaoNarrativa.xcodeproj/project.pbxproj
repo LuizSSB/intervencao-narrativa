@@ -141,7 +141,7 @@
 		25A37CA0194D371700DFC749 /* m_toycar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C9C194D371700DFC749 /* m_toycar.jpg */; };
 		25A37CA1194D371700DFC749 /* m_tree.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25A37C9D194D371700DFC749 /* m_tree.jpg */; };
 		25A37CA3194D372E00DFC749 /* m_5x3.json in Resources */ = {isa = PBXBuildFile; fileRef = 25A37CA2194D372E00DFC749 /* m_5x3.json */; };
-		25B6E58B19637CC2007E4919 /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B6E58A19637CC2007E4919 /* SubActivity.m */; };
+		25B2A54619688A9200F93178 /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2A54519688A9200F93178 /* SubActivity.m */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
 		25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */; };
 		25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */; };
@@ -445,8 +445,8 @@
 		25A37C9C194D371700DFC749 /* m_toycar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = m_toycar.jpg; sourceTree = "<group>"; };
 		25A37C9D194D371700DFC749 /* m_tree.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = m_tree.jpg; sourceTree = "<group>"; };
 		25A37CA2194D372E00DFC749 /* m_5x3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = m_5x3.json; sourceTree = "<group>"; };
-		25B6E58919637CC2007E4919 /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
-		25B6E58A19637CC2007E4919 /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
+		25B2A54419688A9200F93178 /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
+		25B2A54519688A9200F93178 /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
 		25CDAE9319435360003E1314 /* SubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SubActivity+Complete.h"; sourceTree = "<group>"; };
 		25CDAE9419435360003E1314 /* SubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SubActivity+Complete.m"; sourceTree = "<group>"; };
 		25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionSubActivityContent.h; sourceTree = "<group>"; };
@@ -969,10 +969,10 @@
 				256357BE19413A6200E5762A /* Patient+Complete.m */,
 				256BF1C61947D50F00FD8BB3 /* Patient.h */,
 				256BF1C71947D50F00FD8BB3 /* Patient.m */,
-				25B6E58919637CC2007E4919 /* SubActivity.h */,
-				25B6E58A19637CC2007E4919 /* SubActivity.m */,
 				25CDAE9319435360003E1314 /* SubActivity+Complete.h */,
 				25CDAE9419435360003E1314 /* SubActivity+Complete.m */,
+				25B2A54419688A9200F93178 /* SubActivity.h */,
+				25B2A54519688A9200F93178 /* SubActivity.m */,
 				25603347194DC1C200AE9C26 /* WhyGameSubActivity+Complete.h */,
 				25603348194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m */,
 				25603344194DC1B100AE9C26 /* WhyGameSubActivity.h */,
@@ -1396,7 +1396,6 @@
 				25208D00195F798200B8B5E7 /* Activity.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
-				25B6E58B19637CC2007E4919 /* SubActivity.m in Sources */,
 				2537BB6A193B730500D10878 /* UIAlertView+DefaultAlerts.m in Sources */,
 				256A97C1193B763300358131 /* ErrorInfo.m in Sources */,
 				25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */,
@@ -1430,6 +1429,7 @@
 				256BF1C51947CF4200FD8BB3 /* FTINArrangementSkillChoiceViewController.m in Sources */,
 				25A37C6A194C985300DFC749 /* EnvironmentSubActivity+Complete.m in Sources */,
 				2537BB5F193B730500D10878 /* FileUtils.m in Sources */,
+				25B2A54619688A9200F93178 /* SubActivity.m in Sources */,
 				256BF1C21947CCF100FD8BB3 /* FTINNarrativeSkillChoiceViewController.m in Sources */,
 				25A37C6D194C99FD00DFC749 /* FTINCoherenceChoiceViewController.m in Sources */,
 				2537BB67193B730500D10878 /* NSString+LocalizedString.m in Sources */,

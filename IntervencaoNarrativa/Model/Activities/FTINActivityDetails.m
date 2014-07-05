@@ -8,6 +8,7 @@
 
 #import "FTINActivityDetails.h"
 #import "Activity+Complete.h"
+#import "FTINSubActivityDetails.h"
 
 @implementation FTINActivityDetails
 
@@ -49,6 +50,28 @@
 	{
 		data.title = self.title;
 	}
+}
+
+- (NSArray *)subActivitiesOfType:(FTINActivityType)type difficultyLevel:(NSInteger)difficultyLevel
+{
+	return [self subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *subActivity) {
+		return subActivity.type == type && difficultyLevel == subActivity.difficultyLevel;
+	}];
+}
+
+- (NSArray *)subActivitiesThatRespond:(BOOL (^)(FTINSubActivityDetails *))handler
+{
+	NSMutableArray *subActivities = [NSMutableArray array];
+	
+	for (FTINSubActivityDetails *sub in self.subActivities)
+	{
+		if(handler(sub))
+		{
+			[subActivities addObject:sub];
+		}
+	}
+	
+	return subActivities;
 }
 
 @end

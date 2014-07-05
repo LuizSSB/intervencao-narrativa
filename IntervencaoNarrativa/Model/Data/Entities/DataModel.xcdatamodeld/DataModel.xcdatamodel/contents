@@ -37,6 +37,7 @@
         <attribute name="completedNumber" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="skippedNumber" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
+        <attribute name="triesNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivities" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="WhyGameSubActivity" representedClassName="WhyGameSubActivity" parentEntity="SubActivity" syncable="YES">
@@ -49,7 +50,7 @@
         <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="73"/>
         <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Patient" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="SubActivity" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="SubActivity" positionX="0" positionY="0" width="128" height="120"/>
         <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="60"/>
     </elements>
 </model>

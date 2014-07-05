@@ -24,4 +24,8 @@
 @property (nonatomic) Activity *data;
 @property (nonatomic) Patient *patient;
 
+- (NSArray *)subActivitiesOfType:(FTINActivityType)type difficultyLevel:(NSInteger)difficultyLevel;
+
+- (NSArray *)subActivitiesThatRespond:(BOOL (^)(FTINSubActivityDetails *subActivity))handler;
+
 @end

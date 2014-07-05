@@ -45,4 +45,14 @@
 	}
 }
 
+- (NSInteger)tries
+{
+	return self.triesNumber.integerValue;
+}
+
+- (void)setTries:(NSInteger)tries
+{
+	self.triesNumber = @(tries);
+}
+
 @end
