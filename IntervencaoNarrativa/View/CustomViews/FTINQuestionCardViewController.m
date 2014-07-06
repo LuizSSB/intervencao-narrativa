@@ -72,6 +72,11 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 
 - (void)setShowsAnswerVisiblityControl:(BOOL)showsAnswerVisiblityControl
 {
+	if(self.answerTextView.layer.opacity > 0)
+	{
+		[self toggleAnswerVisibility:self];
+	}
+	
 	self.answerVisibilityBarButton.enabled = !showsAnswerVisiblityControl;
 }
 

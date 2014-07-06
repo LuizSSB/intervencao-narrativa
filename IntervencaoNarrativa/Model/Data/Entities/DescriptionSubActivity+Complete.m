@@ -24,7 +24,7 @@
 {
 	if(!self.descriptiveSkillNumber || self.descriptiveSkillNumber.integerValue < 0 || self.descriptiveSkillNumber.integerValue > FTINDescriptiveSkillIncompetentFool)
 	{
-		[NSError ftin_createErrorWithCode:ftin_PerformanceDataMissingErrorCode inReference:error];
+		[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing inReference:error];
 		return NO;
 	}
 	

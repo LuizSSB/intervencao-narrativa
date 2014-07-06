@@ -80,7 +80,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 	self.delegate = self;
 	self.dataSource = self;
 	
-	[self registerClass:[FTINCollectionViewCell class] forCellWithReuseIdentifier:FTINDefaultCellIdentifier.description];
+	[self registerClass:[FTINCollectionViewCell class] forCellWithReuseIdentifier:FTINDefaultCellIdentifier];
 }
 
 - (BOOL)showsAnswers
@@ -196,7 +196,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FTINDefaultCellIdentifier.description forIndexPath:indexPath];
+	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FTINDefaultCellIdentifier forIndexPath:indexPath];
 	cell.backgroundImageView.image = [UIImage imageNamed:@"cardback.jpg"];
 	cell.tag = cell.hash;
 	
@@ -226,6 +226,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 		self.questionViewController.question = self.questions[indexPath.row];
 		[self.superview addSubview:self.closeQuestionOverlayButton];
 		[self.superview addSubview:self.questionViewController.view];
+		[NSThread sleepForTimeInterval:.2];
 		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
 			self.closeQuestionOverlayButton.layer.opacity = FTINQuestionCardsViewOverlayOpacity;
 			

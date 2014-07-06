@@ -12,4 +12,10 @@
 
 @property (readonly) NSArray *subActivitesInOrder;
 
+@property (nonatomic) BOOL finalized;
+
+@property (nonatomic) NSInteger currentActivityIndex;
+
+@property (nonatomic) SubActivity *currentActivity;
+
 @end

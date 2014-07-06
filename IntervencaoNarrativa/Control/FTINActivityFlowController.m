@@ -9,12 +9,23 @@
 #import "FTINActivityFlowController.h"
 #import "FTINActivityDetails.h"
 
+#import "Activity+Complete.h"
+#import "SubActivity+Complete.h"
+
+NSInteger const FTINMinimumActivityCompletionToSkip = 2;
+
 @interface FTINActivityFlowController ()
 {
 	NSInteger _currentActivityIdx;
+	NSMutableArray *_skippingSubActivities;
+	BOOL _autoSkipping;
 }
 
 @property (nonatomic, readonly) FTINActivityController *dataController;
+@property (nonatomic, readonly) BOOL canSkipCurrentDifficultyLevel;
+
+- (void)_skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity;
+- (void)finishSkippingActivitiesLike:(FTINSubActivityDetails *)subactivity withError:(NSError *)error;
 
 @end
 
@@ -27,6 +38,8 @@
 	_activity = nil;
 	_activityUrl = nil;
 	_patient = nil;
+	[_skippingSubActivities removeAllObjects];
+	_skippingSubActivities = nil;
 }
 
 #pragma mark - Instance methods
@@ -56,49 +69,151 @@
 
 #pragma mark - Sub activity iteration
 
-- (BOOL)started
+- (FTINSubActivityDetails *)currentSubActivity
 {
-	return _activity != nil;
+	if(_currentActivityIdx >= 0 && _currentActivityIdx < self.activity.subActivities.count)
+	{
+		return self.activity.subActivities[_currentActivityIdx];
+	}
+	
+	return nil;
+}
+
+- (NSUInteger)incompleteActivities
+{
+	return [self.activity subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *subActivity) {
+		return !subActivity.data.completed;
+	}].count;
 }
 
 - (BOOL)hasNextSubActivity
 {
-	return _currentActivityIdx + 1 < self.activity.subActivities.count;
+	return self.incompleteActivities > 0;
 }
 
 - (FTINSubActivityDetails *)nextSubActivity
 {
-	return self.activity.subActivities[++_currentActivityIdx];
+	if(++_currentActivityIdx >= self.activity.subActivities.count)
+	{
+		_currentActivityIdx = 0;
+	}
+	
+	FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[_currentActivityIdx];
+	
+	if(nextSubActivity.data.completed)
+	{
+		return [self nextSubActivity];
+	}
+	
+	return nextSubActivity;
+}
+
+- (FTINSubActivityDetails *)jumpToSubActivityAtIndex:(NSUInteger)activityIndex
+{
+	NSAssert(activityIndex < self.activity.subActivities.count, @"error_ftin_3005".localizedString);
+	
+	_currentActivityIdx = activityIndex;
+	FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[activityIndex];
+	
+	if(nextSubActivity.data.skipped)
+	{
+		nextSubActivity.data.completed = NO;
+	}
+	
+	return nextSubActivity;
+}
+
+- (void)jumpToSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	[self jumpToSubActivityAtIndex:[self.activity.subActivities indexOfObject:subActivity]];
 }
 
 #pragma mark - Data control
 
 - (void)start
 {
+	_currentActivityIdx = -1;
 	[self.dataController loadActivityWithContentsOfURL:self.activityUrl];
 }
 
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
+- (void)startWithUnfinishedActivity:(Activity *)activity
+{
+	_currentActivityIdx = activity.currentActivityIndex - 1;
+	[self.dataController loadUnfinishedActivity:activity];
+}
+
+- (void)completeSubActivity:(FTINSubActivityDetails *)subActivity
 {
 	if(subActivity != self.activity.subActivities[_currentActivityIdx])
 	{
-		NSError *error = [NSError ftin_createErrorWithCode:ftin_InvalidSubActivityErrorCode];
-		[self.delegate activityFlowController:self savedSubActivity:subActivity error:error];
+		NSError *error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidSubActivity];
+		[self.delegate activityFlowController:self completedSubActivity:subActivity error:error];
 	}
 	else
 	{
-		[self.dataController saveSubActivity:subActivity];
+		[self.dataController completeSubActivity:subActivity];
 	}
+}
+
+- (void)skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	_autoSkipping = NO;
+	[self _skipLevelOfSubActivity:subActivity];
+}
+
+- (void)_skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	_skippingSubActivities = [NSMutableArray arrayWithArray:[self.activity subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *aSubActivity) {
+		return aSubActivity.type == subActivity.type && aSubActivity.difficultyLevel == subActivity.difficultyLevel && !aSubActivity.data.completed;
+	}]];
+	
+	if(_skippingSubActivities.count)
+	{
+		[self.dataController skipSubActivity:_skippingSubActivities[0]];
+	}
+	else
+	{
+		[self finishSkippingActivitiesLike:subActivity withError:nil];
+	}
+}
+
+- (void)finishSkippingActivitiesLike:(FTINSubActivityDetails *)subActivity withError:(NSError *)error
+{
+	[self nextSubActivity];
+	--_currentActivityIdx;
+	
+	[_skippingSubActivities removeAllObjects];
+	_skippingSubActivities = nil;
+	[self.delegate activityFlowController:self skippedSubActivitiesOfType:subActivity.type andDifficultyLevel:subActivity.difficultyLevel automatically:_autoSkipping error:error];
 }
 
 - (void)finish
 {
-	[self.dataController saveActivity:self.activity forPatient:self.patient];
+	[self.dataController finalizeActivity:self.activity forPatient:self.patient];
+}
+
+- (void)pauseInSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	if(subActivity != self.activity.subActivities[_currentActivityIdx])
+	{
+		NSError *error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidSubActivity];
+		[self.delegate activityFlowController:self pausedActivity:self.activity error:error];
+	}
+	else
+	{
+		[self.dataController pauseActivity:self.activity inSubActivity:_currentActivityIdx forPatient:self.patient];
+	}
 }
 
 - (void)cancel
 {
 	[self.dataController cancelActivity:self.activity];
+}
+
+- (BOOL)canSkipCurrentDifficultyLevel
+{
+	FTINSubActivityDetails *subActivity = self.activity.subActivities[_currentActivityIdx];
+	return subActivity.allowsAutoSkip;
 }
 
 #pragma mark - Activity Controller Delegate
@@ -109,31 +224,77 @@
 	{
 		if(activity.subActivities.count)
 		{
-			_currentActivityIdx = -1;
 			_activity = activity;
 		}
 		else
 		{
-			error = [NSError ftin_createErrorWithCode:ftin_InvalidActivityErrorCode];
+			_activity = nil;
+			error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidActivity];
 		}
 	}
 	
 	return [self.delegate activityFlowController:self startedWithError:error];
 }
 
-- (void)activityController:(FTINActivityController *)controller savedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
+- (void)activityController:(FTINActivityController *)controller completedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
-	[self.delegate activityFlowController:self savedSubActivity:subActivity error:error];
+	if(self.canSkipCurrentDifficultyLevel && subActivity.data.tries == 0 && !error)
+	{
+		NSArray *levelSubActivities = [self.activity subActivitiesOfType:subActivity.type difficultyLevel:subActivity.difficultyLevel];
+		NSInteger correctSubActivities = 0;
+		
+		for (FTINSubActivityDetails *levelSubActivity in levelSubActivities)
+		{
+			if(levelSubActivity.data.completed)
+			{
+				if(levelSubActivity.data.tries)
+				{
+					break;
+				}
+				else if(++correctSubActivities >= FTINMinimumActivityCompletionToSkip)
+				{
+					_autoSkipping = YES;
+					[self _skipLevelOfSubActivity:subActivity];
+				}
+			}
+		}
+	}
+	
+	[self.delegate activityFlowController:self completedSubActivity:subActivity error:error];
 }
 
-- (void)activityController:(FTINActivityController *)controller savedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+- (void)activityController:(FTINActivityController *)controller skippedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
-	[self.delegate activityFlowController:self savedActivity:activity error:error];
+	if(!error)
+	{
+		[_skippingSubActivities removeObjectAtIndex:0];
+		
+		if(_skippingSubActivities.count)
+		{
+			[self.dataController skipSubActivity:_skippingSubActivities[0]];
+			return;
+		}
+	}
+	
+	if(error || !_skippingSubActivities.count)
+	{
+		[self finishSkippingActivitiesLike:subActivity withError:error];
+	}
+}
+
+- (void)activityController:(FTINActivityController *)controller finalizedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self finishedActivity:activity error:error];
 }
 
 - (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error
 {
 	[self.delegate activityFlowController:self canceledActivity:activity error:error];
+}
+
+- (void)activityController:(FTINActivityController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self pausedActivity:activity error:error];
 }
 
 @end

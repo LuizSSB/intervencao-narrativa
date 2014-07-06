@@ -22,15 +22,15 @@
 extern NSTimeInterval const FTINDefaultAnimationDuration;
 extern NSTimeInterval const FTINDefaultAnimationShortDuration;
 extern CGFloat const FTINBarButtonItemSpacing;
-extern NSString const * FTINDefaultCellIdentifier;
-extern NSString const * FTINDefaultNamespace;
+extern NSString * const FTINDefaultCellIdentifier;
+extern NSString * const FTINDefaultNamespace;
 extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
 
 // -----------------------------------------------------------------------------
 // Blocks types
 
-typedef void (^FTINOperationResult)(id result, NSError *error);
+typedef void (^FTINOperationHandler)(id result, NSError *error);
 
 // -----------------------------------------------------------------------------
 // Enums
@@ -79,8 +79,12 @@ typedef enum : NSUInteger {
 } FTINAnswerSkill;
 
 // -----------------------------------------------------------------------------
+// Utilitary functions
+NSString * FTINActivityTypeTitle(FTINActivityType type);
+
+// -----------------------------------------------------------------------------
 // Protocols with same name as Foundation types
-// These are to be used with JSONModel DTOs which deal with arrays
+// These are to be used with JSONModel DTOs that deal with arrays
 
 @protocol NSString @end
 @protocol NSNumber @end

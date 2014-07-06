@@ -30,7 +30,7 @@
 		if(![super validateWithData:data error:error]) break;
 		
 		if(![data isKindOfClass:[EnvironmentSubActivity class]]) {
-			[NSError ftin_createErrorWithCode:ftin_InvalidDataErrorCode inReference:error];
+			[NSError ftin_createErrorWithCode:FTINErrorCodeInvalidData inReference:error];
 			break;
 		}
 		
@@ -40,7 +40,7 @@
 		{
 			if(![self.correctElements containsObject:element])
 			{
-				[NSError ftin_createErrorWithCode:ftin_EnvironmentOverflowErrorCode inReference:error];
+				[NSError ftin_createErrorWithCode:FTINErrorCodeEnvironmentOverflow inReference:error];
 				break;
 			}
 		}

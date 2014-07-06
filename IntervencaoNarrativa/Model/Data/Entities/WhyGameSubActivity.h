@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "SubActivity.h"
+#import "SubActivity+Complete.h"
 
 
 @interface WhyGameSubActivity : SubActivity

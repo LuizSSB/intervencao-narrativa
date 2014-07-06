@@ -13,4 +13,6 @@
 
 @property (nonatomic) NSArray *items;
 
+- (void)setItems:(NSArray *)items shuffling:(BOOL)shuffles;
+
 @end

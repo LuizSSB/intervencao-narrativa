@@ -8,15 +8,24 @@
 
 #import "FTINActivityNavigationController.h"
 #import "FTINActivityViewControllerFactory.h"
+#import "FTINSubActivitiesTableViewController.h"
 
-@interface FTINActivityNavigationController ()
+#import "FTINSubActivityDetails.h"
+#import "Activity+Complete.h"
+#import "SubActivity+Complete.h"
+
+@interface FTINActivityNavigationController () <FTINSubActivitiesTableViewControllerDelegate, UIAlertViewDelegate>
 {
 	NSError *_pendingError;
+	FTINSubActivityDetails *_pendingSubActivity;
 }
 
 @property (nonatomic, readonly) FTINActivityFlowController *controller;
+@property (nonatomic, readonly) FTINSubActivitiesTableViewController *activitiesViewController;
 
+- (void)showActivities:(UIBarButtonItem *)sender;
 - (void)goToNextSubActivity:(BOOL)animated;
+- (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated;
 
 @end
 
@@ -29,6 +38,7 @@
 	_activityFile = nil;
 	_controller = nil;
 	_patient = nil;
+	_pendingSubActivity = nil;
 }
 
 - (void)viewDidLoad
@@ -75,20 +85,54 @@
     return self;
 }
 
+- (instancetype)initWithUnfinishedActivity:(Activity *)activity andDelegate:(id<FTINActivityNavigationControllerDelegate,UINavigationControllerDelegate>)delegate
+{
+	self = [super initWithRootViewController:[[UIViewController alloc] init]];
+	if(self)
+	{
+		_patient = activity.patient;
+		self.delegate = delegate;
+		
+		[self.controller startWithUnfinishedActivity:activity];
+	}
+	return self;
+}
+
+@synthesize activitiesViewController = _activitiesViewController;
+
+- (FTINSubActivitiesTableViewController *)activitiesViewController
+{
+	if(!_activitiesViewController)
+	{
+		_activitiesViewController = [[FTINSubActivitiesTableViewController alloc] initWithActivity:self.controller.activity andDelegate:self];
+	}
+	
+	return _activitiesViewController;
+}
+
 - (void)goToNextSubActivity:(BOOL)animated
+{
+	[self goToSubActivity:[self.controller nextSubActivity] animated:animated];
+}
+
+- (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated
 {
 	[self popToRootViewControllerAnimated:NO];
 	
-	FTINSubActivityDetails *nextActivity = [self.controller nextSubActivity];
-	FTINActivityViewController *nextViewController = [FTINActivityViewControllerFactory activityViewControllerForSubActivity:nextActivity withDelegate:self];
-	[self pushViewController:nextViewController animated:YES];
+	FTINActivityViewController *nextViewController = [FTINActivityViewControllerFactory activityViewControllerForSubActivity:subactivity withDelegate:self];
+	[self pushViewController:nextViewController animated:animated];
+}
+
+- (void)showActivities:(UIBarButtonItem *)sender
+{
+	[self.activitiesViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
 }
 
 #pragma mark - Activity View Controller Delegate
 
 - (void)activityViewControllerFinished:(FTINActivityViewController *)viewController
 {
-	[self.controller saveSubActivity:viewController.subActivity];
+	[self.controller completeSubActivity:viewController.subActivity];
 }
 
 - (void)activityViewControllerCanceled:(FTINActivityViewController *)viewController
@@ -98,7 +142,23 @@
 
 - (UIBarButtonItem *)activityViewControllerCustomizedNextBarButton:(FTINActivityViewController *)viewController
 {
-	return self.controller.hasNextSubActivity ? nil : [[UIBarButtonItem alloc] initWithTitle:@"finalize".localizedString style:UIBarButtonItemStyleDone target:nil action:nil];
+	return self.controller.incompleteActivities > 1 ? nil : [[UIBarButtonItem alloc] initWithTitle:@"finalize".localizedString style:UIBarButtonItemStyleDone target:nil action:nil];
+}
+
+- (void)activityViewControllerSkipped:(FTINActivityViewController *)viewController
+{
+	[self.controller skipLevelOfSubActivity:viewController.subActivity];
+}
+
+- (void)activityViewControllerPaused:(FTINActivityViewController *)viewController
+{
+	[self.controller pauseInSubActivity:viewController.subActivity];
+}
+
+- (NSArray *)activityViewControllerAdditionalRightBarButtonItems:(FTINActivityViewController *)viewController
+{
+	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"activities".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(showActivities:)];
+	return @[barButton];
 }
 
 #pragma mark - Activity Flow Controller Delegate
@@ -114,7 +174,7 @@
 	};
 }
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller savedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
+- (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
 		if(self.controller.hasNextSubActivity)
@@ -128,7 +188,7 @@
 	}];
 }
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller savedActivity:(FTINActivityDetails *)details error:(NSError *)error
+- (void)activityFlowController:(FTINActivityFlowController *)controller finishedActivity:(FTINActivityDetails *)details error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerFinished:self];
@@ -140,6 +200,64 @@
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerCanceled:self];
 	}];
+}
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivitiesOfType:(FTINActivityType)type andDifficultyLevel:(NSInteger)difficultyLevel automatically:(BOOL)automatically error:(NSError *)error
+{
+	if (!automatically)
+	{
+		[self activityFlowController:controller completedSubActivity:nil error:error];
+	}
+	else
+	{
+		[NSError alertOnError:error andDoOnSuccess:nil];
+	}
+}
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[NSError alertOnError:error andDoOnSuccess:^{
+		[self.delegate activityNavigationControllerPaused:self];
+	}];
+}
+
+#pragma mark - Sub Activities Table View Controller Delegate
+
+- (void)subActivitiesViewController:(FTINSubActivitiesTableViewController *)viewController selectedSubActivity:(FTINSubActivityDetails *)subActivity atIndex:(NSUInteger)index
+{
+	[viewController dismissPopoverAnimated:YES];
+	
+	if(self.controller.currentSubActivity != subActivity)
+	{
+		if(subActivity.data.skipped)
+		{
+			_pendingSubActivity = subActivity;
+			[[UIAlertView alertWithConfirmation:@"do_skipped_activity".localizedString delegate:self] show];
+		}
+		else
+		{
+			[self.controller jumpToSubActivityAtIndex:index];
+			[self goToSubActivity:subActivity animated:YES];
+		}
+	}
+}
+
+- (BOOL)subActivitesViewController:(FTINSubActivitiesTableViewController *)viewController shouldMarkSubActivity:(FTINSubActivityDetails *)subActivity atIndex:(NSUInteger)index
+{
+	return subActivity == self.controller.currentSubActivity;
+}
+
+#pragma mark - Alert View Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if(buttonIndex != alertView.cancelButtonIndex)
+	{
+		[self.controller jumpToSubActivity:_pendingSubActivity];
+		[self goToSubActivity:_pendingSubActivity animated:YES];
+	}
+	
+	_pendingSubActivity = nil;
 }
 
 @end

@@ -65,11 +65,11 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FTINDefaultCellIdentifier.description];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FTINDefaultCellIdentifier];
     
 	if(!cell)
 	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FTINDefaultCellIdentifier.description];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FTINDefaultCellIdentifier];
 	}
 	
 	FTINChoice *choice = self.choices[indexPath.row];
@@ -219,7 +219,7 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 {
 	if(!_parentPopover)
 	{
-		_parentPopover = [[UIPopoverController alloc] initWithContentViewController:[[UINavigationController alloc] initWithRootViewController:self]];
+		_parentPopover = [[UIPopoverController alloc] initWithContentViewController:self];
 	}
 	
 	return _parentPopover;

@@ -8,4 +8,41 @@
 
 #import "ErrorInfo.h"
 
-NSString * ftin_ErrorDomain = @"ftin_ErrorDomain";
+NSString * const FTINErrorDomainDefault = @"ftin_DefaultErrorDomain";
+NSString * const FTINErrorDomainActivity = @"ftin_ActivityErrorDomain";
+NSString * const FTINErrorDomainSubActivity = @"ftin_SubActivityErrorDomain";
+
+NSRange const FTINErrorRangeDefault = {1, 1000};
+NSRange const FTINErrorRangeActivity = {3000, 1000};
+NSRange const FTINErrorRangeSubActivity = {6000, 1000};
+
+NSDictionary * getErrorDomainsAndRanges()
+{
+	static NSDictionary *_domainsAndRanges = nil;
+	
+	if(!_domainsAndRanges)
+	{
+		_domainsAndRanges = @{
+							  FTINErrorDomainDefault:[NSValue valueWithRange:FTINErrorRangeDefault],
+							  FTINErrorDomainActivity:[NSValue valueWithRange:FTINErrorRangeActivity],
+							  FTINErrorDomainSubActivity:[NSValue valueWithRange:FTINErrorRangeSubActivity],
+							  };
+	}
+	
+	return _domainsAndRanges;
+}
+
+NSString * getDomainOfError(FTINErrorCode errorCode)
+{
+	NSDictionary *domainsAndRanges = getErrorDomainsAndRanges();
+	
+	for (NSString *key in domainsAndRanges.allKeys)
+	{
+		if(NSLocationInRange(errorCode, [domainsAndRanges[key] rangeValue]))
+		{
+			return key;
+		}
+	}
+	
+	return FTINErrorDomainDefault;
+}

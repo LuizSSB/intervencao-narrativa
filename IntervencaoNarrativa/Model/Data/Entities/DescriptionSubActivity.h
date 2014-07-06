@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "SubActivity.h"
+#import "SubActivity+Complete.h"
 
 
 @interface DescriptionSubActivity : SubActivity
 
-@property (nonatomic, retain) id describedElements;
+@property (nonatomic, retain) NSSet * describedElements;
 @property (nonatomic, retain) NSNumber * descriptiveSkillNumber;
 
 @end

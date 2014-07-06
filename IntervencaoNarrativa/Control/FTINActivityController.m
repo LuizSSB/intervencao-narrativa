@@ -12,15 +12,19 @@
 #import "FTINSubActivityDetails.h"
 
 #import "DCModel.h"
-#import "Activity.h"
+#import "Activity+Complete.h"
 #import "SubActivity+Complete.h"
 #import "Patient+Complete.h"
 
 @interface FTINActivityDetails()
 
+- (void)loadActivityDetailsFromURL:(NSURL *)url resultHandler:(FTINOperationHandler)resultHandler;
 - (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError **)error;
 - (BOOL)loadSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError **)error;
-- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler;
+
+- (void)saveActivity:(FTINActivityDetails *)activity withPatient:(Patient *)patient resultHandler:(FTINOperationHandler)resultHandler;
+
+- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationHandler)resultHandler;
 
 @end
 
@@ -37,19 +41,19 @@
     return self;
 }
 
-// TODO Luiz: tornar assíncrono
-- (void)loadActivityWithContentsOfURL:(NSURL *)fileUrl
+- (void)loadActivityDetailsFromURL:(NSURL *)url resultHandler:(FTINOperationHandler)resultHandler
 {
 	NSError *error = nil;
+	FTINActivityDetails *activity = nil;
 	
 	do
 	{
-		NSString *json = [NSString stringWithContentsOfURL:fileUrl encoding:NSUTF8StringEncoding error:&error];
+		NSString *json = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
 		
 		if(error) break;
 		
 		JSONModelError *jsonError = nil;
-		FTINActivityDetails *activity = [[FTINActivityDetails alloc] initWithString:json error:&jsonError];
+		activity = [[FTINActivityDetails alloc] initWithString:json error:&jsonError];
 		
 		if (jsonError) {
 			error = jsonError;
@@ -57,23 +61,58 @@
 		}
 		
 		[self loadActivity:activity error:&error];
-		
-		if(error) break;
-		
-		[self.delegate activityController:self loadedActivity:activity error:error];
-		
-		return;
 	}
 	while(NO);
 	
-	[self.delegate activityController:self loadedActivity:nil error:error];
+	resultHandler(activity, error);
 }
 
-- (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError *__autoreleasing *)error;
+// TODO Luiz: tornar assíncrono
+- (void)loadActivityWithContentsOfURL:(NSURL *)fileUrl
 {
-	activity.data = [Activity newObject];
-	activity.data.title = activity.title;
-	
+	[self loadActivityDetailsFromURL:fileUrl resultHandler:^(FTINActivityDetails *result, NSError *error) {
+		if(!error)
+		{
+			result.data = [Activity newObject];
+			result.data.title = result.title;
+			result.data.baseFile = fileUrl.description;
+			
+			for (FTINSubActivityDetails *subActivity in result.subActivities)
+			{
+				subActivity.data = [FTINActitivitiesFactory subActivityDataOfType:subActivity.type];
+				subActivity.data.creationDate = [NSDate date];
+				subActivity.data.parentActivity = result.data;
+				[result.data addSubActivitiesObject:subActivity.data];
+			}
+		}
+		
+		[self.delegate activityController:self loadedActivity:result error:error];
+	}];
+}
+
+// TODO Luiz: tornar assíncrono
+- (void)loadUnfinishedActivity:(Activity *)activity
+{
+	[self loadActivityDetailsFromURL:[NSURL URLWithString:activity.baseFile] resultHandler:^(FTINActivityDetails *result, NSError *error) {
+		if(!error)
+		{
+			result.data = activity;
+			
+			NSArray *subActivities = activity.subActivitesInOrder;
+			NSInteger subActIdx = 0;
+			
+			for (FTINSubActivityDetails *subActivitiesDetails in result.subActivities)
+			{
+				subActivitiesDetails.data = subActivities[subActIdx++];
+			}
+		}
+		
+		[self.delegate activityController:self loadedActivity:result error:error];
+	}];
+}
+
+- (BOOL)loadActivity:(FTINActivityDetails *)activity error:(NSError *__autoreleasing *)error
+{
 	for (FTINSubActivityDetails *subactivity in activity.subActivities)
 	{
 		if(![self loadSubActivity:subactivity error:error])
@@ -101,52 +140,100 @@
 	
 	subActivity.content = [FTINActitivitiesFactory subActivityContentOfType:subActivity.type withContentsofURL:contentUrl error:error];
 	
-	if(!*error)
-	{
-		subActivity.data = [FTINActitivitiesFactory subActivityDataOfType:subActivity.type];
-		return YES;
-	}
-	
-	return NO;
+	return !*error;
 }
 
 // TODO Luiz: no momento, não é necessário, mas, no futuro, provavelmente será
 // assíncrono.
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity
+- (void)completeSubActivity:(FTINSubActivityDetails *)subActivity
 {
 	NSError *error = nil;
 	
 	if([subActivity valid:&error])
 	{
-		subActivity.data.parentActivity = subActivity.parentActivity.data;
-		[subActivity.data.parentActivity addSubActivitiesObject:subActivity.data];
+		subActivity.data.completed = YES;
+	}
+	else
+	{
+		subActivity.data.completed = NO;
+		
+		if([error.domain isEqualToString:FTINErrorDomainSubActivity])
+		{
+			subActivity.data.tries++;
+		}
 	}
 	
-	[self.delegate activityController:self savedSubActivity:subActivity error:error];
+	subActivity.data.skipped = NO;
+	[self.delegate activityController:self completedSubActivity:subActivity error:error];
 }
 
-- (void)saveActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
+- (void)skipSubActivity:(FTINSubActivityDetails *)subActivity
 {
-	activity.data.finalized = @YES;
+	NSError *error = nil;
 	
-	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:activity.data];
-	
-	for (FTINSubActivityDetails *subs in activity.subActivities) {
-		[dataToInsert addObject:subs.data];
+	if(!subActivity.skippable)
+	{
+		error = [NSError ftin_createErrorWithCode:FTINErrorCodeNonSkippableSubActivity];
 	}
+	else if(!subActivity.data.completed)
+	{
+		subActivity.data.skipped = YES;
+	}
+	
+	[self.delegate activityController:self skippedSubActivity:subActivity error:error];
+}
+
+- (void)finalizeActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
+{
+	for (SubActivity *sub in activity.data.subActivities)
+	{
+		if(!sub.completed)
+		{
+			[self.delegate activityController:self finalizedActivity:activity error:[NSError ftin_createErrorWithCode:FTINErrorCodeNotAllSubActivitiesCompleted]];
+			return;
+		}
+	}
+	
+	activity.data.finalized = YES;
+	[self saveActivity:activity withPatient:patient resultHandler:^(id result, NSError *error) {
+		[self.delegate activityController:self finalizedActivity:activity error:error];
+	}];
+}
+
+- (void)pauseActivity:(FTINActivityDetails *)activity inSubActivity:(NSInteger)subActivityIndex forPatient:(Patient *)patient
+{
+	activity.data.finalized = NO;
+	activity.data.currentActivityIndex = subActivityIndex;
+	
+	[self saveActivity:activity withPatient:patient resultHandler:^(id result, NSError *error) {
+		[self.delegate activityController:self pausedActivity:activity error:error];
+	}];
+}
+
+- (void)saveActivity:(FTINActivityDetails *)activity withPatient:(Patient *)patient resultHandler:(FTINOperationHandler)resultHandler
+{
+	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:activity.data];
+	[dataToInsert addObjectsFromArray:activity.data.subActivitesInOrder];
 	
 	void (^errorHandler)(NSError *) = ^(NSError *error)
 	{
-		[self.delegate activityController:self savedActivity:activity error:error];
+		resultHandler(nil, error);
 	};
 	
 	[Activity saveObjects:dataToInsert success:^(id items) {
-		activity.data.patient = patient;
-		[activity.data.patient addActivitiesObject:activity.data];
-		
-		[Activity saveObjects:@[activity.data, activity.data.patient] success:^(id items) {
-			[self.delegate activityController:self savedActivity:activity error:nil];
-		} failure:errorHandler];
+		if(activity.data.patient)
+		{
+			errorHandler(nil);
+		}
+		else
+		{
+			activity.data.patient = patient;
+			[activity.data.patient addActivitiesObject:activity.data];
+			
+			[Activity saveObjects:@[activity.data, activity.data.patient] success:^(id items) {
+				errorHandler(nil);
+			} failure:errorHandler];
+		}
 	} failure:errorHandler];
 }
 
@@ -164,13 +251,10 @@
 	}];
 }
 
-- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationResult)resultHandler
+- (void)deleteActivity:(Activity *)activity resultHandler:(FTINOperationHandler)resultHandler
 {
 	NSMutableArray *subActivitiesData = [NSMutableArray arrayWithObject:activity];
-	
-	for (SubActivity *subs in activity.subActivities) {
-		[subActivitiesData addObject:subs];
-	}
+	[subActivitiesData addObjectsFromArray:activity.subActivitesInOrder];
 	
 	[SubActivity destroyObjects:subActivitiesData success:^{
 		resultHandler(activity, nil);

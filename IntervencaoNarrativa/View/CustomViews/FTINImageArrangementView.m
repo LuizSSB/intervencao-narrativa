@@ -121,8 +121,27 @@ NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 
 - (void)setItems:(NSArray *)items
 {
-	_items = [NSMutableArray arrayWithArray:items];
-	[_items shuffle];
+	[self setItems:items shuffling:YES];
+}
+
+- (void)setItems:(NSArray *)items shuffling:(BOOL)shuffles
+{
+	NSArray *shuffled;
+	
+	if(shuffles)
+	{
+		do
+		{
+			shuffled = [items shuffledArray];
+		}
+		while ([shuffled isEqual:items]);
+	}
+	else
+	{
+		shuffled = items;
+	}
+	
+	_items = [NSMutableArray arrayWithArray:shuffled];
 	[self reloadData];
 }
 
