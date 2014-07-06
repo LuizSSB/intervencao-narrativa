@@ -65,7 +65,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	{
 		UIView *completionOverlay = [[UIView alloc] initWithFrame:self.view.bounds];
 		completionOverlay.backgroundColor = [UIColor blackColor];
-		completionOverlay.layer.opacity = .65f;
+		completionOverlay.layer.opacity = .25f;
 		[self.view addSubview:completionOverlay];
 		
 		[self.view bringSubviewToFront:self.actionToolbar];

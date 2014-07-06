@@ -18,6 +18,21 @@
 					 },
 					 {
 					 "type":0,
+					 "difficultyLevel":1,
+					 "contentFile":"d_3_doll.json",
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":1,
+					 "contentFile":"d_3_doll.json",
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":1,
+					 "contentFile":"d_3_doll.json",
+					 },
+					 {
+					 "type":0,
 					 "difficultyLevel":2,
 					 "contentFile":"d_4_play.json"
 					 },
@@ -30,6 +45,21 @@
 					 "type":0,
 					 "difficultyLevel":2,
 					 "contentFile":"d_4_ball.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":3,
+					 "contentFile":"d_6_hamb.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":3,
+					 "contentFile":"d_6_hamb.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":3,
+					 "contentFile":"d_6_hamb.json"
 					 },
 					 {
 					 "type":1,
@@ -51,6 +81,24 @@
 					 },
 					 {
 					 "type":1,
+					 "difficultyLevel":1,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_3_ball.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":1,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_3_draw.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":1,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_3_car.json"
+					 },
+					 {
+					 "type":1,
 					 "difficultyLevel":2,
 					 "allowsAutoSkip":true,
 					 "contentFile":"a_4_glas.json"
@@ -66,6 +114,78 @@
 					 "difficultyLevel":2,
 					 "allowsAutoSkip":true,
 					 "contentFile":"a_5_lemo.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":3,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_5_eggs.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":3,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_5_cage.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":3,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_5_cage.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":4,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_6_fairy.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":4,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_6_fairy.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":4,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_6_fairy.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":5,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_7_educ.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":5,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_7_educ.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":5,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_7_educ.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":6,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_8_fish.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":6,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_8_fish.json"
+					 },
+					 {
+					 "type":1,
+					 "difficultyLevel":6,
+					 "allowsAutoSkip":true,
+					 "contentFile":"a_8_fish.json"
 					 },
 					 {
 					 "type":2,
