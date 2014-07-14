@@ -16,7 +16,13 @@
 
 - (void)activityViewControllerCanceled:(FTINActivityViewController *)viewController;
 
+- (void)activityViewControllerSkipped:(FTINActivityViewController *)viewController;
+
+- (void)activityViewControllerPaused:(FTINActivityViewController *)viewController;
+
 @optional
+
+- (NSArray *)activityViewControllerAdditionalRightBarButtonItems:(FTINActivityViewController *)viewController;
 
 - (UIBarButtonItem *)activityViewControllerCustomizedNextBarButton:(FTINActivityViewController *)viewController;
 
@@ -29,9 +35,10 @@
 @property (nonatomic, readonly) FTINSubActivityDetails *subActivity;
 @property (nonatomic, weak) id<FTINActivityViewControllerDelegate> delegate;
 
-@property (nonatomic, readonly) UIBarButtonItem *cancelButton;
+@property (nonatomic, readonly) UIBarButtonItem *cancelBarButton;
+@property (nonatomic, readonly) UIBarButtonItem *pauseBarButton;
 @property (nonatomic, readonly) UIToolbar *actionToolbar;
-@property (nonatomic, readonly) UIBarButtonItem *nextButton;
+@property (nonatomic, readonly) UIBarButtonItem *nextBarButton;
 
 - (void)cancelActivity:(id)sender;
 - (void)goToNextActivity:(id)sender;

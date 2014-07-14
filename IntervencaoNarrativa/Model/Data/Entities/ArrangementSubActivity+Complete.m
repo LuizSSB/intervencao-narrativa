@@ -46,8 +46,18 @@
 	}
 	while (NO);
 	
-	[NSError ftin_createErrorWithCode:ftin_PerformanceDataMissingErrorCode inReference:error];
+	[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing inReference:error];
 	return NO;
+}
+
+- (BOOL)arrangedCorrectly
+{
+	return self.arrangedCorrectlyNumber.boolValue;
+}
+
+- (void)setArrangedCorrectly:(BOOL)arrangedCorrectly
+{
+	self.arrangedCorrectlyNumber = @(arrangedCorrectly);
 }
 
 @end

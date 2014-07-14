@@ -30,6 +30,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 
 - (FTINCollectionViewCell *)copyCell:(FTINCollectionViewCell *)cell;
 - (void)removeSelectedElement:(UITapGestureRecognizer *)gestureRecognizer;
+- (void)removeView:(UIView *)view animated:(BOOL)animated;
 
 @end
 
@@ -98,32 +99,82 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	return [NSSet setWithArray:_chosenElementsImagesNames.allValues];
 }
 
-- (void)reset
+- (void)setChosenElementsImagesNames:(NSSet *)chosenElementsImagesNames
 {
-	for (UIView *view in _chosenElementsViews) {
-		[self removeSelectedElement:view.gestureRecognizers[0]];
+	[self reset:NO];
+	
+	CGRect cellFrame = CGRectMake(10, 10, _toolSize.width, _toolSize.height);
+	
+	for (NSString *imageName in chosenElementsImagesNames)
+	{
+		FTINCollectionViewCell *cell = [self copyCell:nil];
+		cell.frame = cellFrame;		
+		cell.backgroundImageView.image = [UIImage imageNamed:imageName];
+		[cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelectedElement:)]];
+		
+		[self.containerBox addSubview:cell];
+		[_dragDropController registerDragSource:cell withDelegate:self];
+		
+		[_unchosenElementsImagesNames removeObject:imageName];
+		[_chosenElementsImagesNames setObject:imageName forKey:@(cell.hash)];
+		[_chosenElementsViews addObject:cell];
+		
+		cellFrame.origin.x += cellFrame.size.width + 10;
+	}
+	
+	[self.toolboxCollectionView reloadData];
+}
+
+- (void)reset:(BOOL)animated
+{
+	for (UIView *view in _chosenElementsViews)
+	{
+		[self removeView:view animated:animated];
 	}
 }
 
 - (void)removeSelectedElement:(UITapGestureRecognizer *)gestureRecognizer
 {
-	NSString *imageName = _chosenElementsImagesNames[@(gestureRecognizer.view.hash)];
-	[_chosenElementsImagesNames removeObjectForKey:@(gestureRecognizer.view.hash)];
+	[self removeView:gestureRecognizer.view animated:YES];
+}
+
+- (void)removeView:(UIView *)view animated:(BOOL)animated
+{
+	NSString *imageName = _chosenElementsImagesNames[@(view.hash)];
+	[_chosenElementsImagesNames removeObjectForKey:@(view.hash)];
 	[_unchosenElementsImagesNames addObject:imageName];
 	
 	[self.toolboxCollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(_unchosenElementsImagesNames.count - 1) inSection:0]]];
 	
-	[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
-		gestureRecognizer.view.layer.opacity = 0.f;
-	} completion:^(BOOL finished) {
-		[gestureRecognizer.view removeFromSuperview];
-		[_chosenElementsViews removeObject:gestureRecognizer.view];
-	}];
+	if(animated)
+	{
+		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+			view.layer.opacity = 0.f;
+		} completion:^(BOOL finished) {
+			[view removeFromSuperview];
+			[_chosenElementsViews removeObject:view];
+		}];
+	}
+	else
+	{
+		view.layer.opacity = 0.f;
+		[view removeFromSuperview];
+		[_chosenElementsViews removeObject:view];
+	}
 }
 
 - (FTINCollectionViewCell *)copyCell:(FTINCollectionViewCell *)cell
 {
-	FTINCollectionViewCell *copy = [cell copy];
+	FTINCollectionViewCell *copy;
+	
+	if(cell)
+	{
+		copy = [cell copy];
+	}
+	else
+	{
+		copy = [[FTINCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, _toolSize.width, _toolSize.height)];
+	}
 	copy.layer.cornerRadius = FTINDraggableItemBoxCellCornerRadius;
 	copy.layer.masksToBounds = YES;
 	copy.clipsToBounds = YES;
@@ -168,7 +219,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	{
 		if(target != operation.dragSourceView.superview)
 		{
-			[self removeSelectedElement:operation.dragSourceView.gestureRecognizers[0]];
+			[self removeView:operation.dragSourceView animated:YES];
 			
 			// Luiz: Gambimilambi para não vazar memória.
 			[_dragDropController performSelector:@selector(unregisterDragSource:) withObject:operation.dragSourceView afterDelay:.4];
@@ -206,7 +257,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 		else
 		{
 			finalView = operation.dragSourceView;
-			operation.dragSourceView.layer.opacity = 1.f;
+			finalView.layer.opacity = 1.f;
 		}
 		
 		CGRect copyFrame = operation.draggingView.frame;

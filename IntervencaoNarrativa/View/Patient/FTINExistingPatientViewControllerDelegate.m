@@ -11,7 +11,7 @@
 
 @interface FTINExistingPatientViewControllerDelegate ()
 {
-	FTINOperationResult _editHandler;
+	FTINOperationHandler _editHandler;
 }
 
 @property (nonatomic, readonly) FTINPatientController *controller;
@@ -94,7 +94,7 @@
 	return YES;
 }
 
-- (void)patientViewControllerMustSave:(FTINPatientViewController *)viewController withName:(NSString *)name examinerName:(NSString *)examiner birthdate:(NSDate *)birthdate sex:(FTINSex)sex handler:(FTINOperationResult)handler
+- (void)patientViewControllerMustSave:(FTINPatientViewController *)viewController withName:(NSString *)name examinerName:(NSString *)examiner birthdate:(NSDate *)birthdate sex:(FTINSex)sex handler:(FTINOperationHandler)handler
 {
 	_editHandler = handler;
 	[self.controller editPatient:self.patient withName:name examiner:examiner sex:sex birthdate:birthdate];

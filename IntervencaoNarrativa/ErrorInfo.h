@@ -8,16 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * ftin_ErrorDomain;
+extern NSString * const FTINErrorDomainDefault;
+extern NSString * const FTINErrorDomainActivity;
+extern NSString * const FTINErrorDomainSubActivity;
+
+extern NSRange const FTINErrorRangeDefault;
+extern NSRange const FTINErrorRangeActivity;
+extern NSRange const FTINErrorRangeSubActivity;
 
 typedef enum : NSUInteger {
-    ftin_InvalidUserSuppliedDataErrorCode = 1,
-	ftin_InvalidSubActivityErrorCode = 2,
-	ftin_InvalidActivityErrorCode = 3,
-	ftin_InvalidDataErrorCode = 4,
-	ftin_WrongArrangementOrderErrorCode = 5,
-	ftin_EnvironmentLackingErrorCode = 6,
-	ftin_EnvironmentOverflowErrorCode = 7,
-	ftin_PerformanceDataMissingErrorCode = 8,
-	ftin_MailNotPossibleErrorCode = 9
-} FTINErrorCodes;
+    FTINErrorCodeInvalidUserSuppliedData = 1,
+	FTINErrorCodeInvalidData = 2,
+	
+	FTINErrorCodeInvalidActivity = 3000,
+	FTINErrorCodePerformanceDataMissing = 3001,
+	FTINErrorCodeInvalidSubActivity = 3002,
+	FTINErrorCodeNonSkippableSubActivity = 3003,
+	FTINErrorCodeNotAllSubActivitiesCompleted = 3004,
+	FTINErrorCodeActivityOutOfBounds = 3005,
+	FTINErrorCodeSubActivityOutOfBounds = 3005,
+	
+	FTINErrorCodeWrongArrangementOrder = 6000,
+	FTINErrorCodeEnvironmentLacking = 6001,
+	FTINErrorCodeEnvironmentOverflow = 6002,
+} FTINErrorCode;
+
+NSString * getDomainOfError(FTINErrorCode errorCode);
+NSDictionary * getErrorDomainsAndRanges();

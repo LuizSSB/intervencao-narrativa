@@ -32,7 +32,7 @@
 	}
 	while (NO);
 	
-	[NSError ftin_createErrorWithCode:ftin_PerformanceDataMissingErrorCode inReference:error];
+	[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing inReference:error];
 	return NO;
 }
 

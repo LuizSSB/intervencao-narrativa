@@ -15,7 +15,10 @@
 
 - (void)awakeFromInsert
 {
-	self.creationDate = [NSDate date];
+	if(!self.creationDate)
+	{
+		self.creationDate = [NSDate date];
+	}
 }
 
 @end

@@ -18,3 +18,28 @@ NSString * const FTINDefaultCheckedValue = @"X";
 NSString * const FTINDefaultActivityFileName = @"debugActivity";
 NSString * const FTINDefaultActivityFileExtension = @"json";
 
+NSString * FTINActivityTypeTitle(FTINActivityType type)
+{
+	NSString *key = nil;
+	
+	switch (type)
+	{
+		case FTINActivityTypeWhyGame:
+			key = @"activity_whygame";
+			break;
+			
+		case FTINActivityTypeArrangement:
+			key = @"activity_arrangement";
+			break;
+			
+		case FTINActivityTypeDescription:
+			key = @"activity_description";
+			break;
+			
+		case FTINActivityTypeEnvironment:
+			key = @"activity_environment";
+			break;
+	}
+	
+	return key.localizedString;
+}

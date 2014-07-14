@@ -12,4 +12,10 @@
 
 - (BOOL)valid:(NSError **)error;
 
+@property (nonatomic) BOOL skipped;
+
+@property (nonatomic) BOOL completed;
+
+@property (nonatomic) NSInteger tries;
+
 @end

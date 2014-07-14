@@ -219,7 +219,7 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 {
 	if(!_parentPopover)
 	{
-		_parentPopover = [[UIPopoverController alloc] initWithContentViewController:[[UINavigationController alloc] initWithRootViewController:self]];
+		_parentPopover = [[UIPopoverController alloc] initWithContentViewController:self];
 	}
 	
 	return _parentPopover;

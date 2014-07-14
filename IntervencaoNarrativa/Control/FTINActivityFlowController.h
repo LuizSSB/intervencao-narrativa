@@ -15,9 +15,13 @@
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error;
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller savedActivity:(FTINActivityDetails *)details error:(NSError *)error;
+- (void)activityFlowController:(FTINActivityFlowController *)controller finishedActivity:(FTINActivityDetails *)details error:(NSError *)error;
 
-- (void)activityFlowController:(FTINActivityFlowController *)controller savedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
+- (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivitiesOfType:(FTINActivityType)type andDifficultyLevel:(NSInteger)difficultyLevel automatically:(BOOL)automatically error:(NSError *)error;
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
@@ -32,13 +36,19 @@
 @property (nonatomic, readonly) Patient *patient;
 @property (nonatomic, weak) id<FTINActivityFlowControllerDelegate> delegate;
 
-@property (nonatomic, readonly) BOOL started;
+@property (nonatomic, readonly) FTINSubActivityDetails *currentSubActivity;
+@property (nonatomic, readonly) NSUInteger incompleteActivities;
 @property (nonatomic, readonly) BOOL hasNextSubActivity;
 - (FTINSubActivityDetails *)nextSubActivity;
+- (FTINSubActivityDetails *)jumpToSubActivityAtIndex:(NSUInteger)activityIndex;
+- (void)jumpToSubActivity:(FTINSubActivityDetails *)subActivity;
 
 - (void)start;
-- (void)saveSubActivity:(FTINSubActivityDetails *)subActivity;
+- (void)startWithUnfinishedActivity:(Activity *)activity;
+- (void)completeSubActivity:(FTINSubActivityDetails *)subActivity;
+- (void)skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)finish;
+- (void)pauseInSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)cancel;
 
 @end

@@ -20,7 +20,7 @@
 
 +(NSError *)ftin_createErrorWithCode:(NSInteger)code andCustomMessage:(NSString *)customMsg
 {
-	NSError *error = [NSError errorWithDomain:ftin_ErrorDomain code:code userInfo:[NSMutableDictionary dictionaryWithObject:customMsg forKey:NSLocalizedDescriptionKey]];
+	NSError *error = [NSError errorWithDomain:getDomainOfError(code) code:code userInfo:[NSMutableDictionary dictionaryWithObject:customMsg forKey:NSLocalizedDescriptionKey]];
 	return error;
 }
 

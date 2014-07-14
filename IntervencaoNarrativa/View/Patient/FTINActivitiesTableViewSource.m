@@ -8,7 +8,7 @@
 
 #import "FTINActivitiesTableViewSource.h"
 #import "Patient+Complete.h"
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 
 @interface FTINActivitiesTableViewSource ()
 {
@@ -75,12 +75,29 @@
 	
 	if(!cell)
 	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:FTINDefaultCellIdentifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:FTINDefaultCellIdentifier];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
 	Activity *activity = _orderedActivities[indexPath.row];
 	cell.textLabel.text = [activity.creationDate formattedDateTimeWithDateStyle:NSDateFormatterFullStyle andTimeStyle:NSDateFormatterShortStyle];
-	cell.detailTextLabel.text = activity.title;
+	
+	UIColor *textColor;
+	NSString *detailText;
+	
+	if(activity.finalized)
+	{
+		textColor = [UIColor blueColor];
+		detailText = @"finished".localizedString;
+	}
+	else
+	{
+		textColor = [UIColor redColor];
+		detailText = @"unfinished".localizedString;
+	}
+	
+	cell.detailTextLabel.textColor = textColor;
+	cell.detailTextLabel.text = detailText;
 	
 	return cell;
 }
@@ -124,7 +141,6 @@
 - (void)activityController:(FTINActivityController *)controller deletedActivity:(Activity *)Activity error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
-//		[_orderedActivities removeObjectAtIndex:_actionIndexPath.row];
 		[self.parentTableView deleteRowsAtIndexPaths:@[_actionIndexPath] withRowAnimation:UITableViewRowAnimationFade];
 	}];
 }
