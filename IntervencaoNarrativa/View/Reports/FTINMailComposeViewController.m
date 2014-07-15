@@ -20,7 +20,7 @@
 {
 	if(![MFMailComposeViewController canSendMail])
 	{
-		[NSError ftin_createErrorWithCode:ftin_MailNotPossibleErrorCode inReference:error];
+		[NSError ftin_createErrorWithCode:FTINErrorCodeMailNotPossible inReference:error];
 		return nil;
 	}
 	

@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "FTINActivityReportFormatter.h"
 
+extern NSString * const FTINHTMLClassExecuted;
+extern NSString * const FTINHTMLClassSkipped;
+extern NSString * const FTINTemplateKeyElementClass;
+extern NSString * const FTINTemplateKeyElementValue;
+extern NSString * const FTINTemplateKeyElementOptionFormat;
+
 @interface FTINEnumActivityReportFormatter : NSObject <FTINActivityReportFormatter>
 
 @property (nonatomic, readonly) NSString *templateResourceName;
 @property (nonatomic, readonly) SEL enumKeyPath;
+@property (nonatomic, readonly) NSArray *enumOptions;
 
 - (void)customizeContext:(NSMutableDictionary *)context;
 

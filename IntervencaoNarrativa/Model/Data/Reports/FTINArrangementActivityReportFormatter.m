@@ -25,4 +25,14 @@ NSString * const FTINArrangementActivityTemplateName = @"ArrangementActivityRepo
 	return @selector(narrativeSkillNumber);
 }
 
+- (NSArray *)enumOptions
+{
+	return @[
+			 @(FTINNarrativeSkillNoHelp),
+			 @(FTINNarrativeSkillLottaHelp),
+			 @(FTINNarrativeSkillPartialHelp),
+			 @(FTINNarrativeSkillIncompetentFool)
+			 ];
+}
+
 @end

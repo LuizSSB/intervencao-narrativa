@@ -154,14 +154,6 @@
 	}
 }
 
-#pragma mark - Activities Table View Source Delegate
-
-- (void)activitiesTableViewSource:(FTINActivitiesTableViewSource *)source selectedActivity:(Activity *)activity
-{
-	UIViewController *viewController = [FTINActivityResultViewController viewControllerWithActivity:activity];
-	[self presentViewController:viewController animated:YES completion:nil];
-}
-
 #pragma mark - Activity Navigation Controller Delegate
 
 - (void)activityNavigationControllerCanceled:(FTINActivityNavigationController *)navigationController
@@ -200,6 +192,11 @@
 	{
 		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithUnfinishedActivity:activity andDelegate:self];
 		[self presentViewController:activityViewController animated:YES completion:nil];
+	}
+	else
+	{
+		UIViewController *viewController = [FTINActivityResultViewController viewControllerWithActivity:activity];
+		[self presentViewController:viewController animated:YES completion:nil];
 	}
 }
 

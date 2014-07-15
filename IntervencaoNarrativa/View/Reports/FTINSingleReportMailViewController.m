@@ -7,7 +7,7 @@
 //
 
 #import "FTINSingleReportMailViewController.h"
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 #import "Patient+Complete.h"
 
 NSString * const FTINSingleReportMailImageMimeType = @"image/png";

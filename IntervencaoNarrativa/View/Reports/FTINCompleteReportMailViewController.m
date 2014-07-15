@@ -7,7 +7,7 @@
 //
 
 #import "FTINCompleteReportMailViewController.h"
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 #import "Patient+Complete.h"
 
 @interface FTINCompleteReportMailViewController () <MFMailComposeViewControllerDelegate>

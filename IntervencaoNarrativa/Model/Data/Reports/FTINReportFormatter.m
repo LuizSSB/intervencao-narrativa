@@ -8,7 +8,7 @@
 
 #import "FTINReportFormatter.h"
 #import "FTINActitivitiesFactory.h"
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 #import "FTINActivityReportFormatter.h"
 
 @implementation FTINReportFormatter

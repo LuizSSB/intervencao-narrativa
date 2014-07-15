@@ -8,7 +8,7 @@
 
 #import "FTINActivityResultViewController.h"
 #import "FTINActivityReportViewController.h"
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 #import "FTINCompleteReportMailViewController.h"
 
 NSString * const FTINSegueReport = @"Report";

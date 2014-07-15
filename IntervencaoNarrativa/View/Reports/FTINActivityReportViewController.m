@@ -11,7 +11,7 @@
 #import "FTINSingleReportMailViewController.h"
 #import "MBProgressHUD.h"
 
-#import "Acitivity+Complete.h"
+#import "Activity+Complete.h"
 
 @interface FTINActivityReportViewController () <FTINReportControllerDelegate, UIWebViewDelegate>
 

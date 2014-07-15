@@ -46,7 +46,6 @@
 		253823A31955D1320016991A /* FTINReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823A21955D1320016991A /* FTINReportFormatter.m */; };
 		253823A71955EFA10016991A /* FTINArrangementActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823A61955EFA10016991A /* FTINArrangementActivityReportFormatter.m */; };
 		253823AA1955F3450016991A /* ArrangementActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */; };
-		253823AC1955FDB20016991A /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 253823AB1955FDB20016991A /* style.css */; };
 		253823AF195602350016991A /* FTINTemplateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823AE195602350016991A /* FTINTemplateUtils.m */; };
 		253823B2195606F10016991A /* FTINEnumActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823B1195606F10016991A /* FTINEnumActivityReportFormatter.m */; };
 		253823B519560AE00016991A /* FTINActivityResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823B419560AE00016991A /* FTINActivityResultViewController.m */; };
@@ -167,6 +166,7 @@
 		25CDAEB8194389D7003E1314 /* FTINSubActivityDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEB3194389D7003E1314 /* FTINSubActivityDetails.m */; };
 		25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD4F6F19449FFA001D8761 /* UIApplication+TopMostViewController.m */; };
 		25ED11F019450D0A007514AD /* FTINActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ED11EF19450D0A007514AD /* FTINActivityController.m */; };
+		25EF84691974B7900078140A /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 253823AB1955FDB20016991A /* style.css */; };
 		25FF32F5194A51EC0080DC6F /* a_3_ball_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FF32BD194A51EC0080DC6F /* a_3_ball_0.jpg */; };
 		25FF32F6194A51EC0080DC6F /* a_3_ball_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FF32BE194A51EC0080DC6F /* a_3_ball_1.jpg */; };
 		25FF32F7194A51EC0080DC6F /* a_3_ball_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FF32BF194A51EC0080DC6F /* a_3_ball_2.jpg */; };
@@ -1429,6 +1429,7 @@
 				25FF3332194A523B0080DC6F /* a_5_lemo.json in Resources */,
 				256357F719413CAE00E5762A /* FTINPatientViewController.xib in Resources */,
 				25FF330C194A51EC0080DC6F /* a_8_fish_7.jpg in Resources */,
+				25EF84691974B7900078140A /* style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,7 +1490,6 @@
 				252D10DA19493056006D2F3E /* FTINImageArrangementView.m in Sources */,
 				2537BB70193B730500D10878 /* UIViewController+Visibility.m in Sources */,
 				2560335A194DCB8A00AE9C26 /* FTINQuestionCardsView.m in Sources */,
-				254940BD19468D0100E5DACB /* SubActivity.m in Sources */,
 				253823BB1956197B0016991A /* FTINReportController.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
