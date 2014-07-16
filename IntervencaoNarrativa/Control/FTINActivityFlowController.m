@@ -12,6 +12,7 @@
 #import "Activity+Complete.h"
 #import "SubActivity+Complete.h"
 
+NSInteger const FTINMaximumActivitiesTries = 3;
 NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 
 @interface FTINActivityFlowController ()
@@ -205,6 +206,11 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 	}
 }
 
+- (void)fail
+{
+	[self.dataController failActivity:self.activity forPatient:self.patient];
+}
+
 - (void)cancel
 {
 	[self.dataController cancelActivity:self.activity];
@@ -259,8 +265,13 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 			}
 		}
 	}
-	
+
 	[self.delegate activityFlowController:self completedSubActivity:subActivity error:error];
+	
+	if(subActivity.data.tries >= 3)
+	{
+		[self.dataController failSubActivity:subActivity];
+	}
 }
 
 - (void)activityController:(FTINActivityController *)controller skippedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
@@ -282,6 +293,11 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 	}
 }
 
+- (void)activityController:(FTINActivityController *)controller failedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self failedSubActivity:subActivity error:error];
+}
+
 - (void)activityController:(FTINActivityController *)controller finalizedActivity:(FTINActivityDetails *)activity error:(NSError *)error
 {
 	[self.delegate activityFlowController:self finishedActivity:activity error:error];
@@ -290,6 +306,11 @@ NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 - (void)activityController:(FTINActivityController *)controller canceledActivity:(FTINActivityDetails *)activity error:(NSError *)error
 {
 	[self.delegate activityFlowController:self canceledActivity:activity error:error];
+}
+
+- (void)activityController:(FTINActivityController *)controller failedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[self.delegate activityFlowController:self failedActivity:activity error:error];
 }
 
 - (void)activityController:(FTINActivityController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error

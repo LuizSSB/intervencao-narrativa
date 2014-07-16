@@ -18,4 +18,6 @@
 
 @property (nonatomic) SubActivity *currentActivity;
 
+@property (nonatomic) BOOL failed;
+
 @end
