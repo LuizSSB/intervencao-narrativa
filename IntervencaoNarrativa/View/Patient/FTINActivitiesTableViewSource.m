@@ -82,21 +82,28 @@
 	Activity *activity = _orderedActivities[indexPath.row];
 	cell.textLabel.text = [activity.creationDate formattedDateTimeWithDateStyle:NSDateFormatterFullStyle andTimeStyle:NSDateFormatterShortStyle];
 	
-	UIColor *textColor;
+	UIColor *textColor = [UIColor blackColor];
+	UIColor *detailColor;
 	NSString *detailText;
 	
-	if(activity.finalized)
+	if(activity.failed)
 	{
-		textColor = [UIColor blueColor];
+		textColor = detailColor =[UIColor lightGrayColor];
+		detailText = @"failed".localizedString;
+	}
+	else if(activity.finalized)
+	{
+		detailColor = [UIColor blueColor];
 		detailText = @"finished".localizedString;
 	}
 	else
 	{
-		textColor = [UIColor redColor];
+		detailColor = [UIColor redColor];
 		detailText = @"unfinished".localizedString;
 	}
 	
-	cell.detailTextLabel.textColor = textColor;
+	cell.textLabel.textColor = textColor;
+	cell.detailTextLabel.textColor = detailColor;
 	cell.detailTextLabel.text = detailText;
 	
 	return cell;

@@ -114,16 +114,17 @@
 	cell.detailTextLabel.text = FTINActivityTypeTitle(subActivity.type);
 	cell.accessoryView = nil;
 	
-	if (subActivity.data.completed)
+	if(subActivity.data.skipped)
 	{
-		if(subActivity.data.skipped)
-		{
-			cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jump"]];
-		}
-		else
-		{
-			cell.accessoryType = UITableViewCellAccessoryCheckmark;
-		}
+		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jump"]];
+	}
+	else if(subActivity.data.failed)
+	{
+		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"error"]];
+	}
+	else if(subActivity.data.completed)
+	{
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
 	else
 	{

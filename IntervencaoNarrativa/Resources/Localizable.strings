@@ -23,6 +23,7 @@
 "unfinished" = "Pausada";
 "finished" = "Finalizada";
 "continue" = "Continuar";
+"failed" = "Cancelada";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
