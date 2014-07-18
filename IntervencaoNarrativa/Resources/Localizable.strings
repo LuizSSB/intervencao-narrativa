@@ -47,6 +47,11 @@
 "activity_environment" = "Montagem de ambiente";
 "do_skipped_activity" = "Essa atividade foi pulada. Deseja realizá-la agora?";
 
+/* Why Game */
+"select_questions" = "Selecione as questões que serão usadas";
+"use_questions" = "Montar jogo";
+"must_select_questions" = "Selecione pelo menos uma questão para o jogo!";
+
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";
 "description_partially" = "Descreve parcialmente sem ajuda";

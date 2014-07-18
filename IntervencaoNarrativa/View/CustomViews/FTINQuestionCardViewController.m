@@ -8,6 +8,7 @@
 
 #import "FTINQuestionCardViewController.h"
 #import "FTINWhyGameQuestion.h"
+#import "FTINAnswerSkillChoiceViewController.h"
 
 CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 
@@ -16,10 +17,15 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *questionMarkImageView;
 @property (weak, nonatomic) IBOutlet UITextView *answerTextView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *answerSkillBarButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *answerVisibilityBarButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *actionToolbar;
 
 - (IBAction)toggleAnswerVisibility:(id)sender;
 - (IBAction)close:(id)sender;
+- (IBAction)showAnswerSkill:(id)sender;
+
+@property (nonatomic, readonly) FTINAnswerSkillChoiceViewController *answerViewController;
 
 @end
 
@@ -32,10 +38,16 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 	_question = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-	[super viewWillAppear:animated];
-	self.answerVisibilityBarButton.enabled = self.showsAnswerVisiblityControl;
+	[super viewDidLoad];
+	_showsAnswerVisiblityControl = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	self.showsAnswerVisiblityControl = self.showsAnswerVisiblityControl;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -65,11 +77,6 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 	self.answerTextView.text = question.answer;
 }
 
-- (BOOL)showsAnswerVisiblityControl
-{
-	return self.answerVisibilityBarButton.enabled;
-}
-
 - (void)setShowsAnswerVisiblityControl:(BOOL)showsAnswerVisiblityControl
 {
 	if(self.answerTextView.layer.opacity > 0)
@@ -77,7 +84,22 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 		[self toggleAnswerVisibility:self];
 	}
 	
-	self.answerVisibilityBarButton.enabled = !showsAnswerVisiblityControl;
+	self.actionToolbar.hidden = NO;
+	[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+		CGRect toolbarFrame = self.actionToolbar.frame;
+		toolbarFrame.origin.y = self.actionToolbar.superview.frame.size.height;
+		
+		if(showsAnswerVisiblityControl)
+		{
+			toolbarFrame.origin.y -= toolbarFrame.size.height;
+		}
+		
+		self.actionToolbar.frame = toolbarFrame;
+	} completion:^(BOOL finished) {
+		self.actionToolbar.hidden = !showsAnswerVisiblityControl;
+	}];
+	
+	_showsAnswerVisiblityControl = showsAnswerVisiblityControl;
 }
 
 - (IBAction)toggleAnswerVisibility:(id)sender {
@@ -91,6 +113,49 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 
 - (IBAction)close:(id)sender {
 	[self.delegate questionCardViewControllerFinished:self];
+}
+
+- (BOOL)answered
+{
+	return self.answerViewController.hasSelectedChoice;
+}
+
+- (FTINAnswerSkill)answerSkill
+{
+	return self.answerViewController.selectedSkill;
+}
+
+- (void)setAnswerSkill:(FTINAnswerSkill)answerSkill
+{
+	self.answerViewController.selectedSkill = answerSkill;
+}
+
+- (void)removeAnswerSkill
+{
+	if(self.answerViewController.hasSelectedChoice)
+	{
+		self.answerViewController.allowsUnselection = YES;
+		[self.answerViewController rejectItemAtIndex:self.answerViewController.selectedChoiceIndex];
+		self.answerViewController.allowsUnselection = NO;
+	}
+}
+
+- (void)showAnswerSkill:(id)sender
+{
+	[self.answerViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
+}
+
+@synthesize answerViewController = _answerViewController;
+- (FTINAnswerSkillChoiceViewController *)answerViewController
+{
+	if(!_answerViewController)
+	{
+		_answerViewController = [[FTINAnswerSkillChoiceViewController alloc] init];
+		_answerViewController.title = self.answerSkillBarButton.title;
+		_answerViewController.popoverWidth = 400.f;
+	}
+	
+	return _answerViewController;
 }
 
 @end

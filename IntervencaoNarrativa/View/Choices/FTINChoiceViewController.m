@@ -50,6 +50,15 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
@@ -69,16 +78,20 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
     
 	if(!cell)
 	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FTINDefaultCellIdentifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:FTINDefaultCellIdentifier];
 	}
 	
 	FTINChoice *choice = self.choices[indexPath.row];
 	cell.textLabel.text = choice.title;
-	cell.imageView.image = choice.image;	
+	cell.detailTextLabel.text = choice.detail;
+	cell.imageView.image = choice.image;
 	cell.accessoryType = [self isIndexChosen:indexPath.row] ? UITableViewCellAccessoryCheckmark : UITableViewCellEditingStyleNone;
 	
 	// HACK Luiz: Gambiwambi para ocultar a última linha da tabela
-	cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, indexPath.row == self.choices.count - 1 ? 1000.f : 0.f);
+	if(_parentPopover)
+	{
+		cell.separatorInset = UIEdgeInsetsMake(0.f, 0.f, 0.f, indexPath.row == self.choices.count - 1 ? 1000.f : 0.f);
+	}
 	
     return cell;
 }
@@ -155,9 +168,9 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 {
 	NSMutableDictionary *choices = [NSMutableDictionary dictionary];
 	
-	for (NSNumber *choice in choices)
+	for (NSNumber *choice in _selectedChoicesIndexes)
 	{
-		[choices setObject:choice forKey:self.choices[choice.integerValue]];
+		[choices setObject:self.choices[choice.integerValue] forKey:choice];
 	}
 	
 	return choices;
