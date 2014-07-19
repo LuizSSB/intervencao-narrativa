@@ -8,60 +8,15 @@
 
 #import "FTINEnumActivityReportFormatter.h"
 #import "FTINTemplateUtils.h"
+#import "FTINEnumPropertyDefinition.h"
 #import "SubActivity+Complete.h"
 
-NSString * const FTINHTMLClassExecuted = @"executed";
-NSString * const FTINHTMLClassSkipped = @"skipped";
-NSString * const FTINTemplateKeyElementClass = @"class";
-NSString * const FTINTemplateKeyElementValue = @"value";
-NSString * const FTINTemplateKeyElementOptionFormat = @"option_%@";
 
 @interface FTINEnumActivityReportFormatter ()
-
-- (NSMutableDictionary *)contextForActivities:(NSArray *)activities;
 
 @end
 
 @implementation FTINEnumActivityReportFormatter
-
-#pragma mark - Instance methods
-
-- (NSMutableDictionary *)contextForActivities:(NSArray *)activities
-{
-	NSString *keyPath = NSStringFromSelector(self.enumKeyPath);
-	NSMutableDictionary *context = [NSMutableDictionary dictionary];
-	
-	for (NSNumber *option in self.enumOptions)
-	{
-		NSMutableArray *subContext = [NSMutableArray array];
-		
-		for (SubActivity *activity in activities)
-		{
-			NSString *value;
-			NSString *class;
-			
-			if(activity.skipped)
-			{
-				value = [NSString string];
-				class = FTINHTMLClassSkipped;
-			}
-			else
-			{
-				class = FTINHTMLClassExecuted;
-				value =  [[activity valueForKeyPath:keyPath] integerValue] == option.integerValue ? FTINDefaultCheckedValue : [NSString string];
-			}
-			
-			[subContext addObject:@{
-									FTINTemplateKeyElementClass:class,
-									FTINTemplateKeyElementValue:value
-									}];
-		}
-		
-		[context setObject:subContext forKey:[NSString stringWithFormat:FTINTemplateKeyElementOptionFormat, option]];
-	}
-	
-	return context;
-}
 
 #pragma mark - Abstract and Hook methods
 
@@ -71,27 +26,26 @@ NSString * const FTINTemplateKeyElementOptionFormat = @"option_%@";
 	return nil;
 }
 
-- (SEL)enumKeyPath
-{
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
-- (NSArray *)enumOptions
-{
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
 - (void)customizeContext:(NSMutableDictionary *)context
 {
+}
+
+- (NSArray *)enumPropertiesDefinitions
+{
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
 }
 
 #pragma mark - Activity Report Formatter
 
 - (NSString *)formatActivities:(NSArray *)activities error:(NSError *__autoreleasing *)error
 {
-	NSMutableDictionary *context = [self contextForActivities:activities];
+	NSMutableDictionary *context = [NSMutableDictionary dictionary];
+	
+	for(FTINEnumPropertyDefinition *definition in self.enumPropertiesDefinitions)
+	{
+		[context addEntriesFromDictionary:[definition contextForActivities:activities]];
+	}
 	
 	[self customizeContext:context];
 	
@@ -99,6 +53,5 @@ NSString * const FTINTemplateKeyElementOptionFormat = @"option_%@";
 	
 	return [FTINTemplateUtils parseTemplate:templateUrl	withContext:context error:error];
 }
-
 
 @end

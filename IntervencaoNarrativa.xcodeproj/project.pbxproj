@@ -158,6 +158,9 @@
 		25A37CA3194D372E00DFC749 /* m_5x3.json in Resources */ = {isa = PBXBuildFile; fileRef = 25A37CA2194D372E00DFC749 /* m_5x3.json */; };
 		25B2A54619688A9200F93178 /* SubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2A54519688A9200F93178 /* SubActivity.m */; };
 		25B2A5481968C12A00F93178 /* jump@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B2A5471968C12A00F93178 /* jump@2x.png */; };
+		25C747981979E7AD0095B498 /* FTINEnumPropertyDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C747971979E7AD0095B498 /* FTINEnumPropertyDefinition.m */; };
+		25C7479B1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */; };
+		25C7479D1979EC8F0095B498 /* DescriptionActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
 		25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */; };
 		25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */; };
@@ -493,6 +496,11 @@
 		25B2A54419688A9200F93178 /* SubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubActivity.h; sourceTree = "<group>"; };
 		25B2A54519688A9200F93178 /* SubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubActivity.m; sourceTree = "<group>"; };
 		25B2A5471968C12A00F93178 /* jump@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jump@2x.png"; sourceTree = "<group>"; };
+		25C747961979E7AD0095B498 /* FTINEnumPropertyDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnumPropertyDefinition.h; sourceTree = "<group>"; };
+		25C747971979E7AD0095B498 /* FTINEnumPropertyDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnumPropertyDefinition.m; sourceTree = "<group>"; };
+		25C747991979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionActivityReportFormatter.h; sourceTree = "<group>"; };
+		25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINDescriptionActivityReportFormatter.m; sourceTree = "<group>"; };
+		25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DescriptionActivityReportTemplate.html; sourceTree = "<group>"; };
 		25CDAE9319435360003E1314 /* SubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SubActivity+Complete.h"; sourceTree = "<group>"; };
 		25CDAE9419435360003E1314 /* SubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SubActivity+Complete.m"; sourceTree = "<group>"; };
 		25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionSubActivityContent.h; sourceTree = "<group>"; };
@@ -688,10 +696,14 @@
 				253823A41955D3E00016991A /* FTINActivityReportFormatter.h */,
 				253823AD195602350016991A /* FTINTemplateUtils.h */,
 				253823AE195602350016991A /* FTINTemplateUtils.m */,
+				25C747961979E7AD0095B498 /* FTINEnumPropertyDefinition.h */,
+				25C747971979E7AD0095B498 /* FTINEnumPropertyDefinition.m */,
 				253823B0195606F10016991A /* FTINEnumActivityReportFormatter.h */,
 				253823B1195606F10016991A /* FTINEnumActivityReportFormatter.m */,
 				253823A51955EFA10016991A /* FTINArrangementActivityReportFormatter.h */,
 				253823A61955EFA10016991A /* FTINArrangementActivityReportFormatter.m */,
+				25C747991979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.h */,
+				25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */,
 			);
 			name = Reports;
 			path = Data/Reports;
@@ -702,6 +714,7 @@
 			children = (
 				253823AB1955FDB20016991A /* style.css */,
 				253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */,
+				25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -1393,6 +1406,7 @@
 				25A37CA0194D371700DFC749 /* m_toycar.jpg in Resources */,
 				25FF3325194A51EC0080DC6F /* a_7_educ_5.jpg in Resources */,
 				25FF331B194A51EC0080DC6F /* a_5_lemo_1.jpg in Resources */,
+				25C7479D1979EC8F0095B498 /* DescriptionActivityReportTemplate.html in Resources */,
 				25FF32FA194A51EC0080DC6F /* a_5_cage_2.jpg in Resources */,
 				25FF32FE194A51EC0080DC6F /* a_3_draw_1.jpg in Resources */,
 				251F9CA31943F3AE00A65131 /* d_6_hamb.json in Resources */,
@@ -1522,6 +1536,7 @@
 				2537BB60193B730500D10878 /* NSDate+FormattedDate.m in Sources */,
 				2560334F194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m in Sources */,
 				256357EA19413CAE00E5762A /* FTINChoice.m in Sources */,
+				25C747981979E7AD0095B498 /* FTINEnumPropertyDefinition.m in Sources */,
 				25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */,
 				25208CF1195F16D700B8B5E7 /* ArrangementSubActivity.m in Sources */,
 				256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */,
@@ -1553,6 +1568,7 @@
 				255F79971942877200C94AB3 /* FTINActivityFlowController.m in Sources */,
 				25463AEA1964CA4E00135B1E /* FTINSubActivitiesTableViewController.m in Sources */,
 				25A37C61194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m in Sources */,
+				25C7479B1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m in Sources */,
 				256A97E5193BA1DB00358131 /* FTINPatientController.m in Sources */,
 				256BF1D11947D58900FD8BB3 /* ArrangementSubActivity+Complete.m in Sources */,
 				2537BB66193B730500D10878 /* NSObject+Properties.m in Sources */,
