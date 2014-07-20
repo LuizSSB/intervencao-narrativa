@@ -28,7 +28,6 @@
 		252D10E01949359C006D2F3E /* FTINCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252D10DF1949359C006D2F3E /* FTINCollectionViewCell.m */; };
 		252F1A7619774C02009D2725 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F1A7519774C02009D2725 /* WhyGameSubActivity.m */; };
 		252F1A7919774C19009D2725 /* WhyGameQuestion+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F1A7819774C19009D2725 /* WhyGameQuestion+Complete.m */; };
-		252F1A7C19774C48009D2725 /* WhyGameQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 252F1A7B19774C48009D2725 /* WhyGameQuestion.m */; };
 		2531489B193C112F0068B600 /* FTINNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 2531489A193C112F0068B600 /* FTINNotifications.m */; };
 		2537BB5F193B730500D10878 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB3B193B730500D10878 /* FileUtils.m */; };
 		2537BB60193B730500D10878 /* NSDate+FormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB3D193B730500D10878 /* NSDate+FormattedDate.m */; };
@@ -120,6 +119,7 @@
 		256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = 256BF1DA1947E6CB00FD8BB3 /* debugActivity.json */; };
 		257F57F31966187300D82411 /* selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 257F57F21966187300D82411 /* selected@2x.png */; };
 		257F57F51966187B00D82411 /* blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 257F57F41966187B00D82411 /* blank@2x.png */; };
+		2588D64F197C72A3007A0910 /* WhyGameQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588D64E197C72A3007A0910 /* WhyGameQuestion.m */; };
 		2598A9A91943A33D00EEEF24 /* FTINActivityViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */; };
 		259A247B1945181D00DC5E99 /* FTINActivitiesTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 259A247A1945181D00DC5E99 /* FTINActivitiesTableViewSource.m */; };
 		25A37C61194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C60194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m */; };
@@ -266,8 +266,6 @@
 		252F1A7519774C02009D2725 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
 		252F1A7719774C19009D2725 /* WhyGameQuestion+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WhyGameQuestion+Complete.h"; sourceTree = "<group>"; };
 		252F1A7819774C19009D2725 /* WhyGameQuestion+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WhyGameQuestion+Complete.m"; sourceTree = "<group>"; };
-		252F1A7A19774C48009D2725 /* WhyGameQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameQuestion.h; sourceTree = "<group>"; };
-		252F1A7B19774C48009D2725 /* WhyGameQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameQuestion.m; sourceTree = "<group>"; };
 		25314899193C112F0068B600 /* FTINNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINNotifications.h; sourceTree = "<group>"; };
 		2531489A193C112F0068B600 /* FTINNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINNotifications.m; sourceTree = "<group>"; };
 		2537BB3A193B730500D10878 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
@@ -422,6 +420,8 @@
 		256BF1DA1947E6CB00FD8BB3 /* debugActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = debugActivity.json; sourceTree = "<group>"; };
 		257F57F21966187300D82411 /* selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected@2x.png"; sourceTree = "<group>"; };
 		257F57F41966187B00D82411 /* blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank@2x.png"; sourceTree = "<group>"; };
+		2588D64D197C72A3007A0910 /* WhyGameQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameQuestion.h; sourceTree = "<group>"; };
+		2588D64E197C72A3007A0910 /* WhyGameQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameQuestion.m; sourceTree = "<group>"; };
 		2598A9A71943A33D00EEEF24 /* FTINActivityViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityViewControllerFactory.h; sourceTree = "<group>"; };
 		2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityViewControllerFactory.m; sourceTree = "<group>"; };
 		259A24791945181D00DC5E99 /* FTINActivitiesTableViewSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivitiesTableViewSource.h; sourceTree = "<group>"; };
@@ -960,9 +960,9 @@
 		256A97CA193B98F300358131 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2588D64D197C72A3007A0910 /* WhyGameQuestion.h */,
+				2588D64E197C72A3007A0910 /* WhyGameQuestion.m */,
 				254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */,
-				252F1A7A19774C48009D2725 /* WhyGameQuestion.h */,
-				252F1A7B19774C48009D2725 /* WhyGameQuestion.m */,
 				252986071943420500826834 /* Activity+Complete.h */,
 				252986081943420500826834 /* Activity+Complete.m */,
 				256B6BF41975FD6C00CB1CCD /* Activity.h */,
@@ -1412,6 +1412,7 @@
 				2537BB6D193B730500D10878 /* UITableView+ScrollToBottom.m in Sources */,
 				25603360194DD6C700AE9C26 /* FTINQuestionCardViewController.m in Sources */,
 				256357EB19413CAE00E5762A /* FTINChoiceViewController.m in Sources */,
+				2588D64F197C72A3007A0910 /* WhyGameQuestion.m in Sources */,
 				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
@@ -1442,7 +1443,6 @@
 				256BF1CE1947D51000FD8BB3 /* DescriptionSubActivity.m in Sources */,
 				25CDAEB8194389D7003E1314 /* FTINSubActivityDetails.m in Sources */,
 				2537BB68193B730500D10878 /* NSString+ReplaceStrings.m in Sources */,
-				252F1A7C19774C48009D2725 /* WhyGameQuestion.m in Sources */,
 				256357F519413CAE00E5762A /* FTINNewPatientViewControllerDelegate.m in Sources */,
 				25644CE61936B071006C4E06 /* FTINAppDelegate.m in Sources */,
 				256BF1BA1947CA0000FD8BB3 /* FTINArrangementSubActivityContent.m in Sources */,

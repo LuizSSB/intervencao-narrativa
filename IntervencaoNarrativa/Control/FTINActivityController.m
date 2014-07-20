@@ -82,6 +82,7 @@
 				subActivity.data = [FTINActitivitiesFactory subActivityDataOfType:subActivity.type];
 				subActivity.data.creationDate = [NSDate date];
 				subActivity.data.parentActivity = result.data;
+				[subActivity.data setupWithContent:subActivity.content];
 				[result.data addSubActivitiesObject:subActivity.data];
 			}
 		}

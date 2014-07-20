@@ -12,10 +12,12 @@
 
 @interface WhyGameSubActivity (Complete)
 
-- (void)setQuestionsWithContents:(NSArray *)questions;
+- (NSSet *)getChosenQuestions;
 
-- (void)setSkill:(FTINAnswerSkill)skill forQuestion:(FTINWhyGameQuestion *)question;
+- (void)chooseQuestionWithContent:(FTINWhyGameQuestion *)question;
+- (void)unchooseAllQuestions;
 
-- (NSArray *)filterQuestions:(NSArray *)questions;
+- (void)setSkill:(FTINAnswerSkill)skill forQuestionWithContent:(FTINWhyGameQuestion *)question;
+
 
 @end

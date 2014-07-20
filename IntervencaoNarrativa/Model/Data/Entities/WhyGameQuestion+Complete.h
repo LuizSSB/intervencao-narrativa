@@ -12,6 +12,8 @@
 
 @property (nonatomic, readonly) BOOL answered;
 
+@property (nonatomic) BOOL chosen;
+
 @property (nonatomic) FTINAnswerSkill answerSkill;
 
 @end

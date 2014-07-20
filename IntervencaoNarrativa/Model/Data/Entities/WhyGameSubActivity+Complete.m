@@ -8,25 +8,29 @@
 
 #import "WhyGameSubActivity+Complete.h"
 #import "WhyGameQuestion+Complete.h"
-#import "FTINWhyGameQuestion.h"
 #import "DCModel.h"
+
+#import "FTINSubActivityContent.h"
+#import "FTINWhyGameSubActivityContent.h"
+#import "FTINWhyGameQuestion.h"
 
 @implementation WhyGameSubActivity (Complete)
 
-- (void)setQuestionsWithContents:(NSArray *)questions
+- (void)setupWithContent:(FTINSubActivityContent *)content
 {
-	[self removeQuestions:self.questions];
+	NSArray *questions = ((FTINWhyGameSubActivityContent *)content).questions;
 	
 	for (FTINWhyGameQuestion *question in questions)
 	{
 		WhyGameQuestion *questionData = [WhyGameQuestion newObject];
 		questionData.question = question.question;
 		questionData.answer = question.answer;
+		questionData.parentSubActivity = self;
 		[self addQuestionsObject:questionData];
 	}
 }
 
-- (void)setSkill:(FTINAnswerSkill)skill forQuestion:(FTINWhyGameQuestion *)question
+- (void)setSkill:(FTINAnswerSkill)skill forQuestionWithContent:(FTINWhyGameQuestion *)question
 {
 	for (WhyGameQuestion *questionData in self.questions)
 	{
@@ -38,22 +42,39 @@
 	}
 }
 
-- (NSArray *)filterQuestions:(NSArray *)questions
+- (NSSet *)getChosenQuestions
 {
-	NSMutableArray *filtered = [NSMutableArray array];
+	NSMutableSet *set = [NSMutableSet set];
 	
-	for (WhyGameQuestion *questionData in self.questions)
+	for (WhyGameQuestion *question in self.questions)
 	{
-		for (FTINWhyGameQuestion *question in questions)
+		if(question.chosen)
 		{
-			if([question.answer isEqualToString:questionData.answer] && [questionData.question isEqualToString:question.question])
-			{
-				[filtered addObject:question];
-			}
+			[set addObject:question];
 		}
 	}
 	
-	return filtered;
+	return set;
+}
+
+- (void)chooseQuestionWithContent:(FTINWhyGameQuestion *)question
+{
+	for (WhyGameQuestion *questionData in self.questions)
+	{
+		if([questionData.question isEqualToString:question.question])
+		{
+			questionData.chosen = true;
+			return;
+		}
+	}
+}
+
+- (void)unchooseAllQuestions
+{
+	for (WhyGameQuestion *questionData in self.questions)
+	{
+		questionData.chosen = false;
+	}
 }
 
 - (BOOL)valid:(NSError *__autoreleasing *)error

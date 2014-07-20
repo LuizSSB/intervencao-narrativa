@@ -15,6 +15,10 @@
 	return YES;
 }
 
+- (void)setupWithContent:(FTINSubActivityContent *)content
+{
+}
+
 - (BOOL)skipped
 {
 	return self.skippedNumber.boolValue;

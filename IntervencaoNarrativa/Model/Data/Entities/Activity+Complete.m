@@ -7,6 +7,7 @@
 //
 
 #import "Activity+Complete.h"
+#import "SubActivity+Complete.h"
 
 @implementation Activity (Complete)
 
