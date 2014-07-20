@@ -78,7 +78,7 @@
 
 - (NSArray *)getDataToInsert
 {
-	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:self];
+	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:self.data];
 	NSString *arrayClass = NSStringFromClass([NSArray class]);
 	NSString *setClass = NSStringFromClass([NSSet class]);
 	
