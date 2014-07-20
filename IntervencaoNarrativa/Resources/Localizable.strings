@@ -60,6 +60,11 @@
 "report" = "Relatório";
 "full_report_mail_subject" = "[IntervençãoNarrativa] %@ em %@ - %@";
 
+/* Why Game */
+"select_questions" = "Selecione as questões que serão usadas";
+"use_questions" = "Montar jogo";
+"must_select_questions" = "Selecione pelo menos uma questão para o jogo!";
+
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";
 "description_partially" = "Descreve parcialmente sem ajuda";

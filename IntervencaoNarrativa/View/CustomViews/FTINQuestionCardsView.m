@@ -8,6 +8,7 @@
 
 #import "FTINQuestionCardsView.h"
 #import "FTINCollectionViewCell.h"
+#import "FTINWhyGameQuestion.h"
 #import "FTINQuestionCardViewController.h"
 
 CGSize const FTINQuestionCardsViewCellSize = {200.f, 300.f};
@@ -18,6 +19,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 {
 	CGRect _activeCellFrame;
 	NSUInteger _activeCellTag;
+	NSMutableDictionary *_answerSkills;
 }
 
 @property (nonatomic, readonly) UIButton *closeQuestionOverlayButton;
@@ -37,6 +39,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 	_questions = nil;
 	_pulledCardImageView = nil;
 	_questionViewController = nil;
+	_answerSkills = nil;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -96,6 +99,10 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 - (void)setQuestions:(NSArray *)questions
 {
 	_questions = [questions shuffledArray];
+	
+	[_answerSkills removeAllObjects];
+	_answerSkills = [NSMutableDictionary dictionaryWithCapacity:_questions.count];
+	
 	[self reloadData];
 }
 
@@ -148,6 +155,16 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 	return _pulledCardImageView;
 }
 
+- (BOOL)hasAnswerSkillForQuestion:(FTINWhyGameQuestion *)question
+{
+	return _answerSkills[@([self.questions indexOfObject:question])] != nil;
+}
+
+- (FTINAnswerSkill)answerSkillForQuestion:(FTINWhyGameQuestion *)question
+{
+	return (FTINAnswerSkill) [_answerSkills[@([self.questions indexOfObject:question])] integerValue];
+}
+
 #pragma mark - Question Card View Controller Delegate
 
 - (void)questionCardViewControllerFinished:(FTINQuestionCardViewController *)viewController
@@ -170,6 +187,11 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 			self.userInteractionEnabled = YES;
 		}];
 	}];
+	
+	if(self.questionViewController.answered)
+	{
+		_answerSkills[@([self.questions indexOfObject:self.questionViewController.question])] = @(self.questionViewController.answerSkill);
+	}
 }
 
 - (BOOL)questionCardViewControllerShowsAnswer:(FTINQuestionCardViewController *)viewController
@@ -224,6 +246,16 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 		self.pulledCardImageView.frame = pulledCardFrame;
 	} completion:^(BOOL finished) {
 		self.questionViewController.question = self.questions[indexPath.row];
+		
+		if([self hasAnswerSkillForQuestion:self.questions[indexPath.row]])
+		{
+			self.questionViewController.answerSkill = [self answerSkillForQuestion:self.questions[indexPath.row]];
+		}
+		else
+		{
+			[self.questionViewController removeAnswerSkill];
+		}
+		
 		[self.superview addSubview:self.closeQuestionOverlayButton];
 		[self.superview addSubview:self.questionViewController.view];
 		[NSThread sleepForTimeInterval:.2];

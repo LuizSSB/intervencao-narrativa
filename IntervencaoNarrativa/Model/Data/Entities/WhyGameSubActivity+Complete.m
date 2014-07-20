@@ -7,33 +7,71 @@
 //
 
 #import "WhyGameSubActivity+Complete.h"
+#import "WhyGameQuestion+Complete.h"
+#import "FTINWhyGameQuestion.h"
+#import "DCModel.h"
 
 @implementation WhyGameSubActivity (Complete)
 
-- (FTINAnswerSkill)answerSkill
+- (void)setQuestionsWithContents:(NSArray *)questions
 {
-	return (FTINAnswerSkill) self.answerSkillNumber.integerValue;
+	[self removeQuestions:self.questions];
+	
+	for (FTINWhyGameQuestion *question in questions)
+	{
+		WhyGameQuestion *questionData = [WhyGameQuestion newObject];
+		questionData.question = question.question;
+		questionData.answer = question.answer;
+		[self addQuestionsObject:questionData];
+	}
 }
 
-- (void)setAnswerSkill:(FTINAnswerSkill)answerSkill
+- (void)setSkill:(FTINAnswerSkill)skill forQuestion:(FTINWhyGameQuestion *)question
 {
-	self.answerSkillNumber = @(answerSkill);
+	for (WhyGameQuestion *questionData in self.questions)
+	{
+		if([questionData.question isEqualToString:question.question])
+		{
+			questionData.answerSkill = skill;
+			return;
+		}
+	}
+}
+
+- (NSArray *)filterQuestions:(NSArray *)questions
+{
+	NSMutableArray *filtered = [NSMutableArray array];
+	
+	for (WhyGameQuestion *questionData in self.questions)
+	{
+		for (FTINWhyGameQuestion *question in questions)
+		{
+			if([question.answer isEqualToString:questionData.answer] && [questionData.question isEqualToString:question.question])
+			{
+				[filtered addObject:question];
+			}
+		}
+	}
+	
+	return filtered;
 }
 
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
-	do
-	{
-		if(!self.answerSkillNumber) break;
-		if(self.answerSkillNumber.integerValue < 0) break;
-		if(self.answerSkill > FTINAnswerSkillIncompetentFool) break;
-		
-		return YES;
+	if(self.questions.count)
+	{		
+		for (WhyGameQuestion *question in self.questions)
+		{
+			if(question.answered)
+			{
+				return YES;
+			}
+		}
 	}
-	while (NO);
 	
 	[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing inReference:error];
 	return NO;
+	
 }
 
 @end

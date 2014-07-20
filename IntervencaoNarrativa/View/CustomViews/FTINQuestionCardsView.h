@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class FTINWhyGameQuestion;
+
 @interface FTINQuestionCardsView : UICollectionView
 
 @property (nonatomic) BOOL showsAnswers;
 @property (nonatomic) NSArray *questions;
+
+- (BOOL)hasAnswerSkillForQuestion:(FTINWhyGameQuestion *)question;
+- (FTINAnswerSkill)answerSkillForQuestion:(FTINWhyGameQuestion *)question;
 
 @end
