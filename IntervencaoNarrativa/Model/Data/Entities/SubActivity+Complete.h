@@ -18,4 +18,6 @@
 
 @property (nonatomic) NSInteger tries;
 
+@property (nonatomic) BOOL failed;
+
 @end

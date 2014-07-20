@@ -57,8 +57,7 @@ NSString * const FTINTemplateKeyElementValue = @"value";
 			NSString *value;
 			NSString *class;
 			
-#warning FIXME esperando merge
-			if(NO)//activity.failed)
+			if(activity.failed)
 			{
 				value = [NSString string];
 				class = FTINHTMLClassFailed;

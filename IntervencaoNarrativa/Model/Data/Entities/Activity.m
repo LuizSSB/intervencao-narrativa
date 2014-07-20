@@ -2,7 +2,7 @@
 //  Activity.m
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/06/28.
+//  Created by Luiz Soares dos Santos Baglie on 2014/07/15.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
@@ -13,10 +13,11 @@
 
 @implementation Activity
 
+@dynamic baseFile;
+@dynamic currentActivityIndexNumber;
 @dynamic finalizedNumber;
 @dynamic title;
-@dynamic currentActivityIndexNumber;
-@dynamic baseFile;
+@dynamic failedNumber;
 @dynamic patient;
 @dynamic subActivities;
 
