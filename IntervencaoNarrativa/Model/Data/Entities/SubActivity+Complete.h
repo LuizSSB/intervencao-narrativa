@@ -8,9 +8,13 @@
 
 #import "SubActivity.h"
 
+@class FTINSubActivityContent;
+
 @interface SubActivity (Complete)
 
 - (BOOL)valid:(NSError **)error;
+
+- (void)setupWithContent:(FTINSubActivityContent *)content;
 
 @property (nonatomic) BOOL skipped;
 

@@ -55,13 +55,15 @@
 
 - (BOOL)prepareToGoToNextActivity
 {
-	[_subActivityData setQuestionsWithContents:self.questionCardsView.questions];
+	[_subActivityData unchooseAllQuestions];
 	
 	for (FTINWhyGameQuestion *question in self.questionCardsView.questions)
 	{
+		[_subActivityData chooseQuestionWithContent:question];
+		
 		if([self.questionCardsView hasAnswerSkillForQuestion:question])
 		{
-			[_subActivityData setSkill:[self.questionCardsView answerSkillForQuestion:question] forQuestion:question];
+			[_subActivityData setSkill:[self.questionCardsView answerSkillForQuestion:question] forQuestionWithContent:question];
 		}
 	}
 	

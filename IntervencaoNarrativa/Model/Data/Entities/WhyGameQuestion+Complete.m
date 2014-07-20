@@ -15,6 +15,21 @@
 	return self.answerSkillNumber != nil;
 }
 
+- (BOOL)chosen
+{
+	return self.chosenNumber.boolValue;
+}
+
+- (void)setChosen:(BOOL)chosen
+{
+	self.chosenNumber = @(chosen);
+	
+	if(!chosen)
+	{
+		self.answerSkillNumber = nil;
+	}
+}
+
 - (FTINAnswerSkill)answerSkill
 {
 	return (FTINAnswerSkill) self.answerSkillNumber.integerValue;
@@ -23,6 +38,7 @@
 - (void)setAnswerSkill:(FTINAnswerSkill)answerSkill
 {
 	self.answerSkillNumber = @(answerSkill);
+	self.chosen = YES;
 }
 
 @end
