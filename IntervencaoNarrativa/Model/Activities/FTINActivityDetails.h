@@ -28,4 +28,6 @@
 
 - (NSArray *)subActivitiesThatRespond:(BOOL (^)(FTINSubActivityDetails *subActivity))handler;
 
+- (NSArray *)getDataToInsert;
+
 @end
