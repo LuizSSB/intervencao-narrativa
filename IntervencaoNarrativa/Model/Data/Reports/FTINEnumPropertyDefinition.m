@@ -8,12 +8,7 @@
 
 #import "FTINEnumPropertyDefinition.h"
 #import "SubActivity+Complete.h"
-
-NSString * const FTINHTMLClassExecuted = @"executed";
-NSString * const FTINHTMLClassSkipped = @"skipped";
-NSString * const FTINHTMLClassFailed = @"failed";
-NSString * const FTINTemplateKeyElementClass = @"class";
-NSString * const FTINTemplateKeyElementValue = @"value";
+#import "FTINActivityReportFormatter.h"
 
 @implementation FTINEnumPropertyDefinition
 

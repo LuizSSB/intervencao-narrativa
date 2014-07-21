@@ -113,7 +113,7 @@ typedef enum : NSUInteger {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FTINDefaultCellIdentifier];
 	}
 	
-	cell.textLabel.text = [NSStringFromClass(self.class) stringByAppendingFormat:@"_%ld_%ld", (long)indexPath.section, indexPath.row].localizedString;
+	cell.textLabel.text = [NSStringFromClass(self.class) stringByAppendingFormat:@"_%ld_%ld", (long)indexPath.section, (long)indexPath.row].localizedString;
 	return cell;
 }
 

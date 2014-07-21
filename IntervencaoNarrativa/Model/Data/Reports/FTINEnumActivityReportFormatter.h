@@ -14,6 +14,6 @@
 @property (nonatomic, readonly) NSString *templateResourceName;
 @property (nonatomic, readonly) NSArray *enumPropertiesDefinitions;
 
-- (void)customizeContext:(NSMutableDictionary *)context;
+- (void)customizeContext:(NSMutableDictionary *)context forActivities:(NSArray *)activities;
 
 @end

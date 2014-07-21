@@ -11,7 +11,6 @@
 #import "FTINEnumPropertyDefinition.h"
 #import "SubActivity+Complete.h"
 
-
 @interface FTINEnumActivityReportFormatter ()
 
 @end
@@ -26,7 +25,7 @@
 	return nil;
 }
 
-- (void)customizeContext:(NSMutableDictionary *)context
+- (void)customizeContext:(NSMutableDictionary *)context forActivities:(NSArray *)activities
 {
 }
 
@@ -47,7 +46,7 @@
 		[context addEntriesFromDictionary:[definition contextForActivities:activities]];
 	}
 	
-	[self customizeContext:context];
+	[self customizeContext:context forActivities:activities];
 	
 	NSURL *templateUrl = [[NSBundle mainBundle] URLForResource:self.templateResourceName withExtension:@"html"];
 	

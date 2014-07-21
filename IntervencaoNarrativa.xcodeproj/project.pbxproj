@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D9D36C8B43E466295899CA4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 564B2EB66BC4420587426308 /* libPods.a */; };
+		250B9F63197C476F00E3BA86 /* WhyGameActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 250B9F62197C476F00E3BA86 /* WhyGameActivityReportTemplate.html */; };
+		250DE56C197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 250DE56B197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.m */; };
 		251F9C951943F2A600A65131 /* d_4_ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 251F9C901943F2A600A65131 /* d_4_ball.jpg */; };
 		251F9C961943F2A600A65131 /* d_4_back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 251F9C911943F2A600A65131 /* d_4_back.jpg */; };
 		251F9C971943F2A600A65131 /* d_3_doll.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 251F9C921943F2A600A65131 /* d_3_doll.jpg */; };
@@ -136,6 +138,8 @@
 		257F57F31966187300D82411 /* selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 257F57F21966187300D82411 /* selected@2x.png */; };
 		257F57F51966187B00D82411 /* blank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 257F57F41966187B00D82411 /* blank@2x.png */; };
 		2588D64F197C72A3007A0910 /* WhyGameQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588D64E197C72A3007A0910 /* WhyGameQuestion.m */; };
+		2588D651197C870F007A0910 /* EnvironmentActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */; };
+		2588D654197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588D653197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m */; };
 		2598A9A91943A33D00EEEF24 /* FTINActivityViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */; };
 		259A247B1945181D00DC5E99 /* FTINActivitiesTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 259A247A1945181D00DC5E99 /* FTINActivitiesTableViewSource.m */; };
 		25A37C61194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C60194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m */; };
@@ -256,6 +260,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		250B9F62197C476F00E3BA86 /* WhyGameActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WhyGameActivityReportTemplate.html; sourceTree = "<group>"; };
+		250DE56A197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINWhyGameActivityReportFormatter.h; sourceTree = "<group>"; };
+		250DE56B197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINWhyGameActivityReportFormatter.m; sourceTree = "<group>"; };
 		251F9C901943F2A600A65131 /* d_4_ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_4_ball.jpg; sourceTree = "<group>"; };
 		251F9C911943F2A600A65131 /* d_4_back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_4_back.jpg; sourceTree = "<group>"; };
 		251F9C921943F2A600A65131 /* d_3_doll.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_3_doll.jpg; sourceTree = "<group>"; };
@@ -471,6 +478,9 @@
 		257F57F41966187B00D82411 /* blank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blank@2x.png"; sourceTree = "<group>"; };
 		2588D64D197C72A3007A0910 /* WhyGameQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameQuestion.h; sourceTree = "<group>"; };
 		2588D64E197C72A3007A0910 /* WhyGameQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameQuestion.m; sourceTree = "<group>"; };
+		2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = EnvironmentActivityReportTemplate.html; sourceTree = "<group>"; };
+		2588D652197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnvironmentActivityReportFormatter.h; sourceTree = "<group>"; };
+		2588D653197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnvironmentActivityReportFormatter.m; sourceTree = "<group>"; };
 		2598A9A71943A33D00EEEF24 /* FTINActivityViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityViewControllerFactory.h; sourceTree = "<group>"; };
 		2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityViewControllerFactory.m; sourceTree = "<group>"; };
 		259A24791945181D00DC5E99 /* FTINActivitiesTableViewSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivitiesTableViewSource.h; sourceTree = "<group>"; };
@@ -715,6 +725,10 @@
 				253823A61955EFA10016991A /* FTINArrangementActivityReportFormatter.m */,
 				25C747991979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.h */,
 				25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */,
+				250DE56A197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.h */,
+				250DE56B197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.m */,
+				2588D652197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.h */,
+				2588D653197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m */,
 			);
 			name = Reports;
 			path = Data/Reports;
@@ -726,6 +740,8 @@
 				253823AB1955FDB20016991A /* style.css */,
 				253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */,
 				25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */,
+				250B9F62197C476F00E3BA86 /* WhyGameActivityReportTemplate.html */,
+				2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -1105,8 +1121,6 @@
 				25B2A54519688A9200F93178 /* SubActivity.m */,
 				252F1A7719774C19009D2725 /* WhyGameQuestion+Complete.h */,
 				252F1A7819774C19009D2725 /* WhyGameQuestion+Complete.m */,
-				252F1A7A19774C48009D2725 /* WhyGameQuestion.h */,
-				252F1A7B19774C48009D2725 /* WhyGameQuestion.m */,
 				25603347194DC1C200AE9C26 /* WhyGameSubActivity+Complete.h */,
 				25603348194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m */,
 				252F1A7419774C02009D2725 /* WhyGameSubActivity.h */,
@@ -1413,6 +1427,7 @@
 				25A37C85194CD43400DFC749 /* m_endtable.jpg in Resources */,
 				25FF3321194A51EC0080DC6F /* a_7_educ_1.jpg in Resources */,
 				25FF32F5194A51EC0080DC6F /* a_3_ball_0.jpg in Resources */,
+				250B9F63197C476F00E3BA86 /* WhyGameActivityReportTemplate.html in Resources */,
 				25FF32FC194A51EC0080DC6F /* a_5_cage_4.jpg in Resources */,
 				25FF3344194A52C20080DC6F /* a_5_cage.json in Resources */,
 				25FF331F194A51EC0080DC6F /* a_2_lip_1.jpg in Resources */,
@@ -1421,6 +1436,7 @@
 				255F79A21942963700C94AB3 /* d_4_play.jpg in Resources */,
 				25A37C72194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib in Resources */,
 				256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */,
+				2588D651197C870F007A0910 /* EnvironmentActivityReportTemplate.html in Resources */,
 				25FF3314194A51EC0080DC6F /* a_4_glas_1.jpg in Resources */,
 				25A37C89194CD53D00DFC749 /* m_back.jpg in Resources */,
 				25644D1A1936B3C7006C4E06 /* Localizable.strings in Resources */,
@@ -1608,6 +1624,7 @@
 				25A37C67194C982F00DFC749 /* EnvironmentSubActivity.m in Sources */,
 				25603352194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m in Sources */,
 				2537BB6B193B730500D10878 /* UIDevice+SystemVersion.m in Sources */,
+				2588D654197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m in Sources */,
 				256357F319413CAE00E5762A /* FTINStartViewController.m in Sources */,
 				253823CD195644760016991A /* UIView+AsImage.m in Sources */,
 				2560334C194DC22900AE9C26 /* FTINWhyGameQuestion.m in Sources */,
@@ -1621,6 +1638,7 @@
 				253823A71955EFA10016991A /* FTINArrangementActivityReportFormatter.m in Sources */,
 				25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */,
 				2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */,
+				250DE56C197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

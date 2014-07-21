@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<link rel="StyleSheet" href="style.css" type="text/css" media=screen>
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+				</head>
+	<body>
+		<h2>Tipo de resposta</h2>
+		<table class="reportTable" rules="all">
+			<tr class="headerRow">
+				<th><!-- coluna com as questões --></th>
+				<th>Bem estruturada e coerente</th>
+				<th>Pouco estruturada</th>
+				<th>Pouco coerente</th>
+				<th>Não respondeu</th>
+			</tr>
+			{{#questions}}
+			<tr class="dataRow">
+				<th>{{question}}</th>
+				
+				{{#answerSkill_0}}
+				<td class="{{class}}">{{value}}</td>
+				{{/answerSkill_0}}
+				
+				{{#answerSkill_1}}
+				<td class="{{class}}">{{value}}</td>
+				{{/answerSkill_1}}
+				
+				{{#answerSkill_2}}
+				<td class="{{class}}">{{value}}</td>
+				{{/answerSkill_2}}
+				
+				{{#answerSkill_3}}
+				<td class="{{class}}">{{value}}</td>
+				{{/answerSkill_3}}
+			</tr>
+			{{/questions}}
+		</table>
+	</body>
+</html>

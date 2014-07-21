@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<link rel="StyleSheet" href="style.css" type="text/css" media=screen>
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+				</head>
+	<body>
+		<h2>Objetos selecionados</h2>
+		<table class="reportTable" rules="all">
+			<tr class="headerRow">
+				<th>H1</th>
+				<th>H2</th>
+			</tr>
+			<tr class="dataRow">
+				{{#objectsLists}}
+				<td>{{objectsList}}</td>
+				{{/objectsLists}}
+			</tr>
+		</table>
+		
+		<h2>Coerência da organização</h2>
+		<table class="reportTable" rules="all">
+			<tr class="headerRow">
+				<th></th>
+				<th>H1</th>
+				<th>H2</th>
+			</tr>
+			<tr class="dataRow">
+				<th>Coerente</th>
+				
+				{{#organizationSkill_0}}
+				<td class="{{class}}">{{value}}</td>
+				{{/organizationSkill_0}}
+			</tr>
+			<tr class="dataRow">
+				<th>Não coerente</th>
+				
+				{{#organizationSkill_1}}
+				<td class="{{class}}">{{value}}</td>
+				{{/organizationSkill_1}}
+			</tr>
+		</table>
+		
+		<h2>Coerência da narração</h2>
+		<table class="reportTable" rules="all">
+			<tr class="headerRow">
+				<th></th>
+				<th>H1</th>
+				<th>H2</th>
+			</tr>
+			<tr class="dataRow">
+				<th>Coerente</th>
+				
+				{{#narrationSkill_0}}
+				<td class="{{class}}">{{value}}</td>
+				{{/narrationSkill_0}}
+			</tr>
+			<tr class="dataRow">
+				<th>Não coerente</th>
+				
+				{{#narrationSkill_1}}
+				<td class="{{class}}">{{value}}</td>
+				{{/narrationSkill_1}}
+			</tr>
+		</table>
+	</body>
+</html>

@@ -21,12 +21,19 @@
 
 extern NSTimeInterval const FTINDefaultAnimationDuration;
 extern NSTimeInterval const FTINDefaultAnimationShortDuration;
-extern CGFloat const FTINBarButtonItemSpacing;
 extern NSString * const FTINDefaultCellIdentifier;
 extern NSString * const FTINDefaultNamespace;
 extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
 extern NSString * const FTINDefaultCheckedValue;
+
+extern CGFloat const FTINBarButtonItemSpacing;
+
+extern NSString * const FTINHTMLClassExecuted;
+extern NSString * const FTINHTMLClassSkipped;
+extern NSString * const FTINHTMLClassFailed;
+extern NSString * const FTINTemplateKeyElementClass;
+extern NSString * const FTINTemplateKeyElementValue;
 
 // -----------------------------------------------------------------------------
 // Blocks types
