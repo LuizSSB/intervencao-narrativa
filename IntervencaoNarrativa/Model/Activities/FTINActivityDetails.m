@@ -94,9 +94,12 @@
 			
 			if([propType rangeOfString:arrayClass].location != NSNotFound || [propType rangeOfString:setClass].location != NSNotFound)
 			{
-				for (id subProp in [sub valueForKey:prop])
+				for (NSObject *subProp in [sub valueForKey:prop])
 				{
-					[dataToInsert addObject:subProp];
+					if ([subProp isKindOfClass:[NSManagedObject class]])
+					{
+						[dataToInsert addObject:subProp];
+					}
 				}
 			}
 		}
