@@ -8,8 +8,16 @@
 
 #import "WhyGameSubActivity.h"
 
+@class FTINWhyGameQuestion;
+
 @interface WhyGameSubActivity (Complete)
 
-@property (nonatomic) FTINAnswerSkill answerSkill;
+- (NSSet *)getChosenQuestions;
+
+- (void)chooseQuestionWithContent:(FTINWhyGameQuestion *)question;
+- (void)unchooseAllQuestions;
+
+- (void)setSkill:(FTINAnswerSkill)skill forQuestionWithContent:(FTINWhyGameQuestion *)question;
+
 
 @end

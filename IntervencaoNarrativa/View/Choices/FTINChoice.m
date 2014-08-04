@@ -16,6 +16,7 @@
 {
 	_title = nil;
 	_image = nil;
+	_detail = nil;
 }
 
 #pragma mark - Instance methods
@@ -31,6 +32,22 @@
     if (self) {
         self.title = title;
 		self.image = image;
+    }
+    return self;
+}
+
++ (FTINChoice *)choiceWithTitle:(NSString *)title andDetail:(NSString *)detail andImage:(UIImage *)image
+{
+	return [[self alloc] initWithTitle:title andDetail:(NSString *)detail andImage:image];
+}
+
+- (instancetype)initWithTitle:(NSString *)title andDetail:(NSString *)detail andImage:(UIImage *)image
+{
+    self = [super init];
+    if (self) {
+        self.title = title;
+		self.image = image;
+		self.detail = detail;
     }
     return self;
 }

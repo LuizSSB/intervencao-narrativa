@@ -82,6 +82,7 @@
 				subActivity.data = [FTINActitivitiesFactory subActivityDataOfType:subActivity.type];
 				subActivity.data.creationDate = [NSDate date];
 				subActivity.data.parentActivity = result.data;
+				[subActivity.data setupWithContent:subActivity.content];
 				[result.data addSubActivitiesObject:subActivity.data];
 			}
 		}
@@ -212,8 +213,7 @@
 
 - (void)saveActivity:(FTINActivityDetails *)activity withPatient:(Patient *)patient resultHandler:(FTINOperationHandler)resultHandler
 {
-	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:activity.data];
-	[dataToInsert addObjectsFromArray:activity.data.subActivitesInOrder];
+	NSArray *dataToInsert = [activity getDataToInsert];
 	
 	void (^errorHandler)(NSError *) = ^(NSError *error)
 	{

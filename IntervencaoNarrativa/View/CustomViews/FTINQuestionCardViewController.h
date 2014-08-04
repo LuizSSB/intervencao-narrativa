@@ -22,6 +22,11 @@
 @property (nonatomic) BOOL showsAnswerVisiblityControl;
 @property (nonatomic) FTINWhyGameQuestion *question;
 
+@property (nonatomic, readonly) BOOL answered;
+@property (nonatomic) FTINAnswerSkill answerSkill;
+
 - (id)initWithDelegate:(id<FTINQuestionCardViewControllerDelegate>)delegate;
+
+- (void)removeAnswerSkill;
 
 @end

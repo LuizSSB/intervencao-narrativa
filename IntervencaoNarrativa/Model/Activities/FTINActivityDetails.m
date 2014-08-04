@@ -7,8 +7,10 @@
 //
 
 #import "FTINActivityDetails.h"
-#import "Activity+Complete.h"
 #import "FTINSubActivityDetails.h"
+
+#import "Activity+Complete.h"
+#import "SubActivity+Complete.h"
 
 @implementation FTINActivityDetails
 
@@ -72,6 +74,38 @@
 	}
 	
 	return subActivities;
+}
+
+- (NSArray *)getDataToInsert
+{
+	NSMutableArray *dataToInsert = [NSMutableArray arrayWithObject:self.data];
+	NSString *arrayClass = NSStringFromClass([NSArray class]);
+	NSString *setClass = NSStringFromClass([NSSet class]);
+	
+	for (SubActivity *sub in self.data.subActivities)
+	{
+		[dataToInsert addObject:sub];
+		
+		NSDictionary *props = sub.objectProperties;
+		
+		for (NSString *prop in props.allKeys)
+		{
+			NSString *propType = props[prop];
+			
+			if([propType rangeOfString:arrayClass].location != NSNotFound || [propType rangeOfString:setClass].location != NSNotFound)
+			{
+				for (NSObject *subProp in [sub valueForKey:prop])
+				{
+					if ([subProp isKindOfClass:[NSManagedObject class]])
+					{
+						[dataToInsert addObject:subProp];
+					}
+				}
+			}
+		}
+	}
+	
+	return dataToInsert;
 }
 
 @end

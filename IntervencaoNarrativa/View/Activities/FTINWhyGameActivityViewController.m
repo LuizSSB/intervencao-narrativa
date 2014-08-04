@@ -7,23 +7,22 @@
 //
 
 #import "FTINWhyGameActivityViewController.h"
-#import "FTINAnswerSkillChoiceViewController.h"
+#import "FTINQuestionsChoiceViewController.h"
 #import "FTINQuestionCardsView.h"
 
 #import "FTINSubActivityDetails.h"
 #import "FTINWhyGameSubActivityContent.h"
 #import "WhyGameSubActivity+Complete.h"
 
-@interface FTINWhyGameActivityViewController ()
+@interface FTINWhyGameActivityViewController () <FTINQuestionsChoiceViewControllerDelegate>
 {
 	WhyGameSubActivity *_subActivityData;
 }
 
 @property (weak, nonatomic) IBOutlet FTINQuestionCardsView *questionCardsView;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *answerSkillBarButton;
-- (IBAction)showAnswerSkill:(id)sender;
+@property (strong, nonatomic) IBOutlet FTINQuestionsChoiceViewController *questionsChoiceViewController;
 
-@property (nonatomic, readonly) FTINAnswerSkillChoiceViewController *answerViewController;
+- (void)deallocChoiceViewController;
 
 @end
 
@@ -33,44 +32,39 @@
 
 - (void)dealloc
 {
-	self.answerSkillBarButton = nil;
-	_answerViewController = nil;
 	_subActivityData = nil;
+	_questionsChoiceViewController = nil;
 }
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	
-	self.questionCardsView.questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
-	self.questionCardsView.center = self.view.center;
-	
 	_subActivityData = (id) self.subActivity.data;
 	
-	if(_subActivityData.completed)
-	{
-		self.answerViewController.selectedSkill = _subActivityData.answerSkill;
-	}
+	NSArray *questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
+	self.questionsChoiceViewController.choices = questions;
+	self.questionsChoiceViewController.questionsDelegate = self;
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
 {
 	[super setEditing:editing animated:YES];
-	self.questionCardsView.showsAnswers = editing;
-}
-
-- (NSArray *)getActionBarButtons
-{
-	return @[self.answerSkillBarButton];
+	self.questionCardsView.showsAnswers = !editing;
 }
 
 - (BOOL)prepareToGoToNextActivity
 {
-	[self.answerViewController dismissPopoverAnimated:YES];
+	[_subActivityData unchooseAllQuestions];
 	
-	if(self.answerViewController.hasSelectedChoice)
+	for (FTINWhyGameQuestion *question in self.questionCardsView.questions)
 	{
-		[_subActivityData setAnswerSkill:self.answerViewController.selectedSkill];
+		[_subActivityData chooseQuestionWithContent:question];
+		
+		if([self.questionCardsView hasAnswerSkillForQuestion:question])
+		{
+			[_subActivityData setSkill:[self.questionCardsView answerSkillForQuestion:question] forQuestionWithContent:question];
+		}
 	}
 	
 	return YES;
@@ -78,22 +72,25 @@
 
 #pragma mark - Instance methods
 
-- (void)showAnswerSkill:(id)sender
+- (void)deallocChoiceViewController
 {
-	[self.answerViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
+	[self.questionsChoiceViewController.view removeFromSuperview];
+	self.questionsChoiceViewController = nil;
 }
 
-@synthesize answerViewController = _answerViewController;
-- (FTINAnswerSkillChoiceViewController *)answerViewController
+#pragma mark - Questions Choice View Controller Delegate
+
+- (void)questionsChoiceViewController:(FTINQuestionsChoiceViewController *)viewController choseQuestions:(NSArray *)questions
 {
-	if(!_answerViewController)
-	{
-		_answerViewController = [[FTINAnswerSkillChoiceViewController alloc] init];
-		_answerViewController.title = self.answerSkillBarButton.title;
-		_answerViewController.popoverWidth = 400.f;
-	}
+	self.questionCardsView.hidden = NO;
+	self.questionCardsView.questions = questions;
 	
-	return _answerViewController;
+	[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+		self.questionCardsView.layer.opacity = 1.f;
+		self.questionsChoiceViewController.view.layer.opacity = 0.f;
+	} completion:^(BOOL finished) {
+		[self deallocChoiceViewController];
+	}];
 }
 
 @end

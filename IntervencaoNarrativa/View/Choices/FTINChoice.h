@@ -11,9 +11,14 @@
 @interface FTINChoice : NSObject
 
 @property (nonatomic) NSString *title;
+@property (nonatomic) NSString *detail;
 @property (nonatomic) UIImage *image;
 
 - (id)initWithTitle:(NSString *)title andImage:(UIImage *)image;
 + (FTINChoice *)choiceWithTitle:(NSString *)title andImage:(UIImage *)image;
+
++ (FTINChoice *)choiceWithTitle:(NSString *)title andDetail:(NSString *)detail andImage:(UIImage *)image;
+
+- (instancetype)initWithTitle:(NSString *)title andDetail:(NSString *)detail andImage:(UIImage *)image;
 
 @end
