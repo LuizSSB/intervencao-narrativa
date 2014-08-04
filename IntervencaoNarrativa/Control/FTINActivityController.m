@@ -184,6 +184,12 @@
 	[self.delegate activityController:self skippedSubActivity:subActivity error:error];
 }
 
+- (void)failSubActivity:(FTINSubActivityDetails *)subActivity
+{
+	subActivity.data.failed = YES;
+	[self.delegate activityController:self failedSubActivity:subActivity error:nil];
+}
+
 - (void)finalizeActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
 {
 	for (SubActivity *sub in activity.data.subActivities)
@@ -208,6 +214,14 @@
 	
 	[self saveActivity:activity withPatient:patient resultHandler:^(id result, NSError *error) {
 		[self.delegate activityController:self pausedActivity:activity error:error];
+	}];
+}
+
+- (void)failActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
+{
+	activity.data.failed = YES;
+	[self saveActivity:activity withPatient:patient resultHandler:^(id result, NSError *error) {
+		[self.delegate activityController:self failedActivity:activity error:error];
 	}];
 }
 

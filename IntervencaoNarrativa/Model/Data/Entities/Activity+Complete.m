@@ -35,6 +35,26 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 - (void)setFinalized:(BOOL)finalized
 {
 	self.finalizedNumber = @(finalized);
+	
+	if(!finalized)
+	{
+		self.failed = NO;
+	}
+}
+
+- (BOOL)failed
+{
+	return self.failedNumber.boolValue;
+}
+
+- (void)setFailed:(BOOL)failed
+{
+	self.failedNumber = @(failed);
+	
+	if(failed)
+	{
+		self.finalized = YES;
+	}
 }
 
 - (NSInteger)currentActivityIndex

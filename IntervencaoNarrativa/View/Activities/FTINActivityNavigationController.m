@@ -14,6 +14,9 @@
 #import "Activity+Complete.h"
 #import "SubActivity+Complete.h"
 
+NSInteger const FTINAlertViewTagDoSkippedActivity = 1;
+NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
+
 @interface FTINActivityNavigationController () <FTINSubActivitiesTableViewControllerDelegate, UIAlertViewDelegate>
 {
 	NSError *_pendingError;
@@ -214,10 +217,26 @@
 	}
 }
 
+- (void)activityFlowController:(FTINActivityFlowController *)controller failedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
+{
+	[NSError alertOnError:error andDoOnSuccess:^{
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:@"exit_after_failing".localizedString delegate:self cancelButtonTitle:@"cancel".localizedString otherButtonTitles:@"continue".localizedString, nil];
+		alert.tag = FTINAlertViewTagContinueAfterFailing;
+		[alert show];
+	}];
+}
+
 - (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerPaused:self];
+	}];
+}
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller failedActivity:(FTINActivityDetails *)activity error:(NSError *)error
+{
+	[NSError alertOnError:error andDoOnSuccess:^{
+		[self.delegate activityNavigationControllerFinished:self];
 	}];
 }
 
@@ -232,7 +251,10 @@
 		if(subActivity.data.skipped)
 		{
 			_pendingSubActivity = subActivity;
-			[[UIAlertView alertWithConfirmation:@"do_skipped_activity".localizedString delegate:self] show];
+			
+			UIAlertView *alert = [UIAlertView alertWithConfirmation:@"do_skipped_activity".localizedString delegate:self];
+			alert.tag = FTINAlertViewTagDoSkippedActivity;
+			[alert show];
 		}
 		else
 		{
@@ -251,13 +273,34 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	if(buttonIndex != alertView.cancelButtonIndex)
+	if(alertView.tag == FTINAlertViewTagDoSkippedActivity)
 	{
-		[self.controller jumpToSubActivity:_pendingSubActivity];
-		[self goToSubActivity:_pendingSubActivity animated:YES];
+		if(buttonIndex != alertView.cancelButtonIndex)
+		{
+			[self.controller jumpToSubActivity:_pendingSubActivity];
+			[self goToSubActivity:_pendingSubActivity animated:YES];
+		}
+		
+		_pendingSubActivity = nil;
 	}
-	
-	_pendingSubActivity = nil;
+	else if(alertView.tag == FTINAlertViewTagContinueAfterFailing)
+	{
+		if(buttonIndex == alertView.cancelButtonIndex)
+		{
+			[self.controller fail];
+		}
+		else
+		{
+			if(self.controller.hasNextSubActivity)
+			{
+				[self goToNextSubActivity:YES];
+			}
+			else
+			{
+				[self.controller finish];
+			}
+		}
+	}
 }
 
 @end

@@ -31,6 +31,7 @@
 	if(skipped)
 	{
 		self.completed = YES;
+		self.failed = NO;
 	}
 }
 
@@ -47,6 +48,11 @@
 	{
 		self.skipped = NO;
 	}
+	
+	if(self.failed && !completed)
+	{
+		self.failed = NO;
+	}
 }
 
 - (NSInteger)tries
@@ -57,6 +63,22 @@
 - (void)setTries:(NSInteger)tries
 {
 	self.triesNumber = @(tries);
+}
+
+- (BOOL)failed
+{
+	return self.failedNumber.boolValue;
+}
+
+- (void)setFailed:(BOOL)failed
+{
+	self.failedNumber = @(failed);
+	
+	if(failed)
+	{
+		self.completed = YES;
+		self.skipped = NO;
+	}
 }
 
 @end

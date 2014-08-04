@@ -61,6 +61,6 @@
         <element name="Patient" positionX="0" positionY="0" width="128" height="120"/>
         <element name="SubActivity" positionX="0" positionY="0" width="128" height="135"/>
         <element name="WhyGameQuestion" positionX="9" positionY="63" width="128" height="118"/>
-        <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="58"/>
+        <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="60"/>
     </elements>
 </model>

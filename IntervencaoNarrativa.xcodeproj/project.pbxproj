@@ -105,6 +105,7 @@
 		256A97C4193B777A00358131 /* Macros.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A97C3193B777A00358131 /* Macros.m */; };
 		256A97E5193BA1DB00358131 /* FTINPatientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256A97E4193BA1DB00358131 /* FTINPatientController.m */; };
 		256B6BF61975FD6C00CB1CCD /* Activity.m in Sources */ = {isa = PBXBuildFile; fileRef = 256B6BF51975FD6C00CB1CCD /* Activity.m */; };
+		256B6BFA1976028700CB1CCD /* error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 256B6BF91976028700CB1CCD /* error@2x.png */; };
 		256BF1BA1947CA0000FD8BB3 /* FTINArrangementSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1B91947CA0000FD8BB3 /* FTINArrangementSubActivityContent.m */; };
 		256BF1BE1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256BF1BC1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m */; };
 		256BF1BF1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 256BF1BD1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib */; };
@@ -399,6 +400,7 @@
 		256A97E4193BA1DB00358131 /* FTINPatientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINPatientController.m; sourceTree = "<group>"; };
 		256B6BF41975FD6C00CB1CCD /* Activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Activity.h; sourceTree = "<group>"; };
 		256B6BF51975FD6C00CB1CCD /* Activity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Activity.m; sourceTree = "<group>"; };
+		256B6BF91976028700CB1CCD /* error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "error@2x.png"; sourceTree = "<group>"; };
 		256BF1B81947CA0000FD8BB3 /* FTINArrangementSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINArrangementSubActivityContent.h; sourceTree = "<group>"; };
 		256BF1B91947CA0000FD8BB3 /* FTINArrangementSubActivityContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINArrangementSubActivityContent.m; sourceTree = "<group>"; };
 		256BF1BB1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINArrangementActivityViewController.h; sourceTree = "<group>"; };
@@ -626,6 +628,7 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				256B6BF91976028700CB1CCD /* error@2x.png */,
 				25B2A5471968C12A00F93178 /* jump@2x.png */,
 				257F57F41966187B00D82411 /* blank@2x.png */,
 				257F57F21966187300D82411 /* selected@2x.png */,
@@ -962,6 +965,8 @@
 			children = (
 				2588D64D197C72A3007A0910 /* WhyGameQuestion.h */,
 				2588D64E197C72A3007A0910 /* WhyGameQuestion.m */,
+				256B6BF41975FD6C00CB1CCD /* Activity.h */,
+				256B6BF51975FD6C00CB1CCD /* Activity.m */,
 				254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */,
 				252986071943420500826834 /* Activity+Complete.h */,
 				252986081943420500826834 /* Activity+Complete.m */,
@@ -1271,6 +1276,7 @@
 				25A37C87194CD43400DFC749 /* m_wardrobe.jpg in Resources */,
 				25A37C7A194CC19800DFC749 /* FTINDraggableItemBoxView.xib in Resources */,
 				251F9C981943F2A600A65131 /* d_6_hamb.jpg in Resources */,
+				256B6BFA1976028700CB1CCD /* error@2x.png in Resources */,
 				25A37C82194CD43400DFC749 /* m_bed.jpg in Resources */,
 				25FF3330194A52300080DC6F /* a_7_educ.json in Resources */,
 				25644CE01936B071006C4E06 /* InfoPlist.strings in Resources */,

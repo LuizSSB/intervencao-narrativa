@@ -2,7 +2,7 @@
 //  SubActivity.h
 //  IntervencaoNarrativa
 //
-//  Created by Luiz Soares dos Santos Baglie on 2014/07/05.
+//  Created by Luiz Soares dos Santos Baglie on 2014/07/15.
 //  Copyright (c) 2014 Luiz Soares dos Santos Baglie. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSNumber * skippedNumber;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * triesNumber;
+@property (nonatomic, retain) NSNumber * failedNumber;
 @property (nonatomic, retain) Activity *parentActivity;
 
 @end
