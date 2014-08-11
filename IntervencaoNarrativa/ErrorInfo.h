@@ -19,6 +19,7 @@ extern NSRange const FTINErrorRangeSubActivity;
 typedef enum : NSUInteger {
     FTINErrorCodeInvalidUserSuppliedData = 1,
 	FTINErrorCodeInvalidData = 2,
+	FTINErrorCodeMailNotPossible = 3,
 	
 	FTINErrorCodeInvalidActivity = 3000,
 	FTINErrorCodePerformanceDataMissing = 3001,

@@ -12,6 +12,8 @@
 
 @property (readonly) NSArray *subActivitesInOrder;
 
+- (NSArray *)subActivitiesOfType:(FTINActivityType)type;
+
 @property (nonatomic) BOOL finalized;
 
 @property (nonatomic) NSInteger currentActivityIndex;

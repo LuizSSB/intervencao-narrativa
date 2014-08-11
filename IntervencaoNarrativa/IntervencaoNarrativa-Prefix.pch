@@ -34,6 +34,7 @@
 #import "UIDevice+SystemVersion.h"
 #import "UIApplication+TopMostViewController.h"
 #import "UIView+PutOnScreen.h"
+#import "UIView+AsImage.h"
 
 // Foundation Categories
 #import "NSNumber+TimeDescription.h"

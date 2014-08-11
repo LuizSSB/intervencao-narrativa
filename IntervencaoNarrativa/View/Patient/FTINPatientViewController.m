@@ -9,6 +9,7 @@
 #import "FTINPatientViewController.h"
 #import "FTINDatePickerTextField.h"
 #import "FTINMainSplitViewControllerDelegate.h"
+#import "FTINActivityResultViewController.h"
 
 #import "Activity+Complete.h"
 
@@ -191,6 +192,11 @@
 	{
 		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithUnfinishedActivity:activity andDelegate:self];
 		[self presentViewController:activityViewController animated:YES completion:nil];
+	}
+	else
+	{
+		UIViewController *viewController = [FTINActivityResultViewController viewControllerWithActivity:activity];
+		[self presentViewController:viewController animated:YES completion:nil];
 	}
 }
 
