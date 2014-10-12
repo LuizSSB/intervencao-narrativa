@@ -22,4 +22,6 @@
 
 @property (nonatomic) BOOL failed;
 
+@property (nonatomic, readonly) NSURL *baseFileUrl;
+
 @end

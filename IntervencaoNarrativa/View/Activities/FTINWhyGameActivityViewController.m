@@ -42,6 +42,8 @@
 	
 	_subActivityData = (id) self.subActivity.data;
 	
+	self.questionCardsView.parentViewController = self;
+	
 	NSArray *questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
 	self.questionsChoiceViewController.choices = questions;
 	self.questionsChoiceViewController.questionsDelegate = self;

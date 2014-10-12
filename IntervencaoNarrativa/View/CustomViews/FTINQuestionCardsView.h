@@ -13,6 +13,7 @@
 @interface FTINQuestionCardsView : UICollectionView
 
 @property (nonatomic) BOOL showsAnswers;
+@property (nonatomic) UIViewController *parentViewController;
 @property (nonatomic) NSArray *questions;
 
 - (BOOL)hasAnswerSkillForQuestion:(FTINWhyGameQuestion *)question;

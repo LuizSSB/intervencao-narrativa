@@ -26,6 +26,9 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 @property (nonatomic, readonly) FTINActivityFlowController *controller;
 @property (nonatomic, readonly) FTINSubActivitiesTableViewController *activitiesViewController;
 
++ (UIColor *)defaultViewControllerBackground;
++ (UIViewController *)createUselessRootViewController;
+
 - (void)showActivities:(UIBarButtonItem *)sender;
 - (void)goToNextSubActivity:(BOOL)animated;
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated;
@@ -77,7 +80,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate
 {
-    self = [super initWithRootViewController:[[UIViewController alloc] init]];
+    self = [super initWithRootViewController:[FTINActivityNavigationController createUselessRootViewController]];
     if (self) {
         _activityFile = activityFile;
 		_patient = patient;
@@ -90,7 +93,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (instancetype)initWithUnfinishedActivity:(Activity *)activity andDelegate:(id<FTINActivityNavigationControllerDelegate,UINavigationControllerDelegate>)delegate
 {
-	self = [super initWithRootViewController:[[UIViewController alloc] init]];
+	self = [super initWithRootViewController:[FTINActivityNavigationController createUselessRootViewController]];
 	if(self)
 	{
 		_patient = activity.patient;
@@ -113,6 +116,18 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	return _activitiesViewController;
 }
 
++ (UIColor *)defaultViewControllerBackground
+{
+	return [UIColor whiteColor];
+}
+
++ (UIViewController *)createUselessRootViewController
+{
+	UIViewController *viewController = [[UIViewController alloc] init];
+	viewController.view.backgroundColor = [self defaultViewControllerBackground];
+	return viewController;
+}
+
 - (void)goToNextSubActivity:(BOOL)animated
 {
 	[self goToSubActivity:[self.controller nextSubActivity] animated:animated];
@@ -120,10 +135,26 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated
 {
-	[self popToRootViewControllerAnimated:NO];
+	void (^pushNextActivity)() = ^void() {
+		[self popToRootViewControllerAnimated:NO];
+		
+		FTINActivityViewController *nextViewController = [FTINActivityViewControllerFactory activityViewControllerForSubActivity:subactivity withDelegate:self];
+		[self pushViewController:nextViewController animated:animated];
+	};
 	
-	FTINActivityViewController *nextViewController = [FTINActivityViewControllerFactory activityViewControllerForSubActivity:subactivity withDelegate:self];
-	[self pushViewController:nextViewController animated:animated];
+	if(self.viewControllers.count > 1)
+	{
+		[self.viewControllers.lastObject view].superview.backgroundColor = [FTINActivityNavigationController defaultViewControllerBackground];
+		[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
+			[self.viewControllers.lastObject view].layer.opacity = 0.f;
+		} completion:^(BOOL finished) {
+			pushNextActivity();
+		}];
+	}
+	else
+	{
+		pushNextActivity();
+	}
 }
 
 - (void)showActivities:(UIBarButtonItem *)sender

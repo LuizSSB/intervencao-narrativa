@@ -27,6 +27,7 @@ extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
 extern NSString * const FTINDefaultCheckedValue;
 
+extern CGFloat const FTINDefaultChoiceRowHeight;
 extern CGFloat const FTINBarButtonItemSpacing;
 
 extern NSString * const FTINHTMLClassExecuted;
