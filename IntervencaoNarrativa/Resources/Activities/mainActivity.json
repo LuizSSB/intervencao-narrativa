@@ -9,12 +9,12 @@
 					 {
 					 "type":0,
 					 "difficultyLevel":0,
-					 "contentFile":"d_2_pc.json"
+					 "contentFile":"d_2_cup.json"
 					 },
 					 {
 					 "type":0,
 					 "difficultyLevel":0,
-					 "contentFile":"d_2_pc.json"
+					 "contentFile":"d_2_toothbrush.json"
 					 },
 					 {
 					 "type":0,
@@ -24,12 +24,12 @@
 					 {
 					 "type":0,
 					 "difficultyLevel":1,
-					 "contentFile":"d_3_doll.json",
+					 "contentFile":"d_3_boy.json",
 					 },
 					 {
 					 "type":0,
 					 "difficultyLevel":1,
-					 "contentFile":"d_3_doll.json",
+					 "contentFile":"d_3_girl.json",
 					 },
 					 {
 					 "type":0,
@@ -54,12 +54,12 @@
 					 {
 					 "type":0,
 					 "difficultyLevel":3,
-					 "contentFile":"d_6_hamb.json"
+					 "contentFile":"d_6_market.json"
 					 },
 					 {
 					 "type":0,
 					 "difficultyLevel":3,
-					 "contentFile":"d_6_hamb.json"
+					 "contentFile":"d_6_school.json"
 					 },
 					 {
 					 "type":1,

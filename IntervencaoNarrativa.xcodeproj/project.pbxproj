@@ -140,6 +140,18 @@
 		2588D64F197C72A3007A0910 /* WhyGameQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588D64E197C72A3007A0910 /* WhyGameQuestion.m */; };
 		2588D651197C870F007A0910 /* EnvironmentActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */; };
 		2588D654197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2588D653197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m */; };
+		2594249C19EB58390052642C /* d_2_cup.json in Resources */ = {isa = PBXBuildFile; fileRef = 2594249A19EB58390052642C /* d_2_cup.json */; };
+		259424A419EB5A430052642C /* d_3_girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2594249E19EB5A430052642C /* d_3_girl.jpg */; };
+		259424A519EB5A430052642C /* d_6_market.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2594249F19EB5A430052642C /* d_6_market.jpg */; };
+		259424A719EB5A430052642C /* d_2_cup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 259424A119EB5A430052642C /* d_2_cup.jpg */; };
+		259424A819EB5A430052642C /* d_3_boy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 259424A219EB5A430052642C /* d_3_boy.jpg */; };
+		259424A919EB5A430052642C /* d_6_school.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 259424A319EB5A430052642C /* d_6_school.jpg */; };
+		259424AF19EB5B360052642C /* d_3_boy.json in Resources */ = {isa = PBXBuildFile; fileRef = 259424AA19EB5B360052642C /* d_3_boy.json */; };
+		259424B019EB5B360052642C /* d_2_toothbrush.json in Resources */ = {isa = PBXBuildFile; fileRef = 259424AB19EB5B360052642C /* d_2_toothbrush.json */; };
+		259424B119EB5B360052642C /* d_3_girl.json in Resources */ = {isa = PBXBuildFile; fileRef = 259424AC19EB5B360052642C /* d_3_girl.json */; };
+		259424B219EB5B360052642C /* d_6_market.json in Resources */ = {isa = PBXBuildFile; fileRef = 259424AD19EB5B360052642C /* d_6_market.json */; };
+		259424B319EB5B360052642C /* d_6_school.json in Resources */ = {isa = PBXBuildFile; fileRef = 259424AE19EB5B360052642C /* d_6_school.json */; };
+		259424B519EB5BA60052642C /* d_2_toothbrush.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 259424B419EB5BA60052642C /* d_2_toothbrush.jpg */; };
 		2598A9A91943A33D00EEEF24 /* FTINActivityViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */; };
 		259A247B1945181D00DC5E99 /* FTINActivitiesTableViewSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 259A247A1945181D00DC5E99 /* FTINActivitiesTableViewSource.m */; };
 		25A37C61194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A37C60194C6DD200DFC749 /* FTINEnvironmentSubActivityContent.m */; };
@@ -481,6 +493,18 @@
 		2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = EnvironmentActivityReportTemplate.html; sourceTree = "<group>"; };
 		2588D652197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnvironmentActivityReportFormatter.h; sourceTree = "<group>"; };
 		2588D653197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnvironmentActivityReportFormatter.m; sourceTree = "<group>"; };
+		2594249A19EB58390052642C /* d_2_cup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_2_cup.json; sourceTree = "<group>"; };
+		2594249E19EB5A430052642C /* d_3_girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_3_girl.jpg; sourceTree = "<group>"; };
+		2594249F19EB5A430052642C /* d_6_market.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_6_market.jpg; sourceTree = "<group>"; };
+		259424A119EB5A430052642C /* d_2_cup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_2_cup.jpg; sourceTree = "<group>"; };
+		259424A219EB5A430052642C /* d_3_boy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_3_boy.jpg; sourceTree = "<group>"; };
+		259424A319EB5A430052642C /* d_6_school.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_6_school.jpg; sourceTree = "<group>"; };
+		259424AA19EB5B360052642C /* d_3_boy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_3_boy.json; sourceTree = "<group>"; };
+		259424AB19EB5B360052642C /* d_2_toothbrush.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_2_toothbrush.json; sourceTree = "<group>"; };
+		259424AC19EB5B360052642C /* d_3_girl.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_3_girl.json; sourceTree = "<group>"; };
+		259424AD19EB5B360052642C /* d_6_market.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_6_market.json; sourceTree = "<group>"; };
+		259424AE19EB5B360052642C /* d_6_school.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_6_school.json; sourceTree = "<group>"; };
+		259424B419EB5BA60052642C /* d_2_toothbrush.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_2_toothbrush.jpg; sourceTree = "<group>"; };
 		2598A9A71943A33D00EEEF24 /* FTINActivityViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityViewControllerFactory.h; sourceTree = "<group>"; };
 		2598A9A81943A33D00EEEF24 /* FTINActivityViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityViewControllerFactory.m; sourceTree = "<group>"; };
 		259A24791945181D00DC5E99 /* FTINActivitiesTableViewSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivitiesTableViewSource.h; sourceTree = "<group>"; };
@@ -773,12 +797,18 @@
 		255F79A0194295E000C94AB3 /* Description */ = {
 			isa = PBXGroup;
 			children = (
+				259424A119EB5A430052642C /* d_2_cup.jpg */,
 				251F9C941943F2A600A65131 /* d_2_pc.jpg */,
+				259424B419EB5BA60052642C /* d_2_toothbrush.jpg */,
+				259424A219EB5A430052642C /* d_3_boy.jpg */,
 				251F9C921943F2A600A65131 /* d_3_doll.jpg */,
+				2594249E19EB5A430052642C /* d_3_girl.jpg */,
 				251F9C911943F2A600A65131 /* d_4_back.jpg */,
 				251F9C901943F2A600A65131 /* d_4_ball.jpg */,
 				255F79A11942963700C94AB3 /* d_4_play.jpg */,
 				251F9C931943F2A600A65131 /* d_6_hamb.jpg */,
+				2594249F19EB5A430052642C /* d_6_market.jpg */,
+				259424A319EB5A430052642C /* d_6_school.jpg */,
 			);
 			path = Description;
 			sourceTree = "<group>";
@@ -948,12 +978,18 @@
 		2563580D1941473000E5762A /* Description */ = {
 			isa = PBXGroup;
 			children = (
+				2594249A19EB58390052642C /* d_2_cup.json */,
 				251F9CA01943F37D00A65131 /* d_2_pc.json */,
+				259424AB19EB5B360052642C /* d_2_toothbrush.json */,
+				259424AA19EB5B360052642C /* d_3_boy.json */,
 				251F9C9E1943F35800A65131 /* d_3_doll.json */,
+				259424AC19EB5B360052642C /* d_3_girl.json */,
 				251F9C9A1943F2D600A65131 /* d_4_back.json */,
 				251F9C9C1943F32400A65131 /* d_4_ball.json */,
 				2563580E1941473000E5762A /* d_4_play.json */,
 				251F9CA21943F3AE00A65131 /* d_6_hamb.json */,
+				259424AD19EB5B360052642C /* d_6_market.json */,
+				259424AE19EB5B360052642C /* d_6_school.json */,
 			);
 			path = Description;
 			sourceTree = "<group>";
@@ -1093,8 +1129,6 @@
 				254940A619468A7B00E5DACB /* DataModel.xcdatamodeld */,
 				252986071943420500826834 /* Activity+Complete.h */,
 				252986081943420500826834 /* Activity+Complete.m */,
-				256B6BF41975FD6C00CB1CCD /* Activity.h */,
-				256B6BF51975FD6C00CB1CCD /* Activity.m */,
 				256BF1CF1947D58900FD8BB3 /* ArrangementSubActivity+Complete.h */,
 				256BF1D01947D58900FD8BB3 /* ArrangementSubActivity+Complete.m */,
 				25208CEF195F16D700B8B5E7 /* ArrangementSubActivity.h */,
@@ -1363,6 +1397,7 @@
 				256BF1BF1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.xib in Resources */,
 				25A37C86194CD43400DFC749 /* m_lamp.jpg in Resources */,
 				25FF3311194A51EC0080DC6F /* a_2_gift_0.jpg in Resources */,
+				259424B219EB5B360052642C /* d_6_market.json in Resources */,
 				25A37C83194CD43400DFC749 /* m_ball.jpg in Resources */,
 				25FF3305194A51EC0080DC6F /* a_8_fish_0.jpg in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
@@ -1380,8 +1415,10 @@
 				25FF3327194A51EC0080DC6F /* a_6_fairy_0.jpg in Resources */,
 				251F9CA11943F37D00A65131 /* d_2_pc.json in Resources */,
 				25FF3303194A51EC0080DC6F /* a_5_eggs_3.jpg in Resources */,
+				259424A819EB5A430052642C /* d_3_boy.jpg in Resources */,
 				25FF330D194A51EC0080DC6F /* a_4_rose_0.jpg in Resources */,
 				25FF331C194A51EC0080DC6F /* a_5_lemo_2.jpg in Resources */,
+				259424A719EB5A430052642C /* d_2_cup.jpg in Resources */,
 				25A37C84194CD43400DFC749 /* m_desk.jpg in Resources */,
 				25FF332C194A51EC0080DC6F /* a_6_fairy_5.jpg in Resources */,
 				25FF3317194A51EC0080DC6F /* a_3_car_0.jpg in Resources */,
@@ -1395,6 +1432,7 @@
 				256BF1D81947E61200FD8BB3 /* a_2_aple_1.jpg in Resources */,
 				25FF32F6194A51EC0080DC6F /* a_3_ball_1.jpg in Resources */,
 				25FF32FD194A51EC0080DC6F /* a_3_draw_0.jpg in Resources */,
+				259424A919EB5A430052642C /* d_6_school.jpg in Resources */,
 				25603361194DD6C700AE9C26 /* FTINQuestionCardViewController.xib in Resources */,
 				25FF3307194A51EC0080DC6F /* a_8_fish_2.jpg in Resources */,
 				25FF3304194A51EC0080DC6F /* a_5_eggs_4.jpg in Resources */,
@@ -1419,22 +1457,28 @@
 				25FF3342194A52B70080DC6F /* a_3_draw.json in Resources */,
 				251F9C9B1943F2D600A65131 /* d_4_back.json in Resources */,
 				25FF3320194A51EC0080DC6F /* a_7_educ_0.jpg in Resources */,
+				259424B519EB5BA60052642C /* d_2_toothbrush.jpg in Resources */,
 				257F57F51966187B00D82411 /* blank@2x.png in Resources */,
+				2594249C19EB58390052642C /* d_2_cup.json in Resources */,
 				25FF32FF194A51EC0080DC6F /* a_3_draw_2.jpg in Resources */,
 				25FF330B194A51EC0080DC6F /* a_8_fish_6.jpg in Resources */,
 				256BF1D41947E4B600FD8BB3 /* a_2_aple.json in Resources */,
+				259424B119EB5B360052642C /* d_3_girl.json in Resources */,
 				25FF330F194A51EC0080DC6F /* a_4_rose_2.jpg in Resources */,
 				25A37C85194CD43400DFC749 /* m_endtable.jpg in Resources */,
 				25FF3321194A51EC0080DC6F /* a_7_educ_1.jpg in Resources */,
 				25FF32F5194A51EC0080DC6F /* a_3_ball_0.jpg in Resources */,
 				250B9F63197C476F00E3BA86 /* WhyGameActivityReportTemplate.html in Resources */,
+				259424A519EB5A430052642C /* d_6_market.jpg in Resources */,
 				25FF32FC194A51EC0080DC6F /* a_5_cage_4.jpg in Resources */,
 				25FF3344194A52C20080DC6F /* a_5_cage.json in Resources */,
 				25FF331F194A51EC0080DC6F /* a_2_lip_1.jpg in Resources */,
+				259424B019EB5B360052642C /* d_2_toothbrush.json in Resources */,
 				251F9C951943F2A600A65131 /* d_4_ball.jpg in Resources */,
 				25A37CA3194D372E00DFC749 /* m_5x3.json in Resources */,
 				255F79A21942963700C94AB3 /* d_4_play.jpg in Resources */,
 				25A37C72194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib in Resources */,
+				259424AF19EB5B360052642C /* d_3_boy.json in Resources */,
 				256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */,
 				2588D651197C870F007A0910 /* EnvironmentActivityReportTemplate.html in Resources */,
 				25FF3314194A51EC0080DC6F /* a_4_glas_1.jpg in Resources */,
@@ -1455,6 +1499,7 @@
 				2563580119413D0E00E5762A /* FTINDescriptionActivityViewController.xib in Resources */,
 				25FF3324194A51EC0080DC6F /* a_7_educ_4.jpg in Resources */,
 				25FF3302194A51EC0080DC6F /* a_5_eggs_2.jpg in Resources */,
+				259424A419EB5A430052642C /* d_3_girl.jpg in Resources */,
 				25FF3338194A52640080DC6F /* a_3_car.json in Resources */,
 				25FF330E194A51EC0080DC6F /* a_4_rose_1.jpg in Resources */,
 				25FF3310194A51EC0080DC6F /* a_4_rose_3.jpg in Resources */,
@@ -1475,6 +1520,7 @@
 				25FF3319194A51EC0080DC6F /* a_3_car_2.jpg in Resources */,
 				25644CE91936B071006C4E06 /* Main.storyboard in Resources */,
 				25FF32F9194A51EC0080DC6F /* a_5_cage_1.jpg in Resources */,
+				259424B319EB5B360052642C /* d_6_school.json in Resources */,
 				25A37C75194CAF2F00DFC749 /* m_5x1.json in Resources */,
 				25603343194DBBE300AE9C26 /* y_6.json in Resources */,
 				25FF3328194A51EC0080DC6F /* a_6_fairy_1.jpg in Resources */,
