@@ -14,7 +14,7 @@
 #import "FTINWhyGameSubActivityContent.h"
 #import "WhyGameSubActivity+Complete.h"
 
-@interface FTINWhyGameActivityViewController () <FTINQuestionsChoiceViewControllerDelegate>
+@interface FTINWhyGameActivityViewController () <FTINQuestionsChoiceViewControllerDelegate, FTINQuestionCardsViewDelegate, UIAlertViewDelegate>
 {
 	WhyGameSubActivity *_subActivityData;
 }
@@ -22,7 +22,8 @@
 @property (weak, nonatomic) IBOutlet FTINQuestionCardsView *questionCardsView;
 @property (strong, nonatomic) IBOutlet FTINQuestionsChoiceViewController *questionsChoiceViewController;
 
-- (void)deallocChoiceViewController;
+- (void)reset:(id)sender;
+- (void)showCardsOfFate:(BOOL)animated;
 
 @end
 
@@ -42,6 +43,14 @@
 	
 	_subActivityData = (id) self.subActivity.data;
 	
+	NSDictionary *chosenQuestions = [_subActivityData getChosenQuestionsContentsWithSkills];
+	if(chosenQuestions.count)
+	{
+		[self.questionCardsView setQuestionsWithAnswerSkills:chosenQuestions];
+		[self showCardsOfFate:NO];
+	}
+	self.questionCardsView.questionsDelegate = self;
+	
 	NSArray *questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
 	self.questionsChoiceViewController.choices = questions;
 	self.questionsChoiceViewController.questionsDelegate = self;
@@ -53,44 +62,69 @@
 	self.questionCardsView.showsAnswers = !editing;
 }
 
-- (BOOL)prepareToGoToNextActivity
+- (NSArray *)getNavigationItemRightBarButtons
 {
-	[_subActivityData unchooseAllQuestions];
-	
-	for (FTINWhyGameQuestion *question in self.questionCardsView.questions)
-	{
-		[_subActivityData chooseQuestionWithContent:question];
-		
-		if([self.questionCardsView hasAnswerSkillForQuestion:question])
-		{
-			[_subActivityData setSkill:[self.questionCardsView answerSkillForQuestion:question] forQuestionWithContent:question];
-		}
-	}
-	
-	return YES;
+	return @[[[UIBarButtonItem alloc] initWithTitle:@"restart".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(reset:)]];
 }
 
 #pragma mark - Instance methods
 
-- (void)deallocChoiceViewController
+- (void)reset:(id)sender
 {
-	[self.questionsChoiceViewController.view removeFromSuperview];
-	self.questionsChoiceViewController = nil;
+	[[UIAlertView alertWithConfirmation:@"confirm_reset".localizedString delegate:self] show];
+}
+
+- (void)showCardsOfFate:(BOOL)animated
+{
+	self.questionCardsView.hidden = NO;
+	
+	void (^setOpacity)() = ^void() {
+		self.questionCardsView.layer.opacity = 1.f;
+		self.questionsChoiceViewController.view.layer.opacity = 0.f;
+	};
+	
+	if(animated)
+	{
+		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+			setOpacity();
+		} completion:nil];
+	}
+	else
+	{
+		setOpacity();
+	}
 }
 
 #pragma mark - Questions Choice View Controller Delegate
 
 - (void)questionsChoiceViewController:(FTINQuestionsChoiceViewController *)viewController choseQuestions:(NSArray *)questions
 {
-	self.questionCardsView.hidden = NO;
 	self.questionCardsView.questions = questions;
+	[_subActivityData chooseQuestionsWithContents:questions];
 	
-	[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
-		self.questionCardsView.layer.opacity = 1.f;
-		self.questionsChoiceViewController.view.layer.opacity = 0.f;
-	} completion:^(BOOL finished) {
-		[self deallocChoiceViewController];
-	}];
+	[self showCardsOfFate:YES];
+}
+
+#pragma mark - Question Cards View Delegate
+
+- (void)questionCardsView:(FTINQuestionCardsView *)questionCardsView selectedAnswerSkill:(FTINAnswerSkill)answerSkill forQuestion:(FTINWhyGameQuestion *)question
+{
+	[_subActivityData setSkill:answerSkill forQuestionWithContent:question];
+}
+
+#pragma mark - Alert View Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	if(buttonIndex != alertView.cancelButtonIndex)
+	{
+		[_subActivityData unchooseAllQuestions];
+		
+		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+			self.questionCardsView.layer.opacity = 0.f;
+			self.questionsChoiceViewController.view.layer.opacity = 1.f;
+		} completion:nil];
+	}
 }
 
 @end

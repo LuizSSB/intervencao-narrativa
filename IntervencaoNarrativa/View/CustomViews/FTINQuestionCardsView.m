@@ -19,12 +19,15 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 {
 	CGRect _activeCellFrame;
 	NSUInteger _activeCellTag;
-	NSMutableDictionary *_answerSkills;
+	NSMutableDictionary *_questionsAndSkills;
 }
 
 @property (nonatomic, readonly) UIButton *closeQuestionOverlayButton;
 @property (nonatomic, readonly) UIImageView *pulledCardImageView;
 @property (nonatomic, readonly) FTINQuestionCardViewController *questionViewController;
+
+- (BOOL)hasAnswerSkillForQuestion:(FTINWhyGameQuestion *)question;
+- (FTINAnswerSkill)answerSkillForQuestion:(FTINWhyGameQuestion *)question;
 
 - (void)setup;
 
@@ -36,10 +39,9 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 
 - (void)dealloc
 {
-	_questions = nil;
 	_pulledCardImageView = nil;
 	_questionViewController = nil;
-	_answerSkills = nil;
+	_questionsAndSkills = nil;
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -96,13 +98,27 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 	self.questionViewController.showsAnswerVisiblityControl = showsAnswers;
 }
 
+- (NSArray *)questions
+{
+	return _questionsAndSkills.allKeys;
+}
+
 - (void)setQuestions:(NSArray *)questions
 {
-	_questions = [questions shuffledArray];
+	[_questionsAndSkills removeAllObjects];
+	_questionsAndSkills = [NSMutableDictionary dictionaryWithCapacity:questions.count];
 	
-	[_answerSkills removeAllObjects];
-	_answerSkills = [NSMutableDictionary dictionaryWithCapacity:_questions.count];
+	for (FTINWhyGameQuestion *question in [questions shuffledArray])
+	{
+		[_questionsAndSkills setObject:[NSNull null] forKey:question];
+	}
 	
+	[self reloadData];
+}
+
+- (void)setQuestionsWithAnswerSkills:(NSDictionary *)questionsWithSkills
+{
+	_questionsAndSkills = questionsWithSkills.mutableCopy;
 	[self reloadData];
 }
 
@@ -113,7 +129,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 	if(!_closeQuestionOverlayButton)
 	{
 		_closeQuestionOverlayButton = [UIButton buttonWithType:UIButtonTypeCustom];
-		[_closeQuestionOverlayButton addTarget:self action:@selector(questionCardViewControllerFinished:) forControlEvents:UIControlEventTouchUpInside];
+		[_closeQuestionOverlayButton addTarget:self action:@selector(questionCardViewControllerCanceled:) forControlEvents:UIControlEventTouchUpInside];
 		_closeQuestionOverlayButton.backgroundColor = [UIColor blackColor];
 		_closeQuestionOverlayButton.layer.opacity = 0.f;
 	}
@@ -157,17 +173,26 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 
 - (BOOL)hasAnswerSkillForQuestion:(FTINWhyGameQuestion *)question
 {
-	return _answerSkills[@([self.questions indexOfObject:question])] != nil;
+	return _questionsAndSkills[question] != [NSNull null];
 }
 
 - (FTINAnswerSkill)answerSkillForQuestion:(FTINWhyGameQuestion *)question
 {
-	return (FTINAnswerSkill) [_answerSkills[@([self.questions indexOfObject:question])] integerValue];
+	return (FTINAnswerSkill) [_questionsAndSkills[question] integerValue];
 }
 
 #pragma mark - Question Card View Controller Delegate
 
-- (void)questionCardViewControllerFinished:(FTINQuestionCardViewController *)viewController
+- (void)questionCardViewController:(FTINQuestionCardViewController *)viewController withAnswerSkill:(FTINAnswerSkill)skill
+{
+	[self.questionsDelegate questionCardsView:self selectedAnswerSkill:skill forQuestion:viewController.question];
+
+	_questionsAndSkills[viewController.question] = @(self.questionViewController.answerSkill);
+	
+	[self questionCardViewControllerCanceled:viewController];
+}
+
+- (void)questionCardViewControllerCanceled:(FTINQuestionCardViewController *)viewController
 {
 	[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
 		CGRect viewFrame = _questionViewController.view.frame;
@@ -187,11 +212,6 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 			self.userInteractionEnabled = YES;
 		}];
 	}];
-	
-	if(self.questionViewController.answered)
-	{
-		_answerSkills[@([self.questions indexOfObject:self.questionViewController.question])] = @(self.questionViewController.answerSkill);
-	}
 }
 
 - (BOOL)questionCardViewControllerShowsAnswer:(FTINQuestionCardViewController *)viewController

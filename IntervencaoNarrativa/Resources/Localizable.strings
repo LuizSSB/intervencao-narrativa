@@ -24,6 +24,7 @@
 "finished" = "Finalizada";
 "continue" = "Continuar";
 "failed" = "Cancelada";
+"restart" = "Reiniciar";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
@@ -67,6 +68,7 @@
 "select_questions" = "Selecione as questões que serão usadas";
 "use_questions" = "Montar jogo";
 "must_select_questions" = "Selecione pelo menos uma questão para o jogo!";
+"confirm_reset" = "Deseja mesmo reiniciar o Jogo do Porquê?";
 
 /* Descriptive Skill */
 "description_no_help" = "Descreve totalmente sem ajuda";
@@ -105,10 +107,12 @@
 
 "error_ftin_3000" = "Arquivos de configuração da atividade inválidos, não constam com subatividades.";
 "error_ftin_3001" = "Favor apontar o desempenho da criança nos marcadores abaixo.";
+"error_ftin_3001_b" = "Favor apontar o desempenho da resposta da criança em cada questão.";
 "error_ftin_3002" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityFlowController.";
 "error_ftin_3003" = "Atividade não pode ser pulada";
 "error_ftin_3004" = "É preciso terminar todas as atividades para finalizar.";
 "error_ftin_3005" = "Atividade fora dos limites.";
+"error_ftin_3006" = "É necessário responder algumas questões. Selecione-as e monte o jogo.";
 
 "error_ftin_6000" = "Ordenação incorreta, tente novamente.";
 "error_ftin_6001" = "A quantidade itens que fazem parte do ambiente está errada.";

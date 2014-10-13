@@ -112,7 +112,14 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 }
 
 - (IBAction)close:(id)sender {
-	[self.delegate questionCardViewControllerFinished:self];
+	if(self.answered)
+	{
+		[self.delegate questionCardViewController:self withAnswerSkill:self.answerSkill];
+	}
+	else
+	{
+		[self.delegate questionCardViewControllerCanceled:self];
+	}
 }
 
 - (BOOL)answered

@@ -15,4 +15,6 @@
 @property (nonatomic) NSString *question;
 @property (nonatomic) NSString *answer;
 
++ (FTINWhyGameQuestion *)questionWithQuestion:(NSString *)question andAnswer:(NSString *)answer;
+
 @end

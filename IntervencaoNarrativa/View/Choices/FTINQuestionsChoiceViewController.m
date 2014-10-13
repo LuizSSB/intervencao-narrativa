@@ -50,6 +50,7 @@ typedef enum : NSUInteger {
 	if(!cell)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FTINQuestionsChoiceCellIdConfirmation];
+		cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
 		cell.textLabel.text = @"use_questions".localizedString;
 	}
 	

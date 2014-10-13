@@ -57,6 +57,24 @@
 	return set;
 }
 
+- (NSDictionary *)getChosenQuestionsContentsWithSkills
+{
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	
+	for (WhyGameQuestion *question in self.questions)
+	{
+		if(question.chosen)
+		{
+			FTINWhyGameQuestion *content = [FTINWhyGameQuestion questionWithQuestion:question.question andAnswer:question.answer];
+			
+			id skill = question.answerSkillNumber ? question.answerSkillNumber : [NSNull null];
+			[dictionary setObject:skill forKey:content];
+		}
+	}
+	
+	return dictionary;
+}
+
 - (void)chooseQuestionWithContent:(FTINWhyGameQuestion *)question
 {
 	for (WhyGameQuestion *questionData in self.questions)
@@ -66,6 +84,14 @@
 			questionData.chosen = true;
 			return;
 		}
+	}
+}
+
+- (void)chooseQuestionsWithContents:(NSArray *)questions
+{
+	for (FTINWhyGameQuestion *question in questions)
+	{
+		[self chooseQuestionWithContent:question];
 	}
 }
 
@@ -79,20 +105,35 @@
 
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
-	if(self.questions.count)
-	{		
-		for (WhyGameQuestion *question in self.questions)
+	NSSet *chosenQuestions = [self getChosenQuestions];
+	
+	if(chosenQuestions.count > 0)
+	{
+		NSInteger questionsAnswered = 0;
+		
+		for (WhyGameQuestion *question in chosenQuestions)
 		{
-			if(question.answered)
+			if (question.answered)
 			{
-				return YES;
+				++questionsAnswered;
 			}
 		}
+		
+		if(questionsAnswered < chosenQuestions.count)
+		{
+			[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing andCustomMessage:@"error_ftin_3001_b".localizedString inReference:error];
+		}
+		else
+		{
+			return YES;
+		}
+	}
+	else
+	{
+		[NSError ftin_createErrorWithCode:FTINErrorCodeNoQuestionChosen inReference:error];
 	}
 	
-	[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing inReference:error];
-	return NO;
-	
+	return NO;	
 }
 
 @end

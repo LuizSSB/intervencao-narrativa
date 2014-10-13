@@ -8,14 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class FTINWhyGameQuestion;
+@class FTINQuestionCardsView, FTINWhyGameQuestion;
+
+@protocol FTINQuestionCardsViewDelegate <NSObject>
+
+- (void)questionCardsView:(FTINQuestionCardsView *)questionCardsView selectedAnswerSkill:(FTINAnswerSkill)answerSkill forQuestion:(FTINWhyGameQuestion *)question;
+
+@end
 
 @interface FTINQuestionCardsView : UICollectionView
 
+@property (nonatomic, weak) id<FTINQuestionCardsViewDelegate> questionsDelegate;
 @property (nonatomic) BOOL showsAnswers;
 @property (nonatomic) NSArray *questions;
 
-- (BOOL)hasAnswerSkillForQuestion:(FTINWhyGameQuestion *)question;
-- (FTINAnswerSkill)answerSkillForQuestion:(FTINWhyGameQuestion *)question;
+- (void)setQuestionsWithAnswerSkills:(NSDictionary *)questionsWithSkills;
 
 @end

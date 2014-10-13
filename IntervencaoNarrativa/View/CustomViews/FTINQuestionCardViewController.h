@@ -12,7 +12,9 @@
 
 @protocol FTINQuestionCardViewControllerDelegate <NSObject>
 
-- (void)questionCardViewControllerFinished:(FTINQuestionCardViewController *)viewController;
+- (void)questionCardViewControllerCanceled:(FTINQuestionCardViewController *)viewController;
+
+- (void)questionCardViewController:(FTINQuestionCardViewController *)viewController withAnswerSkill:(FTINAnswerSkill)skill;
 
 @end
 
