@@ -15,7 +15,7 @@
 	if(error)
 	{
 		[[UIApplication sharedApplication].topMostViewController showToastText:customMessage];
-		return NO;
+		return YES;
 	}
 	else
 	{
@@ -23,7 +23,7 @@
 		{
 			onSuccess();
 		}
-		return YES;
+		return NO;
 	}
 }
 

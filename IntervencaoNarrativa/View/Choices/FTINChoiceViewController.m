@@ -59,6 +59,12 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
     return self;
 }
 
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	self.tableView.rowHeight = FTINDefaultChoiceRowHeight;
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];

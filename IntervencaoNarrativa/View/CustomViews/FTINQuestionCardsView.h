@@ -20,6 +20,7 @@
 
 @property (nonatomic, weak) id<FTINQuestionCardsViewDelegate> questionsDelegate;
 @property (nonatomic) BOOL showsAnswers;
+@property (nonatomic) UIViewController *parentViewController;
 @property (nonatomic) NSArray *questions;
 
 - (void)setQuestionsWithAnswerSkills:(NSDictionary *)questionsWithSkills;

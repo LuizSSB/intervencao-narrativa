@@ -49,7 +49,9 @@
 		[self.questionCardsView setQuestionsWithAnswerSkills:chosenQuestions];
 		[self showCardsOfFate:NO];
 	}
+	
 	self.questionCardsView.questionsDelegate = self;
+	self.questionCardsView.parentViewController = self;
 	
 	NSArray *questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
 	self.questionsChoiceViewController.choices = questions;

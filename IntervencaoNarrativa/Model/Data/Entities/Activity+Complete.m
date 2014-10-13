@@ -102,4 +102,10 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	return activities;
 }
 
+- (NSURL *)baseFileUrl
+{
+	NSArray *baseFileComponents = [self.baseFile componentsSeparatedByString:@"."];
+	return [[NSBundle mainBundle] URLForResource:baseFileComponents[0] withExtension:baseFileComponents[1]];
+}
+
 @end

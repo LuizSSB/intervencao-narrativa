@@ -83,7 +83,10 @@
     if (!context) {
         // Consistency with GRMustacheSectionTag handling of nil context.
         [NSException raise:NSInvalidArgumentException format:@"Invalid context:nil"];
-        return NO;
+		
+		// LUIZ: FIX WTF
+//        return NO;
+		return nil;
     }
     
     // Default empty string.

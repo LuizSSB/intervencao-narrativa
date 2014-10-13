@@ -75,7 +75,7 @@
 		{
 			result.data = [Activity newObject];
 			result.data.title = result.title;
-			result.data.baseFile = fileUrl.description;
+			result.data.baseFile = fileUrl.pathComponents.lastObject;
 			
 			for (FTINSubActivityDetails *subActivity in result.subActivities)
 			{
@@ -94,7 +94,7 @@
 // TODO Luiz: tornar assíncrono
 - (void)loadUnfinishedActivity:(Activity *)activity
 {
-	[self loadActivityDetailsFromURL:[NSURL URLWithString:activity.baseFile] resultHandler:^(FTINActivityDetails *result, NSError *error) {
+	[self loadActivityDetailsFromURL:activity.baseFileUrl resultHandler:^(FTINActivityDetails *result, NSError *error) {
 		if(!error)
 		{
 			result.data = activity;

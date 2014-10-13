@@ -53,8 +53,11 @@
     if (!context) {
         // With a nil context, the method would return nil without setting the
         // error argument.
-        [NSException raise:NSInvalidArgumentException format:@"Invalid context:nil"];
-        return NO;
+		[NSException raise:NSInvalidArgumentException format:@"Invalid context:nil"];
+		
+		// LUIZ: FIX WTF
+//        return NO;
+		return nil;
     }
     
     GRMustacheBuffer buffer = GRMustacheBufferCreate(MAX(1024, (_innerRange.length + 50) * 1.3));

@@ -201,6 +201,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 		
 		self.closeQuestionOverlayButton.layer.opacity = 0;
 	} completion:^(BOOL finished) {
+		[self.questionViewController removeFromParentViewController];
 		[self.questionViewController.view removeFromSuperview];
 		[self.closeQuestionOverlayButton removeFromSuperview];
 		
@@ -278,6 +279,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 		
 		[self.superview addSubview:self.closeQuestionOverlayButton];
 		[self.superview addSubview:self.questionViewController.view];
+		[self.parentViewController addChildViewController:self.questionViewController];
 		[NSThread sleepForTimeInterval:.2];
 		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
 			self.closeQuestionOverlayButton.layer.opacity = FTINQuestionCardsViewOverlayOpacity;
