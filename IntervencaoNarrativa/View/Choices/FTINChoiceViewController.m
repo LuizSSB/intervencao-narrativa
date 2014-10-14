@@ -110,7 +110,7 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	{
 		[self rejectItemAtIndex:indexPath.row];
 	}
-	else
+	else if([self canChooseQuestionAt:indexPath.row])
 	{
 		[self chooseItemAtIndex:indexPath.row];
 	}
@@ -131,6 +131,18 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 - (void)setup
 {
 	_selectedChoicesIndexes = [NSMutableSet set];
+	self.maximumChoices = NSIntegerMax;
+}
+
+- (BOOL)canChooseQuestionAt:(NSInteger)index
+{
+	if(self.selectedChoicesIndexes.count >= self.maximumChoices)
+	{
+		[self showToastText:[@"maximum_reached" localizedStringWithIntParam:self.maximumChoices]];
+		return NO;
+	}
+	
+	return YES;
 }
 
 - (void)setChoices:(NSArray *)choices
@@ -163,11 +175,6 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 		
 		[self.tableView reloadData];
 	}
-}
-
-- (NSSet *)selectedChoicesIndexes
-{
-	return _selectedChoicesIndexes;
 }
 
 - (NSDictionary *)getSelectedChoices

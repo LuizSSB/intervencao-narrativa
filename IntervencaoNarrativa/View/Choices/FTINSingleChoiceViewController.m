@@ -20,6 +20,12 @@
 {
 	[super setup];
 	_selectedChoiceIndex = -1;
+	self.maximumChoices = 1;
+}
+
+- (BOOL)canChooseQuestionAt:(NSInteger)index
+{
+	return YES;
 }
 
 - (void)chooseItemAtIndex:(NSInteger)index

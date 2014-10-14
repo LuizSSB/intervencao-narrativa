@@ -2,28 +2,52 @@
 	"title":"Jogo do porquê",
 	"questions":[
 				 {
-				 "question":"Qual o sentido da vida, do universo e tudo mais?",
-				 "answer":"Isso non ecxiste!"
+				 "question":"Por que devemos ir a escola?",
+				 "answer":"Porque a escola fornece conhecimento e disciplina essenciais para a formação do caráter e do sucesso do indivíduo. Sem a escola, limitamos nosso mundo ao que vemos e ao que precisamos, sem poder olhar para o futuro e traçar o nosso destino. A escola também provê a tão importante interação social. Nós aprendemos a nos relacionar com pessoas e as conhecemos melhor criando amizades e vínculos que moldam quem somos e quem nos tornamos."
 				 },
 				 {
-				 "question":"Quantas letras existem na bandeira do Brasil?",
-				 "answer":"16 letras"
+				 "question":"Por que temos que comer?",
+				 "answer":"Porque a comida sacia a fome e fornece nutrientes supostamente essenciais para a subsistência. O ato de comer, muitas vezes, também está relacionado a interação social, como, por exemplo, um jantar em família, e pode representar eventos marcantes da vida do indivíduo."
 				 },
 				 {
-				 "question":"Por que Casval Rem Deikum prefere usar seu pseudônimo de Char Aznable sempre que possível?",
-				 "answer":"Provavelmente, para evitar controvérsias devido ao fato de que seu pai, Zeon Zun Deikum foi o fundador do movimento Zeon, que, mais tarde, sobre o comando da família Zabi, viria a iniciar a Guerra de Um Ano, que dizimou mais de metade da raça humana."
+				 "question":"Por que temos que beber leite?",
+				 "answer":"Porque é necessário para o crescimento, fortalece os ossos e fornece uma preciosa ajuda ao organismo, preenchendo a ausência de cálcio. Além disso, é dos alimentos mais destacados na roda dos alimentos, da mesma forma que os seus derivados."
 				 },
 				 {
-				 "question":"Explique os fatores que levaram Britai Kridanik e sua frota a desertarem do exército Zentradi para se juntar ao exército humano das Nações Unidas.",
-				 "answer":"De maneira resumida, a deserção ocorreu, pois foram expostos a cultura humana, através das músicas de Lynn Minmay. Sendo seres racionais criados e crescidos unicamente para a guerra, os Zentradis não possuiam, até então, noção de que algo como \"cultura\" fosse tão poderoso, a ponto de desmotivar soldados e os fazerem questionar e abandonar seu único propósito na vida: lutar. As músicas de Lynn Minmay lhes apresentaram uma realidade totalmente nova, onde a guerra é detestada e busca-se o fim dela, sem contar que homens e mulheres vivem juntos e podem gerar cria própria, ao invés de simplesmente se clonarem."
+				 "question":"Por que temos que tomar banho?",
+				 "answer":"Porque o banho nos torna limpos, cheirosos e saudáveis. Pensando mais a fundo, o ser humano precisa tomar banho por uma questão cultural, para a aceitação na sociedade, por questões psicológicas e sociais. O banho significa limpeza e cuidado. Nós também precisamos tomar banho todos os dias para não ficarmos doentes."
 				 },
 				 {
-				 "question":"Qual era o nome original do Pac-Man? Por que ele foi rejeitado?",
-				 "answer":"O nome original era Puck-Man. Esse nome foi inicialmente escolhido devido ao som que o personagem faz no jogo (\"Paku Paku\", em japonês romanizado). Como é possível notar, o nome original tem notável semelhança com o termo mais chulo da língua inglesa, sendo assim, para evitar problemas com a sociedade norte-americana, este nome trocado."
+				 "question":"Por que devemos dizer obrigado?",
+				 "answer":"Porque o 'obrigado' expressa o reconhecimento de uma dívida entre quem recebe um favor ou gentileza e quem o faz – ambos, dessa forma, ligados, atados, presos por um laço moral."
 				 },
 				 {
-				 "question":"What is a MAN?",
-				 "answer":"A miserable pile of SECRETS!"
+				 "question":"Por que devemos respeitar as pessoas?",
+				 "answer":"Porque o respeito é fundamental para a convivência em sociedade, através da organização e ordenação das pessoas com as quais se interage. O respeito (ou a falta dele) torna possível a identificação de pessoas com as quais é possível colaborar, ou com as quais é melhor evitar o contato. Também devemos respeitar as pessoas para evitar que situações constrangedoras ou que ameacem nossas vidas venhma a acontecer."
+				 },
+				 {
+				 "question":"Por que é divertido ser criança?",
+				 "answer":"Porque ser criança significa estar livre de encargos e deficiência de recursos que geralmente acompanham a maturidade. Crianças frequentemente possuem pouca ou nenhuma responsabilidade séria, além daquela consigo mesmo, o que permite que aproveitem seu tempo para desenvolverem as atividades que desejam. Isso, acompanhado de uma fonte de energia aparentemente infindável, torna-se a base para altas confusões que até Deus duvida."
+				 },
+				 {
+				 "question":"Por que você gosta de desenhos animados",
+				 "answer":"(Resposta dependente da criança)"
+				 },
+				 {
+				 "question":"Por que você gosta de esportes? (Meninos gostam mais de futebol, meninas, de ballet e todos tem um gosto por natação)",
+				 "answer":"(Resposta dependente da criança)"
+				 },
+				 {
+				 "question":"Por que o chiclete é mole?",
+				 "answer":"Porque o chiclete é composto por uma variedade de substâncias, as quais misturadas resultam em flexibilidade ideal para que as pessoas os masquem. O fato de ser mole também ajuda na criação de bolhas de ar com o chiclete, o que se apresenta como parte da atratividade dos chicletes."
+				 },
+				 {
+				 "question":"Por que o sorvete é gostoso?",
+				 "answer":"(Resposta dependente da criança)"
+				 },
+				 {
+				 "question":"Por que os dentes das crianças pequenas caem?",
+				 "answer":"Porque os dentes das crianças, conhecidos como 'dentes-de-leite' são provisórios. São dentes formados rapidamente pelo organismo para atender as necessidades de sobrevivência até que o indivíduo cresca e se forme por completo, com seus dentes de verdade, que são mais especializados e fortes na tarefa de mastigação do alimento."
 				 }
 	]
 }

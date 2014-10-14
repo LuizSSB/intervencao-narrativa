@@ -87,6 +87,12 @@ typedef enum : NSUInteger {
 	}
 }
 
+- (void)setup
+{
+	[super setup];
+	self.maximumChoices = 6;
+}
+
 #pragma mark - Instance methods
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

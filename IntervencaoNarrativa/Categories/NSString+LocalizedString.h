@@ -15,6 +15,6 @@
 - (NSString *)localizedStringInNamespace:(NSString *)nameSpace;
 
 - (NSString *)localizedStringWithParam:(id)param;
-- (NSString *)localizedStringWithIntParam:(int)param;
+- (NSString *)localizedStringWithIntParam:(NSInteger)param;
 
 @end

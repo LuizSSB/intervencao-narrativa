@@ -25,7 +25,7 @@
 	return [NSString stringWithFormat:self.localizedString, param];
 }
 
-- (NSString *)localizedStringWithIntParam:(int)param
+- (NSString *)localizedStringWithIntParam:(NSInteger)param
 {
 	return [NSString stringWithFormat:self.localizedString, param];
 }
