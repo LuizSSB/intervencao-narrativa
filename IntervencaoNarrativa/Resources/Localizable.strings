@@ -36,6 +36,9 @@
 "patient_saved" = "Paciente salvo";
 "examiner_name" = "Avaliador: %@";
 
+/* Choices */
+"maximum_reached" = "Máximo de %ld opções selecionadas.";
+
 /* Activities */
 "hide_controls" = "Ocultar controles";
 "show_controls" = "Exibir controles";
