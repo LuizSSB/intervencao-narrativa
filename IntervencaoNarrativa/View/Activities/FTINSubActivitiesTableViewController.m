@@ -14,6 +14,9 @@
 #import "SubActivity+Complete.h"
 
 @interface FTINSubActivitiesTableViewController ()
+{
+	NSDictionary *_activitiesByCategory;
+}
 
 @property (nonatomic, readonly) NSNumberFormatter *indexFormatter;
 @property (nonatomic, readonly) UIPopoverController *parentPopover;
@@ -27,6 +30,7 @@
 - (void)dealloc
 {
 	_activity = nil;
+	_activitiesByCategory = nil;
 }
 
 - (void)viewDidLoad
@@ -56,7 +60,6 @@
 }
 
 @synthesize indexFormatter = _indexFormatter;
-
 - (NSNumberFormatter *)indexFormatter
 {
 	if(!_indexFormatter)
@@ -70,7 +73,6 @@
 }
 
 @synthesize parentPopover = _parentPopover;
-
 - (UIPopoverController *)parentPopover
 {
 	if(!_parentPopover)
@@ -79,6 +81,27 @@
 	}
 	
 	return _parentPopover;
+}
+
+- (void)setActivity:(FTINActivityDetails *)activity
+{
+	_activity = activity;
+	
+	NSMutableDictionary *activitiesByCategory = [NSMutableDictionary dictionary];
+	
+	for (FTINSubActivityDetails *subActivity in activity.subActivities)
+	{
+		NSNumber *key = @(subActivity.type);
+		
+		if(!activitiesByCategory[key])
+		{
+			activitiesByCategory[key] = [NSMutableArray array];
+		}
+		
+		[activitiesByCategory[key] addObject:subActivity];
+	}
+	
+	_activitiesByCategory = activitiesByCategory;
 }
 
 - (void)presentAsPopoverFromBarButtonItem:(UIBarButtonItem *)button animated:(BOOL)animated
@@ -95,9 +118,19 @@
 
 #pragma mark - Table View Source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return _activitiesByCategory.count;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return self.activity.subActivities.count;
+	return [_activitiesByCategory[@(section)] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	return FTINActivityTypeTitle((FTINActivityType) section);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,7 +142,7 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:FTINDefaultCellIdentifier];
 	}
 	
-	FTINSubActivityDetails *subActivity = self.activity.subActivities[indexPath.row];
+	FTINSubActivityDetails *subActivity = _activitiesByCategory[@(indexPath.section)][indexPath.row];
 	cell.textLabel.text = [[self.indexFormatter stringFromNumber:@(indexPath.row + 1)] stringByAppendingFormat:@" - %@", subActivity.content.title];
 	cell.detailTextLabel.text = FTINActivityTypeTitle(subActivity.type);
 	cell.accessoryView = nil;
@@ -150,7 +183,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	[self.delegate subActivitiesViewController:self selectedSubActivity:self.activity.subActivities[indexPath.row] atIndex:indexPath.row];
+	
+	FTINSubActivityDetails *subActivity = _activitiesByCategory[@(indexPath.section)][indexPath.row];
+	[self.delegate subActivitiesViewController:self selectedSubActivity:subActivity atIndex:[self.activity.subActivities indexOfObject:subActivity]];
 }
 
 @end
