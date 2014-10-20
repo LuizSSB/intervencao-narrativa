@@ -313,6 +313,7 @@
 		25FF3342194A52B70080DC6F /* a_3_draw.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3341194A52B70080DC6F /* a_3_draw.json */; };
 		25FF3344194A52C20080DC6F /* a_5_cage.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3343194A52C20080DC6F /* a_5_cage.json */; };
 		25FF3346194A52DB0080DC6F /* a_2_gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3345194A52DB0080DC6F /* a_2_gift.json */; };
+		60CCFD6619F482A700EB0B60 /* FTINEnvironmentElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -740,6 +741,8 @@
 		25FF3343194A52C20080DC6F /* a_5_cage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a_5_cage.json; sourceTree = "<group>"; };
 		25FF3345194A52DB0080DC6F /* a_2_gift.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a_2_gift.json; sourceTree = "<group>"; };
 		564B2EB66BC4420587426308 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		60CCFD6419F482A700EB0B60 /* FTINEnvironmentElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnvironmentElement.h; sourceTree = "<group>"; };
+		60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnvironmentElement.m; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1470,6 +1473,8 @@
 				2560334B194DC22900AE9C26 /* FTINWhyGameQuestion.m */,
 				2560334D194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.h */,
 				2560334E194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m */,
+				60CCFD6419F482A700EB0B60 /* FTINEnvironmentElement.h */,
+				60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -1823,6 +1828,7 @@
 				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
+				60CCFD6619F482A700EB0B60 /* FTINEnvironmentElement.m in Sources */,
 				2537BB6A193B730500D10878 /* UIAlertView+DefaultAlerts.m in Sources */,
 				256A97C1193B763300358131 /* ErrorInfo.m in Sources */,
 				25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */,

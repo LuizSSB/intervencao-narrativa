@@ -47,7 +47,7 @@
 	for (EnvironmentSubActivity *activity in activities)
 	{
 		[environments addObject:@{
-								 @"objectsList":[activity.selectedItems.objectEnumerator.allObjects componentsJoinedByString:@"\n"]
+								 @"objectsList":[activity.selectedItemsNames.allObjects componentsJoinedByString:@"\n"]
 								  }];
 	}
 	

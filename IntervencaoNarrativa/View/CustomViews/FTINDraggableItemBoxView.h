@@ -11,8 +11,8 @@
 @interface FTINDraggableItemBoxView : UIView
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (nonatomic) NSArray *toolboxElementsImagesNames;
-@property (nonatomic) NSSet *chosenElementsImagesNames;
+@property (nonatomic) NSArray *toolboxElements;
+@property (nonatomic) NSSet *chosenElements;
 
 - (void)reset:(BOOL)animated;
 

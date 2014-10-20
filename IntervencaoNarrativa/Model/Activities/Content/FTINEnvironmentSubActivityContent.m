@@ -36,7 +36,7 @@
 		
 		EnvironmentSubActivity *tr00Activity = (id) data;
 				
-		for (NSString *element in tr00Activity.selectedItems)
+		for (FTINEnvironmentElement *element in tr00Activity.selectedItems)
 		{
 			if(![self.correctElements containsObject:element])
 			{
@@ -56,22 +56,10 @@
 
 #pragma mark - Instance methods
 
-- (NSSet *)allElements
+- (NSArray *)allElements
 {
-	NSMutableSet *objects = [NSMutableSet setWithSet:self.correctElements];
-	return [objects setByAddingObjectsFromSet:self.incorrectElements];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:self.correctElements];
+    [array addObjectsFromArray:self.incorrectElements];
+    return array;
 }
-
-- (NSArray *)allElementsArray
-{
-	NSSet *allobjects = self.allElements;
-	NSMutableArray *array = [NSMutableArray arrayWithCapacity:allobjects.count];
-	
-	for (id obj in allobjects) {
-		[array addObject:obj];
-	}
-	
-	return array;
-}
-
 @end

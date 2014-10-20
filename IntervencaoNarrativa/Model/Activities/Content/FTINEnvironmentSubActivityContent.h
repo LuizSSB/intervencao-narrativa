@@ -7,16 +7,16 @@
 //
 
 #import "FTINSubActivityContent.h"
+#import "FTINEnvironmentElement.h"
 
 @interface FTINEnvironmentSubActivityContent : FTINSubActivityContent
 
 // Serialized
-@property (nonatomic) NSSet<NSString> *correctElements;
-@property (nonatomic) NSSet<NSString> *incorrectElements;
+@property (nonatomic) NSArray<FTINEnvironmentElement> *correctElements;
+@property (nonatomic) NSArray<FTINEnvironmentElement> *incorrectElements;
 @property (nonatomic) NSString *background;
 
 // Non serialized
-@property (nonatomic, readonly) NSSet *allElements;
-@property (nonatomic, readonly) NSArray *allElementsArray;
+@property (nonatomic, readonly) NSArray *allElements;
 
 @end
