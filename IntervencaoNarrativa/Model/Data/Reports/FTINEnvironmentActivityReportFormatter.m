@@ -42,16 +42,19 @@
 
 - (void)customizeContext:(NSMutableDictionary *)context forActivities:(NSArray *)activities
 {
-	NSMutableArray *environments = [NSMutableArray array];
+	context[@"selectedElements"] = [NSMutableArray array];
+	context[@"unselectedElements"] = [NSMutableArray array];
 	
 	for (EnvironmentSubActivity *activity in activities)
 	{
-		[environments addObject:@{
-								 @"objectsList":[activity.selectedItemsNames.allObjects componentsJoinedByString:@"\n"]
-								  }];
+		[context[@"selectedElements"] addObject:@{
+												  @"selectedElement":[activity.selectedElementsNames.allObjects componentsJoinedByString:@", "]
+												  }];
+		
+		[context[@"unselectedElements"] addObject:@{
+												  @"unselectedElement":[activity.unselectedElementsNames.allObjects componentsJoinedByString:@", "]
+												  }];
 	}
-	
-	[context setObject:environments forKey:@"objectsLists"];
 }
 
 @end

@@ -36,7 +36,7 @@
 		
 		EnvironmentSubActivity *tr00Activity = (id) data;
 				
-		for (FTINEnvironmentElement *element in tr00Activity.selectedItems)
+		for (FTINEnvironmentElement *element in tr00Activity.selectedElements)
 		{
 			if(![self.correctElements containsObject:element])
 			{
@@ -62,4 +62,19 @@
     [array addObjectsFromArray:self.incorrectElements];
     return array;
 }
+
+- (NSSet *)filterCorrectElements:(NSSet *)elements
+{
+	NSMutableSet *corrects = [NSMutableSet set];
+	
+	[elements enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+		if([self.correctElements containsObject:obj])
+		{
+			[corrects addObject:obj];
+		}
+	}];
+	
+	return corrects;
+}
+
 @end

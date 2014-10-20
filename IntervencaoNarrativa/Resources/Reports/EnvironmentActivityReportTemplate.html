@@ -7,13 +7,21 @@
 		<h2>Objetos selecionados</h2>
 		<table class="reportTable" rules="all">
 			<tr class="headerRow">
-				<th>H1</th>
-				<th>H2</th>
+				<th></th>
+				<th width="200">H1</th>
+				<th width="200">H2</th>
 			</tr>
 			<tr class="dataRow">
-				{{#objectsLists}}
-				<td>{{objectsList}}</td>
-				{{/objectsLists}}
+				<th>Elementos selecionados</th>
+				{{#selectedElements}}
+				<td>{{selectedElement}}</td>
+				{{/selectedElements}}
+			</tr>
+			<tr class="dataRow">
+				<th>Elementos não selecionados</th>
+				{{#unselectedElements}}
+				<td>{{unselectedElement}}</td>
+				{{/unselectedElements}}
 			</tr>
 		</table>
 		

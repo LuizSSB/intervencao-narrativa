@@ -96,6 +96,11 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	[self.toolboxCollectionView reloadData];
 }
 
+- (NSSet *)unchosenElements
+{
+	return [NSSet setWithArray:_unchosenElements];
+}
+
 - (NSSet *)chosenElements
 {
 	return [NSSet setWithArray:_chosenElements.allValues];

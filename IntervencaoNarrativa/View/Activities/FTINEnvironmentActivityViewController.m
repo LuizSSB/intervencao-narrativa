@@ -58,7 +58,7 @@
 
 	if (_subActivityData.completed)
 	{
-		self.draggableElementBox.chosenElements = _subActivityData.selectedItems;
+		self.draggableElementBox.chosenElements = _subActivityData.selectedElements;
 		self.draggableElementBox.userInteractionEnabled = NO;
 		self.narrationViewController.selectedCoherence = _subActivityData.narrationCoherence;
 		self.organizationViewController.selectedCoherence = _subActivityData.organizationCoherence;
@@ -115,7 +115,8 @@
 		_subActivityData.narrationCoherence = self.narrationViewController.selectedCoherence;
 	}
 	
-	_subActivityData.selectedItems = self.draggableElementBox.chosenElements;
+	_subActivityData.selectedElements = self.draggableElementBox.chosenElements;
+	_subActivityData.unselectedElements = [(FTINEnvironmentSubActivityContent *) self.subActivity.content filterCorrectElements:self.draggableElementBox.unchosenElements];
 	
 	return YES;
 }

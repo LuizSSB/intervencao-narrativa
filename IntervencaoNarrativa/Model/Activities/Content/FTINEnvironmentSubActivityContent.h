@@ -19,4 +19,6 @@
 // Non serialized
 @property (nonatomic, readonly) NSArray *allElements;
 
+- (NSSet *)filterCorrectElements:(NSSet *)elements;
+
 @end
