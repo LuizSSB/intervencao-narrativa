@@ -53,12 +53,12 @@
 	[super viewDidLoad];
 	
 	FTINEnvironmentSubActivityContent *_content = (FTINEnvironmentSubActivityContent *) self.subActivity.content;
-	self.draggableElementBox.toolboxElementsImagesNames = _content.allElementsArray;
+	self.draggableElementBox.toolboxElements = _content.allElements;
 	self.draggableElementBox.backgroundImageView.image = [UIImage imageNamed:_content.background];
 
 	if (_subActivityData.completed)
 	{
-		self.draggableElementBox.chosenElementsImagesNames = _subActivityData.selectedItems;
+		self.draggableElementBox.chosenElements = _subActivityData.selectedElements;
 		self.draggableElementBox.userInteractionEnabled = NO;
 		self.narrationViewController.selectedCoherence = _subActivityData.narrationCoherence;
 		self.organizationViewController.selectedCoherence = _subActivityData.organizationCoherence;
@@ -102,8 +102,8 @@
 
 - (BOOL)prepareToGoToNextActivity
 {
-	[self.narrationViewController dismissPopoverAnimated:YES];
-	[self.organizationViewController dismissPopoverAnimated:YES];
+	[self.narrationViewController dismissPopoverAnimated:NO];
+	[self.organizationViewController dismissPopoverAnimated:NO];
 	
 	if(self.organizationViewController.hasSelectedChoice)
 	{
@@ -115,7 +115,8 @@
 		_subActivityData.narrationCoherence = self.narrationViewController.selectedCoherence;
 	}
 	
-	_subActivityData.selectedItems = self.draggableElementBox.chosenElementsImagesNames;
+	_subActivityData.selectedElements = self.draggableElementBox.chosenElements;
+	_subActivityData.unselectedElements = [(FTINEnvironmentSubActivityContent *) self.subActivity.content filterCorrectElements:self.draggableElementBox.unchosenElements];
 	
 	return YES;
 }

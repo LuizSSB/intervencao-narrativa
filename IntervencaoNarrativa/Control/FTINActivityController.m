@@ -144,8 +144,7 @@
 	return !*error;
 }
 
-// TODO Luiz: no momento, não é necessário, mas, no futuro, provavelmente será
-// assíncrono.
+// TODO Luiz: no momento, não é necessário, mas, no futuro, provavelmente será assíncrono.
 - (void)completeSubActivity:(FTINSubActivityDetails *)subActivity
 {
 	NSError *error = nil;

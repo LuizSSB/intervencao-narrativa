@@ -30,6 +30,24 @@
 	self.narrationCoherenceNumber = @(narrationCoherence);
 }
 
+- (NSSet *)selectedElementsNames
+{
+    NSMutableSet *itensNames = [NSMutableSet set];
+    [self.selectedElements enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        [itensNames addObject:[obj name]];
+    }];
+    return itensNames;
+}
+
+- (NSSet *)unselectedElementsNames
+{
+    NSMutableSet *itensNames = [NSMutableSet set];
+    [self.unselectedElements enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+        [itensNames addObject:[obj name]];
+    }];
+    return itensNames;
+}
+
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
 	do

@@ -7,8 +7,10 @@
 //
 
 #import "FTINDraggableItemBoxView.h"
-#import "DNDDragAndDrop.h"
 #import "FTINCollectionViewCell.h"
+#import "FTINEnvironmentElement.h"
+
+#import "DNDDragAndDrop.h"
 
 CGFloat const FTINDraggableItemBoxViewToolSpacing = 8.f;
 CGFloat const FTINDraggableItemBoxViewDragOpacity = 1.;
@@ -20,15 +22,15 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 {
 	CGSize _toolSize;
 	DNDDragAndDropController *_dragDropController;
-	NSMutableArray *_unchosenElementsImagesNames;
-	NSMutableDictionary *_chosenElementsImagesNames;
+	NSMutableArray *_unchosenElements;
+	NSMutableDictionary *_chosenElements;
 	NSMutableSet *_chosenElementsViews;
 }
 
 @property (weak, nonatomic) IBOutlet UICollectionView *toolboxCollectionView;
 @property (weak, nonatomic) IBOutlet UIView *containerBox;
 
-- (FTINCollectionViewCell *)copyCell:(FTINCollectionViewCell *)cell;
+- (FTINCollectionViewCell *)createCellOrCopyFrom:(FTINCollectionViewCell *)cell;
 - (void)removeSelectedElement:(UITapGestureRecognizer *)gestureRecognizer;
 - (void)removeView:(UIView *)view animated:(BOOL)animated;
 
@@ -40,9 +42,9 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 
 - (void)dealloc
 {
-	[self setToolboxElementsImagesNames:nil];
-	_unchosenElementsImagesNames = nil;
-	_chosenElementsImagesNames = nil;
+	[self setToolboxElements:nil];
+	_unchosenElements = nil;
+	_chosenElements = nil;
 	_chosenElementsViews = nil;
 	_dragDropController = nil;
 }
@@ -63,8 +65,8 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 		[_dragDropController registerDropTarget:self.containerBox withDelegate:self];
 		[_dragDropController registerDropTarget:self.toolboxCollectionView withDelegate:self];
 		
-		_unchosenElementsImagesNames = [NSMutableArray array];
-		_chosenElementsImagesNames = [NSMutableDictionary dictionary];
+		_unchosenElements = [NSMutableArray array];
+		_chosenElements = [NSMutableDictionary dictionary];
 		_chosenElementsViews = [NSMutableSet set];
     }
     return self;
@@ -72,21 +74,21 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 
 #pragma mark - Instance methods
 
-- (void)setToolboxElementsImagesNames:(NSArray *)toolboxElementsImages
+- (void)setToolboxElements:(NSArray *)toolboxElements
 {
-	_toolboxElementsImagesNames = toolboxElementsImages;
+	_toolboxElements = toolboxElements;
 	
-	for (UIView *view in [NSSet setWithSet:_chosenElementsViews])
+	for (UIView *view in _chosenElementsViews)
 	{
 		[view removeFromSuperview];
 	}
 	
 	[_chosenElementsViews removeAllObjects];
-	[_chosenElementsImagesNames removeAllObjects];
-	[_unchosenElementsImagesNames removeAllObjects];
-	[_unchosenElementsImagesNames addObjectsFromArray:toolboxElementsImages];
+	[_chosenElements removeAllObjects];
+	[_unchosenElements removeAllObjects];
+	[_unchosenElements addObjectsFromArray:toolboxElements];
 		
-	NSUInteger count = toolboxElementsImages.count;
+	NSUInteger count = toolboxElements.count;
 	CGFloat width = floorf((self.toolboxCollectionView.frame.size.width - (count + 1) * FTINDraggableItemBoxViewToolSpacing) / count - 1.f);
 	_toolSize = CGSizeMake(width, width);
 	self.toolboxCollectionView.contentInset = UIEdgeInsetsMake((self.toolboxCollectionView.frame.size.height - width) / 2.f, FTINDraggableItemBoxViewToolSpacing, 0, FTINDraggableItemBoxViewToolSpacing);
@@ -94,29 +96,34 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	[self.toolboxCollectionView reloadData];
 }
 
-- (NSSet *)chosenElementsImagesNames
+- (NSSet *)unchosenElements
 {
-	return [NSSet setWithArray:_chosenElementsImagesNames.allValues];
+	return [NSSet setWithArray:_unchosenElements];
 }
 
-- (void)setChosenElementsImagesNames:(NSSet *)chosenElementsImagesNames
+- (NSSet *)chosenElements
+{
+	return [NSSet setWithArray:_chosenElements.allValues];
+}
+
+- (void)setChosenElements:(NSSet *)chosenElements
 {
 	[self reset:NO];
 	
 	CGRect cellFrame = CGRectMake(10, 10, _toolSize.width, _toolSize.height);
 	
-	for (NSString *imageName in chosenElementsImagesNames)
+	for (FTINEnvironmentElement *element in chosenElements)
 	{
-		FTINCollectionViewCell *cell = [self copyCell:nil];
+		FTINCollectionViewCell *cell = [self createCellOrCopyFrom:nil];
 		cell.frame = cellFrame;		
-		cell.backgroundImageView.image = [UIImage imageNamed:imageName];
+		cell.backgroundImageView.image = [UIImage imageNamed:element.imageName];
 		[cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelectedElement:)]];
 		
 		[self.containerBox addSubview:cell];
 		[_dragDropController registerDragSource:cell withDelegate:self];
 		
-		[_unchosenElementsImagesNames removeObject:imageName];
-		[_chosenElementsImagesNames setObject:imageName forKey:@(cell.hash)];
+		[_unchosenElements removeObject:element];
+		[_chosenElements setObject:element forKey:@(cell.hash)];
 		[_chosenElementsViews addObject:cell];
 		
 		cellFrame.origin.x += cellFrame.size.width + 10;
@@ -140,11 +147,11 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 
 - (void)removeView:(UIView *)view animated:(BOOL)animated
 {
-	NSString *imageName = _chosenElementsImagesNames[@(view.hash)];
-	[_chosenElementsImagesNames removeObjectForKey:@(view.hash)];
-	[_unchosenElementsImagesNames addObject:imageName];
+	FTINEnvironmentElement *element = _chosenElements[@(view.hash)];
+	[_chosenElements removeObjectForKey:@(view.hash)];
+	[_unchosenElements addObject:element];
 	
-	[self.toolboxCollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(_unchosenElementsImagesNames.count - 1) inSection:0]]];
+	[self.toolboxCollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:(_unchosenElements.count - 1) inSection:0]]];
 	
 	if(animated)
 	{
@@ -163,7 +170,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	}
 }
 
-- (FTINCollectionViewCell *)copyCell:(FTINCollectionViewCell *)cell
+- (FTINCollectionViewCell *)createCellOrCopyFrom:(FTINCollectionViewCell *)cell
 {
 	FTINCollectionViewCell *copy;
 	
@@ -175,6 +182,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	{
 		copy = [[FTINCollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, _toolSize.width, _toolSize.height)];
 	}
+    
 	copy.layer.cornerRadius = FTINDraggableItemBoxCellCornerRadius;
 	copy.layer.masksToBounds = YES;
 	copy.clipsToBounds = YES;
@@ -185,7 +193,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 
 - (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation
 {
-	UIView *copy = [self copyCell:(id)operation.dragSourceView];
+	UIView *copy = [self createCellOrCopyFrom:(id)operation.dragSourceView];
 	copy.layer.opacity = 0.f;
 	
 	[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
@@ -238,19 +246,19 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 		
 		if(operation.dragSourceView.superview != target)
 		{
-			finalView = [self copyCell:(id)operation.draggingView];
+			finalView = [self createCellOrCopyFrom:(id)operation.draggingView];
 			[finalView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelectedElement:)]];
 			
 			[target addSubview:finalView];
 			[_dragDropController registerDragSource:finalView withDelegate:self];
 						
-			NSString *selectedImage = _unchosenElementsImagesNames[finalView.tag];
-			[_unchosenElementsImagesNames removeObjectAtIndex:finalView.tag];
-			[_chosenElementsImagesNames setObject:selectedImage forKey:@(finalView.hash)];
+			FTINEnvironmentElement *element = _unchosenElements[finalView.tag];
+			[_unchosenElements removeObjectAtIndex:finalView.tag];
+			[_chosenElements setObject:element forKey:@(finalView.hash)];
 			[_chosenElementsViews addObject:finalView];
 			[self.toolboxCollectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:finalView.tag inSection:0]]];
 			
-			// Luiz: Gambibambi pois UICollectionView não atualiza as células.
+			// Luiz: Gambibambi, pois UICollectionView não atualiza as células.
 			self.toolboxCollectionView.userInteractionEnabled = NO;
 			[self.toolboxCollectionView performSelector:@selector(reloadData) withObject:nil afterDelay:.4];
 		}
@@ -287,7 +295,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 	self.toolboxCollectionView.userInteractionEnabled = YES;
-	return self.toolboxElementsImagesNames.count - _chosenElementsImagesNames.count;
+	return self.toolboxElements.count - _chosenElements.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -297,8 +305,9 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    FTINEnvironmentElement *element = _unchosenElements[indexPath.row];
 	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FTINCollectionViewCell cellIdentifier] forIndexPath:indexPath];
-	cell.backgroundImageView.image = [UIImage imageNamed:_unchosenElementsImagesNames[indexPath.row]];
+	cell.backgroundImageView.image = [UIImage imageNamed:element.imageName];
 	cell.tag = indexPath.row;
 	
 	[_dragDropController registerDragSource:cell withDelegate:self];

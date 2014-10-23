@@ -13,4 +13,7 @@
 @property (nonatomic) FTINCoherence organizationCoherence;
 @property (nonatomic) FTINCoherence narrationCoherence;
 
+@property (nonatomic, readonly) NSSet *selectedElementsNames;
+@property (nonatomic, readonly) NSSet *unselectedElementsNames;
+
 @end
