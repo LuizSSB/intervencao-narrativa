@@ -7,126 +7,46 @@
 //
 
 #import "WhyGameSubActivity+Complete.h"
-#import "WhyGameQuestion+Complete.h"
-#import "DCModel.h"
 
 #import "FTINSubActivityContent.h"
 #import "FTINWhyGameSubActivityContent.h"
 #import "FTINWhyGameQuestion.h"
 
+#import "DCModel.h"
+
+
 @implementation WhyGameSubActivity (Complete)
 
-- (void)setupWithContent:(FTINSubActivityContent *)content
-{
-	NSArray *questions = ((FTINWhyGameSubActivityContent *)content).questions;
-	
-	for (FTINWhyGameQuestion *question in questions)
-	{
-		WhyGameQuestion *questionData = [WhyGameQuestion newObject];
-		questionData.question = question.question;
-		questionData.answer = question.answer;
-		questionData.parentSubActivity = self;
-		[self addQuestionsObject:questionData];
-	}
-}
-
-- (void)setSkill:(FTINAnswerSkill)skill forQuestionWithContent:(FTINWhyGameQuestion *)question
-{
-	for (WhyGameQuestion *questionData in self.questions)
-	{
-		if([questionData.question isEqualToString:question.question])
-		{
-			questionData.answerSkill = skill;
-			return;
-		}
-	}
-}
-
-- (NSSet *)getChosenQuestions
+- (NSSet *)chosenQuestions
 {
 	NSMutableSet *set = [NSMutableSet set];
 	
-	for (WhyGameQuestion *question in self.questions)
-	{
-		if(question.chosen)
+	[self.questions enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+		if([obj chosen])
 		{
-			[set addObject:question];
+			[set addObject:obj];
 		}
-	}
+	}];
 	
 	return set;
 }
 
-- (NSDictionary *)getChosenQuestionsContentsWithSkills
-{
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-	
-	for (WhyGameQuestion *question in self.questions)
-	{
-		if(question.chosen)
-		{
-			FTINWhyGameQuestion *content = [FTINWhyGameQuestion questionWithQuestion:question.question andAnswer:question.answer];
-			
-			id skill = question.answerSkillNumber ? question.answerSkillNumber : [NSNull null];
-			[dictionary setObject:skill forKey:content];
-		}
-	}
-	
-	return dictionary;
-}
-
-- (void)chooseQuestionWithContent:(FTINWhyGameQuestion *)question
-{
-	for (WhyGameQuestion *questionData in self.questions)
-	{
-		if([questionData.question isEqualToString:question.question])
-		{
-			questionData.chosen = true;
-			return;
-		}
-	}
-}
-
-- (void)chooseQuestionsWithContents:(NSArray *)questions
-{
-	for (FTINWhyGameQuestion *question in questions)
-	{
-		[self chooseQuestionWithContent:question];
-	}
-}
-
-- (void)unchooseAllQuestions
-{
-	for (WhyGameQuestion *questionData in self.questions)
-	{
-		questionData.chosen = false;
-	}
-}
-
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
-	NSSet *chosenQuestions = [self getChosenQuestions];
+	NSSet *chosenQuestions = self.chosenQuestions;
 	
 	if(chosenQuestions.count > 0)
 	{
-		NSInteger questionsAnswered = 0;
-		
-		for (WhyGameQuestion *question in chosenQuestions)
+		for (FTINWhyGameQuestion *question in chosenQuestions)
 		{
-			if (question.answered)
+			if (!question.answered)
 			{
-				++questionsAnswered;
+				[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing andCustomMessage:@"error_ftin_3001_b".localizedString inReference:error];
+				return NO;
 			}
 		}
 		
-		if(questionsAnswered < chosenQuestions.count)
-		{
-			[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing andCustomMessage:@"error_ftin_3001_b".localizedString inReference:error];
-		}
-		else
-		{
-			return YES;
-		}
+		return YES;
 	}
 	else
 	{

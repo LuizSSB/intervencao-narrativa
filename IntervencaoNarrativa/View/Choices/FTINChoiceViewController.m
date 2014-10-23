@@ -229,6 +229,17 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	}
 }
 
+- (void)rejectAll
+{
+	NSMutableArray *indexPaths = [NSMutableArray array];
+	[_selectedChoicesIndexes enumerateObjectsUsingBlock:^(id obj, BOOL *stop) {
+		[indexPaths addObject:[NSIndexPath indexPathForRow:[obj integerValue] inSection:0]];
+	}];
+	
+	[_selectedChoicesIndexes removeAllObjects];
+	[self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+}
+
 - (BOOL)isIndexChosen:(NSInteger)index
 {
 	return [_selectedChoicesIndexes containsObject:@(index)];

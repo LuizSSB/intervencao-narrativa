@@ -11,7 +11,6 @@
 #import "FTINWhyGameQuestion.h"
 
 #import "WhyGameSubActivity+Complete.h"
-#import "WhyGameQuestion+Complete.h"
 
 @interface FTINWhyGameActivityReportFormatter ()
 
@@ -54,7 +53,7 @@
 {
 	NSMutableArray *questionsContext = [NSMutableArray array];
 	
-	for (WhyGameQuestion *question in questions)
+	for (FTINWhyGameQuestion *question in questions)
 	{
 		NSMutableDictionary *questionContext = [NSMutableDictionary dictionaryWithObject:question.question forKey:@"question"];
 		
@@ -65,7 +64,7 @@
 			
 			if(question.answered)
 			{
-				value = [question.answerSkillNumber isEqual:option] ? FTINDefaultCheckedValue : [NSString string];
+				value = question.answerSkill == option.integerValue ? FTINDefaultCheckedValue : [NSString string];
 				class = FTINHTMLClassExecuted;
 			}
 			else
@@ -93,7 +92,7 @@
 
 - (NSString *)formatActivities:(NSArray *)activities error:(NSError *__autoreleasing *)error
 {
-	NSDictionary *context = [self contextForQuestions:[activities[0] getChosenQuestions]];
+	NSDictionary *context = [self contextForQuestions:[activities[0] chosenQuestions]];
 	NSURL *templateUrl = [[NSBundle mainBundle] URLForResource:self.templateResourceName withExtension:@"html"];
 	
 	return [FTINTemplateUtils parseTemplate:templateUrl	withContext:context error:error];

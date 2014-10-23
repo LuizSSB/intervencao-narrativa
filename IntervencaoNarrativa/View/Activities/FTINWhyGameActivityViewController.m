@@ -9,14 +9,17 @@
 #import "FTINWhyGameActivityViewController.h"
 #import "FTINQuestionsChoiceViewController.h"
 #import "FTINQuestionCardsView.h"
+#import "FTINQuestionCardViewController.h"
 
 #import "FTINSubActivityDetails.h"
 #import "FTINWhyGameSubActivityContent.h"
+
 #import "WhyGameSubActivity+Complete.h"
 
-@interface FTINWhyGameActivityViewController () <FTINQuestionsChoiceViewControllerDelegate, FTINQuestionCardsViewDelegate, UIAlertViewDelegate>
+@interface FTINWhyGameActivityViewController () <FTINQuestionsChoiceViewControllerDelegate, FTINQuestionCardsViewDelegate, FTINQuestionCardViewControllerDelegate, UIAlertViewDelegate>
 {
 	WhyGameSubActivity *_subActivityData;
+	NSArray *_questions;
 }
 
 @property (weak, nonatomic) IBOutlet FTINQuestionCardsView *questionCardsView;
@@ -35,33 +38,31 @@
 {
 	_subActivityData = nil;
 	_questionsChoiceViewController = nil;
+	_questions = nil;
 }
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	
+	_questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
 	_subActivityData = (id) self.subActivity.data;
 	
-	NSDictionary *chosenQuestions = [_subActivityData getChosenQuestionsContentsWithSkills];
+	if (!_subActivityData.questions) {
+		_subActivityData.questions = [NSSet setWithArray:_questions];
+	}
+	
+	NSSet *chosenQuestions = _subActivityData.chosenQuestions;
 	if(chosenQuestions.count)
 	{
-		[self.questionCardsView setQuestionsWithAnswerSkills:chosenQuestions];
+		self.questionCardsView.questions = chosenQuestions.allObjects;
 		[self showCardsOfFate:NO];
 	}
 	
 	self.questionCardsView.questionsDelegate = self;
-	self.questionCardsView.parentViewController = self;
 	
-	NSArray *questions = ((FTINWhyGameSubActivityContent *) self.subActivity.content).questions;
-	self.questionsChoiceViewController.choices = questions;
+	self.questionsChoiceViewController.choices = _questions;
 	self.questionsChoiceViewController.questionsDelegate = self;
-}
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated
-{
-	[super setEditing:editing animated:YES];
-	self.questionCardsView.showsAnswers = !editing;
 }
 
 - (NSArray *)getNavigationItemRightBarButtons
@@ -101,17 +102,36 @@
 
 - (void)questionsChoiceViewController:(FTINQuestionsChoiceViewController *)viewController choseQuestions:(NSArray *)questions
 {
-	self.questionCardsView.questions = questions;
-	[_subActivityData chooseQuestionsWithContents:questions];
+	[questions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+		[obj setChosen:YES];
+	}];
 	
+	self.questionCardsView.questions = questions;
 	[self showCardsOfFate:YES];
 }
 
 #pragma mark - Question Cards View Delegate
 
-- (void)questionCardsView:(FTINQuestionCardsView *)questionCardsView selectedAnswerSkill:(FTINAnswerSkill)answerSkill forQuestion:(FTINWhyGameQuestion *)question
+- (void)questionCardsView:(FTINQuestionCardsView *)questionCardsView selectedQuestion:(FTINWhyGameQuestion *)question
 {
-	[_subActivityData setSkill:answerSkill forQuestionWithContent:question];
+	FTINQuestionCardViewController *cardViewController = [[FTINQuestionCardViewController alloc] initWithQuestion:question andDelegate:self];
+	cardViewController.showsAnswerVisiblityControl = self.editing;
+	[self presentViewController:cardViewController animated:YES completion:nil];
+}
+
+#pragma mark - Question Card View Controller Delegate
+
+- (void)questionCardViewController:(FTINQuestionCardViewController *)viewController finishedWithAnswerSkill:(FTINAnswerSkill)skill
+{
+	viewController.question.answerSkill = skill;
+	[self questionCardViewControllerCanceled:viewController];
+}
+
+- (void)questionCardViewControllerCanceled:(FTINQuestionCardViewController *)viewController
+{
+	[self dismissViewControllerAnimated:YES completion:^{
+		[self.questionCardsView unselectQuestion:viewController.question];
+	}];
 }
 
 #pragma mark - Alert View Delegate
@@ -120,7 +140,9 @@
 {
 	if(buttonIndex != alertView.cancelButtonIndex)
 	{
-		[_subActivityData unchooseAllQuestions];
+		[_questions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+			[obj setChosen:NO];
+		}];
 		
 		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
 			self.questionCardsView.layer.opacity = 0.f;

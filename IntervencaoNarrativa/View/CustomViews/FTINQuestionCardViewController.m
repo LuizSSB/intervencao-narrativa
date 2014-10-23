@@ -13,6 +13,9 @@
 CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 
 @interface FTINQuestionCardViewController ()
+{
+	CGSize _originalViewSize;
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *questionMarkImageView;
@@ -41,13 +44,27 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+	
 	_showsAnswerVisiblityControl = YES;
+	self.question = self.question;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-	[super viewDidAppear:animated];
+	[super viewWillAppear:animated];
 	self.showsAnswerVisiblityControl = self.showsAnswerVisiblityControl;
+	_originalViewSize = self.view.frame.size;
+}
+
+- (void)viewWillLayoutSubviews
+{
+	[super viewWillLayoutSubviews];
+	
+	CGRect frame = self.view.superview.frame;
+	frame.origin.x += (frame.size.width - _originalViewSize.width) / 2.f;
+	frame.origin.y += (frame.size.height - _originalViewSize.height) / 2.f;
+	frame.size = _originalViewSize;
+	self.view.superview.frame = frame;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -61,11 +78,13 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 
 #pragma mark - Instance methods
 
-- (instancetype)initWithDelegate:(id<FTINQuestionCardViewControllerDelegate>)delegate
+- (instancetype)initWithQuestion:(FTINWhyGameQuestion *)question andDelegate:(id<FTINQuestionCardViewControllerDelegate>)delegate
 {
     self = [super init];
     if (self) {
+		self.question = question;
         self.delegate = delegate;
+		self.modalPresentationStyle = UIModalPresentationFormSheet;
     }
     return self;
 }
@@ -73,6 +92,16 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 - (void)setQuestion:(FTINWhyGameQuestion *)question
 {
 	_question = question;
+	
+	if(question.answered)
+	{
+		self.answerSkill = question.answerSkill;
+	}
+	else
+	{
+		[self.answerViewController rejectAll];
+	}
+	
 	self.questionLabel.text = question.question;
 	self.answerTextView.text = question.answer;
 }
@@ -114,7 +143,7 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 - (IBAction)close:(id)sender {
 	if(self.answered)
 	{
-		[self.delegate questionCardViewController:self withAnswerSkill:self.answerSkill];
+		[self.delegate questionCardViewController:self finishedWithAnswerSkill:self.answerSkill];
 	}
 	else
 	{

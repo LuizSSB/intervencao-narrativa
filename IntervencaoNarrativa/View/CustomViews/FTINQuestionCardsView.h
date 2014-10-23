@@ -12,17 +12,15 @@
 
 @protocol FTINQuestionCardsViewDelegate <NSObject>
 
-- (void)questionCardsView:(FTINQuestionCardsView *)questionCardsView selectedAnswerSkill:(FTINAnswerSkill)answerSkill forQuestion:(FTINWhyGameQuestion *)question;
+- (void)questionCardsView:(FTINQuestionCardsView *)questionCardsView selectedQuestion:(FTINWhyGameQuestion *)question;
 
 @end
 
 @interface FTINQuestionCardsView : UICollectionView
 
 @property (nonatomic, weak) id<FTINQuestionCardsViewDelegate> questionsDelegate;
-@property (nonatomic) BOOL showsAnswers;
-@property (nonatomic) UIViewController *parentViewController;
 @property (nonatomic) NSArray *questions;
 
-- (void)setQuestionsWithAnswerSkills:(NSDictionary *)questionsWithSkills;
+- (void)unselectQuestion:(FTINWhyGameQuestion *)question;
 
 @end

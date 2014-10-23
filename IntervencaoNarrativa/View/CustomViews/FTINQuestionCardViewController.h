@@ -14,7 +14,7 @@
 
 - (void)questionCardViewControllerCanceled:(FTINQuestionCardViewController *)viewController;
 
-- (void)questionCardViewController:(FTINQuestionCardViewController *)viewController withAnswerSkill:(FTINAnswerSkill)skill;
+- (void)questionCardViewController:(FTINQuestionCardViewController *)viewController finishedWithAnswerSkill:(FTINAnswerSkill)skill;
 
 @end
 
@@ -27,7 +27,7 @@
 @property (nonatomic, readonly) BOOL answered;
 @property (nonatomic) FTINAnswerSkill answerSkill;
 
-- (id)initWithDelegate:(id<FTINQuestionCardViewControllerDelegate>)delegate;
+- (instancetype)initWithQuestion:(FTINWhyGameQuestion *)question andDelegate:(id<FTINQuestionCardViewControllerDelegate>)delegate;
 
 - (void)removeAnswerSkill;
 

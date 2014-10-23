@@ -51,3 +51,13 @@ NSString * FTINActivityTypeTitle(FTINActivityType type)
 	
 	return key.localizedString;
 }
+
+NSArray * FTINActivityTypeGetValues()
+{
+	return @[
+			 @(FTINActivityTypeDescription),
+			 @(FTINActivityTypeArrangement),
+			 @(FTINActivityTypeEnvironment),
+			 @(FTINActivityTypeWhyGame)
+			 ];
+}

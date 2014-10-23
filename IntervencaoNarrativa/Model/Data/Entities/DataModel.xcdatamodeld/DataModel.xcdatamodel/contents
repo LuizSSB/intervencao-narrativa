@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Activity" representedClassName="Activity" parentEntity="BaseEntity" syncable="YES">
         <attribute name="baseFile" attributeType="String" syncable="YES"/>
         <attribute name="currentActivityIndexNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -42,15 +42,8 @@
         <attribute name="triesNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="parentActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="subActivities" inverseEntity="Activity" syncable="YES"/>
     </entity>
-    <entity name="WhyGameQuestion" representedClassName="WhyGameQuestion" parentEntity="BaseEntity" syncable="YES">
-        <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="answerSkillNumber" optional="YES" attributeType="Integer 16" syncable="YES"/>
-        <attribute name="chosenNumber" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="parentSubActivity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WhyGameSubActivity" inverseName="questions" inverseEntity="WhyGameSubActivity" syncable="YES"/>
-    </entity>
     <entity name="WhyGameSubActivity" representedClassName="WhyGameSubActivity" parentEntity="SubActivity" syncable="YES">
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WhyGameQuestion" inverseName="parentSubActivity" inverseEntity="WhyGameQuestion" syncable="YES"/>
+        <attribute name="questions" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <elements>
         <element name="Activity" positionX="0" positionY="0" width="128" height="150"/>
@@ -60,7 +53,6 @@
         <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Patient" positionX="0" positionY="0" width="128" height="120"/>
         <element name="SubActivity" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="WhyGameQuestion" positionX="9" positionY="63" width="128" height="118"/>
-        <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="60"/>
+        <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="58"/>
     </elements>
 </model>

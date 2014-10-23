@@ -12,8 +12,17 @@
 @protocol FTINWhyGameQuestion;
 @interface FTINWhyGameQuestion : JSONModel
 
+// Serialized
 @property (nonatomic) NSString *question;
 @property (nonatomic) NSString *answer;
+
+// Non-serialized
+@property (nonatomic, readonly) BOOL answered;
+@property (nonatomic) NSNumber *chosenNumber;
+@property (nonatomic) BOOL chosen;
+@property (nonatomic) NSNumber *answerSkillNumber;
+@property (nonatomic) FTINAnswerSkill answerSkill;
+
 
 + (FTINWhyGameQuestion *)questionWithQuestion:(NSString *)question andAnswer:(NSString *)answer;
 

@@ -90,6 +90,7 @@ typedef enum : NSUInteger {
 // -----------------------------------------------------------------------------
 // Utilitary functions
 NSString * FTINActivityTypeTitle(FTINActivityType type);
+NSArray * FTINActivityTypeGetValues();
 
 // -----------------------------------------------------------------------------
 // Protocols with same name as Foundation types
