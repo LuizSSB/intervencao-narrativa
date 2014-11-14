@@ -2038,13 +2038,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntervencaoNarrativa/IntervencaoNarrativa-Prefix.pch";
 				INFOPLIST_FILE = "IntervencaoNarrativa/IntervencaoNarrativa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "52AFB730-AAFC-4AF8-B881-D519963C5D03";
+				PROVISIONING_PROFILE = "bbe60287-1a3a-474f-92d1-64174085dd23";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
