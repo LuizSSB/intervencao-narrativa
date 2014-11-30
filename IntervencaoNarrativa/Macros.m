@@ -26,6 +26,9 @@ NSString * const FTINHTMLClassFailed = @"failed";
 NSString * const FTINTemplateKeyElementClass = @"class";
 NSString * const FTINTemplateKeyElementValue = @"value";
 
+CGFloat const FTINActivityScoreMax = 10.f;
+CGFloat const FTINActivityScoreTrialPenalty = 3.f;
+
 NSString * FTINActivityTypeTitle(FTINActivityType type)
 {
 	NSString *key = nil;
@@ -60,4 +63,75 @@ NSArray * FTINActivityTypeGetValues()
 			 @(FTINActivityTypeEnvironment),
 			 @(FTINActivityTypeWhyGame)
 			 ];
+}
+
+CGFloat FTINDescriptiveSkillGetScoreMultiplier(FTINDescriptiveSkill skill)
+{
+	switch (skill) {
+		case FTINDescriptiveSkillNoHelp:
+			return 1.f;
+		case FTINDescriptiveSkillPartialHelp:
+			return .75f;
+		case FTINDescriptiveSkillLottaHelp:
+			return .5f;
+		case FTINDescriptiveSkillIncompetentFool:
+			return .25f;
+		default:
+			return 0.f;
+	}
+}
+
+CGFloat FTINNarrativeSkillGetScoreMultiplier(FTINNarrativeSkill skill)
+{
+	switch (skill) {
+		case FTINNarrativeSkillNoHelp:
+			return 1.f;
+		case FTINNarrativeSkillPartialHelp:
+			return .75f;
+		case FTINNarrativeSkillLottaHelp:
+			return .5f;
+		case FTINNarrativeSkillIncompetentFool:
+			return .25f;
+		default:
+			return 0.f;
+	}
+}
+
+CGFloat FTINArrangementSkillGetScoreMultiplier(FTINArrangementSkill skill)
+{
+	switch (skill) {
+		case FTINArrangementSkillNoHelp:
+			return 1.f;
+		case FTINArrangementSkillHelped:
+			return .5f;
+		default:
+			return 0;
+	}
+}
+
+CGFloat FTINCoherenceGetScoreMultiplier(FTINCoherence skill)
+{
+	switch (skill) {
+		case FTINCoherenceOrganized:
+			return 1.f;
+		case FTINCoherenceUnorganized:
+			return .5f;
+		default:
+			return 0.f;
+	}
+}
+
+CGFloat FTINAnswerSkillGetScore(FTINAnswerSkill skill)
+{
+	switch (skill)
+	{
+		case FTINAnswerSkillWellStructuredAndCoherent:
+			return FTINActivityScoreMax;
+		case FTINAnswerSkillLittleStructured:
+			return FTINActivityScoreMax * 2.f / 3.f;
+		case FTINAnswerSkillLittleCoherent:
+			return FTINActivityScoreMax / 3.f;
+		default:
+			return 0.f;
+	}
 }

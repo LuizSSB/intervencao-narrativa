@@ -50,14 +50,12 @@
 	return NO;
 }
 
-- (BOOL)arrangedCorrectly
+- (CGFloat)calculateScore
 {
-	return self.arrangedCorrectlyNumber.boolValue;
-}
-
-- (void)setArrangedCorrectly:(BOOL)arrangedCorrectly
-{
-	self.arrangedCorrectlyNumber = @(arrangedCorrectly);
+	CGFloat preliminaryScore = FTINActivityScoreMax;
+	preliminaryScore *= FTINNarrativeSkillGetScoreMultiplier(self.narrativeSkill);
+	preliminaryScore *= FTINArrangementSkillGetScoreMultiplier(self.arrangementSkill);
+	return preliminaryScore - self.tries * FTINActivityScoreTrialPenalty; 
 }
 
 @end

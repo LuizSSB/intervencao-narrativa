@@ -9,6 +9,10 @@
 #import "FTINEnvironmentSubActivityContent.h"
 #import "EnvironmentSubActivity+Complete.h"
 
+@implementation FTINEnvironmentElement
+
+@end
+
 @implementation FTINEnvironmentSubActivityContent
 
 #pragma mark - Super methods

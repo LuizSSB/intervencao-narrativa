@@ -177,6 +177,23 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	}
 }
 
+- (NSSet *)unselectedChoicesIndexes
+{
+	NSMutableSet *unselectedChoices = [NSMutableSet set];
+
+	for(NSInteger choiceIdx = self.choices.count - 1; choiceIdx >= 0; --choiceIdx)
+	{
+		NSNumber *index = @(choiceIdx);
+		
+		if(![_selectedChoicesIndexes containsObject:index])
+		{
+			[unselectedChoices addObject:index];
+		}
+	}
+	
+	return unselectedChoices;
+}
+
 - (NSDictionary *)getSelectedChoices
 {
 	NSMutableDictionary *choices = [NSMutableDictionary dictionary];

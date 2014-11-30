@@ -68,4 +68,13 @@
 	return NO;
 }
 
+- (CGFloat)calculateScore
+{
+	NSInteger totalSelected = self.selectedElements.count;
+	NSInteger totalUnselected = self.unselectedElements.count;
+	CGFloat objectValue = FTINActivityScoreMax / (CGFloat) (totalSelected + totalUnselected);
+	CGFloat preliminaryScore = objectValue * totalSelected;
+	return preliminaryScore * FTINCoherenceGetScoreMultiplier(self.organizationCoherence) * FTINCoherenceGetScoreMultiplier(self.narrationCoherence);
+}
+
 @end

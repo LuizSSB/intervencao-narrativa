@@ -31,4 +31,13 @@
 	return YES;
 }
 
+- (CGFloat)calculateScore
+{
+	NSInteger totalDescribed = self.describedElements.count;
+	NSInteger totalUndescribed = self.undescribedElements.count;
+	CGFloat objectValue = FTINActivityScoreMax / (CGFloat) (totalDescribed + totalUndescribed);
+	CGFloat preliminaryScore = objectValue * totalDescribed;
+	return preliminaryScore * FTINDescriptiveSkillGetScoreMultiplier(self.descriptiveSkill);
+}
+
 @end

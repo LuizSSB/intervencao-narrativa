@@ -311,7 +311,6 @@
 		25FF3346194A52DB0080DC6F /* a_2_gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3345194A52DB0080DC6F /* a_2_gift.json */; };
 		6019F88D19F888C8001BB9F2 /* EnvironmentSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */; };
 		608F731619F5D12C00CCC465 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */; };
-		60CCFD6619F482A700EB0B60 /* FTINEnvironmentElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -735,8 +734,6 @@
 		6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentSubActivity.m; sourceTree = "<group>"; };
 		608F731419F5D12C00CCC465 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
 		608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
-		60CCFD6419F482A700EB0B60 /* FTINEnvironmentElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnvironmentElement.h; sourceTree = "<group>"; };
-		60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnvironmentElement.m; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1014,19 +1011,19 @@
 			isa = PBXGroup;
 			children = (
 				25603362194DF51E00AE9C26 /* QuestionCards */,
+				252D10DE1949359C006D2F3E /* FTINCollectionViewCell.h */,
+				252D10DF1949359C006D2F3E /* FTINCollectionViewCell.m */,
 				256357CE19413CAE00E5762A /* FTINDatePickerPopoverController.h */,
 				256357CF19413CAE00E5762A /* FTINDatePickerPopoverController.m */,
 				256357D019413CAE00E5762A /* FTINDatePickerTextField.h */,
 				256357D119413CAE00E5762A /* FTINDatePickerTextField.m */,
-				256357D219413CAE00E5762A /* ToastController.h */,
-				256357D319413CAE00E5762A /* ToastController.m */,
-				252D10D819493056006D2F3E /* FTINImageArrangementView.h */,
-				252D10D919493056006D2F3E /* FTINImageArrangementView.m */,
-				252D10DE1949359C006D2F3E /* FTINCollectionViewCell.h */,
-				252D10DF1949359C006D2F3E /* FTINCollectionViewCell.m */,
 				25A37C76194CC17F00DFC749 /* FTINDraggableItemBoxView.h */,
 				25A37C77194CC17F00DFC749 /* FTINDraggableItemBoxView.m */,
 				25A37C79194CC19800DFC749 /* FTINDraggableItemBoxView.xib */,
+				252D10D819493056006D2F3E /* FTINImageArrangementView.h */,
+				252D10D919493056006D2F3E /* FTINImageArrangementView.m */,
+				256357D219413CAE00E5762A /* ToastController.h */,
+				256357D319413CAE00E5762A /* ToastController.m */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1463,8 +1460,6 @@
 				2560334B194DC22900AE9C26 /* FTINWhyGameQuestion.m */,
 				2560334D194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.h */,
 				2560334E194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m */,
-				60CCFD6419F482A700EB0B60 /* FTINEnvironmentElement.h */,
-				60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -1817,7 +1812,6 @@
 				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
-				60CCFD6619F482A700EB0B60 /* FTINEnvironmentElement.m in Sources */,
 				2537BB6A193B730500D10878 /* UIAlertView+DefaultAlerts.m in Sources */,
 				256A97C1193B763300358131 /* ErrorInfo.m in Sources */,
 				25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */,

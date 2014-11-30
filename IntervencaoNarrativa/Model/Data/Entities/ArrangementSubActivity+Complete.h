@@ -12,6 +12,5 @@
 
 @property (nonatomic) FTINNarrativeSkill narrativeSkill;
 @property (nonatomic) FTINArrangementSkill arrangementSkill;
-@property (nonatomic) BOOL arrangedCorrectly;
 
 @end

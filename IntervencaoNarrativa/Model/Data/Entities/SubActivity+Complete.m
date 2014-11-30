@@ -81,4 +81,25 @@
 	}
 }
 
+- (CGFloat)calculateScore
+{
+	[self doesNotRecognizeSelector:_cmd];
+	return 0;
+}
+
+- (CGFloat)score
+{
+	if(self.failed || !self.completed)
+	{
+		return 0.f;
+	}
+	
+	if(self.skipped)
+	{
+		return FTINActivityScoreMax;
+	}
+	
+	return MAX([self calculateScore], 0);
+}
+
 @end

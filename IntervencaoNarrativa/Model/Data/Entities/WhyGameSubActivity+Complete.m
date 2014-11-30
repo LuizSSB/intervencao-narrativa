@@ -56,4 +56,17 @@
 	return NO;	
 }
 
+- (CGFloat)calculateScore
+{
+	CGFloat score = 0;
+	NSSet *chosenQuestions = self.chosenQuestions;
+	
+	for (FTINWhyGameQuestion *question in chosenQuestions)
+	{
+		score += FTINAnswerSkillGetScore(question.answerSkill);
+	}
+	
+	return score / (CGFloat) chosenQuestions.count;
+}
+
 @end

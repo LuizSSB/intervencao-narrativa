@@ -24,4 +24,7 @@
 
 @property (nonatomic) BOOL failed;
 
+- (CGFloat)calculateScore;
+@property (nonatomic, readonly) CGFloat score;
+
 @end
