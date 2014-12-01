@@ -16,6 +16,8 @@
 
 - (id)initWithActivity:(Activity *)activity;
 
-- (NSString *)createReportActivitiesOfType:(FTINActivityType)type error:(NSError **)error;
+- (NSString *)createReportForActivitiesOfType:(FTINActivityType)type error:(NSError **)error;
+
+- (NSString *)createScoreReportWithError:(NSError **)error;
 
 @end

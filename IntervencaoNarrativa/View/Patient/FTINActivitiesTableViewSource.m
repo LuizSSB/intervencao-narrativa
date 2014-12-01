@@ -88,7 +88,7 @@
 	
 	if(activity.failed)
 	{
-		textColor = detailColor =[UIColor lightGrayColor];
+		textColor = detailColor = [UIColor lightGrayColor];
 		detailText = @"failed".localizedString;
 	}
 	else if(activity.finalized)

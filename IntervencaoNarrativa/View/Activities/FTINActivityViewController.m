@@ -233,7 +233,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 
 #pragma mark - Alert View Delegate
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
 	if(buttonIndex != alertView.cancelButtonIndex)
 	{

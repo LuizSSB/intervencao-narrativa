@@ -24,4 +24,8 @@
 
 @property (nonatomic, readonly) NSURL *baseFileUrl;
 
+@property (nonatomic, readonly) CGFloat totalScore;
+
+- (CGFloat)totalScoreOfSubActivitiesOfType:(FTINActivityType)type;
+
 @end

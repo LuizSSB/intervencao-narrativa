@@ -24,5 +24,6 @@
 - (id)initWithActivity:(Activity *)activity andDelegate:(id<FTINReportControllerDelegate>)delegate;
 
 - (void)processReportType:(FTINActivityType)type;
+- (void)processScoreReport;
 
 @end

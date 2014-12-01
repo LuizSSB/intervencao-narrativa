@@ -311,6 +311,9 @@
 		25FF3346194A52DB0080DC6F /* a_2_gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3345194A52DB0080DC6F /* a_2_gift.json */; };
 		6019F88D19F888C8001BB9F2 /* EnvironmentSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */; };
 		608F731619F5D12C00CCC465 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */; };
+		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
+		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
+		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -734,6 +737,11 @@
 		6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentSubActivity.m; sourceTree = "<group>"; };
 		608F731419F5D12C00CCC465 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
 		608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
+		60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityTypeReportViewController.h; sourceTree = "<group>"; };
+		60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityTypeReportViewController.m; sourceTree = "<group>"; };
+		60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityScoreViewController.h; sourceTree = "<group>"; };
+		60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityScoreViewController.m; sourceTree = "<group>"; };
+		60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScoreReportTemplate.html; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -825,12 +833,16 @@
 				253823B6195616840016991A /* FTINActivityReportViewController.h */,
 				253823B7195616840016991A /* FTINActivityReportViewController.m */,
 				253823BE195630430016991A /* FTINActivityReportViewController.xib */,
+				60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */,
+				60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */,
 				253823C219563D270016991A /* FTINCompleteReportMailViewController.h */,
 				253823C319563D270016991A /* FTINCompleteReportMailViewController.m */,
 				253823C5195641B80016991A /* FTINMailComposeViewController.h */,
 				253823C6195641B80016991A /* FTINMailComposeViewController.m */,
 				253823C81956438B0016991A /* FTINSingleReportMailViewController.h */,
 				253823C91956438B0016991A /* FTINSingleReportMailViewController.m */,
+				60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */,
+				60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -868,6 +880,7 @@
 				25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */,
 				250B9F62197C476F00E3BA86 /* WhyGameActivityReportTemplate.html */,
 				2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */,
+				60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -1663,6 +1676,7 @@
 				25A37CA3194D372E00DFC749 /* m_5x3.json in Resources */,
 				255F79A21942963700C94AB3 /* d_4_play.jpg in Resources */,
 				25A37C72194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib in Resources */,
+				60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */,
 				259424AF19EB5B360052642C /* d_3_boy.json in Resources */,
 				256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */,
 				2588D651197C870F007A0910 /* EnvironmentActivityReportTemplate.html in Resources */,
@@ -1830,6 +1844,7 @@
 				25C747981979E7AD0095B498 /* FTINEnumPropertyDefinition.m in Sources */,
 				25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */,
 				25208CF1195F16D700B8B5E7 /* ArrangementSubActivity.m in Sources */,
+				60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */,
 				256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */,
 				256357EE19413CAE00E5762A /* FTINDatePickerPopoverController.m in Sources */,
 				25603349194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m in Sources */,
@@ -1885,6 +1900,7 @@
 				252986061943411600826834 /* DescriptionSubActivity+Complete.m in Sources */,
 				256357F019413CAE00E5762A /* ToastController.m in Sources */,
 				25682A0B194A387C005F017F /* NSArray+Shuffling.m in Sources */,
+				60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */,
 				253823A71955EFA10016991A /* FTINArrangementActivityReportFormatter.m in Sources */,
 				25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */,
 				2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */,
