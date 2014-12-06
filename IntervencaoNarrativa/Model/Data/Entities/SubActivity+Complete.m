@@ -7,6 +7,7 @@
 //
 
 #import "SubActivity+Complete.h"
+#import "FTINSubActivityContent.h"
 
 @implementation SubActivity (Complete)
 
@@ -19,6 +20,16 @@ static NSNumberFormatter *_scoreFormatter;
 
 - (void)setupWithContent:(FTINSubActivityContent *)content
 {
+}
+
+- (NSInteger)difficulty
+{
+	return self.difficultyNumber.integerValue;
+}
+
+- (void)setDifficulty:(NSInteger)difficulty
+{
+	self.difficultyNumber = @(difficulty);
 }
 
 - (BOOL)skipped

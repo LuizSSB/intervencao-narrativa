@@ -15,8 +15,6 @@
 @interface FTINWhyGameActivityReportFormatter ()
 
 @property (nonatomic) NSString *templateResourceName;
-@property (nonatomic) NSArray *enumOptions;
-@property (nonatomic) NSString *enumKeyPath;
 
 @end
 
@@ -34,55 +32,34 @@
 	return NSStringFromSelector(@selector(answerSkill));
 }
 
-- (NSArray *)enumOptions
-{
-	return @[
-			 @(FTINAnswerSkillWellStructuredAndCoherent),
-			 @(FTINAnswerSkillLittleStructured),
-			 @(FTINAnswerSkillIncompetentFool),
-			 @(FTINAnswerSkillLittleCoherent)
-			 ];
-}
-
-- (NSString *)templateKeyPrefix
-{
-	return @"answerSkill_";
-}
-
 - (NSDictionary *)contextForQuestions:(NSSet *)questions
 {
 	NSMutableArray *questionsContext = [NSMutableArray array];
 	
 	for (FTINWhyGameQuestion *question in questions)
 	{
-		NSMutableDictionary *questionContext = [NSMutableDictionary dictionaryWithObject:question.question forKey:@"question"];
+		NSMutableDictionary *questionContext = [NSMutableDictionary dictionary];
+		[questionsContext addObject:questionContext];
+		questionContext[@"question"] = question.question;
 		
-		for (NSNumber *option in self.enumOptions)
+		NSMutableArray *values = [NSMutableArray array];
+		questionContext[@"values"] = values;
+		
+		for (NSNumber *option in FTINAnswerSkillGetValues())
 		{
-			NSString *value;
-			NSString *class;
+			NSString *value = [NSString string];
 			
 			if(question.answered)
 			{
-				value = question.answerSkill == option.integerValue ? FTINDefaultCheckedValue : [NSString string];
-				class = FTINHTMLClassExecuted;
+				value = [question.answerSkillNumber isEqualToNumber:option] ?  FTINHTMLClassSelected : [NSString string];
 			}
 			else
 			{
-				value = [NSString string];
-				class = FTINHTMLClassSkipped;
+				value = FTINHTMLClassSkipped;
 			}
 			
-			NSString *optionKey = [self.templateKeyPrefix stringByAppendingString:option.description];
-			
-			NSDictionary *subContext = @{
-										 FTINTemplateKeyElementClass:class,
-										 FTINTemplateKeyElementValue:value
-										 };
-			[questionContext setObject:subContext forKey:optionKey];
+			[values addObject:@{@"value":value}];
 		}
-		
-		[questionsContext addObject:questionContext];
 	}
 	
 	return @{@"questions": questionsContext};
@@ -92,7 +69,18 @@
 
 - (NSString *)formatActivities:(NSArray *)activities error:(NSError *__autoreleasing *)error
 {
-	NSDictionary *context = [self contextForQuestions:[activities[0] chosenQuestions]];
+	NSMutableDictionary *context = [NSMutableDictionary dictionary];
+	NSMutableArray *enumValues = [NSMutableArray array];
+	context[@"enumValues"] = enumValues;
+	
+	for(NSNumber *value in FTINAnswerSkillGetValues()) {
+		[enumValues addObject:@{
+								@"enumValue":[NSString stringWithFormat:@"answerskill_%@", value].localizedString
+								}];
+	}
+	
+	[context addEntriesFromDictionary:[self contextForQuestions:[activities[0] chosenQuestions]]];
+	
 	NSURL *templateUrl = [[NSBundle mainBundle] URLForResource:self.templateResourceName withExtension:@"html"];
 	
 	return [FTINTemplateUtils parseTemplate:templateUrl	withContext:context error:error];

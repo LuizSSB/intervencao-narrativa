@@ -25,6 +25,8 @@
 "continue" = "Continuar";
 "failed" = "Cancelada";
 "restart" = "Reiniciar";
+"activity" = "Atividade";
+"score" = "Pontuação";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
@@ -76,32 +78,40 @@
 "confirm_reset" = "Deseja mesmo reiniciar o Jogo do Porquê?";
 
 /* Descriptive Skill */
-"description_no_help" = "Descreve totalmente sem ajuda";
-"description_partially" = "Descreve parcialmente sem ajuda";
-"description_help" = "Descreve com muita ajuda";
-"description_none" = "Não descreve";
+"descriptionskill_0" = "Descreve totalmente sem ajuda";
+"descriptionskill_1" = "Descreve parcialmente sem ajuda";
+"descriptionskill_2" = "Descreve com muita ajuda";
+"descriptionskill_3" = "Não descreve";
+"descriptionskill_title" = "Habilidade descritiva";
+"descriptionskill_difficulty" = "Objs/Cena";
 
 /* Narrative Skill */
-"narrated_no_help" = "Narrou totalmente sem ajuda";
-"narrated_partially" = "Narrou parcialmente sem ajuda";
-"narrated_help" = "Narrou com muita ajuda";
-"narrated_none" = "Não narrou";
+"narrationskill_0" = "Narrou totalmente sem ajuda";
+"narrationskill_1" = "Narrou parcialmente sem ajuda";
+"narrationskill_2" = "Narrou com muita ajuda";
+"narrationskill_3" = "Não narrou";
+"narrationskill_title" = "Habilidade narrativa";
+"narrationskill_difficulty" = "Cenas/Atividade";
 
 /* Coherence */
-"coherence_coherent" = "coerente";
-"coherence_uncoherent" = "incoerente";
+"coherenceskill_0" = "Coerente";
+"coherenceskill_1" = "Incoerente";
 "coherence_narration" = "Narração ";
+"coherence_narration_title" = "Habiliadade narrativa";
 "coherence_organization" = "Organização ";
+"coherence_organization_title" = "Habilidade de organização";
 
 /* Arrangement */
-"arranged_help" = "Ordenou com ajuda";
-"arranged_no_help" = "Ordenou sem ajuda";
+"arrangeskill_0" = "Ordenou com ajuda";
+"arrangeskill_1" = "Ordenou sem ajuda";
+"arrangeskill_title" = "Habilidade de ordenação";
 
 /* Answer */
-"answer_well_structured_coherent" = "Resposta bem estruturada e coerente";
-"answer_little_structured" = "Resposta pouco estruturada";
-"answer_little_coherent" = "Resposta pouco coerente";
-"answer_none" = "Não respondeu";
+"answerskill_0" = "Resposta bem estruturada e coerente";
+"answerskill_1" = "Resposta pouco estruturada";
+"answerskill_2" = "Resposta pouco coerente";
+"answerskill_3" = "Não respondeu";
+"answerskill_title" = "Habilidade da resposta";
 "show_answer" = "Ver resposta";
 "hide_answer" = "Ocultar resposta";
 

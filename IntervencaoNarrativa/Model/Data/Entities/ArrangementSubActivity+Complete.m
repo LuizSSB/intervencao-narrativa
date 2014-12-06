@@ -7,8 +7,16 @@
 //
 
 #import "ArrangementSubActivity+Complete.h"
+#import "FTINArrangementSubActivityContent.h"
 
 @implementation ArrangementSubActivity (Complete)
+
+- (void)setupWithContent:(FTINSubActivityContent *)content
+{
+	NSAssert([content isKindOfClass:[FTINArrangementSubActivityContent class]], @"Content deve ser de atividade de ordenação!");
+	
+	self.difficulty = [(FTINArrangementSubActivityContent *)content elements].count;
+}
 
 - (FTINNarrativeSkill)narrativeSkill
 {

@@ -230,7 +230,7 @@
 		25B2A5481968C12A00F93178 /* jump@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B2A5471968C12A00F93178 /* jump@2x.png */; };
 		25C747981979E7AD0095B498 /* FTINEnumPropertyDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C747971979E7AD0095B498 /* FTINEnumPropertyDefinition.m */; };
 		25C7479B1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */; };
-		25C7479D1979EC8F0095B498 /* DescriptionActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */; };
+		25C7479D1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 25C7479C1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
 		25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */; };
 		25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */; };
@@ -647,7 +647,7 @@
 		25C747971979E7AD0095B498 /* FTINEnumPropertyDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnumPropertyDefinition.m; sourceTree = "<group>"; };
 		25C747991979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionActivityReportFormatter.h; sourceTree = "<group>"; };
 		25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINDescriptionActivityReportFormatter.m; sourceTree = "<group>"; };
-		25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DescriptionActivityReportTemplate.html; sourceTree = "<group>"; };
+		25C7479C1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DefaultEnumActivityReportTemplate.html; sourceTree = "<group>"; };
 		25CDAE9319435360003E1314 /* SubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SubActivity+Complete.h"; sourceTree = "<group>"; };
 		25CDAE9419435360003E1314 /* SubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SubActivity+Complete.m"; sourceTree = "<group>"; };
 		25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionSubActivityContent.h; sourceTree = "<group>"; };
@@ -882,7 +882,7 @@
 			children = (
 				253823AB1955FDB20016991A /* style.css */,
 				253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */,
-				25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */,
+				25C7479C1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html */,
 				250B9F62197C476F00E3BA86 /* WhyGameActivityReportTemplate.html */,
 				2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */,
 				60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */,
@@ -1696,7 +1696,7 @@
 				25A37CA0194D371700DFC749 /* m_toycar.jpg in Resources */,
 				25FF3325194A51EC0080DC6F /* a_7_educ_5.jpg in Resources */,
 				25FF331B194A51EC0080DC6F /* a_4_lemo_1.jpg in Resources */,
-				25C7479D1979EC8F0095B498 /* DescriptionActivityReportTemplate.html in Resources */,
+				25C7479D1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html in Resources */,
 				25FF32FA194A51EC0080DC6F /* a_5_cage_2.jpg in Resources */,
 				25FF32FE194A51EC0080DC6F /* a_3_draw_1.jpg in Resources */,
 				251F9CA31943F3AE00A65131 /* d_6_hamb.json in Resources */,
@@ -2044,6 +2044,7 @@
 				INFOPLIST_FILE = "IntervencaoNarrativa/IntervencaoNarrativa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69eb4d56-9c34-4b77-98c8-e119dd4e5650";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

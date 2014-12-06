@@ -30,7 +30,7 @@ extern NSString * const FTINDefaultCheckedValue;
 extern CGFloat const FTINDefaultChoiceRowHeight;
 extern CGFloat const FTINBarButtonItemSpacing;
 
-extern NSString * const FTINHTMLClassExecuted;
+extern NSString * const FTINHTMLClassSelected;
 extern NSString * const FTINHTMLClassSkipped;
 extern NSString * const FTINHTMLClassFailed;
 extern NSString * const FTINTemplateKeyElementClass;
@@ -94,11 +94,26 @@ typedef enum : NSUInteger {
 // Utilitary functions
 NSString * FTINActivityTypeTitle(FTINActivityType type);
 NSArray * FTINActivityTypeGetValues();
+
 CGFloat FTINDescriptiveSkillGetScoreMultiplier(FTINDescriptiveSkill skill);
+NSArray * FTINDescriptiveSkillGetValues();
+NSString *FTINDescriptiveSkillGetTitle(FTINDescriptiveSkill skill);
+
 CGFloat FTINNarrativeSkillGetScoreMultiplier(FTINNarrativeSkill skill);
+NSArray * FTINNarrativeSkillGetValues();
+NSString *FTINNarrativeSkillGetTitle(FTINNarrativeSkill skill);
+
 CGFloat FTINArrangementSkillGetScoreMultiplier(FTINArrangementSkill skill);
+NSArray * FTINArrangementSkillGetValues();
+NSString *FTINArrangementSkillGetTitle(FTINArrangementSkill skill);
+
 CGFloat FTINCoherenceGetScoreMultiplier(FTINCoherence skill);
+NSArray * FTINCoherenceSkillGetValues();
+NSString *FTINCoherenceSkillGetTitle(FTINCoherence skill);
+
 CGFloat FTINAnswerSkillGetScore(FTINAnswerSkill skill);
+NSArray * FTINAnswerSkillGetValues();
+NSString *FTINAnswerSkillGetTitle(FTINAnswerSkill skill);
 
 // -----------------------------------------------------------------------------
 // Protocols with same name as Foundation types

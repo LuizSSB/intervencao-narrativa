@@ -18,5 +18,6 @@
 @dynamic triesNumber;
 @dynamic failedNumber;
 @dynamic parentActivity;
+@dynamic difficultyNumber;
 
 @end

@@ -16,6 +16,8 @@
 
 - (void)setupWithContent:(FTINSubActivityContent *)content;
 
+@property (nonatomic) NSInteger difficulty;
+
 @property (nonatomic) BOOL skipped;
 
 @property (nonatomic) BOOL completed;

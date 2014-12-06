@@ -29,8 +29,6 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	self.contentWebView.scrollView.scrollEnabled = NO;
-	
 	[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	[self.controller processReportType:self.reportType];
 }

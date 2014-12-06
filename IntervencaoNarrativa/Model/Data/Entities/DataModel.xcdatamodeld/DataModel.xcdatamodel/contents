@@ -37,6 +37,7 @@
     </entity>
     <entity name="SubActivity" representedClassName="SubActivity" isAbstract="YES" parentEntity="BaseEntity" syncable="YES">
         <attribute name="completedNumber" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="difficultyNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="failedNumber" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="skippedNumber" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
@@ -53,7 +54,7 @@
         <element name="DescriptionSubActivity" positionX="0" positionY="0" width="128" height="90"/>
         <element name="EnvironmentSubActivity" positionX="0" positionY="0" width="128" height="105"/>
         <element name="Patient" positionX="0" positionY="0" width="128" height="120"/>
-        <element name="SubActivity" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="SubActivity" positionX="0" positionY="0" width="128" height="150"/>
         <element name="WhyGameSubActivity" positionX="9" positionY="45" width="128" height="58"/>
     </elements>
 </model>

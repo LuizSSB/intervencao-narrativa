@@ -7,8 +7,16 @@
 //
 
 #import "DescriptionSubActivity+Complete.h"
+#import "FTINDescriptionSubActivityContent.h"
 
 @implementation DescriptionSubActivity (Complete)
+
+- (void)setupWithContent:(FTINSubActivityContent *)content
+{
+	NSAssert([content isKindOfClass:[FTINDescriptionSubActivityContent class]], @"Content deve ser de atividade de descrição!");
+	
+	self.difficulty = [(FTINDescriptionSubActivityContent *)content elements].count;
+}
 
 - (FTINDescriptiveSkill)descriptiveSkill
 {

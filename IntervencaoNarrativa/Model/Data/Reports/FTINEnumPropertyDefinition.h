@@ -12,12 +12,10 @@
 
 @property (nonatomic) NSArray *enumOptions;
 @property (nonatomic) NSString *enumKeyPath;
-@property (nonatomic) NSString *templateKeyPrefix;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *difficultyName;
+@property (nonatomic) NSString *enumValueLocalizedPrefix;
 
-+ (FTINEnumPropertyDefinition *)definitionWithOptions:(NSArray *)options keyPath:(NSString *)keyPath templateKeyPrefix:(NSString *)templateKeyPrefix;
-
-- (id)initWithOptions:(NSArray *)options keyPath:(NSString *)keyPath templateKeyPrefix:(NSString *)templateKeyPrefix;
-
-- (NSDictionary *)contextForActivities:(NSArray *)activities;
+- (NSString *)localizeOption:(NSNumber *)option;
 
 @end

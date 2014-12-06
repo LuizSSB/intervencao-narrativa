@@ -20,7 +20,7 @@ NSString * const FTINDefaultActivityFileExtension = @"json";
 CGFloat const FTINDefaultChoiceRowHeight = 44.f;
 CGFloat const FTINBarButtonItemSpacing = 20.f;
 
-NSString * const FTINHTMLClassExecuted = @"executed";
+NSString * const FTINHTMLClassSelected = @"selected";
 NSString * const FTINHTMLClassSkipped = @"skipped";
 NSString * const FTINHTMLClassFailed = @"failed";
 NSString * const FTINTemplateKeyElementClass = @"class";
@@ -134,4 +134,75 @@ CGFloat FTINAnswerSkillGetScore(FTINAnswerSkill skill)
 		default:
 			return 0.f;
 	}
+}
+
+NSArray * FTINDescriptiveSkillGetValues()
+{
+	return @[
+			 @(FTINDescriptiveSkillNoHelp),
+			 @(FTINDescriptiveSkillPartialHelp),
+			 @(FTINDescriptiveSkillLottaHelp),
+			 @(FTINDescriptiveSkillIncompetentFool)
+			 ];
+}
+
+NSArray * FTINNarrativeSkillGetValues()
+{
+	return @[
+			 @(FTINNarrativeSkillNoHelp),
+			 @(FTINNarrativeSkillPartialHelp),
+			 @(FTINNarrativeSkillLottaHelp),
+			 @(FTINNarrativeSkillIncompetentFool)
+			 ];
+}
+
+NSArray * FTINArrangementSkillGetValues()
+{
+	return @[
+			 @(FTINArrangementSkillNoHelp),
+			 @(FTINArrangementSkillHelped)
+			 ];
+}
+
+NSArray * FTINCoherenceSkillGetValues()
+{
+	return @[
+			 @(FTINCoherenceOrganized),
+			 @(FTINCoherenceUnorganized)
+			 ];
+}
+
+NSArray * FTINAnswerSkillGetValues()
+{
+	return @[
+			 @(FTINAnswerSkillWellStructuredAndCoherent),
+			 @(FTINAnswerSkillLittleStructured),
+			 @(FTINAnswerSkillLittleCoherent),
+			 @(FTINAnswerSkillIncompetentFool)
+			 ];
+}
+
+NSString *FTINDescriptiveSkillGetTitle(FTINDescriptiveSkill skill)
+{
+	return [NSString stringWithFormat:@"descriptionskill_%lu", skill].localizedString;
+}
+
+NSString *FTINNarrativeSkillGetTitle(FTINNarrativeSkill skill)
+{
+	return [NSString stringWithFormat:@"narrationskill_%lu", skill].localizedString;
+}
+
+NSString *FTINArrangementSkillGetTitle(FTINArrangementSkill skill)
+{
+	return [NSString stringWithFormat:@"arrangeskill_%lu", skill].localizedString;
+}
+
+NSString *FTINCoherenceSkillGetTitle(FTINCoherence skill)
+{
+	return [NSString stringWithFormat:@"coherenceskill_%lu", skill].localizedString;
+}
+
+NSString *FTINAnswerSkillGetTitle(FTINAnswerSkill skill)
+{
+	return [NSString stringWithFormat:@"answerskill_%lu", skill].localizedString;
 }

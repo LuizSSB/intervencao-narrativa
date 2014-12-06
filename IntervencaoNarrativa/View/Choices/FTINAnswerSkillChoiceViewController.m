@@ -44,10 +44,10 @@ static NSArray *_choices;
 	if(!_choices)
 	{
 		_choices = @[
-					 [FTINChoice choiceWithTitle:@"answer_well_structured_coherent".localizedString andImage:nil],
-					 [FTINChoice choiceWithTitle:@"answer_little_structured".localizedString andImage:nil],
-					 [FTINChoice choiceWithTitle:@"answer_little_coherent".localizedString andImage:nil],
-					 [FTINChoice choiceWithTitle:@"answer_none".localizedString andImage:nil]
+					 [FTINChoice choiceWithTitle:@"answerskill_0".localizedString andImage:nil],
+					 [FTINChoice choiceWithTitle:@"answerskill_1".localizedString andImage:nil],
+					 [FTINChoice choiceWithTitle:@"answerskill_2".localizedString andImage:nil],
+					 [FTINChoice choiceWithTitle:@"answerskill_3".localizedString andImage:nil]
 					 ];
 	}
 	

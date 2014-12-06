@@ -55,9 +55,14 @@
 		FTINActivityType type = typeNumber.integerValue;
 		
 		NSMutableArray *subActivities = [NSMutableArray array];
-		for (SubActivity *subActivity in [self.activity subActivitiesOfType:type]) {
-			[subActivities addObject:@{@"score":subActivity.formattedScore}];
-		}
+		
+		[[self.activity subActivitiesOfType:type] enumerateObjectsUsingBlock:^(SubActivity *obj, NSUInteger idx, BOOL *stop) {
+			[subActivities addObject:@{
+									   @"id":@(idx + 1),
+									   @"score":obj.formattedScore
+									   }
+			 ];
+		}];
 		
 		[subActivitiesContexts addObject:@{
 										   @"type":FTINActivityTypeTitle(type),

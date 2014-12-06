@@ -115,7 +115,7 @@
 - (void)questionCardsView:(FTINQuestionCardsView *)questionCardsView selectedQuestion:(FTINWhyGameQuestion *)question
 {
 	FTINQuestionCardViewController *cardViewController = [[FTINQuestionCardViewController alloc] initWithQuestion:question andDelegate:self];
-	cardViewController.showsAnswerVisiblityControl = self.editing;
+	cardViewController.showsAnswerVisiblityControl = !self.editing;
 	[self presentViewController:cardViewController animated:YES completion:nil];
 }
 

@@ -11,35 +11,27 @@
 
 #import "ArrangementSubActivity+Complete.h"
 
-NSString * const FTINArrangementActivityTemplateName = @"ArrangementActivityReportTemplate";
-
 @implementation FTINArrangementActivityReportFormatter
 
 #pragma mark - Super methods
 
-- (NSString *)templateResourceName
-{
-	return FTINArrangementActivityTemplateName;
-}
-
 - (NSArray *)enumPropertiesDefinitions
 {
-	return @[
-			 [FTINEnumPropertyDefinition definitionWithOptions:@[
-																 @(FTINNarrativeSkillNoHelp),
-																 @(FTINNarrativeSkillLottaHelp),
-																 @(FTINNarrativeSkillPartialHelp),
-																 @(FTINNarrativeSkillIncompetentFool)
-																 ]
-													   keyPath:NSStringFromSelector(@selector(narrativeSkill))
-											 templateKeyPrefix:@"narrationSkill_"],
-			 [FTINEnumPropertyDefinition definitionWithOptions:@[
-																 @(FTINArrangementSkillNoHelp),
-																 @(FTINArrangementSkillHelped),
-																 ]
-													   keyPath:NSStringFromSelector(@selector(arrangementSkill))
-											 templateKeyPrefix:@"arrangementSkill_"]
-			 ];
+	FTINEnumPropertyDefinition *organizationSkillDef = [FTINEnumPropertyDefinition new];
+	organizationSkillDef.title = @"arrangeskill_title".localizedString;
+	organizationSkillDef.enumKeyPath = NSStringFromSelector(@selector(arrangementSkillNumber));
+	organizationSkillDef.difficultyName = @"narrationskill_difficulty".localizedString;
+	organizationSkillDef.enumOptions = FTINArrangementSkillGetValues();
+	organizationSkillDef.enumValueLocalizedPrefix = @"arrangeskill";
+	
+	FTINEnumPropertyDefinition *narrationSkillDef = [FTINEnumPropertyDefinition new];
+	narrationSkillDef.title = @"narrationskill_title".localizedString;
+	narrationSkillDef.enumKeyPath = NSStringFromSelector(@selector(narrativeSkillNumber));
+	narrationSkillDef.difficultyName = @"narrationskill_difficulty".localizedString;
+	narrationSkillDef.enumOptions = FTINNarrativeSkillGetValues();
+	narrationSkillDef.enumValueLocalizedPrefix = @"narrationskill";
+	
+	return @[organizationSkillDef, narrationSkillDef];
 }
 
 @end

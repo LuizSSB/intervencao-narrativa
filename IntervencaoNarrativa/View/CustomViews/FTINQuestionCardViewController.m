@@ -45,7 +45,6 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 {
 	[super viewDidLoad];
 	
-	_showsAnswerVisiblityControl = YES;
 	self.question = self.question;
 }
 
@@ -85,6 +84,7 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 		self.question = question;
         self.delegate = delegate;
 		self.modalPresentationStyle = UIModalPresentationFormSheet;
+		_showsAnswerVisiblityControl = YES;
     }
     return self;
 }

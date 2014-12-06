@@ -18,66 +18,14 @@
 {
 	_enumOptions = nil;
 	_enumKeyPath = nil;
-	_templateKeyPrefix = nil;
+	_title = nil;
+	_difficultyName = nil;
+	_enumValueLocalizedPrefix = nil;
 }
 
-#pragma mark - Instance methods
-
-+ (FTINEnumPropertyDefinition *)definitionWithOptions:(NSArray *)options keyPath:(NSString *)keyPath templateKeyPrefix:(NSString *)templateKeyPrefix
+- (NSString *)localizeOption:(NSNumber *)option
 {
-	return [[self alloc] initWithOptions:options keyPath:keyPath templateKeyPrefix:templateKeyPrefix];
-}
-
-- (instancetype)initWithOptions:(NSArray *)options keyPath:(NSString *)keyPath templateKeyPrefix:(NSString *)templateKeyPrefix
-{
-    self = [super init];
-    if (self) {
-        self.enumOptions = options;
-		self.enumKeyPath = keyPath;
-		self.templateKeyPrefix = templateKeyPrefix;
-    }
-    return self;
-}
-
-- (NSDictionary *)contextForActivities:(NSArray *)activities
-{
-	NSMutableDictionary *context = [NSMutableDictionary dictionary];
-	
-	for (NSNumber *option in self.enumOptions)
-	{
-		NSMutableArray *subContext = [NSMutableArray array];
-		
-		for (SubActivity *activity in activities)
-		{
-			NSString *value;
-			NSString *class;
-			
-			if(activity.failed)
-			{
-				value = [NSString string];
-				class = FTINHTMLClassFailed;
-			}
-			else if(activity.skipped)
-			{
-				value = [NSString string];
-				class = FTINHTMLClassSkipped;
-			}
-			else
-			{
-				class = FTINHTMLClassExecuted;
-				value = [[activity valueForKeyPath:self.enumKeyPath] integerValue] == option.integerValue ? FTINDefaultCheckedValue : [NSString string];
-			}
-			
-			[subContext addObject:@{
-									FTINTemplateKeyElementClass:class,
-									FTINTemplateKeyElementValue:value
-									}];
-		}
-		
-		[context setObject:subContext forKey:[self.templateKeyPrefix stringByAppendingString:option.description]];
-	}
-	
-	return context;
+	return [NSString stringWithFormat:@"%@_%@", self.enumValueLocalizedPrefix, option].localizedString;
 }
 
 @end

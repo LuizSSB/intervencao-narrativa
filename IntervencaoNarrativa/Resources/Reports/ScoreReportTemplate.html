@@ -6,16 +6,18 @@
 	<body>
 		<h2>Pontuação Total: {{totalScore}}</h2>
 		{{#subActivities}}
-		<h3>{{type}} - {{totalScore}}</h3>
+		<h3>{{type}}: {{totalScore}}</h3>
 		<table class="reportTable" rules="all">
 			<tr class="headerRow">
+				<th>Atividade</th>
 				{{#activities}}
-				<th>A</th>
+				<th>{{id}}</th>
 				{{/activities}}
 			</tr>
 			<tr class="dataRow">
+				<th>Pontuação</th>
 				{{#activities}}
-				<th>{{score}}</th>
+				<td>{{score}}</td>
 				{{/activities}}
 			</tr>
 		</table>

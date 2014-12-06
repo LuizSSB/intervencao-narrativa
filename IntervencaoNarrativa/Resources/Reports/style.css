@@ -36,8 +36,7 @@ body
 {
 	padding-left: 5px;
 	padding-right: 5px;
-	text-align: left;
-	width: 150px;
+	text-align: center;
 	color: #F00;
 }
 
@@ -50,9 +49,24 @@ body
 .skipped
 {
 	background-color: #EEF;
+	color: #445;
 }
 
 .failed
 {
 	background-color: #FEE;
+	color: #544;
+}
+
+.selected
+{
+	background-color: #EFE;
+	color: #454;
+}
+
+.helpTable tr td
+{
+	width: 210px;
+	text-align: center;
+	height: 30px;
 }

@@ -22,39 +22,33 @@
 
 - (NSArray *)enumPropertiesDefinitions
 {
-	return @[
-			 [FTINEnumPropertyDefinition definitionWithOptions:@[
-																 @(FTINCoherenceOrganized),
-																 @(FTINCoherenceUnorganized)
-																 ]
-													   keyPath:NSStringFromSelector(@selector(organizationCoherence))
-											 templateKeyPrefix:@"organizationSkill_"
-			  ],
-			 [FTINEnumPropertyDefinition definitionWithOptions:@[
-																 @(FTINCoherenceOrganized),
-																 @(FTINCoherenceUnorganized)
-																 ]
-													   keyPath:NSStringFromSelector(@selector(narrationCoherence))
-											 templateKeyPrefix:@"narrationSkill_"
-			  ]
-			 ];
+	FTINEnumPropertyDefinition *organizationSkillDef = [FTINEnumPropertyDefinition new];
+	organizationSkillDef.title = @"coherence_organization_title".localizedString;
+	organizationSkillDef.enumKeyPath = NSStringFromSelector(@selector(organizationCoherenceNumber));;
+	organizationSkillDef.enumOptions = FTINCoherenceSkillGetValues();
+	organizationSkillDef.enumValueLocalizedPrefix = @"coherenceskill";
+	
+	FTINEnumPropertyDefinition *narrationSkillDef = [FTINEnumPropertyDefinition new];
+	narrationSkillDef.title = @"coherence_narration_title".localizedString;
+	narrationSkillDef.enumKeyPath = NSStringFromSelector(@selector(narrationCoherenceNumber));
+	narrationSkillDef.enumOptions = organizationSkillDef.enumOptions;
+	narrationSkillDef.enumValueLocalizedPrefix = @"coherenceskill";
+	
+	return @[organizationSkillDef, narrationSkillDef];
 }
 
 - (void)customizeContext:(NSMutableDictionary *)context forActivities:(NSArray *)activities
 {
-	context[@"selectedElements"] = [NSMutableArray array];
-	context[@"unselectedElements"] = [NSMutableArray array];
+	NSMutableArray *activitiesContexts = [NSMutableArray array];
+	context[@"activities"] = activitiesContexts;
 	
-	for (EnvironmentSubActivity *activity in activities)
-	{
-		[context[@"selectedElements"] addObject:@{
-												  @"selectedElement":[activity.selectedElementsNames.allObjects componentsJoinedByString:@", "]
-												  }];
-		
-		[context[@"unselectedElements"] addObject:@{
-												  @"unselectedElement":[activity.unselectedElementsNames.allObjects componentsJoinedByString:@", "]
-												  }];
-	}
+	[activities enumerateObjectsUsingBlock:^(EnvironmentSubActivity *obj, NSUInteger idx, BOOL *stop) {
+		[activitiesContexts addObject:@{
+										@"id":@(idx + 1),
+										@"selectedElements":[obj.selectedElementsNames.allObjects componentsJoinedByString:@", "],
+										@"unselectedElements":[obj.unselectedElementsNames.allObjects componentsJoinedByString:@", "]
+										}];
+	}];
 }
 
 @end
