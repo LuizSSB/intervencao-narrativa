@@ -46,7 +46,7 @@
 - (NSString *)createScoreReportWithError:(NSError *__autoreleasing *)error
 {
 	NSMutableDictionary *context = [NSMutableDictionary dictionary];
-	context[@"totalScore"] = @(self.activity.totalScore);
+	context[@"totalScore"] = self.activity.formattedTotalScore;
 	
 	NSMutableArray *subActivitiesContexts = [NSMutableArray array];
 	
@@ -56,12 +56,12 @@
 		
 		NSMutableArray *subActivities = [NSMutableArray array];
 		for (SubActivity *subActivity in [self.activity subActivitiesOfType:type]) {
-			[subActivities addObject:@{@"score":@(subActivity.score)}];
+			[subActivities addObject:@{@"score":subActivity.formattedScore}];
 		}
 		
 		[subActivitiesContexts addObject:@{
 										   @"type":FTINActivityTypeTitle(type),
-										   @"totalScore":@([self.activity totalScoreOfSubActivitiesOfType:type]),
+										   @"totalScore":[self.activity formattedTotalScoreOfSubActivitiesOfType:type],
 										   @"activities":subActivities
 										   }];
 	}

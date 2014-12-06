@@ -314,6 +314,7 @@
 		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
 		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
 		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
+		60F43A881A3284DB0002911D /* NSNumber+Formats.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F43A871A3284DB0002911D /* NSNumber+Formats.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -742,6 +743,8 @@
 		60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityScoreViewController.h; sourceTree = "<group>"; };
 		60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityScoreViewController.m; sourceTree = "<group>"; };
 		60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScoreReportTemplate.html; sourceTree = "<group>"; };
+		60F43A861A3284DB0002911D /* NSNumber+Formats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Formats.h"; sourceTree = "<group>"; };
+		60F43A871A3284DB0002911D /* NSNumber+Formats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Formats.m"; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -820,6 +823,8 @@
 				25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */,
 				253823CB195644760016991A /* UIView+AsImage.h */,
 				253823CC195644760016991A /* UIView+AsImage.m */,
+				60F43A861A3284DB0002911D /* NSNumber+Formats.h */,
+				60F43A871A3284DB0002911D /* NSNumber+Formats.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1838,6 +1843,7 @@
 				256357F619413CAE00E5762A /* FTINPatientViewController.m in Sources */,
 				2537BB6E193B730500D10878 /* UIView+Border.m in Sources */,
 				256357ED19413CAE00E5762A /* FTINSingleChoiceViewController.m in Sources */,
+				60F43A881A3284DB0002911D /* NSNumber+Formats.m in Sources */,
 				2537BB60193B730500D10878 /* NSDate+FormattedDate.m in Sources */,
 				2560334F194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m in Sources */,
 				256357EA19413CAE00E5762A /* FTINChoice.m in Sources */,

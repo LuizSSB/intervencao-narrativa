@@ -26,5 +26,6 @@
 
 - (CGFloat)calculateScore;
 @property (nonatomic, readonly) CGFloat score;
+@property (nonatomic, readonly) NSString *formattedScore;
 
 @end

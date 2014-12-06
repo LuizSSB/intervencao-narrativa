@@ -47,5 +47,6 @@
 #import "NSError+LSSB_CreateError.h"
 #import "NSDate+FormattedDate.h"
 #import "NSArray+Shuffling.h"
+#import "NSNumber+Formats.h"
 
 #endif

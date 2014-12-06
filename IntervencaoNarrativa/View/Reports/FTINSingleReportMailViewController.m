@@ -42,8 +42,6 @@ NSString * const FTINSingleReportMailImageName = @"relatorio.png";
 {
 	[self setSubject:[NSString stringWithFormat:@"full_report_mail_subject".localizedString, activity.title, [activity.creationDate formattedDateWithStyle:NSDateFormatterShortStyle], activity.patient.name]];
 #warning TODO definir corpo.
-	NSString *filename = [NSHomeDirectory() stringByAppendingString:@"/foo.png"];
-	[UIImagePNGRepresentation(view.asImage) writeToFile:filename atomically:YES];
 	[self addAttachmentData:UIImagePNGRepresentation([view asImage]) mimeType:FTINSingleReportMailImageMimeType fileName:FTINSingleReportMailImageName];
 }
 

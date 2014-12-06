@@ -10,6 +10,8 @@
 
 @implementation SubActivity (Complete)
 
+static NSNumberFormatter *_scoreFormatter;
+
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
 	return YES;
@@ -99,7 +101,12 @@
 		return FTINActivityScoreMax;
 	}
 	
-	return MAX([self calculateScore], 0);
+	return MIN(MAX([self calculateScore], 0), FTINActivityScoreMax);
+}
+
+- (NSString *)formattedScore
+{
+	return @(self.score).scoreValue;
 }
 
 @end

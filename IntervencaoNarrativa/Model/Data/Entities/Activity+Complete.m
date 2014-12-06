@@ -121,6 +121,11 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	return score / (CGFloat) types.count;
 }
 
+- (NSString *)formattedTotalScore
+{
+	return @(self.totalScore).scoreValue;
+}
+
 - (CGFloat)totalScoreOfSubActivitiesOfType:(FTINActivityType)type
 {
 	NSArray *subActivities = [self subActivitiesOfType:type];
@@ -132,6 +137,11 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	}
 	
 	return score / (CGFloat) subActivities.count;
+}
+
+- (NSString *)formattedTotalScoreOfSubActivitiesOfType:(FTINActivityType)type
+{
+	return @([self totalScoreOfSubActivitiesOfType:type]).scoreValue;
 }
 
 @end

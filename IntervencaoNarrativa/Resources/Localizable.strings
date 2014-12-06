@@ -53,6 +53,7 @@
 "activity_environment" = "Montagem de ambiente";
 "do_skipped_activity" = "Essa atividade foi pulada. Deseja realizá-la agora?";
 "exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja continuar o exercício?";
+"grade" = "Nota: %@";
 
 /* Activity Data */
 "FTINActivityResultViewController_0" = "Relatórios";

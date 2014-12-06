@@ -144,7 +144,16 @@
 	
 	FTINSubActivityDetails *subActivity = _activitiesByCategory[@(indexPath.section)][indexPath.row];
 	cell.textLabel.text = [[self.indexFormatter stringFromNumber:@(indexPath.row + 1)] stringByAppendingFormat:@" - %@", subActivity.content.title];
-	cell.detailTextLabel.text = FTINActivityTypeTitle(subActivity.type);
+	
+	if(subActivity.data.completed)
+	{
+		cell.detailTextLabel.text = [@"grade" localizedStringWithParam:subActivity.data.formattedScore];
+	}
+	else
+	{
+		cell.detailTextLabel.text = [NSString string];
+	}
+	
 	cell.accessoryView = nil;
 	
 	if(subActivity.data.skipped)

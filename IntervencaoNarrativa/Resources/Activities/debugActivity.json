@@ -32,36 +32,6 @@
 					 "contentFile":"d_3_girl.json",
 					 },
 					 {
-					 "type":0,
-					 "difficultyLevel":2,
-					 "contentFile":"d_4_play.json"
-					 },
-					 {
-					 "type":0,
-					 "difficultyLevel":2,
-					 "contentFile":"d_4_back.json"
-					 },
-					 {
-					 "type":0,
-					 "difficultyLevel":2,
-					 "contentFile":"d_4_ball.json"
-					 },
-					 {
-					 "type":0,
-					 "difficultyLevel":3,
-					 "contentFile":"d_6_hamb.json"
-					 },
-					 {
-					 "type":0,
-					 "difficultyLevel":3,
-					 "contentFile":"d_6_market.json"
-					 },
-					 {
-					 "type":0,
-					 "difficultyLevel":3,
-					 "contentFile":"d_6_school.json"
-					 },
-					 {
 					 "type":1,
 					 "difficultyLevel":0,
 					 "allowsAutoSkip":true,
@@ -114,78 +84,6 @@
 					 "difficultyLevel":2,
 					 "allowsAutoSkip":true,
 					 "contentFile":"a_4_lemo.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":3,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_5_eggs.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":3,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_5_cage.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":3,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_5_orange.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":4,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_6_fairy.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":4,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_6_bread.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":4,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_6_wakeup.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":5,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_7_educ.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":5,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_7_book.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":5,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_7_santa.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":6,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_8_game.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":6,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_8_drive.json"
-					 },
-					 {
-					 "type":1,
-					 "difficultyLevel":6,
-					 "allowsAutoSkip":true,
-					 "contentFile":"a_8_fish.json"
 					 },
 					 {
 					 "type":2,
