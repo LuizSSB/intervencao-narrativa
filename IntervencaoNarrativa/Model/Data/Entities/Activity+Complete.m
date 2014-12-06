@@ -108,4 +108,40 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	return [[NSBundle mainBundle] URLForResource:baseFileComponents[0] withExtension:baseFileComponents[1]];
 }
 
+- (CGFloat)totalScore
+{
+	CGFloat score = 0;
+	NSArray *types = FTINActivityTypeGetValues();
+	
+	for (NSNumber *type in types)
+	{
+		score += [self totalScoreOfSubActivitiesOfType:type.integerValue];
+	}
+	
+	return score / (CGFloat) types.count;
+}
+
+- (NSString *)formattedTotalScore
+{
+	return @(self.totalScore).scoreValue;
+}
+
+- (CGFloat)totalScoreOfSubActivitiesOfType:(FTINActivityType)type
+{
+	NSArray *subActivities = [self subActivitiesOfType:type];
+	CGFloat score = 0;
+	
+	for (SubActivity *sub in subActivities)
+	{
+		score += sub.score;
+	}
+	
+	return score / (CGFloat) subActivities.count;
+}
+
+- (NSString *)formattedTotalScoreOfSubActivitiesOfType:(FTINActivityType)type
+{
+	return @([self totalScoreOfSubActivitiesOfType:type]).scoreValue;
+}
+
 @end

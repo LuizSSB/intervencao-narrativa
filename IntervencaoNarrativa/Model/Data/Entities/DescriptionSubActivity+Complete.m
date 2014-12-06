@@ -7,8 +7,16 @@
 //
 
 #import "DescriptionSubActivity+Complete.h"
+#import "FTINDescriptionSubActivityContent.h"
 
 @implementation DescriptionSubActivity (Complete)
+
+- (void)setupWithContent:(FTINSubActivityContent *)content
+{
+	NSAssert([content isKindOfClass:[FTINDescriptionSubActivityContent class]], @"Content deve ser de atividade de descrição!");
+	
+	self.difficulty = [(FTINDescriptionSubActivityContent *)content elements].count;
+}
 
 - (FTINDescriptiveSkill)descriptiveSkill
 {
@@ -29,6 +37,15 @@
 	}
 	
 	return YES;
+}
+
+- (CGFloat)calculateScore
+{
+	NSInteger totalDescribed = self.describedElements.count;
+	NSInteger totalUndescribed = self.undescribedElements.count;
+	CGFloat objectValue = FTINActivityScoreMax / (CGFloat) (totalDescribed + totalUndescribed);
+	CGFloat preliminaryScore = objectValue * totalDescribed;
+	return preliminaryScore * FTINDescriptiveSkillGetScoreMultiplier(self.descriptiveSkill);
 }
 
 @end

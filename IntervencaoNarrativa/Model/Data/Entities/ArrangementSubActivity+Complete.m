@@ -7,8 +7,16 @@
 //
 
 #import "ArrangementSubActivity+Complete.h"
+#import "FTINArrangementSubActivityContent.h"
 
 @implementation ArrangementSubActivity (Complete)
+
+- (void)setupWithContent:(FTINSubActivityContent *)content
+{
+	NSAssert([content isKindOfClass:[FTINArrangementSubActivityContent class]], @"Content deve ser de atividade de ordenação!");
+	
+	self.difficulty = [(FTINArrangementSubActivityContent *)content elements].count;
+}
 
 - (FTINNarrativeSkill)narrativeSkill
 {
@@ -50,14 +58,12 @@
 	return NO;
 }
 
-- (BOOL)arrangedCorrectly
+- (CGFloat)calculateScore
 {
-	return self.arrangedCorrectlyNumber.boolValue;
-}
-
-- (void)setArrangedCorrectly:(BOOL)arrangedCorrectly
-{
-	self.arrangedCorrectlyNumber = @(arrangedCorrectly);
+	CGFloat preliminaryScore = FTINActivityScoreMax;
+	preliminaryScore *= FTINNarrativeSkillGetScoreMultiplier(self.narrativeSkill);
+	preliminaryScore *= FTINArrangementSkillGetScoreMultiplier(self.arrangementSkill);
+	return preliminaryScore - self.tries * FTINActivityScoreTrialPenalty; 
 }
 
 @end

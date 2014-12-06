@@ -12,6 +12,7 @@
 @implementation DescriptionSubActivity
 
 @dynamic describedElements;
+@dynamic undescribedElements;
 @dynamic descriptiveSkillNumber;
 
 @end

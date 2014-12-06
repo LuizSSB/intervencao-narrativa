@@ -20,11 +20,14 @@ NSString * const FTINDefaultActivityFileExtension = @"json";
 CGFloat const FTINDefaultChoiceRowHeight = 44.f;
 CGFloat const FTINBarButtonItemSpacing = 20.f;
 
-NSString * const FTINHTMLClassExecuted = @"executed";
+NSString * const FTINHTMLClassSelected = @"selected";
 NSString * const FTINHTMLClassSkipped = @"skipped";
 NSString * const FTINHTMLClassFailed = @"failed";
 NSString * const FTINTemplateKeyElementClass = @"class";
 NSString * const FTINTemplateKeyElementValue = @"value";
+
+CGFloat const FTINActivityScoreMax = 10.f;
+CGFloat const FTINActivityScoreTrialPenalty = 3.f;
 
 NSString * FTINActivityTypeTitle(FTINActivityType type)
 {
@@ -60,4 +63,146 @@ NSArray * FTINActivityTypeGetValues()
 			 @(FTINActivityTypeEnvironment),
 			 @(FTINActivityTypeWhyGame)
 			 ];
+}
+
+CGFloat FTINDescriptiveSkillGetScoreMultiplier(FTINDescriptiveSkill skill)
+{
+	switch (skill) {
+		case FTINDescriptiveSkillNoHelp:
+			return 1.f;
+		case FTINDescriptiveSkillPartialHelp:
+			return .75f;
+		case FTINDescriptiveSkillLottaHelp:
+			return .5f;
+		case FTINDescriptiveSkillIncompetentFool:
+			return .25f;
+		default:
+			return 0.f;
+	}
+}
+
+CGFloat FTINNarrativeSkillGetScoreMultiplier(FTINNarrativeSkill skill)
+{
+	switch (skill) {
+		case FTINNarrativeSkillNoHelp:
+			return 1.f;
+		case FTINNarrativeSkillPartialHelp:
+			return .75f;
+		case FTINNarrativeSkillLottaHelp:
+			return .5f;
+		case FTINNarrativeSkillIncompetentFool:
+			return .25f;
+		default:
+			return 0.f;
+	}
+}
+
+CGFloat FTINArrangementSkillGetScoreMultiplier(FTINArrangementSkill skill)
+{
+	switch (skill) {
+		case FTINArrangementSkillNoHelp:
+			return 1.f;
+		case FTINArrangementSkillHelped:
+			return .5f;
+		default:
+			return 0;
+	}
+}
+
+CGFloat FTINCoherenceGetScoreMultiplier(FTINCoherence skill)
+{
+	switch (skill) {
+		case FTINCoherenceOrganized:
+			return 1.f;
+		case FTINCoherenceUnorganized:
+			return .5f;
+		default:
+			return 0.f;
+	}
+}
+
+CGFloat FTINAnswerSkillGetScore(FTINAnswerSkill skill)
+{
+	switch (skill)
+	{
+		case FTINAnswerSkillWellStructuredAndCoherent:
+			return FTINActivityScoreMax;
+		case FTINAnswerSkillLittleStructured:
+			return FTINActivityScoreMax * 2.f / 3.f;
+		case FTINAnswerSkillLittleCoherent:
+			return FTINActivityScoreMax / 3.f;
+		default:
+			return 0.f;
+	}
+}
+
+NSArray * FTINDescriptiveSkillGetValues()
+{
+	return @[
+			 @(FTINDescriptiveSkillNoHelp),
+			 @(FTINDescriptiveSkillPartialHelp),
+			 @(FTINDescriptiveSkillLottaHelp),
+			 @(FTINDescriptiveSkillIncompetentFool)
+			 ];
+}
+
+NSArray * FTINNarrativeSkillGetValues()
+{
+	return @[
+			 @(FTINNarrativeSkillNoHelp),
+			 @(FTINNarrativeSkillPartialHelp),
+			 @(FTINNarrativeSkillLottaHelp),
+			 @(FTINNarrativeSkillIncompetentFool)
+			 ];
+}
+
+NSArray * FTINArrangementSkillGetValues()
+{
+	return @[
+			 @(FTINArrangementSkillNoHelp),
+			 @(FTINArrangementSkillHelped)
+			 ];
+}
+
+NSArray * FTINCoherenceSkillGetValues()
+{
+	return @[
+			 @(FTINCoherenceOrganized),
+			 @(FTINCoherenceUnorganized)
+			 ];
+}
+
+NSArray * FTINAnswerSkillGetValues()
+{
+	return @[
+			 @(FTINAnswerSkillWellStructuredAndCoherent),
+			 @(FTINAnswerSkillLittleStructured),
+			 @(FTINAnswerSkillLittleCoherent),
+			 @(FTINAnswerSkillIncompetentFool)
+			 ];
+}
+
+NSString *FTINDescriptiveSkillGetTitle(FTINDescriptiveSkill skill)
+{
+	return [NSString stringWithFormat:@"descriptionskill_%lu", skill].localizedString;
+}
+
+NSString *FTINNarrativeSkillGetTitle(FTINNarrativeSkill skill)
+{
+	return [NSString stringWithFormat:@"narrationskill_%lu", skill].localizedString;
+}
+
+NSString *FTINArrangementSkillGetTitle(FTINArrangementSkill skill)
+{
+	return [NSString stringWithFormat:@"arrangeskill_%lu", skill].localizedString;
+}
+
+NSString *FTINCoherenceSkillGetTitle(FTINCoherence skill)
+{
+	return [NSString stringWithFormat:@"coherenceskill_%lu", skill].localizedString;
+}
+
+NSString *FTINAnswerSkillGetTitle(FTINAnswerSkill skill)
+{
+	return [NSString stringWithFormat:@"answerskill_%lu", skill].localizedString;
 }

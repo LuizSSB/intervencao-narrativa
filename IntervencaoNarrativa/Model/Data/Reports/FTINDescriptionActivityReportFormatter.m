@@ -15,23 +15,15 @@
 
 #pragma mark - Super methods
 
-- (NSString *)templateResourceName
-{
-	return @"DescriptionActivityReportTemplate";
-}
-
 - (NSArray *)enumPropertiesDefinitions
 {
-	return @[
-			 [FTINEnumPropertyDefinition definitionWithOptions:@[
-																 @(FTINDescriptiveSkillNoHelp),
-																 @(FTINDescriptiveSkillLottaHelp),
-																 @(FTINDescriptiveSkillPartialHelp),
-																 @(FTINDescriptiveSkillIncompetentFool),
-																 ]
-													   keyPath:NSStringFromSelector(@selector(descriptiveSkill))
-											 templateKeyPrefix:@"descriptionSkill_"]
-			 ];
+	FTINEnumPropertyDefinition *def = [FTINEnumPropertyDefinition new];
+	def.title = @"descriptionskill_title".localizedString;
+	def.enumKeyPath = NSStringFromSelector(@selector(descriptiveSkillNumber));
+	def.difficultyName = @"descriptionskill_difficulty".localizedString;
+	def.enumOptions = FTINDescriptiveSkillGetValues();
+	def.enumValueLocalizedPrefix = @"descriptionskill";
+	return @[def];
 }
 
 @end

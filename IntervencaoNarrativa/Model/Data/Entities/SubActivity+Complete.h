@@ -16,6 +16,8 @@
 
 - (void)setupWithContent:(FTINSubActivityContent *)content;
 
+@property (nonatomic) NSInteger difficulty;
+
 @property (nonatomic) BOOL skipped;
 
 @property (nonatomic) BOOL completed;
@@ -23,5 +25,9 @@
 @property (nonatomic) NSInteger tries;
 
 @property (nonatomic) BOOL failed;
+
+- (CGFloat)calculateScore;
+@property (nonatomic, readonly) CGFloat score;
+@property (nonatomic, readonly) NSString *formattedScore;
 
 @end

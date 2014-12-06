@@ -47,7 +47,19 @@
 {
 	[NSThread runOnGlobalQueueWithDefaultPriority:^{
 		NSError *error = nil;
-		NSString *parsed = [self.formatter createReportActivitiesOfType:type error:&error];
+		NSString *parsed = [self.formatter createReportForActivitiesOfType:type error:&error];
+		
+		[NSThread runOnMainQueue:^{
+			[self.delegate reportController:self generatedReport:parsed withError:error];
+		}];
+	}];
+}
+
+- (void)processScoreReport
+{
+	[NSThread runOnGlobalQueueWithDefaultPriority:^{
+		NSError *error = nil;
+		NSString *parsed = [self.formatter createScoreReportWithError:&error];
 		
 		[NSThread runOnMainQueue:^{
 			[self.delegate reportController:self generatedReport:parsed withError:error];
@@ -56,7 +68,6 @@
 }
 
 @synthesize formatter = _formatter;
-
 - (FTINReportFormatter *)formatter
 {
 	if(!_formatter)

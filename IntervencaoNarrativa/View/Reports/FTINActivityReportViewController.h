@@ -12,9 +12,7 @@
 
 @interface FTINActivityReportViewController : UIViewController
 
-+ (UIViewController *)viewControllerWithActivity:(Activity *)activity forType:(FTINActivityType)type;
-
+@property (weak, nonatomic) IBOutlet UIWebView *contentWebView;
 @property (nonatomic) Activity *activity;
-@property (nonatomic) FTINActivityType reportType;
 
 @end

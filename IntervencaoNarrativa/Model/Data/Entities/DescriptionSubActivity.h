@@ -14,6 +14,7 @@
 @interface DescriptionSubActivity : SubActivity
 
 @property (nonatomic, retain) NSSet * describedElements;
+@property (nonatomic, retain) NSSet * undescribedElements;
 @property (nonatomic, retain) NSNumber * descriptiveSkillNumber;
 
 @end

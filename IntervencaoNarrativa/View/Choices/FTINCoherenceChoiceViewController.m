@@ -49,8 +49,8 @@
 	_choiceTextPrefix = choiceTextPrefix;
 	
 	self.choices = @[
-					 [FTINChoice choiceWithTitle:[choiceTextPrefix stringByAppendingString:@"coherence_coherent".localizedString] andImage:nil],
-					 [FTINChoice choiceWithTitle:[choiceTextPrefix stringByAppendingString:@"coherence_uncoherent".localizedString] andImage:nil]
+					 [FTINChoice choiceWithTitle:[choiceTextPrefix stringByAppendingString:@"coherenceskill_0".localizedString] andImage:nil],
+					 [FTINChoice choiceWithTitle:[choiceTextPrefix stringByAppendingString:@"coherenceskill_1".localizedString] andImage:nil]
 					 ];
 }
 

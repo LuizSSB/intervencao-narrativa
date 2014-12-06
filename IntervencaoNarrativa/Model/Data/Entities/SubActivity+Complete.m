@@ -7,8 +7,11 @@
 //
 
 #import "SubActivity+Complete.h"
+#import "FTINSubActivityContent.h"
 
 @implementation SubActivity (Complete)
+
+static NSNumberFormatter *_scoreFormatter;
 
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
@@ -17,6 +20,16 @@
 
 - (void)setupWithContent:(FTINSubActivityContent *)content
 {
+}
+
+- (NSInteger)difficulty
+{
+	return self.difficultyNumber.integerValue;
+}
+
+- (void)setDifficulty:(NSInteger)difficulty
+{
+	self.difficultyNumber = @(difficulty);
 }
 
 - (BOOL)skipped
@@ -79,6 +92,32 @@
 		self.completed = YES;
 		self.skipped = NO;
 	}
+}
+
+- (CGFloat)calculateScore
+{
+	[self doesNotRecognizeSelector:_cmd];
+	return 0;
+}
+
+- (CGFloat)score
+{
+	if(self.failed || !self.completed)
+	{
+		return 0.f;
+	}
+	
+	if(self.skipped)
+	{
+		return FTINActivityScoreMax;
+	}
+	
+	return MIN(MAX([self calculateScore], 0), FTINActivityScoreMax);
+}
+
+- (NSString *)formattedScore
+{
+	return @(self.score).scoreValue;
 }
 
 @end

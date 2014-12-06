@@ -7,9 +7,11 @@
 //
 
 #import "FTINActivityResultViewController.h"
-#import "FTINActivityReportViewController.h"
-#import "Activity+Complete.h"
 #import "FTINCompleteReportMailViewController.h"
+#import "FTINActivityTypeReportViewController.h"
+#import "FTINActivityScoreViewController.h"
+
+#import "Activity+Complete.h"
 
 NSString * const FTINSegueReport = @"Report";
 
@@ -19,12 +21,13 @@ typedef enum : NSUInteger {
     FTINActivityResultViewControllerSectionActions
 } FTINActivityResultViewControllerSection;
 
-NSInteger const FTINActivityResultViewControllerSectionReportsRowCount = 4;
+NSInteger const FTINActivityResultViewControllerSectionReportsRowCount = 5;
 typedef enum : NSUInteger {
     FTINActivityResultViewControllerSectionReportsRowDescription = 0,
     FTINActivityResultViewControllerSectionReportsRowArrangment,
     FTINActivityResultViewControllerSectionReportsRowEnvironment,
-    FTINActivityResultViewControllerSectionReportsRowWhyGame
+    FTINActivityResultViewControllerSectionReportsRowWhyGame,
+	FTINActivityResultViewControllerSectionReportsRowTotalScore
 } FTINActivityResultViewControllerSectionReportsRow;
 
 NSInteger const FTINActivityResultViewControllerSectionActionsRowCount = 1;
@@ -135,7 +138,19 @@ typedef enum : NSUInteger {
 		
 		case FTINActivityResultViewControllerSectionReports:
 		{
-			UIViewController *viewController = [FTINActivityReportViewController viewControllerWithActivity:self.activity forType:(FTINActivityType)indexPath.row];
+			
+			UIViewController *viewController;
+			
+			switch ((FTINActivityResultViewControllerSectionReportsRow)indexPath.row) {
+				case FTINActivityResultViewControllerSectionReportsRowTotalScore:
+					viewController = [FTINActivityScoreViewController viewControllerWithActivity:self.activity];
+					break;
+					
+				default:
+					viewController = [FTINActivityTypeReportViewController viewControllerWithActivity:self.activity forType:(FTINActivityType)indexPath.row];
+					break;
+			}
+			
 			[self presentViewController:viewController animated:YES completion:nil];
 		}
 			break;

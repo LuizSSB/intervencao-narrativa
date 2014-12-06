@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<link rel="StyleSheet" href="style.css" type="text/css" media=screen>
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+				</head>
+	<body>
+		<h2>Pontuação Total: {{totalScore}}</h2>
+		{{#subActivities}}
+		<h3>{{type}}: {{totalScore}}</h3>
+		<table class="reportTable" rules="all">
+			<tr class="headerRow">
+				<th>Atividade</th>
+				{{#activities}}
+				<th>{{id}}</th>
+				{{/activities}}
+			</tr>
+			<tr class="dataRow">
+				<th>Pontuação</th>
+				{{#activities}}
+				<td>{{score}}</td>
+				{{/activities}}
+			</tr>
+		</table>
+		<br />
+		{{/subActivities}}
+	</body>
+</html>

@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * triesNumber;
 @property (nonatomic, retain) NSNumber * failedNumber;
+@property (nonatomic, retain) NSNumber * difficultyNumber;
 @property (nonatomic, retain) Activity *parentActivity;
 
 @end

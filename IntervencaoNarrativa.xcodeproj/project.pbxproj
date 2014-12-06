@@ -230,7 +230,7 @@
 		25B2A5481968C12A00F93178 /* jump@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25B2A5471968C12A00F93178 /* jump@2x.png */; };
 		25C747981979E7AD0095B498 /* FTINEnumPropertyDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C747971979E7AD0095B498 /* FTINEnumPropertyDefinition.m */; };
 		25C7479B1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */; };
-		25C7479D1979EC8F0095B498 /* DescriptionActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */; };
+		25C7479D1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 25C7479C1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html */; };
 		25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAE9419435360003E1314 /* SubActivity+Complete.m */; };
 		25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAB194389D7003E1314 /* FTINDescriptionSubActivityContent.m */; };
 		25CDAEB5194389D7003E1314 /* FTINSubActivityContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEAD194389D7003E1314 /* FTINSubActivityContent.m */; };
@@ -311,7 +311,10 @@
 		25FF3346194A52DB0080DC6F /* a_2_gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3345194A52DB0080DC6F /* a_2_gift.json */; };
 		6019F88D19F888C8001BB9F2 /* EnvironmentSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */; };
 		608F731619F5D12C00CCC465 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */; };
-		60CCFD6619F482A700EB0B60 /* FTINEnvironmentElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */; };
+		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
+		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
+		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
+		60F43A881A3284DB0002911D /* NSNumber+Formats.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F43A871A3284DB0002911D /* NSNumber+Formats.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -644,7 +647,7 @@
 		25C747971979E7AD0095B498 /* FTINEnumPropertyDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnumPropertyDefinition.m; sourceTree = "<group>"; };
 		25C747991979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionActivityReportFormatter.h; sourceTree = "<group>"; };
 		25C7479A1979EC5E0095B498 /* FTINDescriptionActivityReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINDescriptionActivityReportFormatter.m; sourceTree = "<group>"; };
-		25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DescriptionActivityReportTemplate.html; sourceTree = "<group>"; };
+		25C7479C1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = DefaultEnumActivityReportTemplate.html; sourceTree = "<group>"; };
 		25CDAE9319435360003E1314 /* SubActivity+Complete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SubActivity+Complete.h"; sourceTree = "<group>"; };
 		25CDAE9419435360003E1314 /* SubActivity+Complete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SubActivity+Complete.m"; sourceTree = "<group>"; };
 		25CDAEAA194389D7003E1314 /* FTINDescriptionSubActivityContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINDescriptionSubActivityContent.h; sourceTree = "<group>"; };
@@ -735,8 +738,13 @@
 		6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentSubActivity.m; sourceTree = "<group>"; };
 		608F731419F5D12C00CCC465 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
 		608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
-		60CCFD6419F482A700EB0B60 /* FTINEnvironmentElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnvironmentElement.h; sourceTree = "<group>"; };
-		60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINEnvironmentElement.m; sourceTree = "<group>"; };
+		60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityTypeReportViewController.h; sourceTree = "<group>"; };
+		60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityTypeReportViewController.m; sourceTree = "<group>"; };
+		60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityScoreViewController.h; sourceTree = "<group>"; };
+		60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityScoreViewController.m; sourceTree = "<group>"; };
+		60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScoreReportTemplate.html; sourceTree = "<group>"; };
+		60F43A861A3284DB0002911D /* NSNumber+Formats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Formats.h"; sourceTree = "<group>"; };
+		60F43A871A3284DB0002911D /* NSNumber+Formats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Formats.m"; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -815,6 +823,8 @@
 				25A37C8B194CF85200DFC749 /* UIView+PutOnScreen.m */,
 				253823CB195644760016991A /* UIView+AsImage.h */,
 				253823CC195644760016991A /* UIView+AsImage.m */,
+				60F43A861A3284DB0002911D /* NSNumber+Formats.h */,
+				60F43A871A3284DB0002911D /* NSNumber+Formats.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -828,12 +838,16 @@
 				253823B6195616840016991A /* FTINActivityReportViewController.h */,
 				253823B7195616840016991A /* FTINActivityReportViewController.m */,
 				253823BE195630430016991A /* FTINActivityReportViewController.xib */,
+				60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */,
+				60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */,
 				253823C219563D270016991A /* FTINCompleteReportMailViewController.h */,
 				253823C319563D270016991A /* FTINCompleteReportMailViewController.m */,
 				253823C5195641B80016991A /* FTINMailComposeViewController.h */,
 				253823C6195641B80016991A /* FTINMailComposeViewController.m */,
 				253823C81956438B0016991A /* FTINSingleReportMailViewController.h */,
 				253823C91956438B0016991A /* FTINSingleReportMailViewController.m */,
+				60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */,
+				60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -868,9 +882,10 @@
 			children = (
 				253823AB1955FDB20016991A /* style.css */,
 				253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */,
-				25C7479C1979EC8F0095B498 /* DescriptionActivityReportTemplate.html */,
+				25C7479C1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html */,
 				250B9F62197C476F00E3BA86 /* WhyGameActivityReportTemplate.html */,
 				2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */,
+				60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -1014,19 +1029,19 @@
 			isa = PBXGroup;
 			children = (
 				25603362194DF51E00AE9C26 /* QuestionCards */,
+				252D10DE1949359C006D2F3E /* FTINCollectionViewCell.h */,
+				252D10DF1949359C006D2F3E /* FTINCollectionViewCell.m */,
 				256357CE19413CAE00E5762A /* FTINDatePickerPopoverController.h */,
 				256357CF19413CAE00E5762A /* FTINDatePickerPopoverController.m */,
 				256357D019413CAE00E5762A /* FTINDatePickerTextField.h */,
 				256357D119413CAE00E5762A /* FTINDatePickerTextField.m */,
-				256357D219413CAE00E5762A /* ToastController.h */,
-				256357D319413CAE00E5762A /* ToastController.m */,
-				252D10D819493056006D2F3E /* FTINImageArrangementView.h */,
-				252D10D919493056006D2F3E /* FTINImageArrangementView.m */,
-				252D10DE1949359C006D2F3E /* FTINCollectionViewCell.h */,
-				252D10DF1949359C006D2F3E /* FTINCollectionViewCell.m */,
 				25A37C76194CC17F00DFC749 /* FTINDraggableItemBoxView.h */,
 				25A37C77194CC17F00DFC749 /* FTINDraggableItemBoxView.m */,
 				25A37C79194CC19800DFC749 /* FTINDraggableItemBoxView.xib */,
+				252D10D819493056006D2F3E /* FTINImageArrangementView.h */,
+				252D10D919493056006D2F3E /* FTINImageArrangementView.m */,
+				256357D219413CAE00E5762A /* ToastController.h */,
+				256357D319413CAE00E5762A /* ToastController.m */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1463,8 +1478,6 @@
 				2560334B194DC22900AE9C26 /* FTINWhyGameQuestion.m */,
 				2560334D194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.h */,
 				2560334E194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m */,
-				60CCFD6419F482A700EB0B60 /* FTINEnvironmentElement.h */,
-				60CCFD6519F482A700EB0B60 /* FTINEnvironmentElement.m */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -1668,6 +1681,7 @@
 				25A37CA3194D372E00DFC749 /* m_5x3.json in Resources */,
 				255F79A21942963700C94AB3 /* d_4_play.jpg in Resources */,
 				25A37C72194C9CC700DFC749 /* FTINEnvironmentActivityViewController.xib in Resources */,
+				60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */,
 				259424AF19EB5B360052642C /* d_3_boy.json in Resources */,
 				256BF1DB1947E6CB00FD8BB3 /* debugActivity.json in Resources */,
 				2588D651197C870F007A0910 /* EnvironmentActivityReportTemplate.html in Resources */,
@@ -1682,7 +1696,7 @@
 				25A37CA0194D371700DFC749 /* m_toycar.jpg in Resources */,
 				25FF3325194A51EC0080DC6F /* a_7_educ_5.jpg in Resources */,
 				25FF331B194A51EC0080DC6F /* a_4_lemo_1.jpg in Resources */,
-				25C7479D1979EC8F0095B498 /* DescriptionActivityReportTemplate.html in Resources */,
+				25C7479D1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html in Resources */,
 				25FF32FA194A51EC0080DC6F /* a_5_cage_2.jpg in Resources */,
 				25FF32FE194A51EC0080DC6F /* a_3_draw_1.jpg in Resources */,
 				251F9CA31943F3AE00A65131 /* d_6_hamb.json in Resources */,
@@ -1817,7 +1831,6 @@
 				2531489B193C112F0068B600 /* FTINNotifications.m in Sources */,
 				2537BB62193B730500D10878 /* NSError+LSSB_CreateError.m in Sources */,
 				256A97C4193B777A00358131 /* Macros.m in Sources */,
-				60CCFD6619F482A700EB0B60 /* FTINEnvironmentElement.m in Sources */,
 				2537BB6A193B730500D10878 /* UIAlertView+DefaultAlerts.m in Sources */,
 				256A97C1193B763300358131 /* ErrorInfo.m in Sources */,
 				25CDAE9519435360003E1314 /* SubActivity+Complete.m in Sources */,
@@ -1830,12 +1843,14 @@
 				256357F619413CAE00E5762A /* FTINPatientViewController.m in Sources */,
 				2537BB6E193B730500D10878 /* UIView+Border.m in Sources */,
 				256357ED19413CAE00E5762A /* FTINSingleChoiceViewController.m in Sources */,
+				60F43A881A3284DB0002911D /* NSNumber+Formats.m in Sources */,
 				2537BB60193B730500D10878 /* NSDate+FormattedDate.m in Sources */,
 				2560334F194DC26A00AE9C26 /* FTINWhyGameSubActivityContent.m in Sources */,
 				256357EA19413CAE00E5762A /* FTINChoice.m in Sources */,
 				25C747981979E7AD0095B498 /* FTINEnumPropertyDefinition.m in Sources */,
 				25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */,
 				25208CF1195F16D700B8B5E7 /* ArrangementSubActivity.m in Sources */,
+				60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */,
 				256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */,
 				256357EE19413CAE00E5762A /* FTINDatePickerPopoverController.m in Sources */,
 				25603349194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m in Sources */,
@@ -1891,6 +1906,7 @@
 				252986061943411600826834 /* DescriptionSubActivity+Complete.m in Sources */,
 				256357F019413CAE00E5762A /* ToastController.m in Sources */,
 				25682A0B194A387C005F017F /* NSArray+Shuffling.m in Sources */,
+				60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */,
 				253823A71955EFA10016991A /* FTINArrangementActivityReportFormatter.m in Sources */,
 				25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */,
 				2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */,
@@ -2028,6 +2044,7 @@
 				INFOPLIST_FILE = "IntervencaoNarrativa/IntervencaoNarrativa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "69eb4d56-9c34-4b77-98c8-e119dd4e5650";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

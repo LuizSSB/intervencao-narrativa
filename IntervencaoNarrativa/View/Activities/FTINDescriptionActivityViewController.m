@@ -33,6 +33,8 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 @property (nonatomic, readonly) FTINChoiceViewController *elementsChoiceViewController;
 @property (nonatomic, readonly) FTINDescriptiveSkillChoiceViewController *skillChoiceViewController;
 
+- (NSSet *)namesOfElementsAtIndexes:(NSSet *)indexes;
+
 @end
 
 @implementation FTINDescriptionActivityViewController
@@ -116,7 +118,8 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 	
 	if(self.elementsChoiceViewController.hasSelectedChoice)
 	{
-		_subActivityData.describedElements = self.elementsChoiceViewController.selectedChoicesIndexes;
+		_subActivityData.describedElements = [self namesOfElementsAtIndexes:self.elementsChoiceViewController.selectedChoicesIndexes];
+		_subActivityData.undescribedElements = [self namesOfElementsAtIndexes:self.elementsChoiceViewController.unselectedChoicesIndexes];
 	}
 	
 	return YES;
@@ -154,7 +157,6 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 }
 
 @synthesize elementsChoiceViewController = _elementsChoiceViewController;
-
 - (FTINChoiceViewController *)elementsChoiceViewController
 {
 	if(!_elementsChoiceViewController)
@@ -167,7 +169,6 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 }
 
 @synthesize skillChoiceViewController = _skillChoiceViewController;
-
 - (FTINDescriptiveSkillChoiceViewController *)skillChoiceViewController
 {
 	if(!_skillChoiceViewController)
@@ -177,6 +178,18 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 	}
 	
 	return _skillChoiceViewController;
+}
+
+- (NSSet *)namesOfElementsAtIndexes:(NSSet *)indexes
+{
+	NSMutableSet *names = [NSMutableSet set];
+
+	for (NSNumber *index in indexes)
+	{
+		[names addObject:self.content.elements[index.integerValue]];
+	}
+	
+	return names;
 }
 
 @end

@@ -7,7 +7,14 @@
 //
 
 #import "FTINSubActivityContent.h"
-#import "FTINEnvironmentElement.h"
+
+@protocol FTINEnvironmentElement @end
+@interface FTINEnvironmentElement : JSONModel
+
+@property (nonatomic) NSString *name;
+@property (nonatomic) NSString *imageName;
+
+@end
 
 @interface FTINEnvironmentSubActivityContent : FTINSubActivityContent
 

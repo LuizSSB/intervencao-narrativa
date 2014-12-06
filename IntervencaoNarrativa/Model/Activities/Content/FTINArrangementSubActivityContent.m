@@ -37,14 +37,11 @@
 			if(![image isEqualToString:_elements[idx++]])
 			{
 				[NSError ftin_createErrorWithCode:FTINErrorCodeWrongArrangementOrder inReference:error];
-				tr00Activity.arrangedCorrectly = NO;
 				break;
 			}
 		}
 		
 		if(*error) break;
-		
-		tr00Activity.arrangedCorrectly = YES;
 		
 		return YES;
 	}

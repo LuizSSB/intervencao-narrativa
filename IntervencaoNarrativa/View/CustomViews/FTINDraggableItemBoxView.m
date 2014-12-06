@@ -8,7 +8,7 @@
 
 #import "FTINDraggableItemBoxView.h"
 #import "FTINCollectionViewCell.h"
-#import "FTINEnvironmentElement.h"
+#import "FTINEnvironmentSubActivityContent.h"
 
 #import "DNDDragAndDrop.h"
 

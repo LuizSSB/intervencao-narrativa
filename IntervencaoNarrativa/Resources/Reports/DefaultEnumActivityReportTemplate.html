@@ -14,28 +14,36 @@
 			</tr>
 		</table>
 		
-		<h2>Tipo de resposta</h2>
+		<!-- Tabela com opções e atividades -->
+		{{#enumProp}}
+		<h2>{{enumTitle}}</h2>
 		<table class="reportTable" rules="all">
 			<tr class="headerRow">
-				<th><!-- coluna com as questões --></th>
+				<th>Atividade</th>
+				
+				{{#difficultyName}}
+				<th>{{difficultyName}}</th>
+				{{/difficultyName}}
 				
 				{{#enumValues}}
 				<th>{{enumValue}}</th>
 				{{/enumValues}}
-				
 			</tr>
 			
-			{{#questions}}
+			{{#activities}}
 			<tr class="dataRow">
-				<th>{{question}}</th>
+				<th>{{id}}</th>
+				
+				{{#difficulty}}
+				<th>{{difficulty}}</th>
+				{{/difficulty}}
 				
 				{{#values}}
-				<td class="{{value}}"></td> 
+				<td class="{{value}}"></td>
 				{{/values}}
-				
 			</tr>
-			{{/questions}}
-			
+			{{/activities}}
 		</table>
+		{{/enumProp}}
 	</body>
 </html>
