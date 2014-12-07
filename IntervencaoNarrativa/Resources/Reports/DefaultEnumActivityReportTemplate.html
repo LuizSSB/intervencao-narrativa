@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<link rel="StyleSheet" href="style.css" type="text/css" media=screen>
+			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+				</head>
+	<body>
+		<!-- Legenda -->
+		<table class="helpTable">
+			<tr>
+				<th>Legenda</th>
+				<td class="selected">Opção selecionada</td>
+				<td class="skipped">Atividade pulada</td>
+				<td class="failed">Criança falhou na atividade</td>
+			</tr>
+		</table>
+		
+		<!-- Tabela com opções e atividades -->
+		{{#enumProp}}
+		<h2>{{enumTitle}}</h2>
+		<table class="reportTable" rules="all">
+			<tr class="headerRow">
+				<th>Atividade</th>
+				
+				{{#difficultyName}}
+				<th>{{difficultyName}}</th>
+				{{/difficultyName}}
+				
+				{{#enumValues}}
+				<th>{{enumValue}}</th>
+				{{/enumValues}}
+			</tr>
+			
+			{{#activities}}
+			<tr class="dataRow">
+				<th>{{id}}</th>
+				
+				{{#difficulty}}
+				<th>{{difficulty}}</th>
+				{{/difficulty}}
+				
+				{{#values}}
+				<td class="{{value}}"></td>
+				{{/values}}
+			</tr>
+			{{/activities}}
+		</table>
+		{{/enumProp}}
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTINEnvironmentActivityViewController">
+            <connections>
+                <outlet property="draggableElementBox" destination="ahS-Mn-Nrb" id="hBI-XA-I40"/>
+                <outlet property="narrationBarButton" destination="jq5-lt-w6Y" id="a79-qe-PyE"/>
+                <outlet property="organizationBarButton" destination="L1v-0h-DTb" id="12O-WK-QN6"/>
+                <outlet property="resetBarButton" destination="LdQ-Fg-VMM" id="MfX-Np-FHy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="1024" height="660"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahS-Mn-Nrb" customClass="FTINDraggableItemBoxView">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+            <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+        <barButtonItem title="Organização" id="L1v-0h-DTb">
+            <connections>
+                <action selector="showOrganizationChoices:" destination="-1" id="TSS-Gl-bKn"/>
+            </connections>
+        </barButtonItem>
+        <barButtonItem title="Narração" id="jq5-lt-w6Y">
+            <connections>
+                <action selector="showNarrationChoices:" destination="-1" id="7Cj-JX-gcb"/>
+            </connections>
+        </barButtonItem>
+        <barButtonItem title="Reiniciar montagem" id="LdQ-Fg-VMM">
+            <connections>
+                <action selector="reset:" destination="-1" id="zId-Ks-fWz"/>
+            </connections>
+        </barButtonItem>
+    </objects>
+</document>

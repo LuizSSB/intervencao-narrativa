@@ -11,7 +11,42 @@
 #endif
 
 #ifdef __OBJC__
-	#import <UIKit/UIKit.h>
-	#import <Foundation/Foundation.h>
-	#import <CoreData/CoreData.h>
+
+// Frameworks
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+// Macros and constants
+#import "ErrorInfo.h"
+#import "Macros.h"
+#import "FTINNotifications.h"
+
+// Classes
+#import "ToastController.h"
+
+// UIKit Categories
+#import "UIView+Border.h"
+#import "UIView+SearchSubview.h"
+#import "UITableView+ScrollToBottom.h"
+#import "UIAlertView+DefaultAlerts.h"
+#import "UIViewController+Visibility.h"
+#import "UIDevice+SystemVersion.h"
+#import "UIApplication+TopMostViewController.h"
+#import "UIView+PutOnScreen.h"
+#import "UIView+AsImage.h"
+
+// Foundation Categories
+#import "NSNumber+TimeDescription.h"
+#import "NSFileManager+Utils.h"
+#import "NSObject+Properties.h"
+#import "NSThread+AsyncBlock.h"
+#import "NSString+ReplaceStrings.h"
+#import "NSString+LocalizedString.h"
+#import "NSError+AlertOnError.h"
+#import "NSError+LSSB_CreateError.h"
+#import "NSDate+FormattedDate.h"
+#import "NSArray+Shuffling.h"
+#import "NSNumber+Formats.h"
+
 #endif

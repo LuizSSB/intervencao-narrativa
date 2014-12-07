@@ -1,0 +1,8 @@
+platform :ios, '6.1'
+pod 'MBProgressHUD'
+pod 'APToast'
+pod 'DCModel'
+pod 'JSONModel'
+pod 'LXReorderableCollectionViewFlowLayout'
+pod 'DNDDragAndDrop'
+pod 'GRMustache'

@@ -16,7 +16,119 @@
 "edit" = "Editar";
 "save" = "Salvar";
 "name" = "Nome";
-"confirm" = "Confirmação";
+"confirmation" = "Confirmação";
+"next>" = "Próximo >";
+"finalize" = "Finalizar";
+"pause" = "Pausar";
+"unfinished" = "Pausada";
+"finished" = "Finalizada";
+"continue" = "Continuar";
+"failed" = "Cancelada";
+"restart" = "Reiniciar";
+"activity" = "Atividade";
+"score" = "Pontuação";
+
+/* Navigation */
+"leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
 
 /* Patients */
 "patients" = "Pacientes";
+"new_patient" = "Novo paciente";
+"insert_patient" = "Inserir paciente";
+"patient_saved" = "Paciente salvo";
+"examiner_name" = "Avaliador: %@";
+
+/* Choices */
+"maximum_reached" = "Máximo de %ld opções selecionadas.";
+
+/* Activities */
+"hide_controls" = "Ocultar controles";
+"show_controls" = "Exibir controles";
+"leave_activity" = "Deseja mesmo encerrar a atividade?";
+"activity_completed" = "Atividade finalizada";
+"skip_level" = "Deseja mesmo pular este nível de dificuldade?";
+"activity_paused" = "Atividade pausada. Selecione-a na lista abaixo para retomar o progresso.";
+"activities" = "Atividades";
+"activity_whygame" = "Jogo do porquê";
+"activity_arrangement" = "Ordenação e narração de cenas";
+"activity_description" = "Descrição e narração de cena";
+"activity_environment" = "Montagem de ambiente";
+"do_skipped_activity" = "Essa atividade foi pulada. Deseja realizá-la agora?";
+"exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja continuar o exercício?";
+"grade" = "Nota: %@";
+
+/* Activity Data */
+"FTINActivityResultViewController_0" = "Relatórios";
+"FTINActivityResultViewController_0_0" = "Atividades Descrição de Figuras e Ações";
+"FTINActivityResultViewController_0_1" = "Atividades Ordenação e Narração";
+"FTINActivityResultViewController_0_2" = "Atividades Montando o ambiente";
+"FTINActivityResultViewController_0_3" = "Jogo do Porquê";
+"FTINActivityResultViewController_0_4" = "Pontuação geral";
+"FTINActivityResultViewController_1" = "Outras ações";
+"FTINActivityResultViewController_1_0" = "Enviar por email";
+
+/* Reports */
+"report" = "Relatório";
+"full_report_mail_subject" = "[IntervençãoNarrativa] %@ em %@ - %@";
+
+/* Why Game */
+"select_questions" = "Selecione as questões que serão usadas";
+"use_questions" = "Montar jogo";
+"must_select_questions" = "Selecione pelo menos uma questão para o jogo!";
+"confirm_reset" = "Deseja mesmo reiniciar o Jogo do Porquê?";
+
+/* Descriptive Skill */
+"descriptionskill_0" = "Descreve totalmente sem ajuda";
+"descriptionskill_1" = "Descreve parcialmente sem ajuda";
+"descriptionskill_2" = "Descreve com muita ajuda";
+"descriptionskill_3" = "Não descreve";
+"descriptionskill_title" = "Habilidade descritiva";
+"descriptionskill_difficulty" = "Objs/Cena";
+
+/* Narrative Skill */
+"narrationskill_0" = "Narrou totalmente sem ajuda";
+"narrationskill_1" = "Narrou parcialmente sem ajuda";
+"narrationskill_2" = "Narrou com muita ajuda";
+"narrationskill_3" = "Não narrou";
+"narrationskill_title" = "Habilidade narrativa";
+"narrationskill_difficulty" = "Cenas/Atividade";
+
+/* Coherence */
+"coherenceskill_0" = "Coerente";
+"coherenceskill_1" = "Incoerente";
+"coherence_narration" = "Narração ";
+"coherence_narration_title" = "Habiliadade narrativa";
+"coherence_organization" = "Organização ";
+"coherence_organization_title" = "Habilidade de organização";
+
+/* Arrangement */
+"arrangeskill_0" = "Ordenou sem ajuda";
+"arrangeskill_1" = "Ordenou com ajuda";
+"arrangeskill_title" = "Habilidade de ordenação";
+
+/* Answer */
+"answerskill_0" = "Resposta bem estruturada e coerente";
+"answerskill_1" = "Resposta pouco estruturada";
+"answerskill_2" = "Resposta pouco coerente";
+"answerskill_3" = "Não respondeu";
+"answerskill_title" = "Habilidade da resposta";
+"show_answer" = "Ver resposta";
+"hide_answer" = "Ocultar resposta";
+
+/* Errors */
+"error_ftin_1" = "Dados inválidos. Preencha todas as informações.";
+"error_ftin_2" = "Dados errados trafegando pela aplicação.";
+"error_ftin_3" = "Conta de email não configurada!";
+
+"error_ftin_3000" = "Arquivos de configuração da atividade inválidos, não constam com subatividades.";
+"error_ftin_3001" = "Favor apontar o desempenho da criança nos marcadores abaixo.";
+"error_ftin_3001_b" = "Favor apontar o desempenho da resposta da criança em cada questão.";
+"error_ftin_3002" = "Atividade inválida. A atividade a ser salva precisa ser a mesma atividade passada pelo FTINActivityFlowController.";
+"error_ftin_3003" = "Atividade não pode ser pulada";
+"error_ftin_3004" = "É preciso terminar todas as atividades para finalizar.";
+"error_ftin_3005" = "Atividade fora dos limites.";
+"error_ftin_3006" = "É necessário responder algumas questões. Selecione-as e monte o jogo.";
+
+"error_ftin_6000" = "Ordenação incorreta, tente novamente.";
+"error_ftin_6001" = "A quantidade itens que fazem parte do ambiente está errada.";
+"error_ftin_6002" = "O ambiente possui itens que não fazem parte dele.";

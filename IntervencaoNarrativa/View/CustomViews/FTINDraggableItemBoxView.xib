@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTINDraggableItemBoxView">
+            <connections>
+                <outlet property="backgroundImageView" destination="6FU-pG-d7B" id="EvR-ce-UsV"/>
+                <outlet property="containerBox" destination="ZrZ-ZR-8al" id="aMd-KW-8VP"/>
+                <outlet property="toolboxCollectionView" destination="aW3-Bn-rR0" id="WhM-Ec-9ev"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="660"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aW3-Bn-rR0">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="200"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="aW3-Bn-rR0" secondAttribute="height" multiplier="128:25" id="D5i-GY-hds"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qhS-iv-7nj">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minimumInteritemSpacing">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="yP5-ZG-VTx"/>
+                        <outlet property="delegate" destination="-1" id="g1D-C3-TrZ"/>
+                    </connections>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZrZ-ZR-8al">
+                    <rect key="frame" x="0.0" y="208" width="1024" height="452"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6FU-pG-d7B">
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="452"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="6FU-pG-d7B" secondAttribute="height" multiplier="256:113" id="faq-r0-JYD"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6FU-pG-d7B" firstAttribute="leading" secondItem="ZrZ-ZR-8al" secondAttribute="leading" id="55H-vs-1lS"/>
+                        <constraint firstAttribute="bottom" secondItem="6FU-pG-d7B" secondAttribute="bottom" id="DRU-3d-BSl"/>
+                        <constraint firstAttribute="width" secondItem="ZrZ-ZR-8al" secondAttribute="height" multiplier="256:113" id="paY-vc-Erj"/>
+                        <constraint firstItem="6FU-pG-d7B" firstAttribute="top" secondItem="ZrZ-ZR-8al" secondAttribute="top" id="w5T-wo-tvW"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="aW3-Bn-rR0" firstAttribute="leading" secondItem="ZrZ-ZR-8al" secondAttribute="leading" id="ERK-1b-ORP"/>
+                <constraint firstItem="ZrZ-ZR-8al" firstAttribute="top" secondItem="aW3-Bn-rR0" secondAttribute="bottom" constant="8" id="bdG-Gf-7Vy"/>
+                <constraint firstItem="aW3-Bn-rR0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="edS-vd-5EA"/>
+                <constraint firstAttribute="trailing" secondItem="aW3-Bn-rR0" secondAttribute="trailing" id="hfq-Mo-azG"/>
+                <constraint firstItem="aW3-Bn-rR0" firstAttribute="trailing" secondItem="ZrZ-ZR-8al" secondAttribute="trailing" id="l6e-Ui-h8R"/>
+                <constraint firstItem="aW3-Bn-rR0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="p62-Uq-QxX"/>
+            </constraints>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+</document>

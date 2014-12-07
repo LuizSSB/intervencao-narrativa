@@ -1,0 +1,14 @@
+{
+	"title":"Casa",
+    "correctElements":[
+                       {"name":"Cama", "imageName":"m_bed.jpg"},
+                       {"name":"Abajour", "imageName":"m_lamp.jpg"},
+                       {"name":"Criado-mudo", "imageName":"m_endtable.jpg"},
+                       {"name":"Escrivaninha", "imageName":"m_desk.jpg"},
+                       {"name":"Armário", "imageName":"m_wardrobe.jpg"}
+	],
+    "incorrectElements":[
+                         {"name":"Bola", "imageName":"m_ball.jpg"}
+	],
+	"background":"m_back.jpg"
+}

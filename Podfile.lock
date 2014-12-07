@@ -1,0 +1,31 @@
+PODS:
+  - APToast (1.1)
+  - DCModel (0.0.6)
+  - DNDDragAndDrop (1.1.1)
+  - GRMustache (7.0.2):
+    - JRSwizzle (~> 1.0)
+  - JRSwizzle (1.0)
+  - JSONModel (0.13.0)
+  - LXReorderableCollectionViewFlowLayout (0.1.1)
+  - MBProgressHUD (0.8)
+
+DEPENDENCIES:
+  - APToast
+  - DCModel
+  - DNDDragAndDrop
+  - GRMustache
+  - JSONModel
+  - LXReorderableCollectionViewFlowLayout
+  - MBProgressHUD
+
+SPEC CHECKSUMS:
+  APToast: aa52a78f99b0037490a7fdf148275d65871e0cde
+  DCModel: 58d3746ad9d83a5852fdaaaf73600126b6745140
+  DNDDragAndDrop: 7a2377be3aa90c50e99ffce5c2237fa2b48cc6a3
+  GRMustache: 7cce2570d81711b90d91d2e539f6f575a703db22
+  JRSwizzle: 30da7a2c539a4ebf954b16d15f6dd8221c9f6fa5
+  JSONModel: 62ea96b49ea18a8b91ef89c249dba291d8601d82
+  LXReorderableCollectionViewFlowLayout: b4e25543263e27d4c147109ae5ead01cc9119f23
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+
+COCOAPODS: 0.33.1

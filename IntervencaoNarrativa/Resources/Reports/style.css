@@ -1,0 +1,72 @@
+html
+{
+    display: table;
+    margin: auto;
+}
+
+body
+{
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.reportTable, .reportTable th, .reportTable td
+{
+	border: solid #000 1px;
+}
+
+.reportTable .headerRow th, .reportTable .dataRow th
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.reportTable .headerRow th
+{
+	color: #00F;
+}
+
+.reportTable .dataRow
+{
+	height: 50px;
+}
+
+.reportTable .dataRow th
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	color: #F00;
+}
+
+.reportTable .dataRow td
+{
+	width: 50px;
+	text-align: center;
+}
+
+.skipped
+{
+	background-color: #EEF;
+	color: #445;
+}
+
+.failed
+{
+	background-color: #FEE;
+	color: #544;
+}
+
+.selected
+{
+	background-color: #EFE;
+	color: #454;
+}
+
+.helpTable tr td
+{
+	width: 210px;
+	text-align: center;
+	height: 30px;
+}
