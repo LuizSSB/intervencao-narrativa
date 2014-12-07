@@ -61,7 +61,7 @@
 - (IBAction)doAction:(id)sender
 {
 	NSError *error = nil;
-	UIViewController *mailVC = [[FTINSingleReportMailViewController alloc] initWithActivity:self.activity andView:self.contentWebView error:&error];
+	UIViewController *mailVC = [[FTINSingleReportMailViewController alloc] initWithActivity:self.activity andView:self.contentWebView.scrollView error:&error];
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self presentViewController:mailVC animated:YES completion:nil];
 	}];

@@ -23,10 +23,9 @@ CGFloat const FTINBarButtonItemSpacing = 20.f;
 NSString * const FTINHTMLClassSelected = @"selected";
 NSString * const FTINHTMLClassSkipped = @"skipped";
 NSString * const FTINHTMLClassFailed = @"failed";
-NSString * const FTINTemplateKeyElementClass = @"class";
-NSString * const FTINTemplateKeyElementValue = @"value";
 
 CGFloat const FTINActivityScoreMax = 10.f;
+CGFloat const FTINActivityScoreSkipped = MAXFLOAT;
 CGFloat const FTINActivityScoreTrialPenalty = 3.f;
 
 NSString * FTINActivityTypeTitle(FTINActivityType type)
@@ -184,25 +183,25 @@ NSArray * FTINAnswerSkillGetValues()
 
 NSString *FTINDescriptiveSkillGetTitle(FTINDescriptiveSkill skill)
 {
-	return [NSString stringWithFormat:@"descriptionskill_%lu", skill].localizedString;
+	return [NSString stringWithFormat:@"descriptionskill_%lu", (unsigned long) skill].localizedString;
 }
 
 NSString *FTINNarrativeSkillGetTitle(FTINNarrativeSkill skill)
 {
-	return [NSString stringWithFormat:@"narrationskill_%lu", skill].localizedString;
+	return [NSString stringWithFormat:@"narrationskill_%lu", (unsigned long) skill].localizedString;
 }
 
 NSString *FTINArrangementSkillGetTitle(FTINArrangementSkill skill)
 {
-	return [NSString stringWithFormat:@"arrangeskill_%lu", skill].localizedString;
+	return [NSString stringWithFormat:@"arrangeskill_%lu", (unsigned long) skill].localizedString;
 }
 
 NSString *FTINCoherenceSkillGetTitle(FTINCoherence skill)
 {
-	return [NSString stringWithFormat:@"coherenceskill_%lu", skill].localizedString;
+	return [NSString stringWithFormat:@"coherenceskill_%lu", (unsigned long) skill].localizedString;
 }
 
 NSString *FTINAnswerSkillGetTitle(FTINAnswerSkill skill)
 {
-	return [NSString stringWithFormat:@"answerskill_%lu", skill].localizedString;
+	return [NSString stringWithFormat:@"answerskill_%lu", (unsigned long) skill].localizedString;
 }

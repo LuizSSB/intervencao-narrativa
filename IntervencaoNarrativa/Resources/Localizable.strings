@@ -102,8 +102,8 @@
 "coherence_organization_title" = "Habilidade de organização";
 
 /* Arrangement */
-"arrangeskill_0" = "Ordenou com ajuda";
-"arrangeskill_1" = "Ordenou sem ajuda";
+"arrangeskill_0" = "Ordenou sem ajuda";
+"arrangeskill_1" = "Ordenou com ajuda";
 "arrangeskill_title" = "Habilidade de ordenação";
 
 /* Answer */

@@ -14,6 +14,11 @@ static NSNumberFormatter *_scoreFormatter;
 
 - (NSString *)scoreValue
 {
+	if(self.floatValue == FTINActivityScoreSkipped)
+	{
+		return @"---";
+	}
+	
 	if(!_scoreFormatter)
 	{
 		_scoreFormatter = [[NSNumberFormatter alloc] init];

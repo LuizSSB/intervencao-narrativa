@@ -12,21 +12,31 @@
 
 - (UIImage *)asImage
 {
+	CGRect originalBounds = self.bounds;
+	
+	if([self isKindOfClass:[UIScrollView class]])
+	{
+		CGRect newBounds = originalBounds;
+		newBounds.size = [(id)self contentSize];
+		self.bounds = newBounds;
+	}
+	
     CGFloat scale = [UIScreen mainScreen].scale;
 	
     if (scale > 1)
 	{
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, scale);
+        UIGraphicsBeginImageContextWithOptions(self.layer.bounds.size, NO, scale);
     }
 	else
 	{
-        UIGraphicsBeginImageContext(self.bounds.size);
+        UIGraphicsBeginImageContext(self.layer.bounds.size);
     }
 	
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [self.layer renderInContext: context];
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+	
+	self.bounds = originalBounds;
 	
     return viewImage;
 }
