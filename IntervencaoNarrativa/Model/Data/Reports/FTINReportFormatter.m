@@ -59,7 +59,8 @@
 		[[self.activity subActivitiesOfType:type] enumerateObjectsUsingBlock:^(SubActivity *obj, NSUInteger idx, BOOL *stop) {
 			[subActivities addObject:@{
 									   @"id":@(idx + 1),
-									   @"score":obj.formattedScore
+									   @"score":obj.formattedScore,
+									   @"state":obj.skipped ? FTINHTMLClassSkipped : [NSString string]
 									   }
 			 ];
 		}];

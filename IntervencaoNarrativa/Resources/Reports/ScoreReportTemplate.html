@@ -4,6 +4,14 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 				</head>
 	<body>
+		<!-- Legenda -->
+		<table class="helpTable">
+			<tr>
+				<th>Legenda</th>
+				<td class="skipped">Atividade pulada</td>
+			</tr>
+		</table>
+		
 		<h2>Pontuação Total: {{totalScore}}</h2>
 		{{#subActivities}}
 		<h3>{{type}}: {{totalScore}}</h3>
@@ -11,13 +19,13 @@
 			<tr class="headerRow">
 				<th>Atividade</th>
 				{{#activities}}
-				<th>{{id}}</th>
+				<th class="{{state}}">{{id}}</th>
 				{{/activities}}
 			</tr>
 			<tr class="dataRow">
 				<th>Pontuação</th>
 				{{#activities}}
-				<td>{{score}}</td>
+				<td class="{{state}}">{{score}}</td>
 				{{/activities}}
 			</tr>
 		</table>

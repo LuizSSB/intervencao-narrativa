@@ -112,13 +112,20 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 {
 	CGFloat score = 0;
 	NSArray *types = FTINActivityTypeGetValues();
+	CGFloat nonSkippedTypes = 0;
 	
 	for (NSNumber *type in types)
 	{
-		score += [self totalScoreOfSubActivitiesOfType:type.integerValue];
+		CGFloat typeScore = [self totalScoreOfSubActivitiesOfType:type.integerValue];
+		
+		if(typeScore != FTINActivityScoreSkipped)
+		{
+			score += typeScore;
+			++nonSkippedTypes;
+		}
 	}
 	
-	return score / (CGFloat) types.count;
+	return score / nonSkippedTypes;
 }
 
 - (NSString *)formattedTotalScore
@@ -130,13 +137,18 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 {
 	NSArray *subActivities = [self subActivitiesOfType:type];
 	CGFloat score = 0;
+	CGFloat nonSkippedActivities = 0;
 	
 	for (SubActivity *sub in subActivities)
 	{
-		score += sub.score;
+		if(!sub.skipped)
+		{
+			score += sub.score;
+			++nonSkippedActivities;
+		}
 	}
 	
-	return score / (CGFloat) subActivities.count;
+	return nonSkippedActivities ? score / nonSkippedActivities : FTINActivityScoreSkipped;
 }
 
 - (NSString *)formattedTotalScoreOfSubActivitiesOfType:(FTINActivityType)type

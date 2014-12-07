@@ -109,7 +109,7 @@ static NSNumberFormatter *_scoreFormatter;
 	
 	if(self.skipped)
 	{
-		return FTINActivityScoreMax;
+		return FTINActivityScoreSkipped;
 	}
 	
 	return MIN(MAX([self calculateScore], 0), FTINActivityScoreMax);
