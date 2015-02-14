@@ -12,7 +12,7 @@
 
 CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 
-@interface FTINQuestionCardViewController ()
+@interface FTINQuestionCardViewController () <UIPopoverControllerDelegate>
 {
 	CGSize _originalViewSize;
 }
@@ -47,6 +47,11 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 	
 	self.question = self.question;
 	self.answerSkillBarButton.tintColor = self.answerVisibilityBarButton.tintColor = [UIBarButtonItem appearance].tintColor;
+	
+	if(self.answered)
+	{
+		[self.answerSkillBarButton setTitle:@"correct_marking".localizedString];
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -179,7 +184,8 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 
 - (void)showAnswerSkill:(id)sender
 {
-	[self.answerViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
+	UIPopoverController *popover = [self.answerViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
+	popover.delegate = self;
 }
 
 @synthesize answerViewController = _answerViewController;
@@ -193,6 +199,16 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 	}
 	
 	return _answerViewController;
+}
+
+#pragma mark - Popover Controller Delegate
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+	if(self.answerViewController.hasSelectedChoice)
+	{
+		[self.answerSkillBarButton setTitle:@"correct_marking".localizedString];
+	}
 }
 
 @end

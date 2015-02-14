@@ -53,6 +53,7 @@
 "exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja continuar o exercício?";
 "grade" = "Nota: %@";
 "instructions" = "Instruções";
+"correct_marking" = "Corrigir marcação";
 
 /* Acitivity types info */
 "activity_0" = "Descrição e narração de cena";

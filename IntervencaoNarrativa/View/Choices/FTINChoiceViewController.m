@@ -281,7 +281,7 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	return _parentPopover;
 }
 
-- (void)presentAsPopoverFromBarButtonItem:(UIBarButtonItem *)button animated:(BOOL)animated
+- (UIPopoverController *)presentAsPopoverFromBarButtonItem:(UIBarButtonItem *)button animated:(BOOL)animated
 {
 	[self parentPopover];
 	CGFloat popoverHeight = MIN(FTINChoicePopoverMaximumSize.height, self.tableView.rowHeight * self.choices.count + self.navigationController.navigationBar.frame.size.height);
@@ -291,6 +291,8 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	self.parentPopover.popoverContentSize = CGSizeMake(MAX(FTINChoicePopoverMaximumSize.width, self.popoverWidth), popoverHeight);
 	
 	[self.parentPopover presentPopoverFromBarButtonItem:button permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	
+	return self.parentPopover;
 }
 
 - (void)dismissPopoverAnimated:(BOOL)animated
