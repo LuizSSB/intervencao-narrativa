@@ -128,9 +128,20 @@
 	return [_activitiesByCategory[@(section)] count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return FTINActivityTypeTitle((FTINActivityType) section);
+	return [UIFont boldSystemFontOfSize:18].lineHeight * 1.5;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	UIFont *headerFont = [UIFont boldSystemFontOfSize:18.0];
+	UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, headerFont.lineHeight * 1.5)];
+	header.font = headerFont;
+	header.textColor = [UIColor whiteColor];
+	header.backgroundColor = [FTINStyler barsTintColor];
+	header.text = [@"   " stringByAppendingString:FTINActivityTypeTitle((FTINActivityType) section)];
+	return header;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,6 +151,7 @@
 	if(!cell)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:FTINDefaultCellIdentifier];
+		cell.textLabel.textColor = [FTINStyler textColor];
 	}
 	
 	FTINSubActivityDetails *subActivity = _activitiesByCategory[@(indexPath.section)][indexPath.row];

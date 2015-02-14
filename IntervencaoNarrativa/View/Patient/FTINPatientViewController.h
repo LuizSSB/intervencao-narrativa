@@ -12,7 +12,7 @@
 #import "FTINActivityNavigationController.h"
 #import "FTINActivitiesTableViewSource.h"
 
-@interface FTINPatientViewController : UIViewController <FTINSubjectToPatientTransitionNotifications, FTINActivitiesTableViewSourceDelegate, FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>
+@interface FTINPatientViewController : FTINBaseViewController <FTINSubjectToPatientTransitionNotifications, FTINActivitiesTableViewSourceDelegate, FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) id<FTINPatientViewControllerDelegate> delegate;
 

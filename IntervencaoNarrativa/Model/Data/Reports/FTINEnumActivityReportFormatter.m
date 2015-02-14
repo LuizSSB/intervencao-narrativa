@@ -48,9 +48,12 @@
 		[propsContexts addObject:propContext];
 		propContext[@"enumTitle"] = prop.title;
 		
+		NSInteger numberOfColumns = 1;
+		
 		if(prop.difficultyName.length)
 		{
 			propContext[@"difficultyName"] = prop.difficultyName;
+			++numberOfColumns;
 		}
 		
 		// Adiciona referências as opções do enum
@@ -60,7 +63,10 @@
 		for (NSNumber *option in prop.enumOptions)
 		{
 			[enumValues addObject:@{@"enumValue":[prop localizeOption:option]}];
+			++numberOfColumns;
 		}
+		
+		propContext[@"columnWidth"] = @(((NSInteger)[UIScreen mainScreen].bounds.size.width - 50) / numberOfColumns);
 		
 		// Adiciona referências as atividades
 		NSMutableArray *activitiesContexts = [NSMutableArray array];

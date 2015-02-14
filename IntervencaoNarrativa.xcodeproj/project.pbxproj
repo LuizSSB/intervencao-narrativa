@@ -47,7 +47,6 @@
 		2537BB70193B730500D10878 /* UIViewController+Visibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2537BB5D193B730500D10878 /* UIViewController+Visibility.m */; };
 		253823A31955D1320016991A /* FTINReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823A21955D1320016991A /* FTINReportFormatter.m */; };
 		253823A71955EFA10016991A /* FTINArrangementActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823A61955EFA10016991A /* FTINArrangementActivityReportFormatter.m */; };
-		253823AA1955F3450016991A /* ArrangementActivityReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */; };
 		253823AF195602350016991A /* FTINTemplateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823AE195602350016991A /* FTINTemplateUtils.m */; };
 		253823B2195606F10016991A /* FTINEnumActivityReportFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823B1195606F10016991A /* FTINEnumActivityReportFormatter.m */; };
 		253823B519560AE00016991A /* FTINActivityResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 253823B419560AE00016991A /* FTINActivityResultViewController.m */; };
@@ -73,7 +72,6 @@
 		25603356194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603354194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m */; };
 		25603357194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */; };
 		2560335A194DCB8A00AE9C26 /* FTINQuestionCardsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25603359194DCB8A00AE9C26 /* FTINQuestionCardsView.m */; };
-		2560335C194DCEA400AE9C26 /* cardback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2560335B194DCEA400AE9C26 /* cardback.jpg */; };
 		25603360194DD6C700AE9C26 /* FTINQuestionCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2560335E194DD6C700AE9C26 /* FTINQuestionCardViewController.m */; };
 		25603361194DD6C700AE9C26 /* FTINQuestionCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2560335F194DD6C700AE9C26 /* FTINQuestionCardViewController.xib */; };
 		25603364194DF8DB00AE9C26 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25603363194DF8DB00AE9C26 /* help@2x.png */; };
@@ -239,7 +237,6 @@
 		25CDAEB8194389D7003E1314 /* FTINSubActivityDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDAEB3194389D7003E1314 /* FTINSubActivityDetails.m */; };
 		25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DD4F6F19449FFA001D8761 /* UIApplication+TopMostViewController.m */; };
 		25ED11F019450D0A007514AD /* FTINActivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25ED11EF19450D0A007514AD /* FTINActivityController.m */; };
-		25EF84691974B7900078140A /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 253823AB1955FDB20016991A /* style.css */; };
 		25FF32F5194A51EC0080DC6F /* a_3_ball_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FF32BD194A51EC0080DC6F /* a_3_ball_0.jpg */; };
 		25FF32F6194A51EC0080DC6F /* a_3_ball_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FF32BE194A51EC0080DC6F /* a_3_ball_1.jpg */; };
 		25FF32F7194A51EC0080DC6F /* a_3_ball_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 25FF32BF194A51EC0080DC6F /* a_3_ball_2.jpg */; };
@@ -309,11 +306,21 @@
 		25FF3342194A52B70080DC6F /* a_3_draw.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3341194A52B70080DC6F /* a_3_draw.json */; };
 		25FF3344194A52C20080DC6F /* a_5_cage.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3343194A52C20080DC6F /* a_5_cage.json */; };
 		25FF3346194A52DB0080DC6F /* a_2_gift.json in Resources */ = {isa = PBXBuildFile; fileRef = 25FF3345194A52DB0080DC6F /* a_2_gift.json */; };
+		60194C521A4794240066BE11 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60194C511A4794240066BE11 /* Images.xcassets */; };
 		6019F88D19F888C8001BB9F2 /* EnvironmentSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */; };
+		60207A961A798EE700B63FEE /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 60207A951A798EE700B63FEE /* style.css */; };
+		60207A981A7998FA00B63FEE /* swirl.png in Resources */ = {isa = PBXBuildFile; fileRef = 60207A971A7998FA00B63FEE /* swirl.png */; };
+		60207A9A1A79994000B63FEE /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 60207A991A79994000B63FEE /* bg.png */; };
+		60207A9D1A7999BC00B63FEE /* FTINStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207A9C1A7999BC00B63FEE /* FTINStyler.m */; };
+		60207AA01A799C2700B63FEE /* FTINBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207A9F1A799C2700B63FEE /* FTINBaseViewController.m */; };
+		60207AA31A799C7500B63FEE /* FTINBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA21A799C7500B63FEE /* FTINBaseTableViewController.m */; };
+		60207AA61A799F4000B63FEE /* UIColor+FromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA51A799F4000B63FEE /* UIColor+FromHex.m */; };
+		60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60207AA71A79A5BF00B63FEE /* cardback@2x.png */; };
 		608F731619F5D12C00CCC465 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */; };
 		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
 		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
 		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
+		60C49FFD1A81419400D8013E /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C49FFC1A81419400D8013E /* cardback.png */; };
 		60F43A881A3284DB0002911D /* NSNumber+Formats.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F43A871A3284DB0002911D /* NSNumber+Formats.m */; };
 /* End PBXBuildFile section */
 
@@ -396,8 +403,6 @@
 		253823A41955D3E00016991A /* FTINActivityReportFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FTINActivityReportFormatter.h; sourceTree = "<group>"; };
 		253823A51955EFA10016991A /* FTINArrangementActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINArrangementActivityReportFormatter.h; sourceTree = "<group>"; };
 		253823A61955EFA10016991A /* FTINArrangementActivityReportFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINArrangementActivityReportFormatter.m; sourceTree = "<group>"; };
-		253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ArrangementActivityReportTemplate.html; sourceTree = "<group>"; };
-		253823AB1955FDB20016991A /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		253823AD195602350016991A /* FTINTemplateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINTemplateUtils.h; sourceTree = "<group>"; };
 		253823AE195602350016991A /* FTINTemplateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINTemplateUtils.m; sourceTree = "<group>"; };
 		253823B0195606F10016991A /* FTINEnumActivityReportFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINEnumActivityReportFormatter.h; sourceTree = "<group>"; };
@@ -441,7 +446,6 @@
 		25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINWhyGameActivityViewController.xib; sourceTree = "<group>"; };
 		25603358194DCB8A00AE9C26 /* FTINQuestionCardsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINQuestionCardsView.h; sourceTree = "<group>"; };
 		25603359194DCB8A00AE9C26 /* FTINQuestionCardsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINQuestionCardsView.m; sourceTree = "<group>"; };
-		2560335B194DCEA400AE9C26 /* cardback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cardback.jpg; sourceTree = "<group>"; };
 		2560335D194DD6C700AE9C26 /* FTINQuestionCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINQuestionCardViewController.h; sourceTree = "<group>"; };
 		2560335E194DD6C700AE9C26 /* FTINQuestionCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINQuestionCardViewController.m; sourceTree = "<group>"; };
 		2560335F194DD6C700AE9C26 /* FTINQuestionCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINQuestionCardViewController.xib; sourceTree = "<group>"; };
@@ -735,7 +739,20 @@
 		25FF3345194A52DB0080DC6F /* a_2_gift.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = a_2_gift.json; sourceTree = "<group>"; };
 		564B2EB66BC4420587426308 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6002315E19F8886100DB6508 /* EnvironmentSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentSubActivity.h; sourceTree = "<group>"; };
+		60194C511A4794240066BE11 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6019F88C19F888C8001BB9F2 /* EnvironmentSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentSubActivity.m; sourceTree = "<group>"; };
+		60207A951A798EE700B63FEE /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		60207A971A7998FA00B63FEE /* swirl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swirl.png; sourceTree = "<group>"; };
+		60207A991A79994000B63FEE /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		60207A9B1A7999BC00B63FEE /* FTINStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINStyler.h; sourceTree = "<group>"; };
+		60207A9C1A7999BC00B63FEE /* FTINStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINStyler.m; sourceTree = "<group>"; };
+		60207A9E1A799C2700B63FEE /* FTINBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINBaseViewController.h; sourceTree = "<group>"; };
+		60207A9F1A799C2700B63FEE /* FTINBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINBaseViewController.m; sourceTree = "<group>"; };
+		60207AA11A799C7500B63FEE /* FTINBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINBaseTableViewController.h; sourceTree = "<group>"; };
+		60207AA21A799C7500B63FEE /* FTINBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINBaseTableViewController.m; sourceTree = "<group>"; };
+		60207AA41A799F4000B63FEE /* UIColor+FromHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FromHex.h"; sourceTree = "<group>"; };
+		60207AA51A799F4000B63FEE /* UIColor+FromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FromHex.m"; sourceTree = "<group>"; };
+		60207AA71A79A5BF00B63FEE /* cardback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardback@2x.png"; sourceTree = "<group>"; };
 		608F731419F5D12C00CCC465 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
 		608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
 		60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityTypeReportViewController.h; sourceTree = "<group>"; };
@@ -743,6 +760,7 @@
 		60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityScoreViewController.h; sourceTree = "<group>"; };
 		60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityScoreViewController.m; sourceTree = "<group>"; };
 		60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScoreReportTemplate.html; sourceTree = "<group>"; };
+		60C49FFC1A81419400D8013E /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
 		60F43A861A3284DB0002911D /* NSNumber+Formats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Formats.h"; sourceTree = "<group>"; };
 		60F43A871A3284DB0002911D /* NSNumber+Formats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Formats.m"; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -825,6 +843,8 @@
 				253823CC195644760016991A /* UIView+AsImage.m */,
 				60F43A861A3284DB0002911D /* NSNumber+Formats.h */,
 				60F43A871A3284DB0002911D /* NSNumber+Formats.m */,
+				60207AA41A799F4000B63FEE /* UIColor+FromHex.h */,
+				60207AA51A799F4000B63FEE /* UIColor+FromHex.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -880,8 +900,8 @@
 		253823A81955F0710016991A /* Reports */ = {
 			isa = PBXGroup;
 			children = (
-				253823AB1955FDB20016991A /* style.css */,
-				253823A91955F3450016991A /* ArrangementActivityReportTemplate.html */,
+				60207A971A7998FA00B63FEE /* swirl.png */,
+				60207A951A798EE700B63FEE /* style.css */,
 				25C7479C1979EC8F0095B498 /* DefaultEnumActivityReportTemplate.html */,
 				250B9F62197C476F00E3BA86 /* WhyGameActivityReportTemplate.html */,
 				2588D650197C870F007A0910 /* EnvironmentActivityReportTemplate.html */,
@@ -893,12 +913,14 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				60C49FFC1A81419400D8013E /* cardback.png */,
+				60207AA71A79A5BF00B63FEE /* cardback@2x.png */,
+				60207A991A79994000B63FEE /* bg.png */,
 				256B6BF91976028700CB1CCD /* error@2x.png */,
 				25B2A5471968C12A00F93178 /* jump@2x.png */,
 				257F57F41966187B00D82411 /* blank@2x.png */,
 				257F57F21966187300D82411 /* selected@2x.png */,
 				25603363194DF8DB00AE9C26 /* help@2x.png */,
-				2560335B194DCEA400AE9C26 /* cardback.jpg */,
 				255F799F194295E000C94AB3 /* Activites */,
 			);
 			path = Images;
@@ -969,6 +991,12 @@
 				256357D819413CAE00E5762A /* FTINStartViewController.h */,
 				256357D919413CAE00E5762A /* FTINStartViewController.m */,
 				256357DA19413CAE00E5762A /* FTINSubjectToPatientTransitionNotifications.h */,
+				60207A9B1A7999BC00B63FEE /* FTINStyler.h */,
+				60207A9C1A7999BC00B63FEE /* FTINStyler.m */,
+				60207A9E1A799C2700B63FEE /* FTINBaseViewController.h */,
+				60207A9F1A799C2700B63FEE /* FTINBaseViewController.m */,
+				60207AA11A799C7500B63FEE /* FTINBaseTableViewController.h */,
+				60207AA21A799C7500B63FEE /* FTINBaseTableViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1159,6 +1187,7 @@
 				25644CE41936B071006C4E06 /* FTINAppDelegate.h */,
 				25644CE51936B071006C4E06 /* FTINAppDelegate.m */,
 				25644CE71936B071006C4E06 /* Main.storyboard */,
+				60194C511A4794240066BE11 /* Images.xcassets */,
 			);
 			path = IntervencaoNarrativa;
 			sourceTree = "<group>";
@@ -1291,11 +1320,11 @@
 				25FF3337194A52640080DC6F /* a_3_car.json */,
 				25FF3341194A52B70080DC6F /* a_3_draw.json */,
 				25FF3335194A52580080DC6F /* a_4_glas.json */,
-				2594251E19EB646B0052642C /* a_5_orange.json */,
+				25FF3331194A523B0080DC6F /* a_4_lemo.json */,
 				25FF333D194A52960080DC6F /* a_4_rose.json */,
 				25FF3343194A52C20080DC6F /* a_5_cage.json */,
 				25FF333F194A52AE0080DC6F /* a_5_eggs.json */,
-				25FF3331194A523B0080DC6F /* a_4_lemo.json */,
+				2594251E19EB646B0052642C /* a_5_orange.json */,
 				2594251F19EB646B0052642C /* a_6_bread.json */,
 				25FF3333194A52480080DC6F /* a_6_fairy.json */,
 				2594252019EB646B0052642C /* a_6_wakeup.json */,
@@ -1577,9 +1606,9 @@
 				25FF3305194A51EC0080DC6F /* a_8_fish_0.jpg in Resources */,
 				2594251D19EB63130052642C /* a_5_orange_3.jpg in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
-				2560335C194DCEA400AE9C26 /* cardback.jpg in Resources */,
 				2594250D19EB626C0052642C /* a_8_game_3.jpg in Resources */,
 				253823BF195630430016991A /* FTINActivityReportViewController.xib in Resources */,
+				60C49FFD1A81419400D8013E /* cardback.png in Resources */,
 				25FF330A194A51EC0080DC6F /* a_8_fish_5.jpg in Resources */,
 				2594251119EB626C0052642C /* a_7_book_4.jpg in Resources */,
 				25FF3308194A51EC0080DC6F /* a_8_fish_3.jpg in Resources */,
@@ -1588,6 +1617,7 @@
 				259424FA19EB626C0052642C /* a_7_book_6.jpg in Resources */,
 				2594252919EB646B0052642C /* a_7_santa.json in Resources */,
 				25FF332B194A51EC0080DC6F /* a_6_fairy_4.jpg in Resources */,
+				60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */,
 				2594251B19EB63130052642C /* a_5_orange_1.jpg in Resources */,
 				257F57F31966187300D82411 /* selected@2x.png in Resources */,
 				25FF32F7194A51EC0080DC6F /* a_3_ball_2.jpg in Resources */,
@@ -1623,6 +1653,7 @@
 				259424E919EB626C0052642C /* a_7_santa_3.jpg in Resources */,
 				259424A919EB5A430052642C /* d_6_school.jpg in Resources */,
 				25603361194DD6C700AE9C26 /* FTINQuestionCardViewController.xib in Resources */,
+				60194C521A4794240066BE11 /* Images.xcassets in Resources */,
 				2594250A19EB626C0052642C /* a_7_santa_6.jpg in Resources */,
 				259424FC19EB626C0052642C /* a_8_drive_5.jpg in Resources */,
 				2594252A19EB646B0052642C /* a_8_drive.json in Resources */,
@@ -1637,7 +1668,6 @@
 				2594250019EB626C0052642C /* a_6_bread_4.jpg in Resources */,
 				25A37C87194CD43400DFC749 /* m_wardrobe.jpg in Resources */,
 				25A37C7A194CC19800DFC749 /* FTINDraggableItemBoxView.xib in Resources */,
-				253823AA1955F3450016991A /* ArrangementActivityReportTemplate.html in Resources */,
 				251F9C981943F2A600A65131 /* d_6_hamb.jpg in Resources */,
 				256B6BFA1976028700CB1CCD /* error@2x.png in Resources */,
 				2594250719EB626C0052642C /* a_6_bread_2.jpg in Resources */,
@@ -1647,6 +1677,7 @@
 				2594251519EB626C0052642C /* a_8_game_6.jpg in Resources */,
 				251F9C971943F2A600A65131 /* d_3_doll.jpg in Resources */,
 				25603357194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib in Resources */,
+				60207A981A7998FA00B63FEE /* swirl.png in Resources */,
 				2594251A19EB63130052642C /* a_5_orange_0.jpg in Resources */,
 				25FF331A194A51EC0080DC6F /* a_4_lemo_0.jpg in Resources */,
 				25FF3315194A51EC0080DC6F /* a_4_glas_2.jpg in Resources */,
@@ -1672,6 +1703,7 @@
 				25FF3321194A51EC0080DC6F /* a_7_educ_1.jpg in Resources */,
 				25FF32F5194A51EC0080DC6F /* a_3_ball_0.jpg in Resources */,
 				250B9F63197C476F00E3BA86 /* WhyGameActivityReportTemplate.html in Resources */,
+				60207A9A1A79994000B63FEE /* bg.png in Resources */,
 				259424A519EB5A430052642C /* d_6_market.jpg in Resources */,
 				25FF32FC194A51EC0080DC6F /* a_5_cage_4.jpg in Resources */,
 				25FF3344194A52C20080DC6F /* a_5_cage.json in Resources */,
@@ -1741,6 +1773,7 @@
 				25644CE91936B071006C4E06 /* Main.storyboard in Resources */,
 				259424EF19EB626C0052642C /* a_7_book_2.jpg in Resources */,
 				259424EB19EB626C0052642C /* a_7_book_3.jpg in Resources */,
+				60207A961A798EE700B63FEE /* style.css in Resources */,
 				25FF32F9194A51EC0080DC6F /* a_5_cage_1.jpg in Resources */,
 				259424B319EB5B360052642C /* d_6_school.json in Resources */,
 				25A37C75194CAF2F00DFC749 /* m_5x1.json in Resources */,
@@ -1753,7 +1786,6 @@
 				25FF3332194A523B0080DC6F /* a_4_lemo.json in Resources */,
 				256357F719413CAE00E5762A /* FTINPatientViewController.xib in Resources */,
 				25FF330C194A51EC0080DC6F /* a_8_fish_7.jpg in Resources */,
-				25EF84691974B7900078140A /* style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1816,6 +1848,7 @@
 				2560335A194DCB8A00AE9C26 /* FTINQuestionCardsView.m in Sources */,
 				253823BB1956197B0016991A /* FTINReportController.m in Sources */,
 				256B6BF61975FD6C00CB1CCD /* Activity.m in Sources */,
+				60207A9D1A7999BC00B63FEE /* FTINStyler.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
 				253823C7195641B80016991A /* FTINMailComposeViewController.m in Sources */,
@@ -1851,9 +1884,11 @@
 				25A37C78194CC17F00DFC749 /* FTINDraggableItemBoxView.m in Sources */,
 				25208CF1195F16D700B8B5E7 /* ArrangementSubActivity.m in Sources */,
 				60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */,
+				60207AA31A799C7500B63FEE /* FTINBaseTableViewController.m in Sources */,
 				256357E919413CAE00E5762A /* FTINActivityViewController.m in Sources */,
 				256357EE19413CAE00E5762A /* FTINDatePickerPopoverController.m in Sources */,
 				25603349194DC1C200AE9C26 /* WhyGameSubActivity+Complete.m in Sources */,
+				60207AA61A799F4000B63FEE /* UIColor+FromHex.m in Sources */,
 				256357EC19413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.m in Sources */,
 				256357F219413CAE00E5762A /* FTINPatientTransitionsObserver.m in Sources */,
 				253823B8195616840016991A /* FTINActivityReportViewController.m in Sources */,
@@ -1910,6 +1945,7 @@
 				253823A71955EFA10016991A /* FTINArrangementActivityReportFormatter.m in Sources */,
 				25DD4F7019449FFA001D8761 /* UIApplication+TopMostViewController.m in Sources */,
 				2527454D193D5F7300AF6412 /* UISplitViewController+ToggleMasterVisibility.m in Sources */,
+				60207AA01A799C2700B63FEE /* FTINBaseViewController.m in Sources */,
 				250DE56C197AD74500C18F6B /* FTINWhyGameActivityReportFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

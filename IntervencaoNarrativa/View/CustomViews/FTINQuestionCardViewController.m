@@ -46,6 +46,7 @@ CGFloat const FTINQuestionCardViewControllerMinimumOpacity = .1f;
 	[super viewDidLoad];
 	
 	self.question = self.question;
+	self.answerSkillBarButton.tintColor = self.answerVisibilityBarButton.tintColor = [UIBarButtonItem appearance].tintColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated

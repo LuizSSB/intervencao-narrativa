@@ -28,7 +28,7 @@
 
 @end
 
-@interface FTINActivityViewController : UIViewController <UIAlertViewDelegate>
+@interface FTINActivityViewController : FTINBaseViewController <UIAlertViewDelegate>
 
 - (id)initWithSubActivity:(FTINSubActivityDetails *)subactivity andDelegate:(id<FTINActivityViewControllerDelegate>)delegate;
 

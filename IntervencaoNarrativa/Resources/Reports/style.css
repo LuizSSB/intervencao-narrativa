@@ -2,6 +2,7 @@ html
 {
     display: table;
     margin: auto;
+	color:#606061;
 }
 
 body
@@ -9,22 +10,25 @@ body
     display: table-cell;
     vertical-align: middle;
     font-family: 'Helvetica', 'Arial', sans-serif;
+	background-image:url(swirl.png);
 }
 
 .reportTable, .reportTable th, .reportTable td
 {
-	border: solid #000 1px;
+	border: solid #ececec 1px;
+	background-color:#FFF;
 }
 
 .reportTable .headerRow th, .reportTable .dataRow th
 {
 	padding-top: 5px;
 	padding-bottom: 5px;
+	
 }
 
 .reportTable .headerRow th
 {
-	color: #00F;
+	color: #4e94c2;
 }
 
 .reportTable .dataRow
@@ -37,31 +41,32 @@ body
 	padding-left: 5px;
 	padding-right: 5px;
 	text-align: center;
-	color: #F00;
+	color: #f8a167;
 }
 
 .reportTable .dataRow td
 {
 	width: 50px;
 	text-align: center;
+	
 }
 
 .skipped
 {
-	background-color: #EEF;
-	color: #445;
+	background-color: #DCDCFF !important;
+	color: #606061 !important;
 }
 
 .failed
 {
-	background-color: #FEE;
-	color: #544;
+	background-color: #f69f99 !important;
+	color: #606061 !important;
 }
 
 .selected
 {
-	background-color: #EFE;
-	color: #454;
+	background-color: #80b6e3 !important;
+	color: #606061 !important;
 }
 
 .helpTable tr td
@@ -69,4 +74,16 @@ body
 	width: 210px;
 	text-align: center;
 	height: 30px;
+	
+}
+
+.helpTable tr th
+{
+	color:#606061;
+	
+}
+
+
+h2,h3 {
+	color:#606061;
 }

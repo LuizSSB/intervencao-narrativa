@@ -10,7 +10,7 @@
 
 @class Activity;
 
-@interface FTINActivityReportViewController : UIViewController
+@interface FTINActivityReportViewController : FTINBaseViewController
 
 @property (weak, nonatomic) IBOutlet UIWebView *contentWebView;
 @property (nonatomic) Activity *activity;

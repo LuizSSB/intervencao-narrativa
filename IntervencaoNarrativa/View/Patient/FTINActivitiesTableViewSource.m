@@ -82,7 +82,7 @@
 	Activity *activity = _orderedActivities[indexPath.row];
 	cell.textLabel.text = [activity.creationDate formattedDateTimeWithDateStyle:NSDateFormatterFullStyle andTimeStyle:NSDateFormatterShortStyle];
 	
-	UIColor *textColor = [UIColor blackColor];
+	UIColor *textColor = [FTINStyler textColor];
 	UIColor *detailColor;
 	NSString *detailText;
 	
@@ -93,12 +93,12 @@
 	}
 	else if(activity.finalized)
 	{
-		detailColor = [UIColor blueColor];
+		detailColor = [FTINStyler correctnessColor];
 		detailText = @"finished".localizedString;
 	}
 	else
 	{
-		detailColor = [UIColor redColor];
+		detailColor = [FTINStyler errorColor];
 		detailText = @"unfinished".localizedString;
 	}
 	

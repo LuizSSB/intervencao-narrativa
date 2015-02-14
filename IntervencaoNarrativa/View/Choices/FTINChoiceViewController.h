@@ -22,7 +22,7 @@ extern CGSize const FTINChoicePopoverMaximumSize;
 
 @end
 
-@interface FTINChoiceViewController : UITableViewController
+@interface FTINChoiceViewController : FTINBaseTableViewController
 
 @property (nonatomic) NSInteger maximumChoices;
 @property (nonatomic) CGFloat popoverWidth;

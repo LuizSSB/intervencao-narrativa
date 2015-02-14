@@ -62,7 +62,12 @@
 		}
 	}
 	
-	return @{@"questions": questionsContext};
+	NSInteger columnWidth = ((NSInteger)[UIScreen mainScreen].bounds.size.width - 50) / (1 + FTINAnswerSkillGetValues().count);
+	
+	return @{
+			 @"questions": questionsContext,
+			 @"columnWidth": @(columnWidth)
+			 };
 }
 
 #pragma mark - Activity Report Formatter

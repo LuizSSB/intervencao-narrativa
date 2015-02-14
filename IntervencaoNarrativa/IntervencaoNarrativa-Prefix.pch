@@ -24,6 +24,9 @@
 
 // Classes
 #import "ToastController.h"
+#import "FTINStyler.h"
+#import "FTINBaseTableViewController.h"
+#import "FTINBaseViewController.h"
 
 // UIKit Categories
 #import "UIView+Border.h"
@@ -35,6 +38,7 @@
 #import "UIApplication+TopMostViewController.h"
 #import "UIView+PutOnScreen.h"
 #import "UIView+AsImage.h"
+#import "UIColor+FromHex.h"
 
 // Foundation Categories
 #import "NSNumber+TimeDescription.h"

@@ -70,6 +70,8 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 		
 		[self.view bringSubviewToFront:self.actionToolbar];
 	}
+	
+	self.view.backgroundColor = [FTINStyler backgroundColor];
 }
 
 - (void)setEditing:(BOOL)editing

@@ -85,6 +85,8 @@ CGSize const FTINChoicePopoverMaximumSize = {320.f, 450.f};
 	if(!cell)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:FTINDefaultCellIdentifier];
+		cell.backgroundColor = [UIColor whiteColor];
+		cell.textLabel.textColor = cell.detailTextLabel.textColor = [FTINStyler textColor];
 	}
 	
 	FTINChoice *choice = self.choices[indexPath.row];
