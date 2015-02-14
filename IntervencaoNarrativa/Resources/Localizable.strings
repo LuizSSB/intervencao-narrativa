@@ -49,13 +49,20 @@
 "skip_level" = "Deseja mesmo pular este nível de dificuldade?";
 "activity_paused" = "Atividade pausada. Selecione-a na lista abaixo para retomar o progresso.";
 "activities" = "Atividades";
-"activity_whygame" = "Jogo do porquê";
-"activity_arrangement" = "Ordenação e narração de cenas";
-"activity_description" = "Descrição e narração de cena";
-"activity_environment" = "Montagem de ambiente";
 "do_skipped_activity" = "Essa atividade foi pulada. Deseja realizá-la agora?";
 "exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja continuar o exercício?";
 "grade" = "Nota: %@";
+"instructions" = "Instruções";
+
+/* Acitivity types info */
+"activity_0" = "Descrição e narração de cena";
+"activity_1" = "Ordenação e narração de cenas";
+"activity_2" = "Montagem de ambiente";
+"activity_3" = "Jogo do porquê";
+"activity_description_0" = "A criança deve descrever o evento representado na imagem, enumerando os elementos presentes.\n\nUse os marcadores na barra inferior para marcar quais elementos foram descritos e avaliar o desempenho da criança na descrição.";
+"activity_description_1" = "A criança deve, primeiro, arrastar e ordenar as cenas, de acordo com sua sequência lógica, e, em seguida, narrar os acontecimentos representados.\n\nUse os marcadores na barra inferior para avaliar o desempenho da criança na ordenação e na narração.";
+"activity_description_2" = "A criança deve arrastar para a sala-de-estar somente os elementos que pertencem a ela e, em seguida, descrever como e por que os elementos pertencem a sala-de-estar.\n\nUse os marcadores na barra inferior para avaliar o desempenho da criança na organização e na narração.";
+"activity_description_3" = "Esta atividade é dividida em duas etapas:\n\n1. O avaliador deve escolher até 6 questões para a criança responder. Com as questões selecionadas, o avaliador deve tocar em \"Montar jogo\";\n2. As questões selecionadas são colocadas em cartas e embaralhadas. A criança deve, então, selecionar as cartas e responder as questões.\n\nUse os marcadores na barra inferior de cada carta para avaliar o desempenho da criança em cada questão.";
 
 /* Activity Data */
 "FTINActivityResultViewController_0" = "Relatórios";

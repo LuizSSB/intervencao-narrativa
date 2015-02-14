@@ -37,6 +37,7 @@
 
 @property (nonatomic, readonly) UIBarButtonItem *cancelBarButton;
 @property (nonatomic, readonly) UIBarButtonItem *pauseBarButton;
+@property (nonatomic, readonly) UIBarButtonItem *instructionsBarButton;
 @property (nonatomic, readonly) UIToolbar *actionToolbar;
 @property (nonatomic, readonly) UIBarButtonItem *nextBarButton;
 

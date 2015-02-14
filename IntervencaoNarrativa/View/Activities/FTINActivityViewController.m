@@ -9,6 +9,7 @@
 #import "FTINActivityViewController.h"
 #import "FTINSubActivityDetails.h"
 #import "FTINSubActivityContent.h"
+#import "FTINActivityInstructionViewController.h"
 
 #import "SubActivity+Complete.h"
 
@@ -19,6 +20,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 }
 
 - (void)pause:(id)sender;
+- (void)showInstructions:(id)sender;
 - (void)setupNavigationItemBarButtons:(BOOL)animated;
 
 @end
@@ -130,7 +132,6 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 }
 
 @synthesize cancelBarButton = _cancelBarButton;
-
 - (UIBarButtonItem *)cancelBarButton
 {
 	if(!_cancelBarButton) {
@@ -140,7 +141,6 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 }
 
 @synthesize pauseBarButton = _pauseBarButton;
-
 - (UIBarButtonItem *)pauseBarButton
 {
 	if(!_pauseBarButton) {
@@ -149,8 +149,18 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	return _pauseBarButton;
 }
 
-@synthesize actionToolbar = _actionToolbar;
+@synthesize instructionsBarButton = _instructionsBarButton;
+- (UIBarButtonItem *)instructionsBarButton
+{
+	if(!_instructionsBarButton)
+	{
+		_instructionsBarButton = [[UIBarButtonItem alloc] initWithTitle:@"instructions".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(showInstructions:)];
+	}
+	
+	return _instructionsBarButton;
+}
 
+@synthesize actionToolbar = _actionToolbar;
 - (UIToolbar *)actionToolbar
 {
 	if(!_actionToolbar)
@@ -205,6 +215,13 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	[self.delegate activityViewControllerPaused:self];
 }
 
+- (void)showInstructions:(id)sender
+{
+	UIViewController *viewController = [[FTINActivityInstructionViewController alloc] initWithActivityType:self.subActivity.type];
+	viewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[self presentViewController:viewController animated:YES completion:nil];
+}
+
 - (void)goToNextActivity:(id)sender
 {
 	if([self prepareToGoToNextActivity])
@@ -220,7 +237,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 
 - (void)setupNavigationItemBarButtons:(BOOL)animated
 {
-	[self.navigationItem setLeftBarButtonItems:@[self.cancelBarButton, self.pauseBarButton] animated:animated];
+	[self.navigationItem setLeftBarButtonItems:@[self.cancelBarButton, self.pauseBarButton, self.instructionsBarButton] animated:animated];
 	
 	NSMutableArray *rightButtons = [NSMutableArray arrayWithObject:self.editButtonItem];
 	

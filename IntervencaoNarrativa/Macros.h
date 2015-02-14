@@ -92,6 +92,7 @@ typedef enum : NSUInteger {
 // -----------------------------------------------------------------------------
 // Utilitary functions
 NSString * FTINActivityTypeTitle(FTINActivityType type);
+NSString * FTINActivityTypeInstruction(FTINActivityType type);
 NSArray * FTINActivityTypeGetValues();
 
 CGFloat FTINDescriptiveSkillGetScoreMultiplier(FTINDescriptiveSkill skill);

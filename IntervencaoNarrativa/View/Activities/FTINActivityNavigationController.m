@@ -7,6 +7,7 @@
 //
 
 #import "FTINActivityNavigationController.h"
+#import "FTINActivityInstructionViewController.h"
 #import "FTINActivityViewControllerFactory.h"
 #import "FTINSubActivitiesTableViewController.h"
 
@@ -19,11 +20,11 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 @interface FTINActivityNavigationController () <FTINSubActivitiesTableViewControllerDelegate, UIAlertViewDelegate>
 {
-	NSError *_pendingError;
 	FTINSubActivityDetails *_pendingSubActivity;
+	UIViewController *_parentViewController;
+	FTINActivityFlowController *_controller;
 }
 
-@property (nonatomic, readonly) FTINActivityFlowController *controller;
 @property (nonatomic, readonly) FTINSubActivitiesTableViewController *activitiesViewController;
 
 + (UIColor *)defaultViewControllerBackground;
@@ -41,10 +42,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)dealloc
 {
-	_activityFile = nil;
 	_controller = nil;
-	_patient = nil;
-	_pendingSubActivity = nil;
 }
 
 - (void)viewDidLoad
@@ -57,36 +55,17 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	
-	if (_pendingError) {
-		[self.delegate activityNavigationController:self failed:_pendingError];
-	}
-	
 	[self.viewControllers[0] navigationItem].backBarButtonItem = nil;
 }
 
 #pragma mark - Instance methods
 
-@synthesize controller = _controller;
-- (FTINActivityFlowController *)controller
-{
-	if(!_controller)
-	{
-		_controller = [[FTINActivityFlowController alloc] initWithActivityInFile:self.activityFile andPatient:self.patient andDelegate:self];
-	}
-	
-	return _controller;
-}
-
 - (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate
 {
     self = [super initWithRootViewController:[FTINActivityNavigationController createUselessRootViewController]];
     if (self) {
-        _activityFile = activityFile;
-		_patient = patient;
 		self.delegate = delegate;
-		
-		[self.controller start];
+		_controller = [[FTINActivityFlowController alloc] initWithActivityInFile:activityFile andPatient:patient andDelegate:self];
     }
     return self;
 }
@@ -96,10 +75,8 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	self = [super initWithRootViewController:[FTINActivityNavigationController createUselessRootViewController]];
 	if(self)
 	{
-		_patient = activity.patient;
 		self.delegate = delegate;
-		
-		[self.controller startWithUnfinishedActivity:activity];
+		_controller = [[FTINActivityFlowController alloc] initWithActivit:activity andDelegate:self];
 	}
 	return self;
 }
@@ -110,7 +87,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 {
 	if(!_activitiesViewController)
 	{
-		_activitiesViewController = [[FTINSubActivitiesTableViewController alloc] initWithActivity:self.controller.activity andDelegate:self];
+		_activitiesViewController = [[FTINSubActivitiesTableViewController alloc] initWithActivity:_controller.activity andDelegate:self];
 	}
 	
 	return _activitiesViewController;
@@ -130,16 +107,32 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)goToNextSubActivity:(BOOL)animated
 {
-	[self goToSubActivity:[self.controller nextSubActivity] animated:animated];
+	[self goToSubActivity:[_controller nextSubActivity] animated:animated];
 }
 
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated
 {
 	void (^pushNextActivity)() = ^void() {
-		[self popToRootViewControllerAnimated:NO];
+		void (^deFactoPushNextActivity)(BOOL) = ^void(BOOL animatedPush){
+			[self popToRootViewControllerAnimated:NO];
+			
+			FTINActivityViewController *nextViewController = [FTINActivityViewControllerFactory activityViewControllerForSubActivity:subactivity withDelegate:self];
+			[self pushViewController:nextViewController animated:animatedPush];
+		};
 		
-		FTINActivityViewController *nextViewController = [FTINActivityViewControllerFactory activityViewControllerForSubActivity:subactivity withDelegate:self];
-		[self pushViewController:nextViewController animated:animated];
+		if([_controller viewedInstructionsForActivityType:subactivity.type])
+		{
+			deFactoPushNextActivity(animated);
+		}
+		else
+		{
+			UIViewController *instructionsViewController = [[FTINActivityInstructionViewController alloc] initWithActivityType:subactivity.type];
+			instructionsViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+			[self presentViewController:instructionsViewController animated:YES completion:^{
+				[_controller setViewedInstructions:YES forActivityType:subactivity.type];
+				deFactoPushNextActivity(NO);
+			}];
+		}
 	};
 	
 	if(self.viewControllers.count > 1)
@@ -162,31 +155,37 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	[self.activitiesViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
 }
 
+- (void)loadAndPresentFomViewController:(UIViewController *)parentViewController
+{
+	_parentViewController = parentViewController;
+	[_controller start];
+}
+
 #pragma mark - Activity View Controller Delegate
 
 - (void)activityViewControllerFinished:(FTINActivityViewController *)viewController
 {
-	[self.controller completeSubActivity:viewController.subActivity];
+	[_controller completeSubActivity:viewController.subActivity];
 }
 
 - (void)activityViewControllerCanceled:(FTINActivityViewController *)viewController
 {
-	[self.controller cancel];
+	[_controller cancel];
 }
 
 - (UIBarButtonItem *)activityViewControllerCustomizedNextBarButton:(FTINActivityViewController *)viewController
 {
-	return self.controller.incompleteActivities > 1 ? nil : [[UIBarButtonItem alloc] initWithTitle:@"finalize".localizedString style:UIBarButtonItemStyleDone target:nil action:nil];
+	return _controller.incompleteActivities > 1 ? nil : [[UIBarButtonItem alloc] initWithTitle:@"finalize".localizedString style:UIBarButtonItemStyleDone target:nil action:nil];
 }
 
 - (void)activityViewControllerSkipped:(FTINActivityViewController *)viewController
 {
-	[self.controller skipLevelOfSubActivity:viewController.subActivity];
+	[_controller skipLevelOfSubActivity:viewController.subActivity];
 }
 
 - (void)activityViewControllerPaused:(FTINActivityViewController *)viewController
 {
-	[self.controller pauseInSubActivity:viewController.subActivity];
+	[_controller pauseInSubActivity:viewController.subActivity];
 }
 
 - (NSArray *)activityViewControllerAdditionalRightBarButtonItems:(FTINActivityViewController *)viewController
@@ -200,24 +199,26 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 - (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error
 {
 	if([NSError alertOnError:error andDoOnSuccess:^{
-		_pendingError = nil;
-		[self goToNextSubActivity:NO];
+		[_parentViewController presentViewController:self animated:YES completion:^{
+			_parentViewController = nil;
+			[self goToNextSubActivity:NO];
+		}];
 	}])
 	{
-		_pendingError = error;
+		[self.delegate activityNavigationController:self failed:error];
 	};
 }
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
-		if(self.controller.hasNextSubActivity)
+		if(_controller.hasNextSubActivity)
 		{
 			[self goToNextSubActivity:YES];
 		}
 		else
 		{
-			[self.controller finish];
+			[_controller finish];
 		}
 	}];
 }
@@ -277,7 +278,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 {
 	[viewController dismissPopoverAnimated:YES];
 	
-	if(self.controller.currentSubActivity != subActivity)
+	if(_controller.currentSubActivity != subActivity)
 	{
 		if(subActivity.data.skipped)
 		{
@@ -289,7 +290,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 		}
 		else
 		{
-			[self.controller jumpToSubActivityAtIndex:index];
+			[_controller jumpToSubActivityAtIndex:index];
 			[self goToSubActivity:subActivity animated:YES];
 		}
 	}
@@ -297,7 +298,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (BOOL)subActivitesViewController:(FTINSubActivitiesTableViewController *)viewController shouldMarkSubActivity:(FTINSubActivityDetails *)subActivity atIndex:(NSUInteger)index
 {
-	return subActivity == self.controller.currentSubActivity;
+	return subActivity == _controller.currentSubActivity;
 }
 
 #pragma mark - Alert View Delegate
@@ -308,7 +309,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	{
 		if(buttonIndex != alertView.cancelButtonIndex)
 		{
-			[self.controller jumpToSubActivity:_pendingSubActivity];
+			[_controller jumpToSubActivity:_pendingSubActivity];
 			[self goToSubActivity:_pendingSubActivity animated:YES];
 		}
 		
@@ -318,17 +319,17 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	{
 		if(buttonIndex == alertView.cancelButtonIndex)
 		{
-			[self.controller fail];
+			[_controller fail];
 		}
 		else
 		{
-			if(self.controller.hasNextSubActivity)
+			if(_controller.hasNextSubActivity)
 			{
 				[self goToNextSubActivity:YES];
 			}
 			else
 			{
-				[self.controller finish];
+				[_controller finish];
 			}
 		}
 	}
