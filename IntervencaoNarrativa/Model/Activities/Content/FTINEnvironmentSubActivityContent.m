@@ -24,7 +24,7 @@
 
 + (BOOL)propertyIsIgnored:(NSString *)propertyName
 {
-	return [@[NSStringFromSelector(@selector(allObjects))] containsObject:propertyName];
+	return [@[NSStringFromSelector(@selector(allObjects))] containsObject:propertyName] || [super propertyIsIgnored:propertyName];
 }
 
 - (BOOL)validateWithData:(SubActivity *)data error:(NSError *__autoreleasing *)error
@@ -56,6 +56,11 @@
 	while (NO);
 	
 	return NO;
+}
+
+- (NSString *)representativeImageName
+{
+	return self.background;
 }
 
 #pragma mark - Instance methods

@@ -26,6 +26,8 @@
 
 @property (nonatomic) BOOL failed;
 
+@property (nonatomic, readonly) NSString *representativeImagePath;
+
 - (CGFloat)calculateScore;
 @property (nonatomic, readonly) CGFloat score;
 @property (nonatomic, readonly) NSString *formattedScore;

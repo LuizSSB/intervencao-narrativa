@@ -20,6 +20,7 @@ static NSNumberFormatter *_scoreFormatter;
 
 - (void)setupWithContent:(FTINSubActivityContent *)content
 {
+	self.representativeImageName = content.representativeImageName;
 }
 
 - (NSInteger)difficulty
@@ -92,6 +93,13 @@ static NSNumberFormatter *_scoreFormatter;
 		self.completed = YES;
 		self.skipped = NO;
 	}
+}
+
+- (NSString *)representativeImagePath
+{
+	NSArray *imageNameParts = [self.representativeImageName componentsSeparatedByString:@"."];
+	id path =  [[NSBundle mainBundle] URLForResource:imageNameParts[0] withExtension:imageNameParts[1]].path;
+	return path;
 }
 
 - (CGFloat)calculateScore

@@ -44,9 +44,9 @@
 	
 	[activities enumerateObjectsUsingBlock:^(EnvironmentSubActivity *obj, NSUInteger idx, BOOL *stop) {
 		[activitiesContexts addObject:@{
-										@"id":@(idx + 1),
-										@"selectedElements":[obj.selectedElementsNames.allObjects componentsJoinedByString:@", "],
-										@"unselectedElements":[obj.unselectedElementsNames.allObjects componentsJoinedByString:@", "]
+										@"id":obj.representativeImagePath,
+										@"selectedElements":[obj.selectedElementsNames.allObjects componentsJoinedByString:FTINHTMLElementSeparator],
+										@"unselectedElements":[obj.unselectedElementsNames.allObjects componentsJoinedByString:FTINHTMLElementSeparator]
 										}];
 	}];
 }

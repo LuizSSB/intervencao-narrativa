@@ -19,5 +19,6 @@
 @dynamic failedNumber;
 @dynamic parentActivity;
 @dynamic difficultyNumber;
+@dynamic representativeImageName;
 
 @end

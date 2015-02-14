@@ -75,7 +75,7 @@
 		[activities enumerateObjectsUsingBlock:^(SubActivity *obj, NSUInteger idx, BOOL *stop) {
 			NSMutableDictionary *activityContext = [NSMutableDictionary dictionary];
 			[activitiesContexts addObject:activityContext];
-			activityContext[@"id"] = @(idx + 1);
+			activityContext[@"id"] = obj.representativeImagePath;
 			
 			if(prop.difficultyName.length)
 			{

@@ -83,7 +83,12 @@ body
 	
 }
 
-
-h2,h3 {
+h2, h3 {
 	color:#606061;
+}
+
+img.idImg
+{
+	width: 40px;
+	height: auto;
 }

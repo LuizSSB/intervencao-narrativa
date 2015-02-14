@@ -58,7 +58,7 @@
 		
 		[[self.activity subActivitiesOfType:type] enumerateObjectsUsingBlock:^(SubActivity *obj, NSUInteger idx, BOOL *stop) {
 			[subActivities addObject:@{
-									   @"id":@(idx + 1),
+									   @"id":obj.representativeImagePath,
 									   @"score":obj.formattedScore,
 									   @"state":obj.skipped ? FTINHTMLClassSkipped : [NSString string]
 									   }

@@ -21,5 +21,6 @@
 @property (nonatomic, retain) NSNumber * failedNumber;
 @property (nonatomic, retain) NSNumber * difficultyNumber;
 @property (nonatomic, retain) Activity *parentActivity;
+@property (nonatomic, retain) NSString * representativeImageName;
 
 @end

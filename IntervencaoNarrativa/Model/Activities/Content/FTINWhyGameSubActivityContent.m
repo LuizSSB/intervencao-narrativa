@@ -10,4 +10,9 @@
 
 @implementation FTINWhyGameSubActivityContent
 
+- (NSString *)representativeImageName
+{
+	return @"cardback.png";
+}
+
 @end

@@ -23,6 +23,7 @@ CGFloat const FTINBarButtonItemSpacing = 20.f;
 NSString * const FTINHTMLClassSelected = @"selected";
 NSString * const FTINHTMLClassSkipped = @"skipped";
 NSString * const FTINHTMLClassFailed = @"failed";
+NSString * const FTINHTMLElementSeparator = @", "; // <br /> is escaped before put in use
 
 CGFloat const FTINActivityScoreMax = 10.f;
 CGFloat const FTINActivityScoreSkipped = MAXFLOAT;

@@ -33,6 +33,7 @@ extern CGFloat const FTINBarButtonItemSpacing;
 extern NSString * const FTINHTMLClassSelected;
 extern NSString * const FTINHTMLClassSkipped;
 extern NSString * const FTINHTMLClassFailed;
+extern NSString * const FTINHTMLElementSeparator;
 
 extern CGFloat const FTINActivityScoreMax;
 extern CGFloat const FTINActivityScoreSkipped;
