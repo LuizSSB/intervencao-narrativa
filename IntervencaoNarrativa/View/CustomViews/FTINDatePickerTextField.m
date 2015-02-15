@@ -40,13 +40,13 @@ static void *FTINDatePickedContext = &FTINDatePickedContext;
 
 - (BOOL)resignFirstResponder
 {
-	if(!self.isFirstResponder)
+	if([super resignFirstResponder])
 	{
-		return NO;
+		[self.datePickerController dismissPopoverAnimated:YES];
+		return YES;
 	}
 	
-	[self.datePickerController dismissPopoverAnimated:YES];
-	return YES;
+	return NO;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
