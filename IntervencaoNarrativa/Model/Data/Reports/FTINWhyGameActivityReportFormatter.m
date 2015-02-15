@@ -47,7 +47,7 @@
 		
 		for (NSNumber *option in FTINAnswerSkillGetValues())
 		{
-			NSString *value = [NSString string];
+			NSString *value;
 			
 			if(question.answered)
 			{

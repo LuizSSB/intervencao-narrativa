@@ -31,12 +31,12 @@ CGFloat const FTINActivityScoreTrialPenalty = 3.f;
 
 NSString * FTINActivityTypeTitle(FTINActivityType type)
 {
-	return [@"activity_" stringByAppendingFormat:@"%u", type].localizedString;
+	return [@"activity_" stringByAppendingFormat:@"%ld", (long) type].localizedString;
 }
 
 NSString * FTINActivityTypeInstruction(FTINActivityType type)
 {
-	return [@"activity_description_" stringByAppendingFormat:@"%u", type].localizedString;
+	return [@"activity_description_" stringByAppendingFormat:@"%ld", (long) type].localizedString;
 }
 
 NSArray * FTINActivityTypeGetValues()

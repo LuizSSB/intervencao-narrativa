@@ -161,7 +161,7 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 
 + (NSString *)keyForViewedActivityOfType:(FTINActivityType)type
 {
-	return [kFTINViewedActivityBaseName stringByAppendingFormat:@"%u", type];
+	return [kFTINViewedActivityBaseName stringByAppendingFormat:@"%ld", (long) type];
 }
 
 #pragma mark - Data control
