@@ -128,9 +128,20 @@
 	return [_activitiesByCategory[@(section)] count];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return FTINActivityTypeTitle((FTINActivityType) section);
+	return [UIFont boldSystemFontOfSize:18].lineHeight * 1.5;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	UIFont *headerFont = [UIFont boldSystemFontOfSize:18.0];
+	UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, headerFont.lineHeight * 1.5)];
+	header.font = headerFont;
+	header.textColor = [UIColor whiteColor];
+	header.backgroundColor = [FTINStyler barsTintColor];
+	header.text = [@"   " stringByAppendingString:FTINActivityTypeTitle((FTINActivityType) section)];
+	return header;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,12 +151,14 @@
 	if(!cell)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:FTINDefaultCellIdentifier];
+		cell.textLabel.textColor = [FTINStyler textColor];
+		cell.accessoryView = [[UIImageView alloc] init];
 	}
 	
 	FTINSubActivityDetails *subActivity = _activitiesByCategory[@(indexPath.section)][indexPath.row];
 	cell.textLabel.text = [[self.indexFormatter stringFromNumber:@(indexPath.row + 1)] stringByAppendingFormat:@" - %@", subActivity.content.title];
 	
-	if(subActivity.data.completed)
+	if(subActivity.data.done)
 	{
 		cell.detailTextLabel.text = [@"grade" localizedStringWithParam:subActivity.data.formattedScore];
 	}
@@ -154,24 +167,36 @@
 		cell.detailTextLabel.text = [NSString string];
 	}
 	
-	cell.accessoryView = nil;
+	NSString *statusImageName;
 	
-	if(subActivity.data.skipped)
-	{
-		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"jump"]];
+	switch (subActivity.data.status) {
+		case FTINActivityStatusCompleted:
+			statusImageName = @"check";
+			break;
+			
+		case FTINActivityStatusCompletedButSkipped:
+			statusImageName = @"jumpcheck";
+			break;
+			
+		case FTINActivityStatusFailed:
+			statusImageName = @"error";
+			break;
+			
+		case FTINActivityStatusIncompletePreviouslySkipped:
+		case FTINActivityStatusIncomplete:
+			statusImageName = nil;
+			break;
+			
+		case FTINActivityStatusSkipped:
+			statusImageName = @"jump";
+			break;
+			
+		default:
+			NSAssert(NO, @"Falta tratar um status.");
+			break;
 	}
-	else if(subActivity.data.failed)
-	{
-		cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"error"]];
-	}
-	else if(subActivity.data.completed)
-	{
-		cell.accessoryType = UITableViewCellAccessoryCheckmark;
-	}
-	else
-	{
-		cell.accessoryType = UITableViewCellAccessoryNone;
-	}
+	[(UIImageView *)cell.accessoryView setImage:[UIImage imageNamed:statusImageName]];
+	[cell.accessoryView sizeToFit];
 	
 	NSString *imageName;
 	

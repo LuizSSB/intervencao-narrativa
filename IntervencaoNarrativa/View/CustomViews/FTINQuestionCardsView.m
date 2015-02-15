@@ -90,7 +90,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 {
 	if(!_pulledCardImageView)
 	{
-		_pulledCardImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cardback.jpg"]];
+		_pulledCardImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cardback"]];
 		_pulledCardImageView.frame = CGRectMake(0, 0, FTINQuestionCardsViewCellSize.width, FTINQuestionCardsViewCellSize.height);
 		_pulledCardImageView.hidden = YES;
 		_pulledCardImageView.layer.zPosition = MAXFLOAT;
@@ -132,7 +132,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FTINDefaultCellIdentifier forIndexPath:indexPath];
-	cell.backgroundImageView.image = [UIImage imageNamed:@"cardback.jpg"];
+	cell.backgroundImageView.image = [UIImage imageNamed:@"cardback"];
 	cell.tag = cell.hash;
 	
 	return cell;

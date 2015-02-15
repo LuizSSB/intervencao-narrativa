@@ -107,7 +107,7 @@
 	{
 		NSURL *activityUrl = [[NSBundle mainBundle] URLForResource:FTINDefaultActivityFileName withExtension:FTINDefaultActivityFileExtension];
 		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithActivity:activityUrl andPatient:[self.delegate patientViewControllerRequestsPatient:self] andDelegate:self];
-		[self presentViewController:activityViewController animated:YES completion:nil];
+		[activityViewController loadAndPresentFomViewController:self];
 	}
 }
 
@@ -191,7 +191,7 @@
 	if(!activity.finalized)
 	{
 		FTINActivityNavigationController *activityViewController = [[FTINActivityNavigationController alloc] initWithUnfinishedActivity:activity andDelegate:self];
-		[self presentViewController:activityViewController animated:YES completion:nil];
+		[activityViewController loadAndPresentFomViewController:self];
 	}
 	else
 	{

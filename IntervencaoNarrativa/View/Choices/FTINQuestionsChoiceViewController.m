@@ -42,7 +42,9 @@ typedef enum : NSUInteger {
 {
 	if(indexPath.section == FTINQuestionsChoiceTableSectionQuestions)
 	{
-		return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+		UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+		cell.backgroundColor = [FTINStyler cellBackgroundColor];
+		return cell;
 	}
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FTINQuestionsChoiceCellIdConfirmation];
@@ -52,6 +54,7 @@ typedef enum : NSUInteger {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FTINQuestionsChoiceCellIdConfirmation];
 		cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
 		cell.textLabel.text = @"use_questions".localizedString;
+		cell.textLabel.textColor = [FTINStyler textColor];
 	}
 	
 	return cell;

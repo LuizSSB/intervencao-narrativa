@@ -13,6 +13,8 @@
 
 - (void)setupWithContent:(FTINSubActivityContent *)content
 {
+	[super setupWithContent:content];
+	
 	NSAssert([content isKindOfClass:[FTINArrangementSubActivityContent class]], @"Content deve ser de atividade de ordenação!");
 	
 	self.difficulty = [(FTINArrangementSubActivityContent *)content elements].count;

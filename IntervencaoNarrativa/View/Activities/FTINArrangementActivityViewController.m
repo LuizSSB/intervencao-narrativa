@@ -52,7 +52,7 @@
 	
 	_subActivityData = (ArrangementSubActivity *)self.subActivity.data;
 
-	if(_subActivityData.completed)
+	if(_subActivityData.done)
 	{
 		[self.itemsArrangementView setItems:_subActivityData.itemsArrangement shuffling:NO];
 		self.arrangementViewController.selectedSkill = _subActivityData.arrangementSkill;

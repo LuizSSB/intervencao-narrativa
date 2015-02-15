@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "FTINPatientTableViewSource.h"
 
-@interface FTINPatientsTableViewController : UITableViewController <FTINPatientTableViewSourceDelegate, UISearchDisplayDelegate>
+@interface FTINPatientsTableViewController : FTINBaseTableViewController <FTINPatientTableViewSourceDelegate, UISearchDisplayDelegate>
 
 @end

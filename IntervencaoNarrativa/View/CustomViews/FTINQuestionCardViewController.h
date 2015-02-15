@@ -18,7 +18,7 @@
 
 @end
 
-@interface FTINQuestionCardViewController : UIViewController
+@interface FTINQuestionCardViewController : FTINBaseViewController
 
 @property (nonatomic, weak) id<FTINQuestionCardViewControllerDelegate> delegate;
 @property (nonatomic) BOOL showsAnswerVisiblityControl;

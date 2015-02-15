@@ -151,11 +151,11 @@
 	
 	if([subActivity valid:&error])
 	{
-		subActivity.data.completed = YES;
+		subActivity.data.status = FTINActivityStatusCompleted;
 	}
 	else
 	{
-		subActivity.data.completed = NO;
+		subActivity.data.status = FTINActivityStatusIncomplete;
 		
 		if([error.domain isEqualToString:FTINErrorDomainSubActivity])
 		{
@@ -163,7 +163,6 @@
 		}
 	}
 	
-	subActivity.data.skipped = NO;
 	[self.delegate activityController:self completedSubActivity:subActivity error:error];
 }
 
@@ -175,9 +174,9 @@
 	{
 		error = [NSError ftin_createErrorWithCode:FTINErrorCodeNonSkippableSubActivity];
 	}
-	else if(!subActivity.data.completed)
+	else if(!subActivity.data.done)
 	{
-		subActivity.data.skipped = YES;
+		subActivity.data.status = FTINActivityStatusSkipped;
 	}
 	
 	[self.delegate activityController:self skippedSubActivity:subActivity error:error];
@@ -185,7 +184,7 @@
 
 - (void)failSubActivity:(FTINSubActivityDetails *)subActivity
 {
-	subActivity.data.failed = YES;
+	subActivity.data.status = FTINActivityStatusFailed;
 	[self.delegate activityController:self failedSubActivity:subActivity error:nil];
 }
 
@@ -193,7 +192,7 @@
 {
 	for (SubActivity *sub in activity.data.subActivities)
 	{
-		if(!sub.completed)
+		if(!sub.done)
 		{
 			[self.delegate activityController:self finalizedActivity:activity error:[NSError ftin_createErrorWithCode:FTINErrorCodeNotAllSubActivitiesCompleted]];
 			return;

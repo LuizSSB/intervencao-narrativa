@@ -18,7 +18,7 @@
 
 @end
 
-@interface FTINSubActivitiesTableViewController : UITableViewController
+@interface FTINSubActivitiesTableViewController : FTINBaseTableViewController
 
 @property (nonatomic) FTINActivityDetails *activity;
 @property (nonatomic, weak) id<FTINSubActivitiesTableViewControllerDelegate> delegate;

@@ -81,6 +81,7 @@
 	if(!cell)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+		cell.textLabel.textColor = cell.detailTextLabel.textColor = [FTINStyler textColor];
 	}
 	
 	Patient *patient = _patients[indexPath.row];

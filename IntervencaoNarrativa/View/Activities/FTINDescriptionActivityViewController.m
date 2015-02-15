@@ -68,7 +68,7 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 	
 	self.mainImageView.image = [UIImage imageNamed:self.content.image];
 	
-	if(_subActivityData.completed)
+	if(_subActivityData.done)
 	{
 		for (NSNumber *element in _subActivityData.describedElements)
 		{
@@ -81,7 +81,7 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 
 - (NSArray *)getNavigationItemRightBarButtons
 {
-	if (_subActivityData.completed)
+	if (_subActivityData.done)
 	{
 		return @[];
 	}

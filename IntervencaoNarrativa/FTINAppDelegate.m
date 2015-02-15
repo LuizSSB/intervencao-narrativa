@@ -17,6 +17,7 @@
 {
 	[FTINMainSplitViewControllerDelegate setup];
 	[FTINPatientTransitionsObserver setup];
+	[FTINStyler setup];
 
     return YES;
 }

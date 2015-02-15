@@ -48,9 +48,12 @@
 		[propsContexts addObject:propContext];
 		propContext[@"enumTitle"] = prop.title;
 		
+		NSInteger numberOfColumns = 1;
+		
 		if(prop.difficultyName.length)
 		{
 			propContext[@"difficultyName"] = prop.difficultyName;
+			++numberOfColumns;
 		}
 		
 		// Adiciona referências as opções do enum
@@ -60,7 +63,10 @@
 		for (NSNumber *option in prop.enumOptions)
 		{
 			[enumValues addObject:@{@"enumValue":[prop localizeOption:option]}];
+			++numberOfColumns;
 		}
+		
+		propContext[@"columnWidth"] = @(((NSInteger)[UIScreen mainScreen].bounds.size.width - 50) / numberOfColumns);
 		
 		// Adiciona referências as atividades
 		NSMutableArray *activitiesContexts = [NSMutableArray array];
@@ -69,7 +75,7 @@
 		[activities enumerateObjectsUsingBlock:^(SubActivity *obj, NSUInteger idx, BOOL *stop) {
 			NSMutableDictionary *activityContext = [NSMutableDictionary dictionary];
 			[activitiesContexts addObject:activityContext];
-			activityContext[@"id"] = @(idx + 1);
+			activityContext[@"id"] = obj.representativeImagePath;
 			
 			if(prop.difficultyName.length)
 			{
@@ -88,7 +94,7 @@
 				{
 					value = FTINHTMLClassSelected;
 				}
-				else if(obj.skipped)
+				else if(obj.everBeenSkipped)
 				{
 					value = FTINHTMLClassSkipped;
 				}

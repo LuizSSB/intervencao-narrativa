@@ -13,7 +13,7 @@
 
 @class Activity;
 
-@interface FTINActivityResultViewController : UIViewController
+@interface FTINActivityResultViewController : FTINBaseViewController
 
 + (UIViewController *)viewControllerWithActivity:(Activity *)activity;
 

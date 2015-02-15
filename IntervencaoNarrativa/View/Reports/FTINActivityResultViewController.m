@@ -114,6 +114,7 @@ typedef enum : NSUInteger {
 	if(!cell)
 	{
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:FTINDefaultCellIdentifier];
+		cell.textLabel.textColor = [FTINStyler textColor];
 	}
 	
 	cell.textLabel.text = [NSStringFromClass(self.class) stringByAppendingFormat:@"_%ld_%ld", (long)indexPath.section, (long)indexPath.row].localizedString;

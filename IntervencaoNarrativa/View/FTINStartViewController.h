@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "FTINSubjectToPatientTransitionNotifications.h"
 
-@interface FTINStartViewController : UIViewController <UISplitViewControllerDelegate, FTINSubjectToPatientTransitionNotifications>
+@interface FTINStartViewController : FTINBaseViewController <UISplitViewControllerDelegate, FTINSubjectToPatientTransitionNotifications>
 
 @end
