@@ -56,7 +56,7 @@
 	self.draggableElementBox.toolboxElements = _content.allElements;
 	self.draggableElementBox.backgroundImageView.image = [UIImage imageNamed:_content.background];
 
-	if (_subActivityData.completed)
+	if (_subActivityData.done)
 	{
 		self.draggableElementBox.chosenElements = _subActivityData.selectedElements;
 		self.draggableElementBox.userInteractionEnabled = NO;
@@ -85,7 +85,7 @@
 
 - (NSArray *)getNavigationItemRightBarButtons
 {
-	return _subActivityData.completed ? nil : @[self.resetBarButton];
+	return _subActivityData.done ? nil : @[self.resetBarButton];
 }
 
 - (NSArray *)getActionBarButtons

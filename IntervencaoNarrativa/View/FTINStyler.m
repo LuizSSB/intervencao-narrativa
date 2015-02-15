@@ -18,6 +18,8 @@
 	[[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UINavigationBar appearance].tintColor}];
 	[UILabel appearance].textColor = [UITextView appearance].textColor = [FTINStyler textColor];
 	[UIButton appearance].tintColor = [UISegmentedControl appearance].tintColor = [FTINStyler buttonColor];
+	
+	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 }
 
 + (UIColor *)backgroundColor

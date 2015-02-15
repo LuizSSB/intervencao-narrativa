@@ -26,12 +26,12 @@
 
 @interface FTINActivityNavigationController : UINavigationController <FTINActivityFlowControllerDelegate, FTINActivityViewControllerDelegate>
 
-@property (nonatomic, readonly) NSURL *activityFile;
-@property (nonatomic, readonly) Patient *patient;
 @property (nonatomic, weak) id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate> delegate;
 
 - (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate;
 
 - (instancetype)initWithUnfinishedActivity:(Activity *)activity andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate;
+
+- (void)loadAndPresentFomViewController:(UIViewController *)parentViewController;
 
 @end

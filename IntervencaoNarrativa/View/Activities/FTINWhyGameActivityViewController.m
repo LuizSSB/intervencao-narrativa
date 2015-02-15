@@ -16,6 +16,8 @@
 
 #import "WhyGameSubActivity+Complete.h"
 
+NSInteger const FTINAlertTagActivityReset = 123;
+
 @interface FTINWhyGameActivityViewController () <FTINQuestionsChoiceViewControllerDelegate, FTINQuestionCardsViewDelegate, FTINQuestionCardViewControllerDelegate, UIAlertViewDelegate>
 {
 	WhyGameSubActivity *_subActivityData;
@@ -74,7 +76,9 @@
 
 - (void)reset:(id)sender
 {
-	[[UIAlertView alertWithConfirmation:@"confirm_reset".localizedString delegate:self] show];
+	UIAlertView *alert = [UIAlertView alertWithConfirmation:@"confirm_reset".localizedString delegate:self];
+	alert.tag = FTINAlertTagActivityReset;
+	[alert show];
 }
 
 - (void)showCardsOfFate:(BOOL)animated
@@ -138,7 +142,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	if(buttonIndex != alertView.cancelButtonIndex)
+	if(buttonIndex != alertView.cancelButtonIndex && alertView.tag == FTINAlertTagActivityReset)
 	{
 		[_questions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
 			[obj setChosen:NO];
@@ -149,6 +153,8 @@
 			self.questionsChoiceViewController.view.layer.opacity = 1.f;
 		} completion:nil];
 	}
+	
+	[super alertView:alertView clickedButtonAtIndex:buttonIndex];
 }
 
 @end

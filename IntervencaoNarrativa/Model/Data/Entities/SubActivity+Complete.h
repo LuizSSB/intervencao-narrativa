@@ -18,13 +18,17 @@
 
 @property (nonatomic) NSInteger difficulty;
 
-@property (nonatomic) BOOL skipped;
+@property (nonatomic) FTINActivityStatus status;
 
-@property (nonatomic) BOOL completed;
+@property (nonatomic, readonly) BOOL done;
+
+@property (nonatomic, readonly) BOOL everBeenSkipped;
+
+@property (nonatomic, readonly) BOOL failed;
 
 @property (nonatomic) NSInteger tries;
 
-@property (nonatomic) BOOL failed;
+@property (nonatomic, readonly) NSString *representativeImagePath;
 
 - (CGFloat)calculateScore;
 @property (nonatomic, readonly) CGFloat score;

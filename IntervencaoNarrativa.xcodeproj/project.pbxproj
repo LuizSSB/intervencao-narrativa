@@ -316,12 +316,17 @@
 		60207AA31A799C7500B63FEE /* FTINBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA21A799C7500B63FEE /* FTINBaseTableViewController.m */; };
 		60207AA61A799F4000B63FEE /* UIColor+FromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA51A799F4000B63FEE /* UIColor+FromHex.m */; };
 		60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60207AA71A79A5BF00B63FEE /* cardback@2x.png */; };
+		603D3B3A1A90C3320050859F /* jumpcheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B391A90C3320050859F /* jumpcheck@2x.png */; };
+		603D3B3C1A90CF280050859F /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B3B1A90CF280050859F /* check@2x.png */; };
 		608F731619F5D12C00CCC465 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */; };
 		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
 		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
 		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
 		60C49FFD1A81419400D8013E /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C49FFC1A81419400D8013E /* cardback.png */; };
 		60F43A881A3284DB0002911D /* NSNumber+Formats.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F43A871A3284DB0002911D /* NSNumber+Formats.m */; };
+		60F44ED21A8F5DBE00232554 /* launchImageBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F44ED11A8F5DBE00232554 /* launchImageBg@2x.png */; };
+		60F44ED91A8F5E1B00232554 /* FTINActivityInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F44ED71A8F5E1B00232554 /* FTINActivityInstructionViewController.m */; };
+		60F44EDA1A8F5E1B00232554 /* FTINActivityInstructionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60F44ED81A8F5E1B00232554 /* FTINActivityInstructionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -753,6 +758,8 @@
 		60207AA41A799F4000B63FEE /* UIColor+FromHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FromHex.h"; sourceTree = "<group>"; };
 		60207AA51A799F4000B63FEE /* UIColor+FromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FromHex.m"; sourceTree = "<group>"; };
 		60207AA71A79A5BF00B63FEE /* cardback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardback@2x.png"; sourceTree = "<group>"; };
+		603D3B391A90C3320050859F /* jumpcheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jumpcheck@2x.png"; sourceTree = "<group>"; };
+		603D3B3B1A90CF280050859F /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		608F731419F5D12C00CCC465 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
 		608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
 		60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityTypeReportViewController.h; sourceTree = "<group>"; };
@@ -763,6 +770,10 @@
 		60C49FFC1A81419400D8013E /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
 		60F43A861A3284DB0002911D /* NSNumber+Formats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Formats.h"; sourceTree = "<group>"; };
 		60F43A871A3284DB0002911D /* NSNumber+Formats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Formats.m"; sourceTree = "<group>"; };
+		60F44ED11A8F5DBE00232554 /* launchImageBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchImageBg@2x.png"; sourceTree = "<group>"; };
+		60F44ED61A8F5E1B00232554 /* FTINActivityInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityInstructionViewController.h; sourceTree = "<group>"; };
+		60F44ED71A8F5E1B00232554 /* FTINActivityInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityInstructionViewController.m; sourceTree = "<group>"; };
+		60F44ED81A8F5E1B00232554 /* FTINActivityInstructionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINActivityInstructionViewController.xib; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -913,6 +924,9 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				603D3B3B1A90CF280050859F /* check@2x.png */,
+				603D3B391A90C3320050859F /* jumpcheck@2x.png */,
+				60F44ED11A8F5DBE00232554 /* launchImageBg@2x.png */,
 				60C49FFC1A81419400D8013E /* cardback.png */,
 				60207AA71A79A5BF00B63FEE /* cardback@2x.png */,
 				60207A991A79994000B63FEE /* bg.png */,
@@ -1024,6 +1038,9 @@
 				25603355194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib */,
 				25463AE81964CA4E00135B1E /* FTINSubActivitiesTableViewController.h */,
 				25463AE91964CA4E00135B1E /* FTINSubActivitiesTableViewController.m */,
+				60F44ED61A8F5E1B00232554 /* FTINActivityInstructionViewController.h */,
+				60F44ED71A8F5E1B00232554 /* FTINActivityInstructionViewController.m */,
+				60F44ED81A8F5E1B00232554 /* FTINActivityInstructionViewController.xib */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -1636,11 +1653,13 @@
 				259424A719EB5A430052642C /* d_2_cup.jpg in Resources */,
 				25A37C84194CD43400DFC749 /* m_desk.jpg in Resources */,
 				25FF332C194A51EC0080DC6F /* a_6_fairy_5.jpg in Resources */,
+				603D3B3C1A90CF280050859F /* check@2x.png in Resources */,
 				25FF3317194A51EC0080DC6F /* a_3_car_0.jpg in Resources */,
 				25FF3329194A51EC0080DC6F /* a_6_fairy_2.jpg in Resources */,
 				25B2A5481968C12A00F93178 /* jump@2x.png in Resources */,
 				25FF3318194A51EC0080DC6F /* a_3_car_1.jpg in Resources */,
 				25FF3334194A52480080DC6F /* a_6_fairy.json in Resources */,
+				60F44ED21A8F5DBE00232554 /* launchImageBg@2x.png in Resources */,
 				2594250319EB626C0052642C /* a_7_santa_5.jpg in Resources */,
 				25FF3309194A51EC0080DC6F /* a_8_fish_4.jpg in Resources */,
 				25FF331E194A51EC0080DC6F /* a_2_lip_0.jpg in Resources */,
@@ -1667,7 +1686,9 @@
 				259424F419EB626C0052642C /* a_8_game_2.jpg in Resources */,
 				2594250019EB626C0052642C /* a_6_bread_4.jpg in Resources */,
 				25A37C87194CD43400DFC749 /* m_wardrobe.jpg in Resources */,
+				603D3B3A1A90C3320050859F /* jumpcheck@2x.png in Resources */,
 				25A37C7A194CC19800DFC749 /* FTINDraggableItemBoxView.xib in Resources */,
+				60F44EDA1A8F5E1B00232554 /* FTINActivityInstructionViewController.xib in Resources */,
 				251F9C981943F2A600A65131 /* d_6_hamb.jpg in Resources */,
 				256B6BFA1976028700CB1CCD /* error@2x.png in Resources */,
 				2594250719EB626C0052642C /* a_6_bread_2.jpg in Resources */,
@@ -1924,6 +1945,7 @@
 				2537BB66193B730500D10878 /* NSObject+Properties.m in Sources */,
 				253823A31955D1320016991A /* FTINReportFormatter.m in Sources */,
 				253823C419563D270016991A /* FTINCompleteReportMailViewController.m in Sources */,
+				60F44ED91A8F5E1B00232554 /* FTINActivityInstructionViewController.m in Sources */,
 				256BF1BE1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m in Sources */,
 				25CDAEB7194389D7003E1314 /* FTINActivityDetails.m in Sources */,
 				256357BF19413A6200E5762A /* Patient+Complete.m in Sources */,

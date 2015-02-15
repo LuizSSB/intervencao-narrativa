@@ -33,6 +33,7 @@ extern CGFloat const FTINBarButtonItemSpacing;
 extern NSString * const FTINHTMLClassSelected;
 extern NSString * const FTINHTMLClassSkipped;
 extern NSString * const FTINHTMLClassFailed;
+extern NSString * const FTINHTMLElementSeparator;
 
 extern CGFloat const FTINActivityScoreMax;
 extern CGFloat const FTINActivityScoreSkipped;
@@ -45,6 +46,15 @@ typedef void (^FTINOperationHandler)(id result, NSError *error);
 
 // -----------------------------------------------------------------------------
 // Enums
+
+typedef enum : NSUInteger {
+	FTINActivityStatusIncomplete,
+	FTINActivityStatusIncompletePreviouslySkipped,
+	FTINActivityStatusCompleted,
+	FTINActivityStatusCompletedButSkipped,
+	FTINActivityStatusSkipped,
+	FTINActivityStatusFailed
+} FTINActivityStatus;
 
 typedef enum : NSUInteger {
     FTINSexMachoMan,
@@ -92,6 +102,7 @@ typedef enum : NSUInteger {
 // -----------------------------------------------------------------------------
 // Utilitary functions
 NSString * FTINActivityTypeTitle(FTINActivityType type);
+NSString * FTINActivityTypeInstruction(FTINActivityType type);
 NSArray * FTINActivityTypeGetValues();
 
 CGFloat FTINDescriptiveSkillGetScoreMultiplier(FTINDescriptiveSkill skill);

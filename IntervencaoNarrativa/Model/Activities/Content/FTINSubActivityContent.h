@@ -13,6 +13,7 @@
 @interface FTINSubActivityContent : JSONModel
 
 @property (nonatomic) NSString *title;
+@property (nonatomic) NSString *representativeImageName;
 
 - (BOOL)validateWithData:(SubActivity *)data error:(NSError **)error;
 

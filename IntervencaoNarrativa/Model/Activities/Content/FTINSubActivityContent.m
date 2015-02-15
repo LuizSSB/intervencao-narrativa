@@ -10,9 +10,24 @@
 
 @implementation FTINSubActivityContent
 
+#pragma mark - Super methods
+
++ (BOOL)propertyIsIgnored:(NSString *)propertyName
+{
+	return [propertyName isEqualToString:NSStringFromSelector(@selector(representativeImageName))];
+}
+
+#pragma mark - Instance methods
+
 - (BOOL)validateWithData:(SubActivity *)data error:(NSError *__autoreleasing *)error
 {
 	return YES;
+}
+
+- (NSString *)representativeImageName
+{
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
 }
 
 @end

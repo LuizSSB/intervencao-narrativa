@@ -10,4 +10,9 @@
 
 @implementation FTINDescriptionSubActivityContent
 
+- (NSString *)representativeImageName
+{
+	return self.image;
+}
+
 @end

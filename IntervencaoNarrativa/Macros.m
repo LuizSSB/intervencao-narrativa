@@ -23,6 +23,7 @@ CGFloat const FTINBarButtonItemSpacing = 20.f;
 NSString * const FTINHTMLClassSelected = @"selected";
 NSString * const FTINHTMLClassSkipped = @"skipped";
 NSString * const FTINHTMLClassFailed = @"failed";
+NSString * const FTINHTMLElementSeparator = @", "; // <br /> is escaped before put in use
 
 CGFloat const FTINActivityScoreMax = 10.f;
 CGFloat const FTINActivityScoreSkipped = MAXFLOAT;
@@ -30,28 +31,12 @@ CGFloat const FTINActivityScoreTrialPenalty = 3.f;
 
 NSString * FTINActivityTypeTitle(FTINActivityType type)
 {
-	NSString *key = nil;
-	
-	switch (type)
-	{
-		case FTINActivityTypeWhyGame:
-			key = @"activity_whygame";
-			break;
-			
-		case FTINActivityTypeArrangement:
-			key = @"activity_arrangement";
-			break;
-			
-		case FTINActivityTypeDescription:
-			key = @"activity_description";
-			break;
-			
-		case FTINActivityTypeEnvironment:
-			key = @"activity_environment";
-			break;
-	}
-	
-	return key.localizedString;
+	return [@"activity_" stringByAppendingFormat:@"%u", type].localizedString;
+}
+
+NSString * FTINActivityTypeInstruction(FTINActivityType type)
+{
+	return [@"activity_description_" stringByAppendingFormat:@"%u", type].localizedString;
 }
 
 NSArray * FTINActivityTypeGetValues()

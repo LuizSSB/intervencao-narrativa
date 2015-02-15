@@ -42,7 +42,7 @@ extern CGSize const FTINChoicePopoverMaximumSize;
 - (BOOL)isIndexChosen:(NSInteger)index;
 - (BOOL)hasSelectedChoice;
 
-- (void)presentAsPopoverFromBarButtonItem:(UIBarButtonItem *)button animated:(BOOL)animated;
+- (UIPopoverController *)presentAsPopoverFromBarButtonItem:(UIBarButtonItem *)button animated:(BOOL)animated;
 - (void)dismissPopoverAnimated:(BOOL)animated;
 
 @end

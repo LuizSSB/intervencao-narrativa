@@ -34,6 +34,7 @@
 @interface FTINActivityFlowController : NSObject <FTINActivityControllerDelegate>
 
 - (id)initWithActivityInFile:(NSURL *)activityUrl andPatient:(Patient *)patient andDelegate:(id<FTINActivityFlowControllerDelegate>)delegate;
+- (id)initWithActivit:(Activity *)activity andDelegate:(id<FTINActivityFlowControllerDelegate>)delegate;
 
 @property (nonatomic, readonly) NSURL *activityUrl;
 @property (nonatomic, readonly) FTINActivityDetails *activity;
@@ -47,8 +48,10 @@
 - (FTINSubActivityDetails *)jumpToSubActivityAtIndex:(NSUInteger)activityIndex;
 - (void)jumpToSubActivity:(FTINSubActivityDetails *)subActivity;
 
+- (BOOL)viewedInstructionsForActivityType:(FTINActivityType)type;
+- (void)setViewedInstructions:(BOOL)viewed forActivityType:(FTINActivityType)type;
+
 - (void)start;
-- (void)startWithUnfinishedActivity:(Activity *)activity;
 - (void)completeSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity;
 - (void)finish;

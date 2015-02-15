@@ -51,7 +51,7 @@
 	return [@[
 			  NSStringFromSelector(@selector(chosen)),
 			  NSStringFromSelector(@selector(answerSkill))
-			  ] containsObject:propertyName];
+			  ] containsObject:propertyName] || [super propertyIsIgnored:propertyName];
 }
 
 #pragma mark - Instance methods

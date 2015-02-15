@@ -50,4 +50,9 @@
 	return NO;
 }
 
+- (NSString *)representativeImageName
+{
+	return self.elements[0];
+}
+
 @end
