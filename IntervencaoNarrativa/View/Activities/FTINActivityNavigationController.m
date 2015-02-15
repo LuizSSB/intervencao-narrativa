@@ -280,7 +280,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	
 	if(_controller.currentSubActivity != subActivity)
 	{
-		if(subActivity.data.skipped)
+		if(subActivity.data.status == FTINActivityStatusSkipped)
 		{
 			_pendingSubActivity = subActivity;
 			

@@ -316,6 +316,8 @@
 		60207AA31A799C7500B63FEE /* FTINBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA21A799C7500B63FEE /* FTINBaseTableViewController.m */; };
 		60207AA61A799F4000B63FEE /* UIColor+FromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA51A799F4000B63FEE /* UIColor+FromHex.m */; };
 		60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60207AA71A79A5BF00B63FEE /* cardback@2x.png */; };
+		603D3B3A1A90C3320050859F /* jumpcheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B391A90C3320050859F /* jumpcheck@2x.png */; };
+		603D3B3C1A90CF280050859F /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B3B1A90CF280050859F /* check@2x.png */; };
 		608F731619F5D12C00CCC465 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */; };
 		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
 		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
@@ -756,6 +758,8 @@
 		60207AA41A799F4000B63FEE /* UIColor+FromHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FromHex.h"; sourceTree = "<group>"; };
 		60207AA51A799F4000B63FEE /* UIColor+FromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FromHex.m"; sourceTree = "<group>"; };
 		60207AA71A79A5BF00B63FEE /* cardback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardback@2x.png"; sourceTree = "<group>"; };
+		603D3B391A90C3320050859F /* jumpcheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jumpcheck@2x.png"; sourceTree = "<group>"; };
+		603D3B3B1A90CF280050859F /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		608F731419F5D12C00CCC465 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
 		608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
 		60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityTypeReportViewController.h; sourceTree = "<group>"; };
@@ -920,6 +924,8 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				603D3B3B1A90CF280050859F /* check@2x.png */,
+				603D3B391A90C3320050859F /* jumpcheck@2x.png */,
 				60F44ED11A8F5DBE00232554 /* launchImageBg@2x.png */,
 				60C49FFC1A81419400D8013E /* cardback.png */,
 				60207AA71A79A5BF00B63FEE /* cardback@2x.png */,
@@ -1647,6 +1653,7 @@
 				259424A719EB5A430052642C /* d_2_cup.jpg in Resources */,
 				25A37C84194CD43400DFC749 /* m_desk.jpg in Resources */,
 				25FF332C194A51EC0080DC6F /* a_6_fairy_5.jpg in Resources */,
+				603D3B3C1A90CF280050859F /* check@2x.png in Resources */,
 				25FF3317194A51EC0080DC6F /* a_3_car_0.jpg in Resources */,
 				25FF3329194A51EC0080DC6F /* a_6_fairy_2.jpg in Resources */,
 				25B2A5481968C12A00F93178 /* jump@2x.png in Resources */,
@@ -1679,6 +1686,7 @@
 				259424F419EB626C0052642C /* a_8_game_2.jpg in Resources */,
 				2594250019EB626C0052642C /* a_6_bread_4.jpg in Resources */,
 				25A37C87194CD43400DFC749 /* m_wardrobe.jpg in Resources */,
+				603D3B3A1A90C3320050859F /* jumpcheck@2x.png in Resources */,
 				25A37C7A194CC19800DFC749 /* FTINDraggableItemBoxView.xib in Resources */,
 				60F44EDA1A8F5E1B00232554 /* FTINActivityInstructionViewController.xib in Resources */,
 				251F9C981943F2A600A65131 /* d_6_hamb.jpg in Resources */,

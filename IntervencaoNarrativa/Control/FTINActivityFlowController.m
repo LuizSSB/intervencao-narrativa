@@ -99,7 +99,7 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 - (NSUInteger)incompleteActivities
 {
 	return [self.activity subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *subActivity) {
-		return !subActivity.data.completed;
+		return !subActivity.data.done;
 	}].count;
 }
 
@@ -117,7 +117,7 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 	
 	FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[_currentActivityIdx];
 	
-	if(nextSubActivity.data.completed)
+	if(nextSubActivity.data.done)
 	{
 		return [self nextSubActivity];
 	}
@@ -132,9 +132,9 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 	_currentActivityIdx = activityIndex;
 	FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[activityIndex];
 	
-	if(nextSubActivity.data.skipped)
+	if(nextSubActivity.data.status == FTINActivityStatusSkipped)
 	{
-		nextSubActivity.data.completed = NO;
+		nextSubActivity.data.status = FTINActivityStatusIncomplete;
 	}
 	
 	return nextSubActivity;
@@ -207,7 +207,7 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 - (void)_skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity
 {
 	_skippingSubActivities = [NSMutableArray arrayWithArray:[self.activity subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *aSubActivity) {
-		return aSubActivity.type == subActivity.type && aSubActivity.difficultyLevel == subActivity.difficultyLevel && !aSubActivity.data.completed;
+		return aSubActivity.type == subActivity.type && aSubActivity.difficultyLevel == subActivity.difficultyLevel && !aSubActivity.data.done;
 	}]];
 	
 	if(_skippingSubActivities.count)
@@ -293,7 +293,7 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 		
 		for (FTINSubActivityDetails *levelSubActivity in levelSubActivities)
 		{
-			if(levelSubActivity.data.completed)
+			if(levelSubActivity.data.done)
 			{
 				if(levelSubActivity.data.tries)
 				{

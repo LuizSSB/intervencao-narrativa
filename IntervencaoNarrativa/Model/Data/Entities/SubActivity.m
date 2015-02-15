@@ -12,11 +12,9 @@
 
 @implementation SubActivity
 
-@dynamic completedNumber;
-@dynamic skippedNumber;
+@dynamic statusNumber;
 @dynamic title;
 @dynamic triesNumber;
-@dynamic failedNumber;
 @dynamic parentActivity;
 @dynamic difficultyNumber;
 @dynamic representativeImageName;

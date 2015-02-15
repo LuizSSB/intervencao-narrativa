@@ -60,7 +60,7 @@
 			[subActivities addObject:@{
 									   @"id":obj.representativeImagePath,
 									   @"score":obj.formattedScore,
-									   @"state":obj.skipped ? FTINHTMLClassSkipped : [NSString string]
+									   @"state":obj.everBeenSkipped ? FTINHTMLClassSkipped : [NSString string]
 									   }
 			 ];
 		}];

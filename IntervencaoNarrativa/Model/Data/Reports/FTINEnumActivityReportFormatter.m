@@ -94,7 +94,7 @@
 				{
 					value = FTINHTMLClassSelected;
 				}
-				else if(obj.skipped)
+				else if(obj.everBeenSkipped)
 				{
 					value = FTINHTMLClassSkipped;
 				}

@@ -63,7 +63,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	[actionButtons addObject:self.nextBarButton];
 	self.actionToolbar.items = actionButtons;
 	
-	if(self.subActivity.data.completed)
+	if(self.subActivity.data.done)
 	{
 		UIView *completionOverlay = [[UIView alloc] initWithFrame:self.view.bounds];
 		completionOverlay.backgroundColor = [UIColor blackColor];
@@ -180,7 +180,6 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 }
 
 @synthesize nextBarButton = _nextBarButton;
-
 - (UIBarButtonItem *)nextBarButton
 {
 	if(!_nextBarButton)

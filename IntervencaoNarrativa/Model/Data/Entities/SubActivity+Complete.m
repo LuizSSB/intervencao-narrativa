@@ -33,40 +33,45 @@ static NSNumberFormatter *_scoreFormatter;
 	self.difficultyNumber = @(difficulty);
 }
 
-- (BOOL)skipped
+- (FTINActivityStatus)status
 {
-	return self.skippedNumber.boolValue;
+	return (FTINActivityStatus) self.statusNumber.integerValue;
 }
 
-- (void)setSkipped:(BOOL)skipped
+- (void)setStatus:(FTINActivityStatus)status
 {
-	self.skippedNumber = @(skipped);
+	FTINActivityStatus finalStatus;
 	
-	if(skipped)
+	if(status == FTINActivityStatusCompletedButSkipped || status == FTINActivityStatusCompleted)
 	{
-		self.completed = YES;
-		self.failed = NO;
+		finalStatus = self.status == FTINActivityStatusIncompletePreviouslySkipped || self.status == FTINActivityStatusSkipped ? FTINActivityStatusCompletedButSkipped : FTINActivityStatusCompleted;
 	}
+	else if(status == FTINActivityStatusIncomplete || status == FTINActivityStatusIncompletePreviouslySkipped)
+	{
+		finalStatus = self.status == FTINActivityStatusCompletedButSkipped || self.status == FTINActivityStatusSkipped ? FTINActivityStatusIncompletePreviouslySkipped : FTINActivityStatusIncomplete;
+	}
+	else
+	{
+		finalStatus = status;
+	}
+	
+	self.statusNumber = @(finalStatus);
 }
 
-- (BOOL)completed
+- (BOOL)done
 {
-	return self.completedNumber.boolValue;
+	return self.status == FTINActivityStatusCompleted || self.status == FTINActivityStatusCompletedButSkipped || self.status == FTINActivityStatusSkipped;
 }
 
-- (void)setCompleted:(BOOL)completed
+- (BOOL)everBeenSkipped
 {
-	self.completedNumber = @(completed);
-	
-	if(self.skipped && !completed)
-	{
-		self.skipped = NO;
-	}
-	
-	if(self.failed && !completed)
-	{
-		self.failed = NO;
-	}
+	FTINActivityStatus status = self.status;
+	return status == FTINActivityStatusSkipped || status == FTINActivityStatusIncompletePreviouslySkipped || status == FTINActivityStatusCompletedButSkipped;
+}
+
+- (BOOL)failed
+{
+	return self.status == FTINActivityStatusFailed;
 }
 
 - (NSInteger)tries
@@ -77,22 +82,6 @@ static NSNumberFormatter *_scoreFormatter;
 - (void)setTries:(NSInteger)tries
 {
 	self.triesNumber = @(tries);
-}
-
-- (BOOL)failed
-{
-	return self.failedNumber.boolValue;
-}
-
-- (void)setFailed:(BOOL)failed
-{
-	self.failedNumber = @(failed);
-	
-	if(failed)
-	{
-		self.completed = YES;
-		self.skipped = NO;
-	}
 }
 
 - (NSString *)representativeImagePath
@@ -110,15 +99,15 @@ static NSNumberFormatter *_scoreFormatter;
 
 - (CGFloat)score
 {
-	if(self.failed || !self.completed)
-	{
-		return 0.f;
-	}
-	
-	if(self.skipped)
+	if(self.status == FTINActivityStatusSkipped)
 	{
 		return FTINActivityScoreSkipped;
 	}
+	
+	if(self.failed || !self.done)
+	{
+		return 0.f;
+	}	
 	
 	return MIN(MAX([self calculateScore], 0), FTINActivityScoreMax);
 }

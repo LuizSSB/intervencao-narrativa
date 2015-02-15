@@ -48,6 +48,15 @@ typedef void (^FTINOperationHandler)(id result, NSError *error);
 // Enums
 
 typedef enum : NSUInteger {
+	FTINActivityStatusIncomplete,
+	FTINActivityStatusIncompletePreviouslySkipped,
+	FTINActivityStatusCompleted,
+	FTINActivityStatusCompletedButSkipped,
+	FTINActivityStatusSkipped,
+	FTINActivityStatusFailed
+} FTINActivityStatus;
+
+typedef enum : NSUInteger {
     FTINSexMachoMan,
     FTINSexFemmeFatale,
 } FTINSex;
