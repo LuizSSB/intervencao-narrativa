@@ -69,7 +69,17 @@
 {
 	[super setEditing:editing animated:animated];
 	
-	NSArray *rightButtons = editing ? @[self.editButtonItem] : @[self.editButtonItem, self.resetBarButton];	
+	NSMutableArray *rightButtons = [NSMutableArray arrayWithObject:self.editButtonItem];
+	
+	if(!editing)
+	{
+		if([self.delegate respondsToSelector:@selector(activityViewControllerAdditionalRightBarButtonItems:)])
+		{
+			[rightButtons addObjectsFromArray:[self.delegate activityViewControllerAdditionalRightBarButtonItems:self].reverseObjectEnumerator.allObjects];
+		}
+		
+		[rightButtons addObject:self.resetBarButton];
+	}
 	
 	[self.navigationItem setRightBarButtonItems:rightButtons animated:YES];
 }
