@@ -60,6 +60,8 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 #pragma mark - Instance methods
 
+@synthesize delegate = _delegate;
+
 - (instancetype)initWithActivity:(NSURL *)activityFile andPatient:(Patient *)patient andDelegate:(id<FTINActivityNavigationControllerDelegate, UINavigationControllerDelegate>)delegate
 {
     self = [super initWithRootViewController:[FTINActivityNavigationController createUselessRootViewController]];
