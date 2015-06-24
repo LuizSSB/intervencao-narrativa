@@ -54,6 +54,7 @@
 "grade" = "Nota: %@";
 "instructions" = "Instruções";
 "correct_marking" = "Corrigir marcação";
+"looped" = "Voltando para as atividades não concluídas.";
 
 /* Acitivity types info */
 "activity_0" = "Descrição e narração de cena";

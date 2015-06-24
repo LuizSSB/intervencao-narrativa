@@ -108,18 +108,22 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 	return self.incompleteActivities > 0;
 }
 
-- (FTINSubActivityDetails *)nextSubActivity
+- (FTINSubActivityDetails *)nextSubActivity:(BOOL *)looped
 {
 	if(++_currentActivityIdx >= self.activity.subActivities.count)
 	{
 		_currentActivityIdx = 0;
+		
+		if(looped) {
+			*looped = YES;
+		}
 	}
 	
 	FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[_currentActivityIdx];
 	
 	if(nextSubActivity.data.done)
 	{
-		return [self nextSubActivity];
+		return [self nextSubActivity:looped];
 	}
 	
 	return nextSubActivity;
@@ -222,7 +226,7 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (void)finishSkippingActivitiesLike:(FTINSubActivityDetails *)subActivity withError:(NSError *)error
 {
-	[self nextSubActivity];
+	[self nextSubActivity:NULL];
 	--_currentActivityIdx;
 	
 	[_skippingSubActivities removeAllObjects];

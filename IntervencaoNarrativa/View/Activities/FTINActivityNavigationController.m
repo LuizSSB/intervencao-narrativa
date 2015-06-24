@@ -109,7 +109,13 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)goToNextSubActivity:(BOOL)animated
 {
-	[self goToSubActivity:[_controller nextSubActivity] animated:animated];
+	BOOL looped = NO;
+	[self goToSubActivity:[_controller nextSubActivity:&looped] animated:animated];
+	
+	if(looped)
+	{
+		[self showLocalizedToastText:@"looped"];
+	}
 }
 
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated

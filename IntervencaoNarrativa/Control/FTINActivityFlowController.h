@@ -44,7 +44,7 @@
 @property (nonatomic, readonly) FTINSubActivityDetails *currentSubActivity;
 @property (nonatomic, readonly) NSUInteger incompleteActivities;
 @property (nonatomic, readonly) BOOL hasNextSubActivity;
-- (FTINSubActivityDetails *)nextSubActivity;
+- (FTINSubActivityDetails *)nextSubActivity:(BOOL *)looped;
 - (FTINSubActivityDetails *)jumpToSubActivityAtIndex:(NSUInteger)activityIndex;
 - (void)jumpToSubActivity:(FTINSubActivityDetails *)subActivity;
 
