@@ -9,7 +9,7 @@
 #import "FTINImageArrangementView.h"
 #import "FTINCollectionViewCell.h"
 
-CGSize const FTINImageArrangementViewCellSize = {200.f, 250.f};
+CGSize const FTINImageArrangementViewCellSize = {200.f, 200.f};
 CGFloat const FTINImageArrangementViewCellSpacing = 35.f;
 NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 
@@ -162,6 +162,7 @@ NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FTINCollectionViewCell cellIdentifier] forIndexPath:indexPath];
 	
 	cell.backgroundImageView.image = [UIImage imageNamed:self.items[indexPath.row]];
+	cell.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
 	
 	return cell;
 }

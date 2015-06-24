@@ -308,6 +308,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
     FTINEnvironmentElement *element = _unchosenElements[indexPath.row];
 	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FTINCollectionViewCell cellIdentifier] forIndexPath:indexPath];
 	cell.backgroundImageView.image = [UIImage imageNamed:element.imageName];
+	cell.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
 	cell.tag = indexPath.row;
 	
 	[_dragDropController registerDragSource:cell withDelegate:self];

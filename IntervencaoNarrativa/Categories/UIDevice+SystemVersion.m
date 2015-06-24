@@ -23,7 +23,7 @@
 
 - (BOOL)deviceIsPhone5
 {
-	return [self deviceIsPhone] && abs([UIScreen mainScreen].bounds.size.height - 568.f) < DBL_EPSILON;
+	return [self deviceIsPhone] && fabs([UIScreen mainScreen].bounds.size.height - 568.f) < DBL_EPSILON;
 }
 
 - (BOOL)deviceIsPad

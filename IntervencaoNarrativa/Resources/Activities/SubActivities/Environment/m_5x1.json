@@ -1,14 +1,14 @@
 {
 	"title":"Casa",
     "correctElements":[
-                       {"name":"Cama", "imageName":"m_bed.jpg"},
-                       {"name":"Abajour", "imageName":"m_lamp.jpg"},
-                       {"name":"Criado-mudo", "imageName":"m_endtable.jpg"},
-                       {"name":"Escrivaninha", "imageName":"m_desk.jpg"},
-                       {"name":"Armário", "imageName":"m_wardrobe.jpg"}
+                       {"name":"Cama", "imageName":"m_bed"},
+                       {"name":"Abajour", "imageName":"m_lamp"},
+                       {"name":"Criado-mudo", "imageName":"m_endtable"},
+                       {"name":"Escrivaninha", "imageName":"m_desk"},
+                       {"name":"Armário", "imageName":"m_wardrobe"}
 	],
     "incorrectElements":[
-                         {"name":"Bola", "imageName":"m_ball.jpg"}
+                         {"name":"Lousa", "imageName":"m_chalkboard"}
 	],
-	"background":"m_back.jpg"
+	"background":"m_back"
 }

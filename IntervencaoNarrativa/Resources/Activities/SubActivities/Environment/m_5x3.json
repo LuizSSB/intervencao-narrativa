@@ -1,16 +1,16 @@
 {
 	"title":"Casa 2 A Missão",
 	"correctElements":[
-                       {"name":"Cama", "imageName":"m_bed.jpg"},
-                       {"name":"Abajour", "imageName":"m_lamp.jpg"},
-                       {"name":"Carrinho brinquedo", "imageName":"m_toycar.jpg"},
-                       {"name":"Criado-mudo", "imageName":"m_endtable.jpg"},
-                       {"name":"Armário", "imageName":"m_wardrobe.jpg"}
+                       {"name":"Cama", "imageName":"m_bed"},
+                       {"name":"Abajour", "imageName":"m_lamp"},
+                       {"name":"Carrinho brinquedo", "imageName":"m_toycar"},
+                       {"name":"Criado-mudo", "imageName":"m_endtable"},
+                       {"name":"Armário", "imageName":"m_wardrobe"}
 					   ],
     "incorrectElements":[
-                         {"name":"Elefante", "imageName":"m_elephant.jpg"},
-                         {"name":"Panela", "imageName":"m_pan.jpg"},
-                         {"name":"Árvore", "imageName":"m_tree.jpg"},
+                         {"name":"Elefante", "imageName":"m_elephant"},
+                         {"name":"Panela", "imageName":"m_pan"},
+                         {"name":"Árvore", "imageName":"m_tree"},
 						 ],
-	"background":"m_back.jpg"
+	"background":"m_back"
 }
