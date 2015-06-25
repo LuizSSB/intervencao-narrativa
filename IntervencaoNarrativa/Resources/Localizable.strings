@@ -84,6 +84,7 @@
 "use_questions" = "Montar jogo";
 "must_select_questions" = "Selecione pelo menos uma questão para o jogo!";
 "confirm_reset" = "Deseja mesmo reiniciar o Jogo do Porquê?";
+"answered" = "Respondida";
 
 /* Descriptive Skill */
 "descriptionskill_0" = "Descreve totalmente sem ajuda";

@@ -10,7 +10,7 @@
 
 @interface FTINCollectionViewCell ()
 
-- (void)setup;
+- (void)setupBackgroundView;
 
 @end
 
@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        [self setup];
+        [self setupBackgroundView];
     }
     return self;
 }
@@ -36,7 +36,7 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        [self setup];
+        [self setupBackgroundView];
     }
     return self;
 }
@@ -45,12 +45,12 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setup];
+        [self setupBackgroundView];
     }
     return self;
 }
 
-- (void)setup
+- (void)setupBackgroundView
 {
 	self.backgroundView = self.backgroundImageView;
 }
