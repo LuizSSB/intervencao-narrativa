@@ -222,12 +222,21 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (void)finishSkippingActivitiesLike:(FTINSubActivityDetails *)subActivity withError:(NSError *)error
 {
-	[self nextSubActivity];
-	--_currentActivityIdx;
+	for (FTINSubActivityDetails *sub in self.activity.subActivities)
+	{
+		if(!sub.data.done)
+		{
+			[self nextSubActivity];
+			--_currentActivityIdx;
+			
+			[_skippingSubActivities removeAllObjects];
+			_skippingSubActivities = nil;
+			[self.delegate activityFlowController:self skippedSubActivitiesOfType:subActivity.type andDifficultyLevel:subActivity.difficultyLevel automatically:_autoSkipping error:error];
+			return;
+		}
+	}
 	
-	[_skippingSubActivities removeAllObjects];
-	_skippingSubActivities = nil;
-	[self.delegate activityFlowController:self skippedSubActivitiesOfType:subActivity.type andDifficultyLevel:subActivity.difficultyLevel automatically:_autoSkipping error:error];
+	[self finish];
 }
 
 - (void)finish
