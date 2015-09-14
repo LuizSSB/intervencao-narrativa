@@ -329,6 +329,7 @@
 		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
 		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
 		60C49FFD1A81419400D8013E /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = 60C49FFC1A81419400D8013E /* cardback.png */; };
+		60EC56501B3B799B0018DA6B /* FTINQuestionCardBackCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EC564F1B3B799B0018DA6B /* FTINQuestionCardBackCollectionViewCell.m */; };
 		60F43A881A3284DB0002911D /* NSNumber+Formats.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F43A871A3284DB0002911D /* NSNumber+Formats.m */; };
 		60F44ED21A8F5DBE00232554 /* launchImageBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F44ED11A8F5DBE00232554 /* launchImageBg@2x.png */; };
 		60F44ED91A8F5E1B00232554 /* FTINActivityInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F44ED71A8F5E1B00232554 /* FTINActivityInstructionViewController.m */; };
@@ -781,6 +782,8 @@
 		60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityScoreViewController.m; sourceTree = "<group>"; };
 		60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScoreReportTemplate.html; sourceTree = "<group>"; };
 		60C49FFC1A81419400D8013E /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
+		60EC564E1B3B799B0018DA6B /* FTINQuestionCardBackCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINQuestionCardBackCollectionViewCell.h; sourceTree = "<group>"; };
+		60EC564F1B3B799B0018DA6B /* FTINQuestionCardBackCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINQuestionCardBackCollectionViewCell.m; sourceTree = "<group>"; };
 		60F43A861A3284DB0002911D /* NSNumber+Formats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Formats.h"; sourceTree = "<group>"; };
 		60F43A871A3284DB0002911D /* NSNumber+Formats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Formats.m"; sourceTree = "<group>"; };
 		60F44ED11A8F5DBE00232554 /* launchImageBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchImageBg@2x.png"; sourceTree = "<group>"; };
@@ -998,6 +1001,8 @@
 				2560335D194DD6C700AE9C26 /* FTINQuestionCardViewController.h */,
 				2560335E194DD6C700AE9C26 /* FTINQuestionCardViewController.m */,
 				2560335F194DD6C700AE9C26 /* FTINQuestionCardViewController.xib */,
+				60EC564E1B3B799B0018DA6B /* FTINQuestionCardBackCollectionViewCell.h */,
+				60EC564F1B3B799B0018DA6B /* FTINQuestionCardBackCollectionViewCell.m */,
 			);
 			name = QuestionCards;
 			sourceTree = "<group>";
@@ -1905,6 +1910,7 @@
 				60207A9D1A7999BC00B63FEE /* FTINStyler.m in Sources */,
 				2537BB61193B730500D10878 /* NSError+AlertOnError.m in Sources */,
 				256357F119413CAE00E5762A /* FTINMainSplitViewControllerDelegate.m in Sources */,
+				60EC56501B3B799B0018DA6B /* FTINQuestionCardBackCollectionViewCell.m in Sources */,
 				253823C7195641B80016991A /* FTINMailComposeViewController.m in Sources */,
 				25603356194DC42D00AE9C26 /* FTINWhyGameActivityViewController.m in Sources */,
 				25A37C8C194CF85200DFC749 /* UIView+PutOnScreen.m in Sources */,
