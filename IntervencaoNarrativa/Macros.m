@@ -16,6 +16,7 @@ NSString * const FTINDefaultCheckedValue = @"X";
 //NSString * const FTINDefaultActivityFileName = @"mainActivity";
 NSString * const FTINDefaultActivityFileName = @"debugActivity";
 NSString * const FTINDefaultActivityFileExtension = @"json";
+NSString * const FTINDefaultActivityImageFileExtension = @"png";
 
 CGFloat const FTINDefaultChoiceRowHeight = 44.f;
 CGFloat const FTINBarButtonItemSpacing = 20.f;

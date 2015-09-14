@@ -87,7 +87,10 @@ static NSNumberFormatter *_scoreFormatter;
 - (NSString *)representativeImagePath
 {
 	NSArray *imageNameParts = [self.representativeImageName componentsSeparatedByString:@"."];
-	id path =  [[NSBundle mainBundle] URLForResource:imageNameParts[0] withExtension:imageNameParts[1]].path;
+	
+	NSString  *extension = imageNameParts.count == 2 ? imageNameParts[1] : FTINDefaultActivityImageFileExtension;
+	
+	NSString *path =  [[NSBundle mainBundle] URLForResource:imageNameParts[0] withExtension:extension].path;
 	return path;
 }
 
