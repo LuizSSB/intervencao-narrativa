@@ -12,10 +12,17 @@
 #import "Activity+Complete.h"
 #import "SubActivity+Complete.h"
 
+#import "FTINSfxController.h"
+NSString * const FTINSfxReinforceSuccess = @"success";
+NSString * const FTINSfxReinforceSuccessLevel = @"success_level";
+NSString * const FTINSfxReinforceNope = @"block";
+NSString * const FTINSfxReinforceFailure = @"failure";
+NSString * const FTINSfxReinforceComplete = @"complete";
+
 NSInteger const FTINMaximumActivitiesTries = 3;
 NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 
-NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
+NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 
 @interface FTINActivityFlowController ()
 {
@@ -226,7 +233,9 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (void)finishSkippingActivitiesLike:(FTINSubActivityDetails *)subActivity withError:(NSError *)error
 {
+	[[FTINSfxController sharedController] playSfx:FTINSfxReinforceSuccessLevel ofExtension:FTINSfxDefaultExtension];
 	[self nextSubActivity:NULL];
+	
 	--_currentActivityIdx;
 	
 	[_skippingSubActivities removeAllObjects];
@@ -290,6 +299,8 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (void)activityController:(FTINActivityController *)controller completedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
+	BOOL shouldPlaySfx = YES;
+	
 	if(self.canSkipCurrentDifficultyLevel && subActivity.data.tries == 0 && !error)
 	{
 		NSArray *levelSubActivities = [self.activity subActivitiesOfType:subActivity.type difficultyLevel:subActivity.difficultyLevel];
@@ -305,6 +316,7 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 				}
 				else if(++correctSubActivities >= FTINMinimumActivityCompletionToSkip)
 				{
+					shouldPlaySfx = NO;
 					_autoSkipping = YES;
 					[self _skipLevelOfSubActivity:subActivity];
 				}
@@ -316,7 +328,16 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 	
 	if(subActivity.data.tries >= 3)
 	{
+		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceFailure ofExtension:FTINSfxDefaultExtension];
 		[self.dataController failSubActivity:subActivity];
+	}
+	else if(error)
+	{
+		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceNope ofExtension:FTINSfxDefaultExtension];
+	}
+	else if(shouldPlaySfx)
+	{
+		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceSuccess ofExtension:FTINSfxDefaultExtension];
 	}
 }
 
@@ -346,6 +367,11 @@ NSString const * kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (void)activityController:(FTINActivityController *)controller finalizedActivity:(FTINActivityDetails *)activity error:(NSError *)error
 {
+	if(!error)
+	{
+		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceComplete ofExtension:FTINSfxDefaultExtension];
+	}
+	
 	[self.delegate activityFlowController:self finishedActivity:activity error:error];
 }
 
