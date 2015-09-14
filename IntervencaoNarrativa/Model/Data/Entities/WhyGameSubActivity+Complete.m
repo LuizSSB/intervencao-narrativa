@@ -8,12 +8,7 @@
 
 #import "WhyGameSubActivity+Complete.h"
 
-#import "FTINSubActivityContent.h"
-#import "FTINWhyGameSubActivityContent.h"
 #import "FTINWhyGameQuestion.h"
-
-#import "DCModel.h"
-
 
 @implementation WhyGameSubActivity (Complete)
 
@@ -33,40 +28,31 @@
 
 - (BOOL)valid:(NSError *__autoreleasing *)error
 {
-	NSSet *chosenQuestions = self.chosenQuestions;
-	
-	if(chosenQuestions.count > 0)
-	{
-		for (FTINWhyGameQuestion *question in chosenQuestions)
-		{
-			if (!question.answered)
-			{
-				[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing andCustomMessage:@"error_ftin_3001_b".localizedString inReference:error];
-				return NO;
-			}
-		}
-		
-		return YES;
-	}
-	else
+	if(!self.chosenQuestions.count)
 	{
 		[NSError ftin_createErrorWithCode:FTINErrorCodeNoQuestionChosen inReference:error];
+		return NO;
 	}
 	
-	return NO;	
+	return YES;
 }
 
 - (CGFloat)calculateScore
 {
 	CGFloat score = 0;
 	NSSet *chosenQuestions = self.chosenQuestions;
+	NSInteger numberOfQuestions = 0;
 	
 	for (FTINWhyGameQuestion *question in chosenQuestions)
 	{
-		score += FTINAnswerSkillGetScore(question.answerSkill);
+		if(question.answered)
+		{
+			score += FTINAnswerSkillGetScore(question.answerSkill);
+			++numberOfQuestions;
+		}
 	}
 	
-	return score / (CGFloat) chosenQuestions.count;
+	return score / (CGFloat) numberOfQuestions;
 }
 
 @end
