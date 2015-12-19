@@ -23,8 +23,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "120.png",
       "scale" : "3x"
     },
     {
@@ -108,9 +109,10 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "car",
-      "size" : "120x120",
-      "scale" : "1x"
+      "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "167-1.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
