@@ -2,16 +2,64 @@
 	"title":"Atividade",
 	"subActivities":[
 					 {
-					 "type":2,
-					 "contentFile":"e_living.json"
+					 "type":0,
+					 "difficultyLevel":0,
+					 "contentFile":"d_2_0.json"
 					 },
 					 {
-					 "type":2,
-					 "contentFile":"e_kitchen.json"
+					 "type":0,
+					 "difficultyLevel":0,
+					 "contentFile":"d_2_1.json"
 					 },
 					 {
-					 "type":2,
-					 "contentFile":"e_room.json"
+					 "type":0,
+					 "difficultyLevel":0,
+					 "contentFile":"d_2_2.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":1,
+					 "contentFile":"d_3_0.json",
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":1,
+					 "contentFile":"d_3_1.json",
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":1,
+					 "contentFile":"d_3_2.json",
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":2,
+					 "contentFile":"d_4_0.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":2,
+					 "contentFile":"d_4_1.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":2,
+					 "contentFile":"d_4_2.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":3,
+					 "contentFile":"d_6_0.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":3,
+					 "contentFile":"d_6_1.json"
+					 },
+					 {
+					 "type":0,
+					 "difficultyLevel":3,
+					 "contentFile":"d_6_2.json"
 					 },
 					 {
 					 "type":3,

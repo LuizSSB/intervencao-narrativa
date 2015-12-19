@@ -189,11 +189,15 @@
 					 },
 					 {
 					 "type":2,
-					 "contentFile":"m_5x1.json"
+					 "contentFile":"e_living.json"
 					 },
 					 {
 					 "type":2,
-					 "contentFile":"m_5x3.json"
+					 "contentFile":"e_kitchen.json"
+					 },
+					 {
+					 "type":2,
+					 "contentFile":"e_room.json"
 					 },
 					 {
 					 "type":3,
