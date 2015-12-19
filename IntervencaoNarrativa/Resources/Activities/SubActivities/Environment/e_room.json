@@ -1,0 +1,15 @@
+{
+	"title":"Quarto",
+	"correctElements":[
+		{"name":"Abajour", "imageName":"o_abajour"},
+		{"name":"Criado-mudo", "imageName":"o_endtable"},
+		{"name":"Armário", "imageName":"o_wardrobe2"},
+		{"name":"Escrivaninha", "imageName":"o_desk"}
+	],
+	"incorrectElements":[
+		{"name":"Elefante", "imageName":"o_elephant"},
+		{"name":"Panela", "imageName":"o_pan"},
+		{"name":"Árvore", "imageName":"o_tree"},
+	],
+	"background":"e_room.jpg"
+}

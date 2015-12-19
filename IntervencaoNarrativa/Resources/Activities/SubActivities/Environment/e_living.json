@@ -1,0 +1,16 @@
+{
+	"title":"Cozinha",
+	"correctElements":[
+					   {"name":"Sofá", "imageName":"o_couch"},
+					   {"name":"Tapete", "imageName":"o_mat"},
+					   {"name":"Brinquedo", "imageName":"o_toy"},
+					   {"name":"TV", "imageName":"o_tv"},
+					   {"name":"Mesinha", "imageName":"o_endtable2"}
+					   ],
+	"incorrectElements":[
+						 {"name":"Lousa", "imageName":"o_board"},
+						 {"name":"Panela", "imageName":"o_pan"},
+						 {"name":"Geladeira", "imageName":"o_freezer"}
+						 ],
+	"background":"e_living.jpg"
+}
