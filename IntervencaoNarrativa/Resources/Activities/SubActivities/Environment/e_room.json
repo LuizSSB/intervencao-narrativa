@@ -11,5 +11,5 @@
 		{"name":"Panela", "imageName":"o_pan"},
 		{"name":"Árvore", "imageName":"o_tree"},
 	],
-	"background":"e_room.jpg"
+	"background":"e_room"
 }

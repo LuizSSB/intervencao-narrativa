@@ -90,7 +90,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 {
 	if(!_pulledCardImageView)
 	{
-		_pulledCardImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cardback"]];
+		_pulledCardImageView = [[UIImageView alloc] initWithImage:[UIImage lssb_imageNamed:@"cardback"]];
 		_pulledCardImageView.frame = CGRectMake(0, 0, FTINQuestionCardsViewCellSize.width, FTINQuestionCardsViewCellSize.height);
 		_pulledCardImageView.hidden = YES;
 		_pulledCardImageView.layer.zPosition = MAXFLOAT;

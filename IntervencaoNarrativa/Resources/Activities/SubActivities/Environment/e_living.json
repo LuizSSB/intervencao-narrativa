@@ -12,5 +12,5 @@
 						 {"name":"Panela", "imageName":"o_pan"},
 						 {"name":"Geladeira", "imageName":"o_freezer"}
 						 ],
-	"background":"e_living.jpg"
+	"background":"e_living"
 }

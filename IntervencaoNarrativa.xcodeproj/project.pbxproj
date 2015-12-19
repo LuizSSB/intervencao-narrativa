@@ -337,6 +337,8 @@
 		60AD5B921C25D49900A3FA2E /* d_6_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60AD5B871C25D49900A3FA2E /* d_6_0.jpg */; };
 		60AD5B931C25D49900A3FA2E /* d_6_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60AD5B881C25D49900A3FA2E /* d_6_1.jpg */; };
 		60AD5B941C25D49900A3FA2E /* d_6_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60AD5B891C25D49900A3FA2E /* d_6_2.jpg */; };
+		60AD5B971C25D61C00A3FA2E /* UIImage+ImageNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AD5B961C25D61C00A3FA2E /* UIImage+ImageNamed.m */; };
+		60AD5B991C25D8AE00A3FA2E /* d_2_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60AD5B981C25D8AE00A3FA2E /* d_2_0.jpg */; };
 		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
 		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
 		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
@@ -800,6 +802,9 @@
 		60AD5B871C25D49900A3FA2E /* d_6_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_6_0.jpg; sourceTree = "<group>"; };
 		60AD5B881C25D49900A3FA2E /* d_6_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_6_1.jpg; sourceTree = "<group>"; };
 		60AD5B891C25D49900A3FA2E /* d_6_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_6_2.jpg; sourceTree = "<group>"; };
+		60AD5B951C25D61C00A3FA2E /* UIImage+ImageNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageNamed.h"; sourceTree = "<group>"; };
+		60AD5B961C25D61C00A3FA2E /* UIImage+ImageNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageNamed.m"; sourceTree = "<group>"; };
+		60AD5B981C25D8AE00A3FA2E /* d_2_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_2_0.jpg; sourceTree = "<group>"; };
 		60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityTypeReportViewController.h; sourceTree = "<group>"; };
 		60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityTypeReportViewController.m; sourceTree = "<group>"; };
 		60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityScoreViewController.h; sourceTree = "<group>"; };
@@ -896,6 +901,8 @@
 				60F43A871A3284DB0002911D /* NSNumber+Formats.m */,
 				60207AA41A799F4000B63FEE /* UIColor+FromHex.h */,
 				60207AA51A799F4000B63FEE /* UIColor+FromHex.m */,
+				60AD5B951C25D61C00A3FA2E /* UIImage+ImageNamed.h */,
+				60AD5B961C25D61C00A3FA2E /* UIImage+ImageNamed.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -993,6 +1000,7 @@
 		255F79A0194295E000C94AB3 /* Description */ = {
 			isa = PBXGroup;
 			children = (
+				60AD5B981C25D8AE00A3FA2E /* d_2_0.jpg */,
 				60AD5B7F1C25D49900A3FA2E /* d_2_1.jpg */,
 				60AD5B801C25D49900A3FA2E /* d_2_2.jpg */,
 				60AD5B811C25D49900A3FA2E /* d_3_0.jpg */,
@@ -1695,6 +1703,7 @@
 				60161B081B87F28600C3DACE /* a_7_1_1.jpg in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
 				60161ADC1B87F28600C3DACE /* a_4_2_1.jpg in Resources */,
+				60AD5B991C25D8AE00A3FA2E /* d_2_0.jpg in Resources */,
 				60161AF31B87F28600C3DACE /* a_6_0_5.jpg in Resources */,
 				60161AFA1B87F28600C3DACE /* a_6_2_0.jpg in Resources */,
 				253823BF195630430016991A /* FTINActivityReportViewController.xib in Resources */,
@@ -2035,6 +2044,7 @@
 				253823C419563D270016991A /* FTINCompleteReportMailViewController.m in Sources */,
 				60F44ED91A8F5E1B00232554 /* FTINActivityInstructionViewController.m in Sources */,
 				256BF1BE1947CB2B00FD8BB3 /* FTINArrangementActivityViewController.m in Sources */,
+				60AD5B971C25D61C00A3FA2E /* UIImage+ImageNamed.m in Sources */,
 				25CDAEB7194389D7003E1314 /* FTINActivityDetails.m in Sources */,
 				256357BF19413A6200E5762A /* Patient+Complete.m in Sources */,
 				25CDAEB4194389D7003E1314 /* FTINDescriptionSubActivityContent.m in Sources */,

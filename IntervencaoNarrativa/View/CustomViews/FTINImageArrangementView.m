@@ -161,8 +161,8 @@ NSTimeInterval const FTINImageArrangementViewMinimumPressDuration = .03;
 {
 	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FTINCollectionViewCell cellIdentifier] forIndexPath:indexPath];
 	
-	NSString *imageName = [self.items[indexPath.row] stringByAppendingString:@".jpg"];
-	cell.backgroundImageView.image = [UIImage imageNamed:imageName];
+	NSString *imageName = self.items[indexPath.row];
+	cell.backgroundImageView.image = [UIImage lssb_imageNamed:imageName];
 	cell.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
 	
 	return cell;

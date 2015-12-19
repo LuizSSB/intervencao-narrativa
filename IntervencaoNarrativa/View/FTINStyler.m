@@ -27,7 +27,7 @@
 	static UIColor *backgroundColor = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
+		backgroundColor = [UIColor colorWithPatternImage:[UIImage lssb_imageNamed:@"bg"]];
 	});
 	return backgroundColor;
 }
