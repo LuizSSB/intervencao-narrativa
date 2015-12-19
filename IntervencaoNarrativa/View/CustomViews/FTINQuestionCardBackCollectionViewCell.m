@@ -54,7 +54,7 @@
 	self.answeredLabel.text = @"answered".localizedString;
 	[self addSubview:self.answeredLabel];
 	
-	self.backgroundImageView.image = [UIImage imageNamed:@"cardback"];
+	self.backgroundImageView.image = [UIImage lssb_imageNamed:@"cardback"];
 }
 
 - (BOOL)answered

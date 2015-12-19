@@ -12,7 +12,7 @@
 
 - (NSString *)representativeImageName
 {
-	return @"cardback.png";
+	return @"cardback";
 }
 
 @end

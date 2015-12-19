@@ -1,0 +1,14 @@
+{
+	"title":"Cozinha",
+	"correctElements":[
+					   {"name":"Geladeira", "imageName":"o_freezer"},
+					   {"name":"Fogão", "imageName":"o_stove"},
+					   {"name":"Armário", "imageName":"o_wardrobe"}
+					   ],
+	"incorrectElements":[
+						 {"name":"Elefante", "imageName":"o_elephant"},
+						 {"name":"Abajour", "imageName":"o_abajour"},
+						 {"name":"Escrivaninha", "imageName":"o_desk"}
+						 ],
+	"background":"e_kitchen"
+}

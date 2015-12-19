@@ -116,7 +116,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	{
 		FTINCollectionViewCell *cell = [self createCellOrCopyFrom:nil];
 		cell.frame = cellFrame;		
-		cell.backgroundImageView.image = [UIImage imageNamed:element.imageName];
+		cell.backgroundImageView.image = [UIImage lssb_imageNamed:element.imageName];
 		[cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelectedElement:)]];
 		
 		[self.containerBox addSubview:cell];
@@ -307,7 +307,7 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 {
     FTINEnvironmentElement *element = _unchosenElements[indexPath.row];
 	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[FTINCollectionViewCell cellIdentifier] forIndexPath:indexPath];
-	cell.backgroundImageView.image = [UIImage imageNamed:element.imageName];
+	cell.backgroundImageView.image = [UIImage lssb_imageNamed:element.imageName];
 	cell.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
 	cell.tag = indexPath.row;
 	

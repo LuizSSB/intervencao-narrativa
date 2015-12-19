@@ -39,6 +39,7 @@
 #import "UIView+PutOnScreen.h"
 #import "UIView+AsImage.h"
 #import "UIColor+FromHex.h"
+#import "UIImage+ImageNamed.h"
 
 // Foundation Categories
 #import "NSNumber+TimeDescription.h"

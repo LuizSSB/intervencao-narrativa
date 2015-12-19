@@ -66,7 +66,7 @@ NSInteger const FTINAlertTagActivitySkip = 2;
 {
     [super viewDidLoad];
 	
-	self.mainImageView.image = [UIImage imageNamed:self.content.image];
+	self.mainImageView.image = [UIImage lssb_imageNamed:self.content.image];
 	
 	if(_subActivityData.done)
 	{
