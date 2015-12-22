@@ -62,6 +62,18 @@
 					 "contentFile":"d_6_2.json"
 					 },
 					 {
+					 "type":2,
+					 "contentFile":"e_living.json"
+					 },
+					 {
+					 "type":2,
+					 "contentFile":"e_kitchen.json"
+					 },
+					 {
+					 "type":2,
+					 "contentFile":"e_room.json"
+					 },
+					 {
 					 "type":3,
 					 "contentFile":"y_6.json"
 					 }
