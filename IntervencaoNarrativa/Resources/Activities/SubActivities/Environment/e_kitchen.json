@@ -3,7 +3,8 @@
 	"correctElements":[
 					   {"name":"Geladeira", "imageName":"o_freezer"},
 					   {"name":"Fogão", "imageName":"o_stove"},
-					   {"name":"Armário", "imageName":"o_wardrobe"}
+					   {"name":"Armário", "imageName":"o_wardrobe"},
+					   {"name":"Cadeira", "imageName":"o_chair"}
 					   ],
 	"incorrectElements":[
 						 {"name":"Elefante", "imageName":"o_elephant"},
