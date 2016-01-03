@@ -193,8 +193,12 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 
 - (UIView *)draggingViewForDragOperation:(DNDDragOperation *)operation
 {
-	UIView *copy = [self createCellOrCopyFrom:(id)operation.dragSourceView];
+	FTINCollectionViewCell *copy = [self createCellOrCopyFrom:(id)operation.dragSourceView];
 	copy.layer.opacity = 0.f;
+	
+	CGRect frame = copy.frame;
+	frame.size = copy.backgroundImageView.image.size;
+	copy.frame = frame;
 	
 	[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
 		operation.dragSourceView.layer.opacity = 0.f;
