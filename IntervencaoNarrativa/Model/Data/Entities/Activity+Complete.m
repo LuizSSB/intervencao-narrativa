@@ -141,7 +141,7 @@ static NSSortDescriptor *_activitySubActivitesSortDescriptor;
 	
 	for (SubActivity *sub in subActivities)
 	{
-		if(sub.status != FTINActivityStatusSkipped)
+		if(FTINACtivityStatusMeansItWasDone(sub.status))
 		{
 			score += sub.score;
 			++nonSkippedActivities;

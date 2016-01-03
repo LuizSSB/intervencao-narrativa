@@ -91,6 +91,18 @@ static NSNumberFormatter *_scoreFormatter;
 	NSString  *extension = imageNameParts.count == 2 ? imageNameParts[1] : FTINDefaultActivityImageFileExtension;
 	
 	NSString *path =  [[NSBundle mainBundle] URLForResource:imageNameParts[0] withExtension:extension].path;
+	
+	if (!path)
+	{
+		for(int idxRes = 2; idxRes <= 3; ++idxRes)
+		{
+			NSString *imgName = [imageNameParts[0] stringByAppendingFormat:@"@%dx", idxRes];
+			path = [[NSBundle mainBundle] URLForResource:imgName withExtension:extension].path;
+			
+			if(path) break;
+		}
+	}
+	
 	return path;
 }
 

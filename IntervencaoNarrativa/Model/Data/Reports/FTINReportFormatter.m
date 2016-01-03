@@ -57,12 +57,15 @@
 		NSMutableArray *subActivities = [NSMutableArray array];
 		
 		[[self.activity subActivitiesOfType:type] enumerateObjectsUsingBlock:^(SubActivity *obj, NSUInteger idx, BOOL *stop) {
-			[subActivities addObject:@{
-									   @"id":obj.representativeImagePath,
-									   @"score":obj.formattedScore,
-									   @"state":obj.everBeenSkipped ? FTINHTMLClassSkipped : [NSString string]
-									   }
-			 ];
+			if (obj.status != FTINActivityStatusIncomplete)
+			{
+				[subActivities addObject:@{
+										   @"id":obj.representativeImagePath,
+										   @"score":obj.formattedScore,
+										   @"state":obj.everBeenSkipped ? FTINHTMLClassSkipped : [NSString string]
+										   }
+				 ];
+			}
 		}];
 		
 		[subActivitiesContexts addObject:@{
@@ -74,7 +77,8 @@
 	context[@"subActivities"] = subActivitiesContexts;
 	
 	NSURL *templateUrl = [[NSBundle mainBundle] URLForResource:@"ScoreReportTemplate" withExtension:@"html"];
-	return [FTINTemplateUtils parseTemplate:templateUrl withContext:context error:error];
+	NSString *report = [FTINTemplateUtils parseTemplate:templateUrl withContext:context error:error];
+	return report;
 }
 
 @end

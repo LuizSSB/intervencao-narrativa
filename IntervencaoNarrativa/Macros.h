@@ -126,6 +126,8 @@ CGFloat FTINAnswerSkillGetScore(FTINAnswerSkill skill);
 NSArray * FTINAnswerSkillGetValues();
 NSString *FTINAnswerSkillGetTitle(FTINAnswerSkill skill);
 
+BOOL FTINACtivityStatusMeansItWasDone(FTINActivityStatus status);
+
 // -----------------------------------------------------------------------------
 // Protocols with same name as Foundation types
 // These are to be used with JSONModel DTOs that deal with arrays

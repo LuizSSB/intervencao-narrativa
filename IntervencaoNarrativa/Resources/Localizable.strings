@@ -63,7 +63,7 @@
 "activity_3" = "Jogo do porquê";
 "activity_description_0" = "A criança deve descrever o evento representado na imagem, enumerando os elementos presentes.\n\nUse os marcadores na barra inferior para marcar quais elementos foram descritos e avaliar o desempenho da criança na descrição.";
 "activity_description_1" = "A criança deve, primeiro, arrastar e ordenar as cenas, de acordo com sua sequência lógica, e, em seguida, narrar os acontecimentos representados.\n\nUse os marcadores na barra inferior para avaliar o desempenho da criança na ordenação e na narração.";
-"activity_description_2" = "A criança deve arrastar para o ambiente somente os elementos que pertencem a ela e, em seguida, descrever como e por quê os elementos pertencem a este ambiente.\n\nUse os marcadores na barra inferior para avaliar o desempenho da criança na organização e na narração.";
+"activity_description_2" = "A criança deve arrastar para o ambiente somente os elementos que pertencem a ela e, em seguida, descrever como e por que os elementos pertencem a este ambiente.\n\nUse os marcadores na barra inferior para avaliar o desempenho da criança na organização e na narração.";
 "activity_description_3" = "Esta atividade é dividida em duas etapas:\n\n1. O avaliador deve escolher até 6 questões para a criança responder. Com as questões selecionadas, o avaliador deve tocar em \"Montar jogo\";\n2. As questões selecionadas são colocadas em cartas e embaralhadas. A criança deve, então, selecionar as cartas e responder as questões.\n\nUse os marcadores na barra inferior de cada carta para avaliar o desempenho da criança em cada questão.";
 
 /* Activity Data */

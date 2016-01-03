@@ -16,7 +16,7 @@ NSString * const FTINDefaultCheckedValue = @"X";
 //NSString * const FTINDefaultActivityFileName = @"mainActivity";
 NSString * const FTINDefaultActivityFileName = @"debugActivity";
 NSString * const FTINDefaultActivityFileExtension = @"json";
-NSString * const FTINDefaultActivityImageFileExtension = @"png";
+NSString * const FTINDefaultActivityImageFileExtension = @"jpg";
 
 CGFloat const FTINDefaultChoiceRowHeight = 44.f;
 CGFloat const FTINBarButtonItemSpacing = 20.f;
@@ -165,6 +165,11 @@ NSArray * FTINAnswerSkillGetValues()
 			 @(FTINAnswerSkillLittleCoherent),
 			 @(FTINAnswerSkillIncompetentFool)
 			 ];
+}
+
+BOOL FTINACtivityStatusMeansItWasDone(FTINActivityStatus status)
+{
+	return status == FTINActivityStatusCompleted || status == FTINActivityStatusCompletedButSkipped || status == FTINActivityStatusFailed;
 }
 
 NSString *FTINDescriptiveSkillGetTitle(FTINDescriptiveSkill skill)

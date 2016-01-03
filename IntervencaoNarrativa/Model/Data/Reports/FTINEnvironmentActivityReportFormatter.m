@@ -43,10 +43,24 @@
 	context[@"activities"] = activitiesContexts;
 	
 	[activities enumerateObjectsUsingBlock:^(EnvironmentSubActivity *obj, NSUInteger idx, BOOL *stop) {
+		
+		NSString *selectedElements;
+		NSString *unselectedElements;
+		
+		if(obj.status == FTINActivityStatusIncomplete)
+		{
+			selectedElements = unselectedElements = @"";
+		}
+		else
+		{
+			selectedElements = [obj.selectedElementsNames.allObjects componentsJoinedByString:FTINHTMLElementSeparator];
+			unselectedElements = [obj.unselectedElementsNames.allObjects componentsJoinedByString:FTINHTMLElementSeparator];
+		}
+		
 		[activitiesContexts addObject:@{
 										@"id":obj.representativeImagePath,
-										@"selectedElements":[obj.selectedElementsNames.allObjects componentsJoinedByString:FTINHTMLElementSeparator],
-										@"unselectedElements":[obj.unselectedElementsNames.allObjects componentsJoinedByString:FTINHTMLElementSeparator]
+										@"selectedElements":selectedElements,
+										@"unselectedElements":unselectedElements
 										}];
 	}];
 }
