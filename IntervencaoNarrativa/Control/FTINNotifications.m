@@ -11,6 +11,8 @@
 NSString * const FTINNotificationMustAddNewPatient = @"MustAddNewPatientNotification";
 NSString * const FTINNotificationDeletedPatient = @"PatientDeletedNotification";
 NSString * const FTINNotificationSelectedPatient = @"PatientSelectedNotification";
+NSString * const FTINNotificationAddedPatient = @"PatientAddedNotification";
+NSString * const FTINNotificationUpdatedPatient = @"PatientUpdatedNotification";
 
 NSString * const kFTINParamPatient = @"PatientParam";
 
@@ -28,6 +30,18 @@ NSNotification * FTINCreateNotification(NSString *name, id obj, NSDictionary *di
 }
 
 #pragma mark - Notifications Factories
+
+NSNotification * FTINNotificationForAddedPatient(Patient *patient)
+{
+	NSDictionary *params = @{kFTINParamPatient:patient};
+	return FTINCreateNotification(FTINNotificationAddedPatient, patient, params);
+}
+
+NSNotification * FTINNotificationForUpdatedPatient(Patient *patient)
+{
+	NSDictionary *params = @{kFTINParamPatient:patient};
+	return FTINCreateNotification(FTINNotificationUpdatedPatient, patient, params);
+}
 
 NSNotification * FTINNotificationForMustAddNewPatient()
 {

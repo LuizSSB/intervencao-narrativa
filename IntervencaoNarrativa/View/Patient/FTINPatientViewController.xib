@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FTINPatientViewController">
@@ -22,114 +23,157 @@
             <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data do cadastro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIt-YI-log">
-                    <rect key="frame" x="148" y="56" width="154" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome do paciente" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uu-q5-7Uj">
-                    <rect key="frame" x="148" y="88" width="154" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avaliador" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og6-7o-mTN">
-                    <rect key="frame" x="148" y="126" width="154" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data de nascimento" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4u-Cg-SnJ">
-                    <rect key="frame" x="148" y="164" width="154" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sexo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rt9-57-DnR">
-                    <rect key="frame" x="148" y="201" width="154" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paciente" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5F3-ls-Haa">
-                    <rect key="frame" x="337" y="85" width="350" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="alphabet" returnKeyType="next"/>
-                    <connections>
-                        <action selector="goToNextInput:" destination="-1" eventType="editingDidEndOnExit" id="hWK-9b-Aqd"/>
-                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="gom-Ve-ajC"/>
-                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Pae-6D-uZF"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Avaliador" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="v0f-jk-iE0">
-                    <rect key="frame" x="337" y="123" width="350" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="alphabet" returnKeyType="next"/>
-                    <connections>
-                        <action selector="goToNextInput:" destination="-1" eventType="editingDidEndOnExit" id="aVk-3B-Ol1"/>
-                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="Umn-vX-Hgh"/>
-                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Eha-eZ-tQZ"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nascimento" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cB2-sf-pAi" customClass="FTINDatePickerTextField">
-                    <rect key="frame" x="337" y="161" width="98" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="hideKeyboardsForGodsSake:" destination="-1" eventType="touchDown" id="aSD-Et-ors"/>
-                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="V2P-0e-JXD"/>
-                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Rzh-uu-SY7"/>
-                    </connections>
-                </textField>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00/00/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl5-uP-Xdz">
-                    <rect key="frame" x="337" y="56" width="88" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pfq-iv-JIr">
-                    <rect key="frame" x="337" y="199" width="158" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <segments>
-                        <segment title="Masculino"/>
-                        <segment title="Feminino"/>
-                    </segments>
-                    <connections>
-                        <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="uh7-Xy-sQN"/>
-                    </connections>
-                </segmentedControl>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R74-4x-kVw">
-                    <rect key="frame" x="346" y="271" width="144" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Salvar dados">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="save:" destination="-1" eventType="touchUpInside" id="DMl-pI-6Vp"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9d-88-HKj">
-                    <rect key="frame" x="534" y="271" width="145" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Iniciar nova atividade">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="startNewActivity:" destination="-1" eventType="touchUpInside" id="hl3-MH-UfY"/>
-                    </connections>
-                </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EE-leY">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNT-h4-NGe">
+                    <rect key="frame" x="242.5" y="56" width="539" height="245"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data do cadastro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIt-YI-log">
+                            <rect key="frame" x="0.0" y="0.5" width="152.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do paciente" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uu-q5-7Uj">
+                            <rect key="frame" x="0.0" y="36" width="152.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Paciente" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5F3-ls-Haa">
+                            <rect key="frame" x="187.5" y="31" width="351.5" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="alphabet" returnKeyType="next"/>
+                            <connections>
+                                <action selector="goToNextInput:" destination="-1" eventType="editingDidEndOnExit" id="hWK-9b-Aqd"/>
+                                <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="gom-Ve-ajC"/>
+                                <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Pae-6D-uZF"/>
+                            </connections>
+                        </textField>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliador" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og6-7o-mTN">
+                            <rect key="frame" x="0.0" y="71.5" width="152.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de nascimento" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4u-Cg-SnJ">
+                            <rect key="frame" x="0.0" y="110" width="152.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sexo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rt9-57-DnR">
+                            <rect key="frame" x="0.0" y="146.5" width="152.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Avaliador" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="v0f-jk-iE0">
+                            <rect key="frame" x="187.5" y="67" width="351.5" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" keyboardType="alphabet" returnKeyType="next"/>
+                            <connections>
+                                <action selector="goToNextInput:" destination="-1" eventType="editingDidEndOnExit" id="aVk-3B-Ol1"/>
+                                <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="Umn-vX-Hgh"/>
+                                <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Eha-eZ-tQZ"/>
+                            </connections>
+                        </textField>
+                        <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nascimento" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cB2-sf-pAi" customClass="FTINDatePickerTextField">
+                            <rect key="frame" x="187.5" y="105" width="98" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="98" id="ygo-na-85i"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="hideKeyboardsForGodsSake:" destination="-1" eventType="touchDown" id="aSD-Et-ors"/>
+                                <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="V2P-0e-JXD"/>
+                                <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="Rzh-uu-SY7"/>
+                            </connections>
+                        </textField>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pfq-iv-JIr">
+                            <rect key="frame" x="187.5" y="143" width="153" height="29"/>
+                            <segments>
+                                <segment title="Masculino"/>
+                                <segment title="Feminino"/>
+                            </segments>
+                            <connections>
+                                <action selector="inputFieldValueChanged:" destination="-1" eventType="valueChanged" id="uh7-Xy-sQN"/>
+                            </connections>
+                        </segmentedControl>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="247" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9d-88-HKj">
+                            <rect key="frame" x="324" y="215" width="146" height="30"/>
+                            <state key="normal" title="Iniciar nova atividade">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="startNewActivity:" destination="-1" eventType="touchUpInside" id="hl3-MH-UfY"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl5-uP-Xdz">
+                            <rect key="frame" x="187.5" y="0.5" width="94" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R74-4x-kVw">
+                            <rect key="frame" x="190" y="215" width="89" height="30"/>
+                            <state key="normal" title="Salvar dados">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="save:" destination="-1" eventType="touchUpInside" id="DMl-pI-6Vp"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="leading" secondItem="Og6-7o-mTN" secondAttribute="leading" id="3lY-v0-oGa"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="trailing" secondItem="Og6-7o-mTN" secondAttribute="trailing" id="3pJ-3b-WrN"/>
+                        <constraint firstAttribute="height" constant="245" id="53H-uV-FRz"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="leading" secondItem="b4u-Cg-SnJ" secondAttribute="leading" id="5ka-Ab-6qN"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="leading" secondItem="xNT-h4-NGe" secondAttribute="leading" id="Awc-fw-ZCZ"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="leading" secondItem="rt9-57-DnR" secondAttribute="leading" id="ENe-X8-hPs"/>
+                        <constraint firstItem="cB2-sf-pAi" firstAttribute="top" secondItem="v0f-jk-iE0" secondAttribute="bottom" constant="8" id="Geb-eq-W5b"/>
+                        <constraint firstItem="v0f-jk-iE0" firstAttribute="top" secondItem="5F3-ls-Haa" secondAttribute="bottom" constant="6" id="J1l-Hd-zx9"/>
+                        <constraint firstItem="Pfq-iv-JIr" firstAttribute="top" secondItem="cB2-sf-pAi" secondAttribute="bottom" constant="8" id="J98-hb-niy"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="trailing" secondItem="7Uu-q5-7Uj" secondAttribute="trailing" id="Jno-AW-Svk"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="leading" secondItem="7Uu-q5-7Uj" secondAttribute="leading" id="LCY-0V-aaq"/>
+                        <constraint firstItem="v0f-jk-iE0" firstAttribute="trailing" secondItem="5F3-ls-Haa" secondAttribute="trailing" id="Lc0-if-Yac"/>
+                        <constraint firstItem="R74-4x-kVw" firstAttribute="leading" secondItem="nl5-uP-Xdz" secondAttribute="leading" constant="2.5" id="LfD-7p-DFm"/>
+                        <constraint firstItem="R74-4x-kVw" firstAttribute="top" secondItem="Pfq-iv-JIr" secondAttribute="bottom" constant="44" id="MdQ-X5-ArK"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="trailing" secondItem="b4u-Cg-SnJ" secondAttribute="trailing" id="SMV-Lk-upQ"/>
+                        <constraint firstItem="nl5-uP-Xdz" firstAttribute="leading" secondItem="v0f-jk-iE0" secondAttribute="leading" id="UBy-4Y-lzG"/>
+                        <constraint firstAttribute="trailing" secondItem="5F3-ls-Haa" secondAttribute="trailing" id="VNy-id-vRz"/>
+                        <constraint firstItem="o9d-88-HKj" firstAttribute="leading" secondItem="R74-4x-kVw" secondAttribute="trailing" constant="45" id="Yy9-DJ-oKV"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="centerY" secondItem="nl5-uP-Xdz" secondAttribute="centerY" id="a6K-sD-ClP"/>
+                        <constraint firstItem="nl5-uP-Xdz" firstAttribute="leading" secondItem="cB2-sf-pAi" secondAttribute="leading" id="bTL-P3-cRC"/>
+                        <constraint firstItem="nl5-uP-Xdz" firstAttribute="leading" secondItem="tIt-YI-log" secondAttribute="trailing" constant="35" id="cc0-k1-xyK"/>
+                        <constraint firstItem="b4u-Cg-SnJ" firstAttribute="centerY" secondItem="cB2-sf-pAi" secondAttribute="centerY" id="cci-Q2-Xq5"/>
+                        <constraint firstItem="7Uu-q5-7Uj" firstAttribute="centerY" secondItem="5F3-ls-Haa" secondAttribute="centerY" id="edS-Na-62z"/>
+                        <constraint firstAttribute="bottom" secondItem="R74-4x-kVw" secondAttribute="bottom" id="fKC-Zo-gMj"/>
+                        <constraint firstItem="nl5-uP-Xdz" firstAttribute="leading" secondItem="Pfq-iv-JIr" secondAttribute="leading" id="fib-TJ-NHm"/>
+                        <constraint firstItem="Og6-7o-mTN" firstAttribute="centerY" secondItem="v0f-jk-iE0" secondAttribute="centerY" id="fp8-Ko-A7j"/>
+                        <constraint firstItem="5F3-ls-Haa" firstAttribute="top" secondItem="nl5-uP-Xdz" secondAttribute="bottom" constant="10" id="jcG-Hs-ffu"/>
+                        <constraint firstAttribute="width" constant="539" id="k6J-en-nId"/>
+                        <constraint firstItem="nl5-uP-Xdz" firstAttribute="leading" secondItem="5F3-ls-Haa" secondAttribute="leading" id="mdO-0y-5RZ"/>
+                        <constraint firstItem="tIt-YI-log" firstAttribute="trailing" secondItem="rt9-57-DnR" secondAttribute="trailing" id="tU8-Fh-NgB"/>
+                        <constraint firstItem="rt9-57-DnR" firstAttribute="centerY" secondItem="Pfq-iv-JIr" secondAttribute="centerY" id="tf4-i7-tcb"/>
+                        <constraint firstItem="R74-4x-kVw" firstAttribute="centerY" secondItem="o9d-88-HKj" secondAttribute="centerY" id="z6O-Sv-CZv"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="fWy-EE-leY">
                     <rect key="frame" x="312" y="329" width="400" height="308"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="400" id="w0v-tG-1q2"/>
+                    </constraints>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="fWy-EE-leY" secondAttribute="bottom" constant="67" id="1pG-GP-Tbz"/>
+                <constraint firstItem="fWy-EE-leY" firstAttribute="centerX" secondItem="HCc-et-sYu" secondAttribute="centerX" id="9Jo-Hu-8Fl"/>
+                <constraint firstItem="xNT-h4-NGe" firstAttribute="top" secondItem="HCc-et-sYu" secondAttribute="top" constant="56" id="OVw-8S-T73"/>
+                <constraint firstItem="xNT-h4-NGe" firstAttribute="centerX" secondItem="HCc-et-sYu" secondAttribute="centerX" id="h2w-eA-OPE"/>
+                <constraint firstItem="fWy-EE-leY" firstAttribute="top" secondItem="xNT-h4-NGe" secondAttribute="bottom" constant="28" id="hmd-Xt-Y08"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="533" y="372"/>
         </view>
     </objects>
 </document>

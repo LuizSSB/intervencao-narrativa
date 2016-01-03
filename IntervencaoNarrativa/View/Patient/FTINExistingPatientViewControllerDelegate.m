@@ -117,6 +117,7 @@
 	if(!error)
 	{
 		self.patient = patient;
+		FTINLaunchNotification(FTINNotificationForAddedPatient(patient));
 	}
 }
 
