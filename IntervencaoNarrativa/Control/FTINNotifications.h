@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const FTINNotificationMustAddNewPatient;
+extern NSString * const FTINNotificationAddedPatient;
+extern NSString * const FTINNotificationUpdatedPatient;
 extern NSString * const FTINNotificationDeletedPatient;
 extern NSString * const FTINNotificationSelectedPatient;
 
@@ -22,6 +24,8 @@ NSNotification * FTINCreateNotification(NSString *name, id obj, NSDictionary *di
 NSNotification * FTINNotificationForMustAddNewPatient();
 NSNotification * FTINNotificationForDeletedPatient(Patient *patient);
 NSNotification * FTINNotificationForSelectedPatient(Patient *patient);
+NSNotification * FTINNotificationForAddedPatient(Patient *patient);
+NSNotification * FTINNotificationForUpdatedPatient(Patient *patient);
 
 void FTINLaunchNotification(NSNotification *notification);
 
