@@ -54,7 +54,7 @@
 	
 	FTINEnvironmentSubActivityContent *_content = (FTINEnvironmentSubActivityContent *) self.subActivity.content;
 	self.draggableElementBox.toolboxElements = _content.allElements;
-	self.draggableElementBox.backgroundImageView.image = [UIImage imageNamed:_content.background];
+	self.draggableElementBox.backgroundImageView.image = [UIImage lssb_imageNamed:_content.background];
 
 	if (_subActivityData.done)
 	{

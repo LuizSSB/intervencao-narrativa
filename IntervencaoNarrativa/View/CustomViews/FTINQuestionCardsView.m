@@ -7,7 +7,7 @@
 //
 
 #import "FTINQuestionCardsView.h"
-#import "FTINCollectionViewCell.h"
+#import "FTINQuestionCardBackCollectionViewCell.h"
 #import "FTINWhyGameQuestion.h"
 
 CGSize const FTINQuestionCardsViewCellSize = {200.f, 300.f};
@@ -76,7 +76,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 	self.delegate = self;
 	self.dataSource = self;
 	
-	[self registerClass:[FTINCollectionViewCell class] forCellWithReuseIdentifier:FTINDefaultCellIdentifier];
+	[self registerClass:[FTINQuestionCardBackCollectionViewCell class] forCellWithReuseIdentifier:FTINDefaultCellIdentifier];
 }
 
 - (void)setQuestions:(NSArray *)questions
@@ -90,7 +90,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 {
 	if(!_pulledCardImageView)
 	{
-		_pulledCardImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cardback"]];
+		_pulledCardImageView = [[UIImageView alloc] initWithImage:[UIImage lssb_imageNamed:@"cardback"]];
 		_pulledCardImageView.frame = CGRectMake(0, 0, FTINQuestionCardsViewCellSize.width, FTINQuestionCardsViewCellSize.height);
 		_pulledCardImageView.hidden = YES;
 		_pulledCardImageView.layer.zPosition = MAXFLOAT;
@@ -107,6 +107,7 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 		self.pulledCardImageView.frame = _activeCellFrame;
 	} completion:^(BOOL finished) {
 		self.pulledCardImageView.hidden = YES;
+		[self reloadData];
 		[self viewWithTag:_activeCellTag].hidden = NO;
 		self.userInteractionEnabled = YES;
 	}];
@@ -131,9 +132,9 @@ CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	FTINCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FTINDefaultCellIdentifier forIndexPath:indexPath];
-	cell.backgroundImageView.image = [UIImage imageNamed:@"cardback"];
+	FTINQuestionCardBackCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FTINDefaultCellIdentifier forIndexPath:indexPath];
 	cell.tag = cell.hash;
+	cell.answered = [self.questions[indexPath.row] answered];
 	
 	return cell;
 }

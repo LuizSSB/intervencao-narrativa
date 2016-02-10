@@ -195,7 +195,7 @@
 			NSAssert(NO, @"Falta tratar um status.");
 			break;
 	}
-	[(UIImageView *)cell.accessoryView setImage:[UIImage imageNamed:statusImageName]];
+	[(UIImageView *)cell.accessoryView setImage:[UIImage lssb_imageNamed:statusImageName]];
 	[cell.accessoryView sizeToFit];
 	
 	NSString *imageName;
@@ -209,7 +209,7 @@
 		imageName = @"blank";
 	}
 	
-	cell.imageView.image = [UIImage imageNamed:imageName];
+	cell.imageView.image = [UIImage lssb_imageNamed:imageName];
 	
 	return cell;
 }

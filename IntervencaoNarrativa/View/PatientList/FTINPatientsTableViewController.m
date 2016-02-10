@@ -18,6 +18,8 @@
 
 - (void)addNewPatient:(id)sender;
 
+- (void)update;
+
 @end
 
 @implementation FTINPatientsTableViewController
@@ -59,6 +61,9 @@
 	
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewPatient:)];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:FTINNotificationAddedPatient object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update) name:FTINNotificationUpdatedPatient object:nil];
 	
 	self.tableViewSource = [self createTableViewSourceForTableView:self.tableView];
 }
@@ -148,6 +153,13 @@
 - (void)patientTableViewSource:(FTINPatientTableViewSource *)source selectedPatient:(Patient *)patient
 {
 	FTINLaunchNotification(FTINNotificationForSelectedPatient(patient));
+}
+
+#pragma mark - Patient addition/edition handling
+
+- (void)update
+{
+	[self.tableViewSource update];
 }
 
 @end

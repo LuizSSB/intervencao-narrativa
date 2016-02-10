@@ -107,6 +107,8 @@
 	{
 		id<FTINPatientViewControllerDelegate> newDelegate = [[FTINExistingPatientViewControllerDelegate alloc] initWithPatient:patient];
 		_parentViewController.delegate = newDelegate;
+		
+		FTINLaunchNotification(FTINNotificationForAddedPatient(patient));
 	}
 	
 	_insertHandler = nil;

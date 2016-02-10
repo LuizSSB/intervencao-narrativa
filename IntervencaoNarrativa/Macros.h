@@ -25,6 +25,7 @@ extern NSString * const FTINDefaultCellIdentifier;
 extern NSString * const FTINDefaultNamespace;
 extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
+extern NSString * const FTINDefaultActivityImageFileExtension;
 extern NSString * const FTINDefaultCheckedValue;
 
 extern CGFloat const FTINDefaultChoiceRowHeight;
@@ -124,6 +125,8 @@ NSString *FTINCoherenceSkillGetTitle(FTINCoherence skill);
 CGFloat FTINAnswerSkillGetScore(FTINAnswerSkill skill);
 NSArray * FTINAnswerSkillGetValues();
 NSString *FTINAnswerSkillGetTitle(FTINAnswerSkill skill);
+
+BOOL FTINACtivityStatusMeansItWasDone(FTINActivityStatus status);
 
 // -----------------------------------------------------------------------------
 // Protocols with same name as Foundation types

@@ -109,7 +109,7 @@ typedef enum : NSUInteger {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell *cell = [tableView dequeueReusableHeaderFooterViewWithIdentifier:FTINDefaultCellIdentifier];
+	UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableHeaderFooterViewWithIdentifier:FTINDefaultCellIdentifier];
 	
 	if(!cell)
 	{
