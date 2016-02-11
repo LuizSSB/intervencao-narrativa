@@ -30,6 +30,10 @@ CGFloat const FTINActivityScoreMax = 10.f;
 CGFloat const FTINActivityScoreSkipped = MAXFLOAT;
 CGFloat const FTINActivityScoreTrialPenalty = 3.f;
 
+NSString * const FTINToastSuccessImage = @"toastsuccess";
+NSString * const FTINToastSkipImage = @"toastjump";
+NSString * const FTINToastFailureImage = @"toastfailure";
+
 NSString * FTINActivityTypeTitle(FTINActivityType type)
 {
 	return [@"activity_" stringByAppendingFormat:@"%ld", (long) type].localizedString;

@@ -139,9 +139,7 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (BOOL)shouldSkipLevelOfSubActivity:(FTINSubActivityDetails *)subactivity
 {
-	if(!subactivity.skippable
-//	   || !subactivity.allowsAutoSkip
-	   )
+	if(!subactivity.skippable || !subactivity.allowsAutoSkip)
 	{
 		return NO;
 	}
@@ -327,13 +325,14 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 	NSAssert(!error || !_isAutoSkipingActivities, @"Failed to auto-akip sub activities");
 	
 	FTINSubActivityDetails *baseSubActivity = subActivities[0];
-	[self.delegate activityFlowController:self skippedSubActivitiesOfType:baseSubActivity.type andDifficultyLevel:baseSubActivity.difficultyLevel automatically:_isAutoSkipingActivities error:error];
 	
 	if(_isAutoSkipingActivities)
 	{
-		_isAutoSkipingActivities = NO;
 		[self.delegate activityFlowController:self completedSubActivity:_autoAkippingSubActivity error:error];
 	}
+	
+	[self.delegate activityFlowController:self skippedSubActivitiesOfType:baseSubActivity.type andDifficultyLevel:baseSubActivity.difficultyLevel automatically:_isAutoSkipingActivities error:error];
+	_isAutoSkipingActivities = NO;
 	
 	if(self.incompleteActivities > 0)
 	{

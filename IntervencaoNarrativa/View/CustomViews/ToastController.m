@@ -30,7 +30,7 @@ NSTimeInterval const ToastDuration = 2.5;
 	[self showToastText:text.localizedString];
 }
 
-- (void)showLocalizedToastText:(NSString *)text withImage:(UIImage *)image
+- (void)showToastText:(NSString *)text withImage:(UIImage *)image
 {
 	if(self.parentViewController)
 	{
@@ -38,7 +38,24 @@ NSTimeInterval const ToastDuration = 2.5;
 	}
 	else
 	{
-		[ToastController showToastText:text.localizedString withImage:image inView:self.view];
+		[ToastController showToastText:text withImage:image inView:self.view];
+	}
+}
+
+- (void)showLocalizedToastText:(NSString *)text withImage:(UIImage *)image
+{
+	[self showToastText:text.localizedString withImage:image];
+}
+
+- (void)showToastText:(NSString *)text withImage:(UIImage *)image onCompletion:(void (^)())onCompletion
+{
+	if(self.parentViewController)
+	{
+		[self.parentViewController showToastText:text withImage:image onCompletion:onCompletion];
+	}
+	else
+	{
+		[ToastController showToastText:text withImage:image onCompletion:onCompletion inView:self.view];
 	}
 }
 
@@ -62,6 +79,14 @@ static CSToastStyle *_style;
 {
 	_style.imageSize = image.size;
 	[view makeToast:text duration:ToastDuration position:CSToastPositionCenter title:[NSString string] image:image style:_style completion:nil];
+}
+
++ (void)showToastText:(NSString *)text withImage:(UIImage *)image onCompletion:(void (^)())onCompletion inView:(UIView *)view
+{
+	_style.imageSize = image.size;
+	[view makeToast:text duration:ToastDuration position:CSToastPositionCenter title:[NSString string] image:image style:_style completion:^(BOOL didTap) {
+		onCompletion();
+	}];
 }
 
 @end

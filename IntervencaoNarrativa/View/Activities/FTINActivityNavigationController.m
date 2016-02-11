@@ -213,9 +213,22 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {
-	[NSError alertOnError:error andDoOnSuccess:^{
+	if(error)
+	{
+		if([error.domain isEqualToString:FTINErrorDomainSubActivity])
+		{
+			[self showToastText:error.localizedDescription withImage:[UIImage imageNamed:FTINToastFailureImage]];
+		}
+		else
+		{
+			[self showToastText:error.localizedDescription];
+		}
+	}
+	else
+	{
+		[self showLocalizedToastText:@"success" withImage:[UIImage imageNamed:FTINToastSuccessImage]];
 		[self goToNextSubActivity];
-	}];
+	}
 }
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller finishedActivity:(FTINActivityDetails *)details error:(NSError *)error
@@ -234,15 +247,24 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivitiesOfType:(FTINActivityType)type andDifficultyLevel:(NSInteger)difficultyLevel automatically:(BOOL)automatically error:(NSError *)error
 {
+	NSString *msg;
+	
 	if (!automatically)
 	{
 		[self goToNextSubActivity];
+		msg = @"skipped";
 	}
+	else
+	{
+		msg = @"autoskipped";
+	}
+	
+	[self showLocalizedToastText:msg withImage:[UIImage imageNamed:FTINToastSkipImage]];
 }
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller failedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
-	[NSError alertOnError:error andDoOnSuccess:^{
+	[self showToastText:error.localizedDescription withImage:[UIImage imageNamed:FTINToastFailureImage] onCompletion:^{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:@"exit_after_failing".localizedString delegate:self cancelButtonTitle:@"cancel".localizedString otherButtonTitles:@"continue".localizedString, nil];
 		alert.tag = FTINAlertViewTagContinueAfterFailing;
 		[alert show];
