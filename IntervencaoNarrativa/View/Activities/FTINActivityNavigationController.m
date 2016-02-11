@@ -31,7 +31,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 + (UIViewController *)createUselessRootViewController;
 
 - (void)showActivities:(UIBarButtonItem *)sender;
-- (void)goToNextSubActivity:(BOOL)animated;
+- (void)goToNextSubActivity;
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated;
 
 @end
@@ -107,15 +107,9 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	return viewController;
 }
 
-- (void)goToNextSubActivity:(BOOL)animated
+- (void)goToNextSubActivity
 {
-	BOOL looped = NO;
-	[self goToSubActivity:[_controller nextSubActivity:&looped] animated:animated];
-	
-	if(looped)
-	{
-		[self showLocalizedToastText:@"looped"];
-	}
+	[_controller requestNextSubActivity];
 }
 
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated
@@ -209,7 +203,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	if([NSError alertOnError:error andDoOnSuccess:^{
 		[_parentViewController presentViewController:self animated:YES completion:^{
 			_parentViewController = nil;
-			[self goToNextSubActivity:NO];
+			[self goToNextSubActivity];
 		}];
 	}])
 	{
@@ -220,14 +214,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 - (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {
 	[NSError alertOnError:error andDoOnSuccess:^{
-		if(_controller.hasNextSubActivity)
-		{
-			[self goToNextSubActivity:YES];
-		}
-		else
-		{
-			[_controller finish];
-		}
+		[self goToNextSubActivity];
 	}];
 }
 
@@ -249,11 +236,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 {
 	if (!automatically)
 	{
-		[self activityFlowController:controller completedSubActivity:nil error:error];
-	}
-	else
-	{
-		[NSError alertOnError:error andDoOnSuccess:nil];
+		[self goToNextSubActivity];
 	}
 }
 
@@ -278,6 +261,26 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerFinished:self];
 	}];
+}
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller gotNextSubActivity:(FTINSubActivityDetails *)nextSubActivity looped:(BOOL)looped error:(NSError *)error
+{
+	if(error)
+	{
+		if(error.code == FTINErrorCodeNoMoreActivitiesLeft)
+		{
+			[_controller finish];
+		}
+	}
+	else
+	{
+		[self goToSubActivity:nextSubActivity animated:YES];
+		
+		if(looped)
+		{
+			[self showLocalizedToastText:@"looped"];
+		}
+	}
 }
 
 #pragma mark - Sub Activities Table View Controller Delegate
@@ -331,14 +334,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 		}
 		else
 		{
-			if(_controller.hasNextSubActivity)
-			{
-				[self goToNextSubActivity:YES];
-			}
-			else
-			{
-				[_controller finish];
-			}
+			[self goToNextSubActivity];
 		}
 	}
 }

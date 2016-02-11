@@ -16,6 +16,8 @@
 #import "SubActivity+Complete.h"
 #import "Patient+Complete.h"
 
+NSInteger const FTINMaximumActivitiesTries = 3;
+
 @interface FTINActivityDetails()
 
 - (void)loadActivityDetailsFromURL:(NSURL *)url resultHandler:(FTINOperationHandler)resultHandler;
@@ -155,37 +157,46 @@
 	}
 	else
 	{
-		subActivity.data.status = FTINActivityStatusIncomplete;
-		
 		if([error.domain isEqualToString:FTINErrorDomainSubActivity])
 		{
-			subActivity.data.tries++;
+			if(++subActivity.data.tries >= FTINMaximumActivitiesTries)
+			{
+				subActivity.data.status = FTINActivityStatusFailed;
+			}
+		}
+		else
+		{
+			subActivity.data.status = FTINActivityStatusIncomplete;
 		}
 	}
 	
 	[self.delegate activityController:self completedSubActivity:subActivity error:error];
 }
 
-- (void)skipSubActivity:(FTINSubActivityDetails *)subActivity
+- (void)skipSubActivities:(NSArray *)subActivities
 {
 	NSError *error = nil;
 	
-	if(!subActivity.skippable)
+	for (FTINSubActivityDetails *subActivity in subActivities)
 	{
-		error = [NSError ftin_createErrorWithCode:FTINErrorCodeNonSkippableSubActivity];
-	}
-	else if(!subActivity.data.done)
-	{
-		subActivity.data.status = FTINActivityStatusSkipped;
+		if(!subActivity.skippable)
+		{
+			error = [NSError ftin_createErrorWithCode:FTINErrorCodeNonSkippableSubActivity];
+		}
 	}
 	
-	[self.delegate activityController:self skippedSubActivity:subActivity error:error];
-}
-
-- (void)failSubActivity:(FTINSubActivityDetails *)subActivity
-{
-	subActivity.data.status = FTINActivityStatusFailed;
-	[self.delegate activityController:self failedSubActivity:subActivity error:nil];
+	if(!error)
+	{
+		for (FTINSubActivityDetails *subActivity in subActivities)
+		{
+			if(!subActivity.data.done)
+			{
+				subActivity.data.status = FTINActivityStatusSkipped;
+			}
+		}
+	}
+	
+	[self.delegate activityController:self skippedSubActivities:subActivities error:error];
 }
 
 - (void)finalizeActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient

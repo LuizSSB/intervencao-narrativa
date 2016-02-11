@@ -55,6 +55,7 @@
 "instructions" = "Instruções";
 "correct_marking" = "Corrigir marcação";
 "looped" = "Voltando para as atividades não concluídas.";
+"success" = "Atividade concluída com sucesso!";
 
 /* Acitivity types info */
 "activity_0" = "Descrição e narração de cena";
@@ -138,6 +139,7 @@
 "error_ftin_3004" = "É preciso terminar todas as atividades para finalizar.";
 "error_ftin_3005" = "Atividade fora dos limites.";
 "error_ftin_3006" = "É necessário responder algumas questões. Selecione-as e monte o jogo.";
+"error_ftin_3007" = "Todas as atividades já foram completadas.";
 
 "error_ftin_6000" = "Ordenação incorreta, tente novamente.";
 "error_ftin_6001" = "A quantidade itens que fazem parte do ambiente está errada.";

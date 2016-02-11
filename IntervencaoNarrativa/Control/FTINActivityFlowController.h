@@ -15,6 +15,8 @@
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller startedWithError:(NSError *)error;
 
+- (void)activityFlowController:(FTINActivityFlowController *)controller gotNextSubActivity:(FTINSubActivityDetails *)nextSubActivity looped:(BOOL)looped error:(NSError *)error;
+
 - (void)activityFlowController:(FTINActivityFlowController *)controller finishedActivity:(FTINActivityDetails *)details error:(NSError *)error;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error;
@@ -39,12 +41,14 @@
 @property (nonatomic, readonly) NSURL *activityUrl;
 @property (nonatomic, readonly) FTINActivityDetails *activity;
 @property (nonatomic, readonly) Patient *patient;
+
 @property (nonatomic, weak) id<FTINActivityFlowControllerDelegate> delegate;
 
 @property (nonatomic, readonly) FTINSubActivityDetails *currentSubActivity;
 @property (nonatomic, readonly) NSUInteger incompleteActivities;
-@property (nonatomic, readonly) BOOL hasNextSubActivity;
-- (FTINSubActivityDetails *)nextSubActivity:(BOOL *)looped;
+
+- (void)requestNextSubActivity;
+
 - (FTINSubActivityDetails *)jumpToSubActivityAtIndex:(NSUInteger)activityIndex;
 - (void)jumpToSubActivity:(FTINSubActivityDetails *)subActivity;
 
