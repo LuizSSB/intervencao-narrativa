@@ -31,7 +31,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 + (UIViewController *)createUselessRootViewController;
 
 - (void)showActivities:(UIBarButtonItem *)sender;
-- (void)goToNextSubActivity:(BOOL)animated;
+- (void)goToNextSubActivity;
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated;
 
 @end
@@ -107,15 +107,9 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	return viewController;
 }
 
-- (void)goToNextSubActivity:(BOOL)animated
+- (void)goToNextSubActivity
 {
-	BOOL looped = NO;
-	[self goToSubActivity:[_controller nextSubActivity:&looped] animated:animated];
-	
-	if(looped)
-	{
-		[self showLocalizedToastText:@"looped"];
-	}
+	[_controller requestNextSubActivity];
 }
 
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated
@@ -209,7 +203,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	if([NSError alertOnError:error andDoOnSuccess:^{
 		[_parentViewController presentViewController:self animated:YES completion:^{
 			_parentViewController = nil;
-			[self goToNextSubActivity:NO];
+			[self goToNextSubActivity];
 		}];
 	}])
 	{
@@ -219,16 +213,22 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller completedSubActivity:(FTINSubActivityDetails *)details error:(NSError *)error
 {
-	[NSError alertOnError:error andDoOnSuccess:^{
-		if(_controller.hasNextSubActivity)
+	if(error)
+	{
+		if([error.domain isEqualToString:FTINErrorDomainSubActivity])
 		{
-			[self goToNextSubActivity:YES];
+			[self showToastText:error.localizedDescription withImage:[UIImage imageNamed:FTINToastFailureImage]];
 		}
 		else
 		{
-			[_controller finish];
+			[self showToastText:error.localizedDescription];
 		}
-	}];
+	}
+	else
+	{
+		[self showLocalizedToastText:@"success" withImage:[UIImage imageNamed:FTINToastSuccessImage]];
+		[self goToNextSubActivity];
+	}
 }
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller finishedActivity:(FTINActivityDetails *)details error:(NSError *)error
@@ -247,19 +247,24 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller skippedSubActivitiesOfType:(FTINActivityType)type andDifficultyLevel:(NSInteger)difficultyLevel automatically:(BOOL)automatically error:(NSError *)error
 {
+	NSString *msg;
+	
 	if (!automatically)
 	{
-		[self activityFlowController:controller completedSubActivity:nil error:error];
+		[self goToNextSubActivity];
+		msg = @"skipped";
 	}
 	else
 	{
-		[NSError alertOnError:error andDoOnSuccess:nil];
+		msg = @"autoskipped";
 	}
+	
+	[self showLocalizedToastText:msg withImage:[UIImage imageNamed:FTINToastSkipImage]];
 }
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller failedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
-	[NSError alertOnError:error andDoOnSuccess:^{
+	[self showToastText:error.localizedDescription withImage:[UIImage imageNamed:FTINToastFailureImage] onCompletion:^{
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:@"exit_after_failing".localizedString delegate:self cancelButtonTitle:@"cancel".localizedString otherButtonTitles:@"continue".localizedString, nil];
 		alert.tag = FTINAlertViewTagContinueAfterFailing;
 		[alert show];
@@ -278,6 +283,26 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	[NSError alertOnError:error andDoOnSuccess:^{
 		[self.delegate activityNavigationControllerFinished:self];
 	}];
+}
+
+- (void)activityFlowController:(FTINActivityFlowController *)controller gotNextSubActivity:(FTINSubActivityDetails *)nextSubActivity looped:(BOOL)looped error:(NSError *)error
+{
+	if(error)
+	{
+		if(error.code == FTINErrorCodeNoMoreActivitiesLeft)
+		{
+			[_controller finish];
+		}
+	}
+	else
+	{
+		[self goToSubActivity:nextSubActivity animated:YES];
+		
+		if(looped)
+		{
+			[self showLocalizedToastText:@"looped"];
+		}
+	}
 }
 
 #pragma mark - Sub Activities Table View Controller Delegate
@@ -331,14 +356,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 		}
 		else
 		{
-			if(_controller.hasNextSubActivity)
-			{
-				[self goToNextSubActivity:YES];
-			}
-			else
-			{
-				[_controller finish];
-			}
+			[self goToNextSubActivity];
 		}
 	}
 }

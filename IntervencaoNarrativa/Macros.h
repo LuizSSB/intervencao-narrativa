@@ -40,6 +40,10 @@ extern CGFloat const FTINActivityScoreMax;
 extern CGFloat const FTINActivityScoreSkipped;
 extern CGFloat const FTINActivityScoreTrialPenalty;
 
+extern NSString * const FTINToastSuccessImage;
+extern NSString * const FTINToastSkipImage;
+extern NSString * const FTINToastFailureImage;
+
 // -----------------------------------------------------------------------------
 // Blocks types
 

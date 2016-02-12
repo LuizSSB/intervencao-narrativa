@@ -167,7 +167,7 @@
 {
 	[navigationController dismissViewControllerAnimated:YES completion:^{
 		[self.tableViewSource update];
-		[self showLocalizedToastText:@"activity_completed"];
+		[self showLocalizedToastText:@"activity_completed" withImage:[UIImage imageNamed:FTINToastSuccessImage]];
 	}];
 }
 

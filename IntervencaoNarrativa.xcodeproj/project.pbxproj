@@ -295,6 +295,12 @@
 		60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60207AA71A79A5BF00B63FEE /* cardback@2x.png */; };
 		603D3B3A1A90C3320050859F /* jumpcheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B391A90C3320050859F /* jumpcheck@2x.png */; };
 		603D3B3C1A90CF280050859F /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B3B1A90CF280050859F /* check@2x.png */; };
+		6078F6FB1C6BE61A00CA3302 /* toastfailure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6078F6F51C6BE61A00CA3302 /* toastfailure@2x.png */; };
+		6078F6FC1C6BE61A00CA3302 /* toastfailure@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6078F6F61C6BE61A00CA3302 /* toastfailure@3x.png */; };
+		6078F6FD1C6BE61A00CA3302 /* toastjump@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6078F6F71C6BE61A00CA3302 /* toastjump@2x.png */; };
+		6078F6FE1C6BE61A00CA3302 /* toastjump@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6078F6F81C6BE61A00CA3302 /* toastjump@3x.png */; };
+		6078F6FF1C6BE61A00CA3302 /* toastsuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6078F6F91C6BE61A00CA3302 /* toastsuccess@2x.png */; };
+		6078F7001C6BE61A00CA3302 /* toastsuccess@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6078F6FA1C6BE61A00CA3302 /* toastsuccess@3x.png */; };
 		608F731619F5D12C00CCC465 /* WhyGameSubActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */; };
 		60AC53DA1B3F60B600CCEEF6 /* complete.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 60AC53D61B3F60B600CCEEF6 /* complete.m4a */; };
 		60AC53DB1B3F60B600CCEEF6 /* failure.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 60AC53D71B3F60B600CCEEF6 /* failure.m4a */; };
@@ -348,6 +354,10 @@
 		60F47CD61C2A1125008C03F1 /* o_tv@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F47CC11C2A1125008C03F1 /* o_tv@3x.png */; };
 		60F47CD71C2A1125008C03F1 /* o_wardrobe2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F47CC21C2A1125008C03F1 /* o_wardrobe2@3x.png */; };
 		60F47CD81C2A1125008C03F1 /* o_wardrobe@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F47CC31C2A1125008C03F1 /* o_wardrobe@3x.png */; };
+		60F9407A1C6BD7E800705D68 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F940791C6BD7E800705D68 /* UIView+Toast.m */; };
+		60F9408C1C6BE0B500705D68 /* toastfailure.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F940891C6BE0B500705D68 /* toastfailure.png */; };
+		60F9408D1C6BE0B500705D68 /* toastjump.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F9408A1C6BE0B500705D68 /* toastjump.png */; };
+		60F9408E1C6BE0B500705D68 /* toastsuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 60F9408B1C6BE0B500705D68 /* toastsuccess.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -758,6 +768,12 @@
 		60207AA71A79A5BF00B63FEE /* cardback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardback@2x.png"; sourceTree = "<group>"; };
 		603D3B391A90C3320050859F /* jumpcheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jumpcheck@2x.png"; sourceTree = "<group>"; };
 		603D3B3B1A90CF280050859F /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		6078F6F51C6BE61A00CA3302 /* toastfailure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toastfailure@2x.png"; path = "Activites/toastfailure@2x.png"; sourceTree = "<group>"; };
+		6078F6F61C6BE61A00CA3302 /* toastfailure@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toastfailure@3x.png"; path = "Activites/toastfailure@3x.png"; sourceTree = "<group>"; };
+		6078F6F71C6BE61A00CA3302 /* toastjump@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toastjump@2x.png"; path = "Activites/toastjump@2x.png"; sourceTree = "<group>"; };
+		6078F6F81C6BE61A00CA3302 /* toastjump@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toastjump@3x.png"; path = "Activites/toastjump@3x.png"; sourceTree = "<group>"; };
+		6078F6F91C6BE61A00CA3302 /* toastsuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toastsuccess@2x.png"; path = "Activites/toastsuccess@2x.png"; sourceTree = "<group>"; };
+		6078F6FA1C6BE61A00CA3302 /* toastsuccess@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toastsuccess@3x.png"; path = "Activites/toastsuccess@3x.png"; sourceTree = "<group>"; };
 		608F731419F5D12C00CCC465 /* WhyGameSubActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhyGameSubActivity.h; sourceTree = "<group>"; };
 		608F731519F5D12C00CCC465 /* WhyGameSubActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhyGameSubActivity.m; sourceTree = "<group>"; };
 		60AC53D61B3F60B600CCEEF6 /* complete.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = complete.m4a; sourceTree = "<group>"; };
@@ -819,6 +835,11 @@
 		60F47CC11C2A1125008C03F1 /* o_tv@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "o_tv@3x.png"; sourceTree = "<group>"; };
 		60F47CC21C2A1125008C03F1 /* o_wardrobe2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "o_wardrobe2@3x.png"; sourceTree = "<group>"; };
 		60F47CC31C2A1125008C03F1 /* o_wardrobe@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "o_wardrobe@3x.png"; sourceTree = "<group>"; };
+		60F940781C6BD7E800705D68 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
+		60F940791C6BD7E800705D68 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		60F940891C6BE0B500705D68 /* toastfailure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toastfailure.png; sourceTree = "<group>"; };
+		60F9408A1C6BE0B500705D68 /* toastjump.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toastjump.png; sourceTree = "<group>"; };
+		60F9408B1C6BE0B500705D68 /* toastsuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toastsuccess.png; sourceTree = "<group>"; };
 		C945DEE5143B4B4EB8C31375 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -853,6 +874,8 @@
 		2537BAFE193B72D500D10878 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				60F940781C6BD7E800705D68 /* UIView+Toast.h */,
+				60F940791C6BD7E800705D68 /* UIView+Toast.m */,
 				2537BB3A193B730500D10878 /* FileUtils.h */,
 				2537BB3B193B730500D10878 /* FileUtils.m */,
 				2537BB3C193B730500D10878 /* NSDate+FormattedDate.h */,
@@ -972,8 +995,17 @@
 			isa = PBXGroup;
 			children = (
 				255F799F194295E000C94AB3 /* Activites */,
-				603D3B3B1A90CF280050859F /* check@2x.png */,
+				6078F6F51C6BE61A00CA3302 /* toastfailure@2x.png */,
+				6078F6F61C6BE61A00CA3302 /* toastfailure@3x.png */,
+				6078F6F71C6BE61A00CA3302 /* toastjump@2x.png */,
+				6078F6F81C6BE61A00CA3302 /* toastjump@3x.png */,
+				6078F6F91C6BE61A00CA3302 /* toastsuccess@2x.png */,
+				6078F6FA1C6BE61A00CA3302 /* toastsuccess@3x.png */,
+				60F940891C6BE0B500705D68 /* toastfailure.png */,
+				60F9408A1C6BE0B500705D68 /* toastjump.png */,
+				60F9408B1C6BE0B500705D68 /* toastsuccess.png */,
 				603D3B391A90C3320050859F /* jumpcheck@2x.png */,
+				603D3B3B1A90CF280050859F /* check@2x.png */,
 				60F44ED11A8F5DBE00232554 /* launchImageBg@2x.png */,
 				60C49FFC1A81419400D8013E /* cardback.png */,
 				60207AA71A79A5BF00B63FEE /* cardback@2x.png */,
@@ -1718,6 +1750,7 @@
 				60161AE81B87F28600C3DACE /* a_5_1_4.jpg in Resources */,
 				60AD5B7A1C25CD5A00A3FA2E /* e_room.json in Resources */,
 				60161B161B87F28600C3DACE /* a_8_0_1.jpg in Resources */,
+				6078F6FE1C6BE61A00CA3302 /* toastjump@3x.png in Resources */,
 				257F57F31966187300D82411 /* selected@2x.png in Resources */,
 				60161AEA1B87F28600C3DACE /* a_5_2_1.jpg in Resources */,
 				60161AF71B87F28600C3DACE /* a_6_1_3.jpg in Resources */,
@@ -1764,6 +1797,7 @@
 				60AD5B8B1C25D49900A3FA2E /* d_2_2.jpg in Resources */,
 				60161B0C1B87F28600C3DACE /* a_7_1_5.jpg in Resources */,
 				25A37C7A194CC19800DFC749 /* FTINDraggableItemBoxView.xib in Resources */,
+				60F9408E1C6BE0B500705D68 /* toastsuccess.png in Resources */,
 				60161AEC1B87F28600C3DACE /* a_5_2_3.jpg in Resources */,
 				60161AF91B87F28600C3DACE /* a_6_1_5.jpg in Resources */,
 				60161B1E1B87F28600C3DACE /* a_8_1_1.jpg in Resources */,
@@ -1772,6 +1806,7 @@
 				60F44EDA1A8F5E1B00232554 /* FTINActivityInstructionViewController.xib in Resources */,
 				60F47CD81C2A1125008C03F1 /* o_wardrobe@3x.png in Resources */,
 				60161ADF1B87F28600C3DACE /* a_5_0_0.jpg in Resources */,
+				6078F6FD1C6BE61A00CA3302 /* toastjump@2x.png in Resources */,
 				256B6BFA1976028700CB1CCD /* error@2x.png in Resources */,
 				60161AC61B87F28600C3DACE /* a_2_1_0.jpg in Resources */,
 				60161B061B87F28600C3DACE /* a_7_0_6.jpg in Resources */,
@@ -1786,9 +1821,11 @@
 				25603357194DC42D00AE9C26 /* FTINWhyGameActivityViewController.xib in Resources */,
 				60161ACA1B87F28600C3DACE /* a_3_0_0.jpg in Resources */,
 				60AD5B8E1C25D49900A3FA2E /* d_3_2.jpg in Resources */,
+				6078F6FC1C6BE61A00CA3302 /* toastfailure@3x.png in Resources */,
 				60207A981A7998FA00B63FEE /* swirl.png in Resources */,
 				60161AFB1B87F28600C3DACE /* a_6_2_1.jpg in Resources */,
 				25FF3342194A52B70080DC6F /* a_3_2.json in Resources */,
+				60F9408C1C6BE0B500705D68 /* toastfailure.png in Resources */,
 				251F9C9B1943F2D600A65131 /* d_4_0.json in Resources */,
 				257F57F51966187B00D82411 /* blank@2x.png in Resources */,
 				60161AC71B87F28600C3DACE /* a_2_1_1.jpg in Resources */,
@@ -1799,6 +1836,7 @@
 				256BF1D41947E4B600FD8BB3 /* a_2_0.json in Resources */,
 				60161AC51B87F28600C3DACE /* a_2_0_1.jpg in Resources */,
 				60161B241B87F28600C3DACE /* a_8_1_7.jpg in Resources */,
+				60F9408D1C6BE0B500705D68 /* toastjump.png in Resources */,
 				60F47CCF1C2A1125008C03F1 /* o_endtable@3x.png in Resources */,
 				60161ACF1B87F28600C3DACE /* a_3_1_2.jpg in Resources */,
 				60F47CCC1C2A1125008C03F1 /* o_desk@3x.png in Resources */,
@@ -1852,10 +1890,12 @@
 				60F47CCB1C2A1125008C03F1 /* o_couch@3x.png in Resources */,
 				60161B271B87F28600C3DACE /* a_8_2_2.jpg in Resources */,
 				60161B131B87F28600C3DACE /* a_7_2_5.jpg in Resources */,
+				6078F6FB1C6BE61A00CA3302 /* toastfailure@2x.png in Resources */,
 				251F9CA31943F3AE00A65131 /* d_6_0.json in Resources */,
 				25603364194DF8DB00AE9C26 /* help@2x.png in Resources */,
 				2563580119413D0E00E5762A /* FTINDescriptionActivityViewController.xib in Resources */,
 				2594252B19EB646B0052642C /* a_8_2.json in Resources */,
+				6078F6FF1C6BE61A00CA3302 /* toastsuccess@2x.png in Resources */,
 				60161B1C1B87F28600C3DACE /* a_8_0_7.jpg in Resources */,
 				60161B211B87F28600C3DACE /* a_8_1_4.jpg in Resources */,
 				60161AF51B87F28600C3DACE /* a_6_1_1.jpg in Resources */,
@@ -1892,6 +1932,7 @@
 				60161B151B87F28600C3DACE /* a_8_0_0.jpg in Resources */,
 				60F47CC71C2A1125008C03F1 /* o_abajour@3x.png in Resources */,
 				2594252719EB646B0052642C /* a_6_2.json in Resources */,
+				6078F7001C6BE61A00CA3302 /* toastsuccess@3x.png in Resources */,
 				60161AD41B87F28600C3DACE /* a_4_0_1.jpg in Resources */,
 				60161B251B87F28600C3DACE /* a_8_2_0.jpg in Resources */,
 				60F47CD11C2A1125008C03F1 /* o_mat@3x.png in Resources */,
@@ -2051,6 +2092,7 @@
 				25603352194DC32900AE9C26 /* FTINAnswerSkillChoiceViewController.m in Sources */,
 				2537BB6B193B730500D10878 /* UIDevice+SystemVersion.m in Sources */,
 				2588D654197C898D007A0910 /* FTINEnvironmentActivityReportFormatter.m in Sources */,
+				60F9407A1C6BD7E800705D68 /* UIView+Toast.m in Sources */,
 				256357F319413CAE00E5762A /* FTINStartViewController.m in Sources */,
 				253823CD195644760016991A /* UIView+AsImage.m in Sources */,
 				2560334C194DC22900AE9C26 /* FTINWhyGameQuestion.m in Sources */,
