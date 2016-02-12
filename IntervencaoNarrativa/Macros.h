@@ -107,6 +107,7 @@ typedef enum : NSUInteger {
 // -----------------------------------------------------------------------------
 // Utilitary functions
 NSString * FTINActivityTypeTitle(FTINActivityType type);
+UIColor * FTINActivityTypeColor(FTINActivityType type);
 NSString * FTINActivityTypeInstruction(FTINActivityType type);
 NSArray * FTINActivityTypeGetValues();
 

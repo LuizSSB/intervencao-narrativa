@@ -39,6 +39,22 @@ NSString * FTINActivityTypeTitle(FTINActivityType type)
 	return [@"activity_" stringByAppendingFormat:@"%ld", (long) type].localizedString;
 }
 
+UIColor * FTINActivityTypeColor(FTINActivityType type)
+{
+	switch (type) {
+		case FTINActivityTypeArrangement:
+			return [UIColor redColor];
+		case FTINActivityTypeDescription:
+			return [UIColor blueColor];
+		case FTINActivityTypeEnvironment:
+			return [UIColor colorWithIntRed:0 intGreen:200 intBlue:0 alpha:1.f];
+		case FTINActivityTypeWhyGame:
+			return [UIColor purpleColor];
+		default:
+			return [UIColor blackColor];
+	}
+}
+
 NSString * FTINActivityTypeInstruction(FTINActivityType type)
 {
 	return [@"activity_description_" stringByAppendingFormat:@"%ld", (long) type].localizedString;

@@ -12,7 +12,7 @@
 
 #import "DNDDragAndDrop.h"
 
-CGFloat const FTINDraggableItemBoxViewToolSpacing = 8.f;
+CGFloat const FTINDraggableItemBoxViewToolSpacing = 16.f;
 CGFloat const FTINDraggableItemBoxViewDragOpacity = 1.;
 CGFloat const FTINDraggableItemBoxCellCornerRadius = 5.f;
 CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
