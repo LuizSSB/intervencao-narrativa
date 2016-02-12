@@ -10,7 +10,7 @@
 #import "FTINQuestionCardBackCollectionViewCell.h"
 #import "FTINWhyGameQuestion.h"
 
-CGSize const FTINQuestionCardsViewCellSize = {200.f, 300.f};
+CGSize const FTINQuestionCardsViewCellSize = {200.f, 275.f};
 CGFloat const FTINQuestionCardsViewCellSpacing = 35.f;
 CGFloat const FTINQuestionCardsViewOverlayOpacity = .65f;
 

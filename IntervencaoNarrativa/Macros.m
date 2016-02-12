@@ -44,13 +44,13 @@ UIColor * FTINActivityTypeColor(FTINActivityType type)
 {
 	switch (type) {
 		case FTINActivityTypeArrangement:
-			return [UIColor redColor];
+			return [UIColor colorWithIntRed:255 intGreen:59 intBlue:66 alpha:1.f];
 		case FTINActivityTypeDescription:
-			return [UIColor blueColor];
+			return [UIColor colorWithIntRed:84 intGreen:176 intBlue:94 alpha:1.f];
 		case FTINActivityTypeEnvironment:
-			return [UIColor colorWithIntRed:0 intGreen:200 intBlue:0 alpha:1.f];
+			return [UIColor colorWithIntRed:84 intGreen:95 intBlue:209 alpha:1.f];
 		case FTINActivityTypeWhyGame:
-			return [UIColor purpleColor];
+			return [UIColor colorWithIntRed:180 intGreen:84 intBlue:169 alpha:1.f];
 		default:
 			return [UIColor blackColor];
 	}

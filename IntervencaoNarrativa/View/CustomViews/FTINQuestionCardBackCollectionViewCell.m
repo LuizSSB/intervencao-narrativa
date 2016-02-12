@@ -55,6 +55,7 @@
 	[self addSubview:self.answeredLabel];
 	
 	self.backgroundImageView.image = [UIImage lssb_imageNamed:@"cardback"];
+	self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (BOOL)answered
