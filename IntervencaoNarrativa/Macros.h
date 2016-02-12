@@ -26,6 +26,7 @@ extern NSString * const FTINDefaultNamespace;
 extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
 extern NSString * const FTINDefaultActivityImageFileExtension;
+extern NSString * const FTINSecundaryActivityImageFileExtension;
 extern NSString * const FTINDefaultCheckedValue;
 
 extern CGFloat const FTINDefaultChoiceRowHeight;

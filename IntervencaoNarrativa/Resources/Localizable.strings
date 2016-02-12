@@ -27,6 +27,7 @@
 "restart" = "Reiniciar";
 "activity" = "Atividade";
 "score" = "Pontuação";
+"back" = "Voltar";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
@@ -56,6 +57,8 @@
 "instructions" = "Instruções";
 "correct_marking" = "Corrigir marcação";
 "looped" = "Voltando para as atividades não concluídas.";
+"wanna_loop" = "Algumas atividades do exercício não foram realizadas. Deseja voltar para elas?";
+"finish_process" = "Encerrar exercício";
 "success" = "Atividade concluída com sucesso!";
 "skipped" = "Atividades puladas com sucess!";
 "autoskipped" = "Pulamos uma atividade, pois o paciente demonstrou proficiência.";

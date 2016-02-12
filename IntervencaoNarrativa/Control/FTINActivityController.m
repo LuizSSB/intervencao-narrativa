@@ -203,17 +203,7 @@ NSInteger const FTINMaximumActivitiesTries = 3;
 }
 
 - (void)finalizeActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient
-{
-	for (SubActivity *sub in activity.data.subActivities)
-	{
-#warning FIXME
-		if(!sub.executed)
-		{
-			[self.delegate activityController:self finalizedActivity:activity error:[NSError ftin_createErrorWithCode:FTINErrorCodeNotAllSubActivitiesCompleted]];
-			return;
-		}
-	}
-	
+{	
 	activity.data.finalized = YES;
 	[self saveActivity:activity withPatient:patient resultHandler:^(id result, NSError *error) {
 		[self.delegate activityController:self finalizedActivity:activity error:error];

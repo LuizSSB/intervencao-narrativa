@@ -336,6 +336,7 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 	if(_isAutoSkipingActivities)
 	{
 		[self.delegate activityFlowController:self completedSubActivity:_autoAkippingSubActivity error:error];
+		_autoAkippingSubActivity = nil;
 	}
 	
 	[self.delegate activityFlowController:self skippedSubActivitiesOfType:baseSubActivity.type andDifficultyLevel:baseSubActivity.difficultyLevel automatically:_isAutoSkipingActivities error:error];

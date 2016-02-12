@@ -17,6 +17,7 @@
 
 NSInteger const FTINAlertViewTagDoSkippedActivity = 1;
 NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
+NSInteger const FTINAlertViewTagLoopActivities = 3;
 
 @interface FTINActivityNavigationController () <FTINSubActivitiesTableViewControllerDelegate, UIAlertViewDelegate>
 {
@@ -299,19 +300,20 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 {
 	if(error)
 	{
-		if(error.code == FTINErrorCodeNoMoreActivitiesLeft)
-		{
-			[_controller finish];
-		}
+		NSAssert(error.code == FTINErrorCodeNoMoreActivitiesLeft, @"An error that should have happened just leaked.");
+		[_controller finish];
+	}
+	else if(looped)
+	{
+		_pendingSubActivity = nextSubActivity;
+		
+		UIAlertView *loopAlert = [[UIAlertView alloc] initWithTitle:@"confirm".localizedString message:@"wanna_loop".localizedString delegate:self cancelButtonTitle:@"back".localizedString otherButtonTitles:@"finish_process".localizedString, nil];
+		loopAlert.tag = FTINAlertViewTagLoopActivities;
+		[loopAlert show];
 	}
 	else
 	{
 		[self goToSubActivity:nextSubActivity animated:YES];
-		
-		if(looped)
-		{
-			[self showLocalizedToastText:@"looped"];
-		}
 	}
 }
 
@@ -368,6 +370,19 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 		{
 			[self goToNextSubActivity];
 		}
+	}
+	else if(alertView.tag == FTINAlertViewTagLoopActivities)
+	{
+		if(buttonIndex == alertView.cancelButtonIndex)
+		{
+			[self goToSubActivity:_pendingSubActivity animated:YES];
+		}
+		else
+		{
+			[_controller finish];
+		}
+		
+		_pendingSubActivity = nil;
 	}
 }
 
