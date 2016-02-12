@@ -26,6 +26,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 }
 
 @property (nonatomic, readonly) FTINSubActivitiesTableViewController *activitiesViewController;
+@property (nonatomic, readonly) FTINActivityViewController *currentActivityViewController;
 
 + (UIColor *)defaultViewControllerBackground;
 + (UIViewController *)createUselessRootViewController;
@@ -95,6 +96,11 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	return _activitiesViewController;
 }
 
+- (FTINActivityViewController *)currentActivityViewController
+{
+	return self.viewControllers.count > 1 ? (FTINActivityViewController *)self.viewControllers.lastObject : nil;
+}
+
 + (UIColor *)defaultViewControllerBackground
 {
 	return [UIColor whiteColor];
@@ -137,11 +143,13 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 		}
 	};
 	
-	if(self.viewControllers.count > 1)
+	__block FTINActivityViewController *currentActivityViewController = self.currentActivityViewController;
+	if(currentActivityViewController)
 	{
-		[self.viewControllers.lastObject view].superview.backgroundColor = [FTINActivityNavigationController defaultViewControllerBackground];
+		currentActivityViewController.view.superview.backgroundColor = [FTINActivityNavigationController defaultViewControllerBackground];
 		[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
-			[self.viewControllers.lastObject view].layer.opacity = 0.f;
+			currentActivityViewController.view.layer.opacity = 0.f;
+			currentActivityViewController = nil;
 		} completion:^(BOOL finished) {
 			pushNextActivity();
 		}];
@@ -226,7 +234,11 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	}
 	else
 	{
-		[self showLocalizedToastText:@"success" withImage:[UIImage imageNamed:FTINToastSuccessImage]];
+		if(details.data.executed)
+		{
+			[self showLocalizedToastText:@"success" withImage:[UIImage imageNamed:FTINToastSuccessImage]];
+		}
+		
 		[self goToNextSubActivity];
 	}
 }
@@ -264,11 +276,9 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller failedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
-	[self showToastText:error.localizedDescription withImage:[UIImage imageNamed:FTINToastFailureImage] onCompletion:^{
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:@"exit_after_failing".localizedString delegate:self cancelButtonTitle:@"cancel".localizedString otherButtonTitles:@"continue".localizedString, nil];
-		alert.tag = FTINAlertViewTagContinueAfterFailing;
-		[alert show];
-	}];
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"confirmation".localizedString message:@"exit_after_failing".localizedString delegate:self cancelButtonTitle:@"see_answer".localizedString otherButtonTitles:@"continue".localizedString, nil];
+	alert.tag = FTINAlertViewTagContinueAfterFailing;
+	[alert show];
 }
 
 - (void)activityFlowController:(FTINActivityFlowController *)controller pausedActivity:(FTINActivityDetails *)activity error:(NSError *)error
@@ -352,7 +362,7 @@ NSInteger const FTINAlertViewTagContinueAfterFailing = 2;
 	{
 		if(buttonIndex == alertView.cancelButtonIndex)
 		{
-			[_controller fail];
+			[self.currentActivityViewController showAnswer];
 		}
 		else
 		{

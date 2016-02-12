@@ -48,4 +48,6 @@
 - (NSArray *)getActionBarButtons;
 - (NSArray *)getNavigationItemRightBarButtons;
 
+- (void)showAnswer;
+
 @end

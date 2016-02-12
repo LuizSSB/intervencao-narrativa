@@ -58,7 +58,12 @@ static NSNumberFormatter *_scoreFormatter;
 	self.statusNumber = @(finalStatus);
 }
 
-- (BOOL)done
+- (BOOL)finished
+{
+	return self.executed || self.failed;
+}
+
+- (BOOL)executed
 {
 	return self.status == FTINActivityStatusCompleted || self.status == FTINActivityStatusCompletedButSkipped || self.status == FTINActivityStatusSkipped;
 }
@@ -119,7 +124,7 @@ static NSNumberFormatter *_scoreFormatter;
 		return FTINActivityScoreSkipped;
 	}
 	
-	if(self.failed || !self.done)
+	if(self.failed || !self.executed)
 	{
 		return 0.f;
 	}	

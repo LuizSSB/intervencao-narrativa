@@ -50,7 +50,8 @@
 "activity_paused" = "Atividade pausada. Selecione-a na lista abaixo para retomar o progresso.";
 "activities" = "Atividades";
 "do_skipped_activity" = "Essa atividade foi pulada. Deseja realizá-la agora?";
-"exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja continuar o exercício?";
+"exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja ver a resposta correta?";
+"see_answer" = "Ver resposta";
 "grade" = "Nota: %@";
 "instructions" = "Instruções";
 "correct_marking" = "Corrigir marcação";

@@ -22,6 +22,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 - (void)pause:(id)sender;
 - (void)showInstructions:(id)sender;
 - (void)setupNavigationItemBarButtons:(BOOL)animated;
+- (void)setCompletionOverlayUp:(BOOL)animated;
 
 @end
 
@@ -63,14 +64,9 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	[actionButtons addObject:self.nextBarButton];
 	self.actionToolbar.items = actionButtons;
 	
-	if(self.subActivity.data.done)
+	if(self.subActivity.data.finished)
 	{
-		UIView *completionOverlay = [[UIView alloc] initWithFrame:self.view.bounds];
-		completionOverlay.backgroundColor = [UIColor blackColor];
-		completionOverlay.layer.opacity = .25f;
-		[self.view addSubview:completionOverlay];
-		
-		[self.view bringSubviewToFront:self.actionToolbar];
+		[self setCompletionOverlayUp:NO];
 	}
 	
 	self.view.backgroundColor = [FTINStyler backgroundColor];
@@ -247,6 +243,36 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	
 	[rightButtons addObjectsFromArray:[self getNavigationItemRightBarButtons].reverseObjectEnumerator.allObjects];
 	[self.navigationItem setRightBarButtonItems:rightButtons animated:animated];
+}
+
+- (void)setCompletionOverlayUp:(BOOL)animated
+{
+	CGRect overlayFrame = self.view.bounds;
+	
+	UIView *completionOverlay = [[UIView alloc] initWithFrame:overlayFrame];
+	completionOverlay.backgroundColor = [UIColor blackColor];
+	
+	if(animated)
+	{
+		completionOverlay.layer.opacity = 0.f;
+		[self.view addSubview:completionOverlay];
+		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+			completionOverlay.layer.opacity = .25f;
+		} completion:^(BOOL finished) {
+			[self.view bringSubviewToFront:self.actionToolbar];
+		}];
+	}
+	else
+	{
+		completionOverlay.layer.opacity = .25f;
+		[self.view addSubview:completionOverlay];
+		[self.view bringSubviewToFront:self.actionToolbar];
+	}
+}
+
+- (void)showAnswer
+{
+	[self setCompletionOverlayUp:YES];
 }
 
 #pragma mark - Alert View Delegate

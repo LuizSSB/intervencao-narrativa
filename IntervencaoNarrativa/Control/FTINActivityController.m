@@ -151,22 +151,25 @@ NSInteger const FTINMaximumActivitiesTries = 3;
 {
 	NSError *error = nil;
 	
-	if([subActivity valid:&error])
+	if(!subActivity.data.finished)
 	{
-		subActivity.data.status = FTINActivityStatusCompleted;
-	}
-	else
-	{
-		if([error.domain isEqualToString:FTINErrorDomainSubActivity])
+		if([subActivity valid:&error])
 		{
-			if(++subActivity.data.tries >= FTINMaximumActivitiesTries)
-			{
-				subActivity.data.status = FTINActivityStatusFailed;
-			}
+			subActivity.data.status = FTINActivityStatusCompleted;
 		}
 		else
 		{
-			subActivity.data.status = FTINActivityStatusIncomplete;
+			if([error.domain isEqualToString:FTINErrorDomainSubActivity])
+			{
+				if(++subActivity.data.tries >= FTINMaximumActivitiesTries)
+				{
+					subActivity.data.status = FTINActivityStatusFailed;
+				}
+			}
+			else
+			{
+				subActivity.data.status = FTINActivityStatusIncomplete;
+			}
 		}
 	}
 	
@@ -189,7 +192,7 @@ NSInteger const FTINMaximumActivitiesTries = 3;
 	{
 		for (FTINSubActivityDetails *subActivity in subActivities)
 		{
-			if(!subActivity.data.done)
+			if(!subActivity.data.executed)
 			{
 				subActivity.data.status = FTINActivityStatusSkipped;
 			}
@@ -203,7 +206,8 @@ NSInteger const FTINMaximumActivitiesTries = 3;
 {
 	for (SubActivity *sub in activity.data.subActivities)
 	{
-		if(!sub.done)
+#warning FIXME
+		if(!sub.executed)
 		{
 			[self.delegate activityController:self finalizedActivity:activity error:[NSError ftin_createErrorWithCode:FTINErrorCodeNotAllSubActivitiesCompleted]];
 			return;

@@ -52,12 +52,17 @@
 	
 	_subActivityData = (ArrangementSubActivity *)self.subActivity.data;
 
-	if(_subActivityData.done)
+	if(_subActivityData.finished)
 	{
 		[self.itemsArrangementView setItems:_subActivityData.itemsArrangement shuffling:NO];
 		self.arrangementViewController.selectedSkill = _subActivityData.arrangementSkill;
 		self.narrationViewController.selectedSkill = _subActivityData.narrativeSkill;
 		self.itemsArrangementView.userInteractionEnabled = NO;
+		
+		if(_subActivityData.failed)
+		{
+			[self hideSkillButtons];
+		}
 	}
 	else
 	{
@@ -101,6 +106,26 @@
 	return YES;
 }
 
+- (void)showAnswer
+{
+	[super showAnswer];
+	
+	self.itemsArrangementView.userInteractionEnabled = NO;
+	
+	[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
+		self.itemsArrangementView.layer.opacity = 0.;
+		
+	} completion:^(BOOL finished) {
+		[self.itemsArrangementView setItems:((FTINArrangementSubActivityContent *) self.subActivity.content).elements shuffling:NO];
+		
+		[UIView animateWithDuration:FTINDefaultAnimationShortDuration animations:^{
+			self.itemsArrangementView.layer.opacity = 1.;
+		}];
+	}];
+	
+	[self hideSkillButtons];
+}
+
 #pragma mark - Instance methods
 
 - (IBAction)showArrangement:(UIBarButtonItem *)sender
@@ -139,6 +164,12 @@
 	}
 	
 	return _narrationViewController;
+}
+
+- (void)hideSkillButtons
+{
+	self.arrangementBarButton.title = self.narrativeSkillBarButton.title = [NSString string];
+	self.arrangementBarButton.enabled = self.narrativeSkillBarButton.enabled = NO;
 }
 
 @end
