@@ -158,7 +158,7 @@
 	FTINSubActivityDetails *subActivity = _activitiesByCategory[@(indexPath.section)][indexPath.row];
 	cell.textLabel.text = [[self.indexFormatter stringFromNumber:@(indexPath.row + 1)] stringByAppendingFormat:@" - %@", subActivity.content.title];
 	
-	if(subActivity.data.done)
+	if(subActivity.data.finished)
 	{
 		cell.detailTextLabel.text = [@"grade" localizedStringWithParam:subActivity.data.formattedScore];
 	}

@@ -104,7 +104,7 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 - (NSUInteger)incompleteActivities
 {
 	return [self.activity subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *subActivity) {
-		return !subActivity.data.done;
+		return !subActivity.data.finished;
 	}].count;
 }
 
@@ -124,7 +124,7 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 		
 		FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[activityIdx];
 		
-		if(!nextSubActivity.data.done)
+		if(!nextSubActivity.data.finished)
 		{
 			_currentActivityIdx = activityIdx;
 			
@@ -154,7 +154,7 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 			return NO;
 		}
 		
-		if (levelSubActivity.data.done
+		if (levelSubActivity.data.executed
 			&& ++totalDoneActivities >= FTINMinimumActivityCompletionToSkip)
 		{
 			return YES;
@@ -234,7 +234,14 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 	}
 	else
 	{
-		[self.dataController completeSubActivity:subActivity];
+		if(subActivity.data.finished)
+		{
+			[self.delegate activityFlowController:self completedSubActivity:subActivity error:nil];
+		}
+		else
+		{
+			[self.dataController completeSubActivity:subActivity];
+		}
 	}
 }
 

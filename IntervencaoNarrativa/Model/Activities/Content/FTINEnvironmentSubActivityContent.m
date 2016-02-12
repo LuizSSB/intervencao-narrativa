@@ -17,11 +17,6 @@
 
 #pragma mark - Super methods
 
-+ (BOOL)propertyIsOptional:(NSString *)propertyName
-{
-	return [@[NSStringFromSelector(@selector(background))] containsObject:propertyName];
-}
-
 + (BOOL)propertyIsIgnored:(NSString *)propertyName
 {
 	return [@[NSStringFromSelector(@selector(allObjects))] containsObject:propertyName] || [super propertyIsIgnored:propertyName];

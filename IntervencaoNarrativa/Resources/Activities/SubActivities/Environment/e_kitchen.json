@@ -11,5 +11,6 @@
 						 {"name":"Abajour", "imageName":"o_abajour"},
 						 {"name":"Escrivaninha", "imageName":"o_desk"}
 						 ],
-	"background":"e_kitchen"
+	"background":"e_kitchen",
+	"finishedBackground":"e_kitchen_correct"
 }
