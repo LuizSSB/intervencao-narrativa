@@ -1,5 +1,5 @@
 {
-	"title":"Cozinha",
+	"title":"Sala-de-estar",
 	"correctElements":[
 					   {"name":"Sofá", "imageName":"o_couch"},
 					   {"name":"Tapete", "imageName":"o_mat"},
@@ -12,5 +12,6 @@
 						 {"name":"Panela", "imageName":"o_pan"},
 						 {"name":"Geladeira", "imageName":"o_freezer"}
 						 ],
-	"background":"e_living"
+	"background":"e_living",
+	"finishedBackground":"e_living_correct"
 }
