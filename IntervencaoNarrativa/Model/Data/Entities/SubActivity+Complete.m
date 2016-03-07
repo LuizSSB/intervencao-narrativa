@@ -58,7 +58,12 @@ static NSNumberFormatter *_scoreFormatter;
 	self.statusNumber = @(finalStatus);
 }
 
-- (BOOL)done
+- (BOOL)finished
+{
+	return self.executed || self.failed;
+}
+
+- (BOOL)executed
 {
 	return self.status == FTINActivityStatusCompleted || self.status == FTINActivityStatusCompletedButSkipped || self.status == FTINActivityStatusSkipped;
 }
@@ -86,9 +91,21 @@ static NSNumberFormatter *_scoreFormatter;
 
 - (NSString *)representativeImagePath
 {
+	NSString *path = [self representativeImagePathWithDefaultExtension:FTINDefaultActivityImageFileExtension];
+	
+	if(!path)
+	{
+		path = [self representativeImagePathWithDefaultExtension:FTINSecundaryActivityImageFileExtension];
+	}
+	
+	return path;
+}
+
+- (NSString *)representativeImagePathWithDefaultExtension:(NSString *)defaultExtension
+{
 	NSArray *imageNameParts = [self.representativeImageName componentsSeparatedByString:@"."];
 	
-	NSString  *extension = imageNameParts.count == 2 ? imageNameParts[1] : FTINDefaultActivityImageFileExtension;
+	NSString  *extension = imageNameParts.count == 2 ? imageNameParts[1] : defaultExtension;
 	
 	NSString *path =  [[NSBundle mainBundle] URLForResource:imageNameParts[0] withExtension:extension].path;
 	
@@ -119,7 +136,7 @@ static NSNumberFormatter *_scoreFormatter;
 		return FTINActivityScoreSkipped;
 	}
 	
-	if(self.failed || !self.done)
+	if(self.failed || !self.executed)
 	{
 		return 0.f;
 	}	

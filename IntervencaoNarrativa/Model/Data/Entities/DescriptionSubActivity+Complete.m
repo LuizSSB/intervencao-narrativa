@@ -38,6 +38,12 @@
 		return NO;
 	}
 	
+	if(!self.describedElements || !self.describedElements.count)
+	{
+		[NSError ftin_createErrorWithCode:FTINErrorCodePerformanceDataMissing inReference:error];
+		return NO;
+	}
+	
 	return YES;
 }
 

@@ -7,9 +7,9 @@
 //
 
 #import "ToastController.h"
-#import "UIView+APToast.h"
+#import "UIView+Toast.h"
 
-NSTimeInterval const ToastDuration = 2.;
+NSTimeInterval const ToastDuration = 2.5;
 
 @implementation UIViewController (Toast)
 
@@ -30,13 +30,63 @@ NSTimeInterval const ToastDuration = 2.;
 	[self showToastText:text.localizedString];
 }
 
+- (void)showToastText:(NSString *)text withImage:(UIImage *)image
+{
+	if(self.parentViewController)
+	{
+		[self.parentViewController showLocalizedToastText:text withImage:image];
+	}
+	else
+	{
+		[ToastController showToastText:text withImage:image inView:self.view];
+	}
+}
+
+- (void)showLocalizedToastText:(NSString *)text withImage:(UIImage *)image
+{
+	[self showToastText:text.localizedString withImage:image];
+}
+
+- (void)showToastText:(NSString *)text withImage:(UIImage *)image onCompletion:(void (^)())onCompletion
+{
+	if(self.parentViewController)
+	{
+		[self.parentViewController showToastText:text withImage:image onCompletion:onCompletion];
+	}
+	else
+	{
+		[ToastController showToastText:text withImage:image onCompletion:onCompletion inView:self.view];
+	}
+}
+
 @end
 
 @implementation ToastController
 
+static CSToastStyle *_style;
+
++ (void)load
+{
+	_style = [[CSToastStyle alloc] initWithDefaultStyle];
+}
+
 + (void)showToastText:(NSString *)text inView:(UIView *)view
 {
-	[view ap_makeToast:text duration:ToastDuration position:APToastPositionCenter];
+	[view makeToast:text duration:ToastDuration position:CSToastPositionCenter];
+}
+
++ (void)showToastText:(NSString *)text withImage:(UIImage *)image inView:(UIView *)view
+{
+	_style.imageSize = image.size;
+	[view makeToast:text duration:ToastDuration position:CSToastPositionCenter title:[NSString string] image:image style:_style completion:nil];
+}
+
++ (void)showToastText:(NSString *)text withImage:(UIImage *)image onCompletion:(void (^)())onCompletion inView:(UIView *)view
+{
+	_style.imageSize = image.size;
+	[view makeToast:text duration:ToastDuration position:CSToastPositionCenter title:[NSString string] image:image style:_style completion:^(BOOL didTap) {
+		onCompletion();
+	}];
 }
 
 @end

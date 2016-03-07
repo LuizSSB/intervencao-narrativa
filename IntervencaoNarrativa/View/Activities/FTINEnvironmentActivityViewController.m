@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *narrationBarButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *resetBarButton;
 
+- (void)hideSkillButtons;
+
 - (IBAction)showOrganizationChoices:(UIBarButtonItem *)sender;
 - (IBAction)showNarrationChoices:(UIBarButtonItem *)sender;
 - (IBAction)reset:(id)sender;
@@ -56,12 +58,13 @@
 	self.draggableElementBox.toolboxElements = _content.allElements;
 	self.draggableElementBox.backgroundImageView.image = [UIImage lssb_imageNamed:_content.background];
 
-	if (_subActivityData.done)
+	if (_subActivityData.finished)
 	{
 		self.draggableElementBox.chosenElements = _subActivityData.selectedElements;
 		self.draggableElementBox.userInteractionEnabled = NO;
 		self.narrationViewController.selectedCoherence = _subActivityData.narrationCoherence;
 		self.organizationViewController.selectedCoherence = _subActivityData.organizationCoherence;
+		[self hideSkillButtons];
 	}
 }
 
@@ -95,7 +98,7 @@
 
 - (NSArray *)getNavigationItemRightBarButtons
 {
-	return _subActivityData.done ? nil : @[self.resetBarButton];
+	return _subActivityData.finished ? nil : @[self.resetBarButton];
 }
 
 - (NSArray *)getActionBarButtons
@@ -131,6 +134,19 @@
 	return YES;
 }
 
+- (void)showAnswer
+{
+	[super showAnswer];
+	
+	FTINEnvironmentSubActivityContent *_content = (FTINEnvironmentSubActivityContent *) self.subActivity.content;
+	
+	[self hideSkillButtons];
+	self.draggableElementBox.userInteractionEnabled = NO;
+	self.draggableElementBox.toolboxElements = _content.incorrectElements;
+	self.draggableElementBox.chosenElements = [NSSet set];
+	self.draggableElementBox.backgroundImageView.image = [UIImage lssb_imageNamed:_content.finishedBackground];
+}
+
 #pragma mark - Instance methods
 
 - (IBAction)showOrganizationChoices:(UIBarButtonItem *)sender {
@@ -149,7 +165,6 @@
 }
 
 @synthesize organizationViewController = _organizationViewController;
-
 - (FTINCoherenceChoiceViewController *)organizationViewController
 {
 	if(!_organizationViewController)
@@ -161,7 +176,6 @@
 }
 
 @synthesize narrationViewController = _narrationViewController;
-
 - (FTINCoherenceChoiceViewController *)narrationViewController
 {
 	if(!_narrationViewController)
@@ -170,6 +184,12 @@
 	}
 	
 	return _narrationViewController;
+}
+
+- (void)hideSkillButtons
+{
+	self.organizationBarButton.title = self.narrationBarButton.title = self.resetBarButton.title = [NSString string];
+	self.organizationBarButton.enabled = self.narrationBarButton.enabled = self.resetBarButton.enabled = NO;
 }
 
 @end

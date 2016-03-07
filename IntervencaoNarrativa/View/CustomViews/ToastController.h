@@ -12,11 +12,16 @@
 
 - (void)showToastText:(NSString *)text;
 - (void)showLocalizedToastText:(NSString *)text;
+- (void)showToastText:(NSString *)text withImage:(UIImage *)image;
+- (void)showLocalizedToastText:(NSString *)text withImage:(UIImage *)image;
+- (void)showToastText:(NSString *)text withImage:(UIImage *)image onCompletion:(void (^)())onCompletion;
 
 @end
 
 @interface ToastController : NSObject
 
 + (void)showToastText:(NSString *)text inView:(UIView *)view;
++ (void)showToastText:(NSString *)text withImage:(UIImage *)image inView:(UIView *)view;
++ (void)showToastText:(NSString *)text withImage:(UIImage *)image onCompletion:(void (^)())onCompletion inView:(UIView *)view;
 
 @end

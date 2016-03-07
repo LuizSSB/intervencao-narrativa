@@ -13,13 +13,13 @@
 #import "SubActivity+Complete.h"
 
 #import "FTINSfxController.h"
+
 NSString * const FTINSfxReinforceSuccess = @"success";
 NSString * const FTINSfxReinforceSuccessLevel = @"success_level";
 NSString * const FTINSfxReinforceNope = @"block";
 NSString * const FTINSfxReinforceFailure = @"failure";
 NSString * const FTINSfxReinforceComplete = @"complete";
 
-NSInteger const FTINMaximumActivitiesTries = 3;
 NSInteger const FTINMinimumActivityCompletionToSkip = 2;
 
 NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
@@ -27,17 +27,17 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 @interface FTINActivityFlowController ()
 {
 	NSInteger _currentActivityIdx;
-	NSMutableArray *_skippingSubActivities;
-	BOOL _autoSkipping;
 	Activity *_activityData;
+	
+	BOOL _isAutoSkipingActivities;
+	FTINSubActivityDetails *_autoAkippingSubActivity;
 }
 
 @property (nonatomic, readonly) FTINActivityController *dataController;
-@property (nonatomic, readonly) BOOL canSkipCurrentDifficultyLevel;
 
 + (NSString *)keyForViewedActivityOfType:(FTINActivityType)type;
-- (void)_skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity;
-- (void)finishSkippingActivitiesLike:(FTINSubActivityDetails *)subactivity withError:(NSError *)error;
+
+- (BOOL)shouldSkipLevelOfSubActivity:(FTINSubActivityDetails *)subactivity;
 
 @end
 
@@ -50,8 +50,6 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 	_activity = nil;
 	_activityUrl = nil;
 	_patient = nil;
-	[_skippingSubActivities removeAllObjects];
-	_skippingSubActivities = nil;
 }
 
 #pragma mark - Instance methods
@@ -106,34 +104,64 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 - (NSUInteger)incompleteActivities
 {
 	return [self.activity subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *subActivity) {
-		return !subActivity.data.done;
+		return !subActivity.data.finished;
 	}].count;
 }
 
-- (BOOL)hasNextSubActivity
+- (void)requestNextSubActivity
 {
-	return self.incompleteActivities > 0;
-}
-
-- (FTINSubActivityDetails *)nextSubActivity:(BOOL *)looped
-{
-	if(++_currentActivityIdx >= self.activity.subActivities.count)
+	BOOL looped = NO;
+	
+	for (int activityIdx = _currentActivityIdx + 1;
+		 activityIdx != _currentActivityIdx;
+		 ++activityIdx)
 	{
-		_currentActivityIdx = 0;
+		if(activityIdx >= self.activity.subActivities.count)
+		{
+			activityIdx = 0;
+			looped = YES;
+		}
 		
-		if(looped) {
-			*looped = YES;
+		FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[activityIdx];
+		
+		if(!nextSubActivity.data.finished)
+		{
+			_currentActivityIdx = activityIdx;
+			
+			[self.delegate activityFlowController:self gotNextSubActivity:nextSubActivity looped:looped error:nil];
+			return;
 		}
 	}
 	
-	FTINSubActivityDetails *nextSubActivity = self.activity.subActivities[_currentActivityIdx];
-	
-	if(nextSubActivity.data.done)
+	NSError *error = [NSError ftin_createErrorWithCode:FTINErrorCodeNoMoreActivitiesLeft];
+	[self.delegate activityFlowController:self gotNextSubActivity:nil looped:looped error:error];
+}
+
+- (BOOL)shouldSkipLevelOfSubActivity:(FTINSubActivityDetails *)subactivity
+{
+	if(!subactivity.skippable || !subactivity.allowsAutoSkip)
 	{
-		return [self nextSubActivity:looped];
+		return NO;
 	}
 	
-	return nextSubActivity;
+	NSInteger totalDoneActivities = 0;
+	NSArray *levelSubActivities = [self.activity subActivitiesOfType:subactivity.type difficultyLevel:subactivity.difficultyLevel];
+	
+	for (FTINSubActivityDetails *levelSubActivity in levelSubActivities)
+	{
+		if (levelSubActivity.data.tries)
+		{
+			return NO;
+		}
+		
+		if (levelSubActivity.data.executed
+			&& ++totalDoneActivities >= FTINMinimumActivityCompletionToSkip)
+		{
+			return YES;
+		}
+	}
+	
+	return NO;
 }
 
 - (FTINSubActivityDetails *)jumpToSubActivityAtIndex:(NSUInteger)activityIndex
@@ -198,6 +226,7 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (void)completeSubActivity:(FTINSubActivityDetails *)subActivity
 {
+	// Luiz: sanity check to detect bugs when reprogramming this class
 	if(subActivity != self.activity.subActivities[_currentActivityIdx])
 	{
 		NSError *error = [NSError ftin_createErrorWithCode:FTINErrorCodeInvalidSubActivity];
@@ -205,51 +234,21 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 	}
 	else
 	{
-		[self.dataController completeSubActivity:subActivity];
+		if(subActivity.data.finished)
+		{
+			[self.delegate activityFlowController:self completedSubActivity:subActivity error:nil];
+		}
+		else
+		{
+			[self.dataController completeSubActivity:subActivity];
+		}
 	}
 }
 
 - (void)skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity
 {
-	_autoSkipping = NO;
-	[self _skipLevelOfSubActivity:subActivity];
-}
-
-- (void)_skipLevelOfSubActivity:(FTINSubActivityDetails *)subActivity
-{
-	_skippingSubActivities = [NSMutableArray arrayWithArray:[self.activity subActivitiesThatRespond:^BOOL(FTINSubActivityDetails *aSubActivity) {
-		return aSubActivity.type == subActivity.type && aSubActivity.difficultyLevel == subActivity.difficultyLevel && !aSubActivity.data.done;
-	}]];
-	
-	if(_skippingSubActivities.count)
-	{
-		[self.dataController skipSubActivity:_skippingSubActivities[0]];
-	}
-	else
-	{
-		[self finishSkippingActivitiesLike:subActivity withError:nil];
-	}
-}
-
-- (void)finishSkippingActivitiesLike:(FTINSubActivityDetails *)subActivity withError:(NSError *)error
-{
-	for (FTINSubActivityDetails *sub in self.activity.subActivities)
-	{
-		if(!sub.data.done)
-		{
-			[[FTINSfxController sharedController] playSfx:FTINSfxReinforceSuccessLevel ofExtension:FTINSfxDefaultExtension];
-			[self nextSubActivity:NULL];
-			
-			--_currentActivityIdx;
-			
-			[_skippingSubActivities removeAllObjects];
-			_skippingSubActivities = nil;
-			[self.delegate activityFlowController:self skippedSubActivitiesOfType:subActivity.type andDifficultyLevel:subActivity.difficultyLevel automatically:_autoSkipping error:error];
-			return;
-		}
-	}
-	
-	[self finish];
+	NSArray *levelSubActivity = [self.activity subActivitiesOfType:subActivity.type difficultyLevel:subActivity.difficultyLevel];
+	[self.dataController skipSubActivities:levelSubActivity];
 }
 
 - (void)finish
@@ -280,12 +279,6 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 	[self.dataController cancelActivity:self.activity];
 }
 
-- (BOOL)canSkipCurrentDifficultyLevel
-{
-	FTINSubActivityDetails *subActivity = self.activity.subActivities[_currentActivityIdx];
-	return subActivity.allowsAutoSkip;
-}
-
 #pragma mark - Activity Controller Delegate
 
 - (void)activityController:(FTINActivityController *)controller loadedActivity:(FTINActivityDetails *)activity error:(NSError *)error
@@ -308,70 +301,51 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 
 - (void)activityController:(FTINActivityController *)controller completedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
 {
-	BOOL shouldPlaySfx = YES;
+	NSString *sfx;
 	
-	if(self.canSkipCurrentDifficultyLevel && subActivity.data.tries == 0 && !error)
+	if (subActivity.data.status == FTINActivityStatusFailed)
 	{
-		NSArray *levelSubActivities = [self.activity subActivitiesOfType:subActivity.type difficultyLevel:subActivity.difficultyLevel];
-		NSInteger correctSubActivities = 0;
-		
-		for (FTINSubActivityDetails *levelSubActivity in levelSubActivities)
+		sfx = FTINSfxReinforceFailure;
+		[self.delegate activityFlowController:self failedSubActivity:subActivity error:error];
+	}
+	else
+	{
+		if([self shouldSkipLevelOfSubActivity:subActivity])
 		{
-			if(levelSubActivity.data.done)
-			{
-				if(levelSubActivity.data.tries)
-				{
-					break;
-				}
-				else if(++correctSubActivities >= FTINMinimumActivityCompletionToSkip)
-				{
-					shouldPlaySfx = NO;
-					_autoSkipping = YES;
-					[self _skipLevelOfSubActivity:subActivity];
-				}
-			}
-		}
-	}
-
-	[self.delegate activityFlowController:self completedSubActivity:subActivity error:error];
-	
-	if(subActivity.data.tries >= 3)
-	{
-		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceFailure ofExtension:FTINSfxDefaultExtension];
-		[self.dataController failSubActivity:subActivity];
-	}
-	else if(error)
-	{
-		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceNope ofExtension:FTINSfxDefaultExtension];
-	}
-	else if(shouldPlaySfx)
-	{
-		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceSuccess ofExtension:FTINSfxDefaultExtension];
-	}
-}
-
-- (void)activityController:(FTINActivityController *)controller skippedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
-{
-	if(!error)
-	{
-		[_skippingSubActivities removeObjectAtIndex:0];
-		
-		if(_skippingSubActivities.count)
-		{
-			[self.dataController skipSubActivity:_skippingSubActivities[0]];
+			_isAutoSkipingActivities = YES;
+			_autoAkippingSubActivity = subActivity;
+			[self skipLevelOfSubActivity:subActivity];
 			return;
 		}
+		else
+		{
+			sfx = error ? FTINSfxReinforceNope : FTINSfxReinforceSuccess;
+			[self.delegate activityFlowController:self completedSubActivity:subActivity error:error];
+		}
 	}
 	
-	if(error || !_skippingSubActivities.count)
-	{
-		[self finishSkippingActivitiesLike:subActivity withError:error];
-	}
+	[[FTINSfxController sharedController] playSfx:sfx ofExtension:FTINSfxDefaultExtension];
 }
 
-- (void)activityController:(FTINActivityController *)controller failedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error
+- (void)activityController:(FTINActivityController *)controller skippedSubActivities:(NSArray *)subActivities error:(NSError *)error
 {
-	[self.delegate activityFlowController:self failedSubActivity:subActivity error:error];
+	NSAssert(!error || !_isAutoSkipingActivities, @"Failed to auto-akip sub activities");
+	
+	FTINSubActivityDetails *baseSubActivity = subActivities[0];
+	
+	if(_isAutoSkipingActivities)
+	{
+		[self.delegate activityFlowController:self completedSubActivity:_autoAkippingSubActivity error:error];
+		_autoAkippingSubActivity = nil;
+	}
+	
+	[self.delegate activityFlowController:self skippedSubActivitiesOfType:baseSubActivity.type andDifficultyLevel:baseSubActivity.difficultyLevel automatically:_isAutoSkipingActivities error:error];
+	_isAutoSkipingActivities = NO;
+	
+	if(self.incompleteActivities > 0)
+	{
+		[[FTINSfxController sharedController] playSfx:FTINSfxReinforceSuccessLevel ofExtension:FTINSfxDefaultExtension];
+	}
 }
 
 - (void)activityController:(FTINActivityController *)controller finalizedActivity:(FTINActivityDetails *)activity error:(NSError *)error

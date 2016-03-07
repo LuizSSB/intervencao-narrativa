@@ -17,6 +17,7 @@ NSString * const FTINDefaultCheckedValue = @"X";
 NSString * const FTINDefaultActivityFileName = @"debugActivity";
 NSString * const FTINDefaultActivityFileExtension = @"json";
 NSString * const FTINDefaultActivityImageFileExtension = @"jpg";
+NSString * const FTINSecundaryActivityImageFileExtension = @"png";
 
 CGFloat const FTINDefaultChoiceRowHeight = 44.f;
 CGFloat const FTINBarButtonItemSpacing = 20.f;
@@ -30,9 +31,29 @@ CGFloat const FTINActivityScoreMax = 10.f;
 CGFloat const FTINActivityScoreSkipped = MAXFLOAT;
 CGFloat const FTINActivityScoreTrialPenalty = 3.f;
 
+NSString * const FTINToastSuccessImage = @"toastsuccess";
+NSString * const FTINToastSkipImage = @"toastjump";
+NSString * const FTINToastFailureImage = @"toastfailure";
+
 NSString * FTINActivityTypeTitle(FTINActivityType type)
 {
 	return [@"activity_" stringByAppendingFormat:@"%ld", (long) type].localizedString;
+}
+
+UIColor * FTINActivityTypeColor(FTINActivityType type)
+{
+	switch (type) {
+		case FTINActivityTypeArrangement:
+			return [UIColor colorWithIntRed:255 intGreen:59 intBlue:66 alpha:1.f];
+		case FTINActivityTypeDescription:
+			return [UIColor colorWithIntRed:84 intGreen:176 intBlue:94 alpha:1.f];
+		case FTINActivityTypeEnvironment:
+			return [UIColor colorWithIntRed:84 intGreen:95 intBlue:209 alpha:1.f];
+		case FTINActivityTypeWhyGame:
+			return [UIColor colorWithIntRed:180 intGreen:84 intBlue:169 alpha:1.f];
+		default:
+			return [UIColor blackColor];
+	}
 }
 
 NSString * FTINActivityTypeInstruction(FTINActivityType type)

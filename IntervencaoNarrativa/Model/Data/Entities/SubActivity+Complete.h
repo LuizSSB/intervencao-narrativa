@@ -20,7 +20,9 @@
 
 @property (nonatomic) FTINActivityStatus status;
 
-@property (nonatomic, readonly) BOOL done;
+@property (nonatomic, readonly) BOOL finished;
+
+@property (nonatomic, readonly) BOOL executed;
 
 @property (nonatomic, readonly) BOOL everBeenSkipped;
 

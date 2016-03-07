@@ -18,9 +18,7 @@
 
 - (void)activityController:(FTINActivityController *)controller completedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error;
 
-- (void)activityController:(FTINActivityController *)controller skippedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error;
-
-- (void)activityController:(FTINActivityController *)controller failedSubActivity:(FTINSubActivityDetails *)subActivity error:(NSError *)error;
+- (void)activityController:(FTINActivityController *)controller skippedSubActivities:(NSArray *)subActivities error:(NSError *)error;
 
 - (void)activityController:(FTINActivityController *)controller finalizedActivity:(FTINActivityDetails *)activity error:(NSError *)error;
 
@@ -46,9 +44,7 @@
 
 - (void)completeSubActivity:(FTINSubActivityDetails *)subActivity;
 
-- (void)skipSubActivity:(FTINSubActivityDetails *)subActivity;
-
-- (void)failSubActivity:(FTINSubActivityDetails *)subActivity;
+- (void)skipSubActivities:(NSArray *)subActivities;
 
 - (void)finalizeActivity:(FTINActivityDetails *)activity forPatient:(Patient *)patient;
 

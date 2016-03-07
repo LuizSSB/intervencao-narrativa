@@ -12,10 +12,11 @@
 
 #import "DNDDragAndDrop.h"
 
-CGFloat const FTINDraggableItemBoxViewToolSpacing = 8.f;
+CGFloat const FTINDraggableItemBoxViewToolSpacing = 16.f;
 CGFloat const FTINDraggableItemBoxViewDragOpacity = 1.;
 CGFloat const FTINDraggableItemBoxCellCornerRadius = 5.f;
 CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
+
 #define FTINDraggableItemBoxSelectionBorderColor [UIColor colorWithRed:6.f/255.f green:134.f/255.f blue:1.f alpha:1]
 
 @interface FTINDraggableItemBoxView () <DNDDragSourceDelegate, DNDDropTargetDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -90,8 +91,8 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 		
 	NSUInteger count = toolboxElements.count;
 	CGFloat width = floorf((self.toolboxCollectionView.frame.size.width - (count + 1) * FTINDraggableItemBoxViewToolSpacing) / count - 1.f);
-	_toolSize = CGSizeMake(width, width);
-	self.toolboxCollectionView.contentInset = UIEdgeInsetsMake((self.toolboxCollectionView.frame.size.height - width) / 2.f, FTINDraggableItemBoxViewToolSpacing, 0, FTINDraggableItemBoxViewToolSpacing);
+	_toolSize = CGSizeMake(width, self.toolboxCollectionView.frame.size.height - 2 * FTINDraggableItemBoxViewToolSpacing);
+	self.toolboxCollectionView.contentInset = UIEdgeInsetsMake(FTINDraggableItemBoxViewToolSpacing, 0, FTINDraggableItemBoxViewToolSpacing, 0);
 	
 	[self.toolboxCollectionView reloadData];
 }
@@ -115,8 +116,11 @@ CGFloat const FTINDraggableItemBoxSelectionBorderWidth = 3.f;
 	for (FTINEnvironmentElement *element in chosenElements)
 	{
 		FTINCollectionViewCell *cell = [self createCellOrCopyFrom:nil];
-		cell.frame = cellFrame;		
+		cell.frame = cellFrame;
 		cell.backgroundImageView.image = [UIImage lssb_imageNamed:element.imageName];
+		cell.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
+		cell.backgroundColor = [UIColor whiteColor];
+		[cell setBorder:[UIColor blackColor]];
 		[cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeSelectedElement:)]];
 		
 		[self.containerBox addSubview:cell];

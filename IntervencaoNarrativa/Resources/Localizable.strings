@@ -27,6 +27,7 @@
 "restart" = "Reiniciar";
 "activity" = "Atividade";
 "score" = "Pontuação";
+"back" = "Voltar";
 
 /* Navigation */
 "leave_current_screen" = "Deseja mesmo sair desta tela? Dados não salvos serão perdidos.";
@@ -50,11 +51,17 @@
 "activity_paused" = "Atividade pausada. Selecione-a na lista abaixo para retomar o progresso.";
 "activities" = "Atividades";
 "do_skipped_activity" = "Essa atividade foi pulada. Deseja realizá-la agora?";
-"exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja continuar o exercício?";
+"exit_after_failing" = "Atividade atingiu o limite de tentativas erradas. Deseja ver a resposta correta?";
+"see_answer" = "Ver resposta";
 "grade" = "Nota: %@";
 "instructions" = "Instruções";
 "correct_marking" = "Corrigir marcação";
 "looped" = "Voltando para as atividades não concluídas.";
+"wanna_loop" = "Algumas atividades do exercício não foram realizadas. Deseja voltar para elas?";
+"finish_process" = "Encerrar exercício";
+"success" = "Atividade concluída com sucesso!";
+"skipped" = "Atividades puladas com sucess!";
+"autoskipped" = "Pulamos uma atividade, pois o paciente demonstrou proficiência.";
 
 /* Acitivity types info */
 "activity_0" = "Descrição e narração de cena";
@@ -138,6 +145,7 @@
 "error_ftin_3004" = "É preciso terminar todas as atividades para finalizar.";
 "error_ftin_3005" = "Atividade fora dos limites.";
 "error_ftin_3006" = "É necessário responder algumas questões. Selecione-as e monte o jogo.";
+"error_ftin_3007" = "Todas as atividades já foram completadas.";
 
 "error_ftin_6000" = "Ordenação incorreta, tente novamente.";
 "error_ftin_6001" = "A quantidade itens que fazem parte do ambiente está errada.";

@@ -22,6 +22,8 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 - (void)pause:(id)sender;
 - (void)showInstructions:(id)sender;
 - (void)setupNavigationItemBarButtons:(BOOL)animated;
+- (void)setActivityTypeLabelUp;
+- (void)setCompletionOverlayUp:(BOOL)animated;
 
 @end
 
@@ -63,17 +65,14 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	[actionButtons addObject:self.nextBarButton];
 	self.actionToolbar.items = actionButtons;
 	
-	if(self.subActivity.data.done)
+	if(self.subActivity.data.finished)
 	{
-		UIView *completionOverlay = [[UIView alloc] initWithFrame:self.view.bounds];
-		completionOverlay.backgroundColor = [UIColor blackColor];
-		completionOverlay.layer.opacity = .25f;
-		[self.view addSubview:completionOverlay];
-		
-		[self.view bringSubviewToFront:self.actionToolbar];
+		[self setCompletionOverlayUp:NO];
 	}
 	
 	self.view.backgroundColor = [FTINStyler backgroundColor];
+	
+	[self setActivityTypeLabelUp];
 }
 
 - (void)setEditing:(BOOL)editing
@@ -247,6 +246,55 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	
 	[rightButtons addObjectsFromArray:[self getNavigationItemRightBarButtons].reverseObjectEnumerator.allObjects];
 	[self.navigationItem setRightBarButtonItems:rightButtons animated:animated];
+}
+
+- (void)setCompletionOverlayUp:(BOOL)animated
+{
+	CGRect overlayFrame = self.view.bounds;
+	
+	UIView *completionOverlay = [[UIView alloc] initWithFrame:overlayFrame];
+	completionOverlay.backgroundColor = [UIColor blackColor];
+	
+	if(animated)
+	{
+		completionOverlay.layer.opacity = 0.f;
+		[self.view addSubview:completionOverlay];
+		[UIView animateWithDuration:FTINDefaultAnimationDuration animations:^{
+			completionOverlay.layer.opacity = .25f;
+		} completion:^(BOOL finished) {
+			[self.view bringSubviewToFront:self.actionToolbar];
+		}];
+	}
+	else
+	{
+		completionOverlay.layer.opacity = .25f;
+		[self.view addSubview:completionOverlay];
+		[self.view bringSubviewToFront:self.actionToolbar];
+	}
+}
+
+- (void)showAnswer
+{
+	[self setCompletionOverlayUp:YES];
+}
+
+- (void)setActivityTypeLabelUp
+{
+	UILabel *typeLabel = [[UILabel alloc] init];
+	typeLabel.backgroundColor = FTINActivityTypeColor(self.subActivity.type);
+	typeLabel.text = [NSString stringWithFormat:@"  %@  ", FTINActivityTypeTitle(self.subActivity.type)];
+	typeLabel.textColor = [UIColor whiteColor];
+	typeLabel.font = [UIFont boldSystemFontOfSize:typeLabel.font.pointSize];
+	typeLabel.layer.cornerRadius = 5.f;
+	typeLabel.layer.masksToBounds = YES;
+	[typeLabel sizeToFit];
+	
+	CGRect frame = typeLabel.frame;
+	frame.origin.x = (self.view.frame.size.width - frame.size.width) / 2.f;
+	frame.origin.y = 5.f;
+	typeLabel.frame = frame;
+	
+	[self.view addSubview:typeLabel];
 }
 
 #pragma mark - Alert View Delegate

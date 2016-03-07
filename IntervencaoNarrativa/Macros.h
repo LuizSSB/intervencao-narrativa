@@ -26,6 +26,7 @@ extern NSString * const FTINDefaultNamespace;
 extern NSString * const FTINDefaultActivityFileName;
 extern NSString * const FTINDefaultActivityFileExtension;
 extern NSString * const FTINDefaultActivityImageFileExtension;
+extern NSString * const FTINSecundaryActivityImageFileExtension;
 extern NSString * const FTINDefaultCheckedValue;
 
 extern CGFloat const FTINDefaultChoiceRowHeight;
@@ -39,6 +40,10 @@ extern NSString * const FTINHTMLElementSeparator;
 extern CGFloat const FTINActivityScoreMax;
 extern CGFloat const FTINActivityScoreSkipped;
 extern CGFloat const FTINActivityScoreTrialPenalty;
+
+extern NSString * const FTINToastSuccessImage;
+extern NSString * const FTINToastSkipImage;
+extern NSString * const FTINToastFailureImage;
 
 // -----------------------------------------------------------------------------
 // Blocks types
@@ -103,6 +108,7 @@ typedef enum : NSUInteger {
 // -----------------------------------------------------------------------------
 // Utilitary functions
 NSString * FTINActivityTypeTitle(FTINActivityType type);
+UIColor * FTINActivityTypeColor(FTINActivityType type);
 NSString * FTINActivityTypeInstruction(FTINActivityType type);
 NSArray * FTINActivityTypeGetValues();
 

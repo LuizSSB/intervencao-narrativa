@@ -22,6 +22,7 @@
 @property (nonatomic) NSArray<FTINEnvironmentElement> *correctElements;
 @property (nonatomic) NSArray<FTINEnvironmentElement> *incorrectElements;
 @property (nonatomic) NSString *background;
+@property (nonatomic) NSString *finishedBackground;
 
 // Non serialized
 @property (nonatomic, readonly) NSArray *allElements;
