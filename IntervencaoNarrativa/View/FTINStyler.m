@@ -14,7 +14,7 @@
 {
 	[UITableViewCell appearance].backgroundColor = [FTINStyler cellBackgroundColor];
 	[UINavigationBar appearance].barTintColor =	[UIToolbar appearance].barTintColor = [UISearchBar appearance].barTintColor = [FTINStyler barsTintColor];
-	[UINavigationBar appearance].tintColor = [UIToolbar appearance].tintColor = [UISearchBar appearance].tintColor = [UIColor whiteColor];
+	[UINavigationBar appearance].tintColor = [UIToolbar appearance].tintColor = [UISearchBar appearance].tintColor = [FTINStyler navigationTintColor];
 	[[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UINavigationBar appearance].tintColor}];
 	[UILabel appearance].textColor = [UITextView appearance].textColor = [FTINStyler textColor];
 	[UIButton appearance].tintColor = [UISegmentedControl appearance].tintColor = [FTINStyler buttonColor];
@@ -35,6 +35,11 @@
 + (UIColor *)barsTintColor
 {
 	return [UIColor colorWithIntRed:128 intGreen:182 intBlue:227 alpha:1.0];
+}
+
++ (UIColor *)navigationTintColor
+{
+	return [UIColor whiteColor];
 }
 
 + (UIColor *)cellBackgroundColor

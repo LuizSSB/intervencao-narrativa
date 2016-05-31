@@ -60,7 +60,7 @@
 "wanna_loop" = "Algumas atividades do exercício não foram realizadas. Deseja voltar para elas?";
 "finish_process" = "Encerrar exercício";
 "success" = "Atividade concluída com sucesso!";
-"skipped" = "Atividades puladas com sucess!";
+"skipped" = "Atividades puladas com sucesso!";
 "autoskipped" = "Pulamos uma atividade, pois o paciente demonstrou proficiência.";
 
 /* Acitivity types info */

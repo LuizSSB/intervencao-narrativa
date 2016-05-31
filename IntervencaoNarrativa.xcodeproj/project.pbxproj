@@ -291,6 +291,8 @@
 		60207AA31A799C7500B63FEE /* FTINBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA21A799C7500B63FEE /* FTINBaseTableViewController.m */; };
 		60207AA61A799F4000B63FEE /* UIColor+FromHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 60207AA51A799F4000B63FEE /* UIColor+FromHex.m */; };
 		60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60207AA71A79A5BF00B63FEE /* cardback@2x.png */; };
+		603D10561CD595EE0003F50F /* menu@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D10551CD595EE0003F50F /* menu@3x.png */; };
+		603D10581CD59A790003F50F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D10571CD59A790003F50F /* menu.png */; };
 		603D3B3A1A90C3320050859F /* jumpcheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B391A90C3320050859F /* jumpcheck@2x.png */; };
 		603D3B3C1A90CF280050859F /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 603D3B3B1A90CF280050859F /* check@2x.png */; };
 		6078F6FB1C6BE61A00CA3302 /* toastfailure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6078F6F51C6BE61A00CA3302 /* toastfailure@2x.png */; };
@@ -765,6 +767,8 @@
 		60207AA41A799F4000B63FEE /* UIColor+FromHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FromHex.h"; sourceTree = "<group>"; };
 		60207AA51A799F4000B63FEE /* UIColor+FromHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FromHex.m"; sourceTree = "<group>"; };
 		60207AA71A79A5BF00B63FEE /* cardback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardback@2x.png"; sourceTree = "<group>"; };
+		603D10551CD595EE0003F50F /* menu@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@3x.png"; sourceTree = "<group>"; };
+		603D10571CD59A790003F50F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		603D3B391A90C3320050859F /* jumpcheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jumpcheck@2x.png"; sourceTree = "<group>"; };
 		603D3B3B1A90CF280050859F /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		6078F6F51C6BE61A00CA3302 /* toastfailure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toastfailure@2x.png"; path = "Activites/toastfailure@2x.png"; sourceTree = "<group>"; };
@@ -996,6 +1000,7 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				603D10571CD59A790003F50F /* menu.png */,
 				255F799F194295E000C94AB3 /* Activites */,
 				6078F6F51C6BE61A00CA3302 /* toastfailure@2x.png */,
 				6078F6F61C6BE61A00CA3302 /* toastfailure@3x.png */,
@@ -1017,6 +1022,7 @@
 				257F57F41966187B00D82411 /* blank@2x.png */,
 				257F57F21966187300D82411 /* selected@2x.png */,
 				25603363194DF8DB00AE9C26 /* help@2x.png */,
+				603D10551CD595EE0003F50F /* menu@3x.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1734,6 +1740,7 @@
 				60161B291B87F28600C3DACE /* a_8_2_4.jpg in Resources */,
 				259424B219EB5B360052642C /* d_6_1.json in Resources */,
 				60161ACB1B87F28600C3DACE /* a_3_0_1.jpg in Resources */,
+				603D10581CD59A790003F50F /* menu.png in Resources */,
 				60AD5B921C25D49900A3FA2E /* d_6_0.jpg in Resources */,
 				60161B081B87F28600C3DACE /* a_7_1_1.jpg in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
@@ -1746,6 +1753,7 @@
 				60C49FFD1A81419400D8013E /* cardback.png in Resources */,
 				2594252919EB646B0052642C /* a_7_2.json in Resources */,
 				60161B001B87F28600C3DACE /* a_7_0_0.jpg in Resources */,
+				603D10561CD595EE0003F50F /* menu@3x.png in Resources */,
 				60161B221B87F28600C3DACE /* a_8_1_5.jpg in Resources */,
 				60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */,
 				60161B071B87F28600C3DACE /* a_7_1_0.jpg in Resources */,
@@ -2241,14 +2249,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Thiago B De Castro (TF44Q369KF)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntervencaoNarrativa/IntervencaoNarrativa-Prefix.pch";
 				INFOPLIST_FILE = "IntervencaoNarrativa/IntervencaoNarrativa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finaltap.intervencao.narrativa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a213fae6-f14a-4a96-acfa-529b15a2930c";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2259,14 +2267,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Thiago B De Castro (J9VJVS8233)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntervencaoNarrativa/IntervencaoNarrativa-Prefix.pch";
 				INFOPLIST_FILE = "IntervencaoNarrativa/IntervencaoNarrativa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.finaltap.intervencao.narrativa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b1c65a30-4050-42a2-92a6-dadec958e4a1";
+				PROVISIONING_PROFILE = "430fd318-46b2-4841-bf22-78367bcbacbe";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

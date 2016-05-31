@@ -112,7 +112,7 @@ NSString * const kFTINViewedActivityBaseName = @"viewed_activity_";
 {
 	BOOL looped = NO;
 	
-	for (int activityIdx = _currentActivityIdx + 1;
+	for (NSInteger activityIdx = _currentActivityIdx + 1;
 		 activityIdx != _currentActivityIdx;
 		 ++activityIdx)
 	{

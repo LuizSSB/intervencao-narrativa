@@ -26,6 +26,7 @@
 - (id)initWithActivity:(FTINActivityDetails *)activity andDelegate:(id<FTINSubActivitiesTableViewControllerDelegate>)delegate;
 
 - (void)presentAsPopoverFromBarButtonItem:(UIBarButtonItem *)button animated:(BOOL)animated;
+- (void)presentAsPopoverFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated;
 - (void)dismissPopoverAnimated:(BOOL)animated;
 
 @end
