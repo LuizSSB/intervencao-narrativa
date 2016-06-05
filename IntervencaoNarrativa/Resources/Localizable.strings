@@ -150,3 +150,25 @@
 "error_ftin_6000" = "Ordenação incorreta, tente novamente.";
 "error_ftin_6001" = "A quantidade itens que fazem parte do ambiente está errada.";
 "error_ftin_6002" = "O ambiente possui itens que não fazem parte dele.";
+
+/* Quick Guide */
+"guide_title_0" = "CADASTRANDO NOVO PACIENTE";
+"guide_title_1" = "ATIVIDADE DESCRIÇÃO DE CENA";
+"guide_title_2" = "ATIVIDADE ORDENAÇÃO E NARRAÇÃO DE CENAS";
+"guide_title_3" = "ATIVIDADE MONTAGEM DO AMBIENTE";
+"guide_title_4" = "ATIVIDADE JOGO DO PORQUÊ";
+"guide_title_5" = "RELATÓRIOS";
+
+"guide_img_0" = "helpRegister";
+"guide_img_1" = "helpDescription";
+"guide_img_2" = "helpArrange";
+"guide_img_3" = "helpEnvironment";
+"guide_img_4" = "helpWhy";
+"guide_img_5" = "helpReport";
+
+"guide_text_0" = "Para cadastrar um novo paciente, toque a opção *Novo Paciente* ou o *+* no canto superior esquerdo. Preencha os dados no formulário e toque *Inserir paciente*.\n\nCom o paciente cadastrado, toque *Iniciar Atividade* para começar as atividades.\n\nPara realizar alterações, selecione um paciente da lista, altere seus dados e toque *Salvar*.";
+"guide_text_1" = "O paciente deve descrever quais os elementos da cena e o que está acontecendo.\n\nUtilize *Itens Descritos* e *Habilidade Descritiva* para marcar os itens descritos pelo paciente e  a habilidade com que os descreve.\n\nSelecione *Avançar dificuldade* para pular para níveis mais complexos.";
+"guide_text_2" = "O paciente deve arrastar as cenas em ordem e descrever a estória contada nelas.\n\nUtilize *Ordenação* e *Habilidade Narrativa* para marcar se o paciente teve ajuda na ordenação e com quanta habilidade descreveu a estória.\n\nCaso o paciente acerte duas atividades de mesma dificuldade dessa sem errar a ordem, é pulada uma.";
+"guide_text_3" = "O paciente deve arrastar os objetos no ambiente, colocá-los nos locais certos e contar porque colocou eles lá.\n\nUtilize *Organização* e *Narração* para marcar a habilidade com que o paciente coloca os objetos no ambiente e descreve o porquê disso.\n\nUtilize *Reiniciar Montagem* para começar a atividade novamente.";
+"guide_text_4" = "Primeiramente, o avaliador deve selecionar as perguntas (até 6) e tocar *Montar jogo*.\n\nO paciente, então, escolhe uma das cartas e responde a pergunta.\n\nUtilize *Tipo de resposta* para marcar o quão boa foi a resposta do paciente.";
+"guide_text_5" = "Após encerrar uma atividade, selecione-a na lista de atividades do paciente para ver opções de relatórios.\n\nExistem relatórios específicos para cada tipo de atividade e um geral.\n\nNa tela do relatório, utilize o *botão no canto direito superior* para enviar o relatório por email.";

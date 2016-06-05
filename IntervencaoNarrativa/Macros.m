@@ -12,9 +12,8 @@ NSString * const FTINDefaultCellIdentifier = @"Cell";
 NSString * const FTINDefaultNamespace = @"FTIN";
 NSString * const FTINDefaultCheckedValue = @"X";
 
-#warning FIXME voltar para mainActivity antes de distribuir
-//NSString * const FTINDefaultActivityFileName = @"mainActivity";
-NSString * const FTINDefaultActivityFileName = @"debugActivity";
+NSString * const FTINDefaultActivityFileName = @"mainActivity";
+//NSString * const FTINDefaultActivityFileName = @"debugActivity";
 NSString * const FTINDefaultActivityFileExtension = @"json";
 NSString * const FTINDefaultActivityImageFileExtension = @"jpg";
 NSString * const FTINSecundaryActivityImageFileExtension = @"png";

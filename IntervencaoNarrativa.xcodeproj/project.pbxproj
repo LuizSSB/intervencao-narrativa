@@ -327,6 +327,19 @@
 		60AD5B941C25D49900A3FA2E /* d_6_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60AD5B891C25D49900A3FA2E /* d_6_2.jpg */; };
 		60AD5B971C25D61C00A3FA2E /* UIImage+ImageNamed.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AD5B961C25D61C00A3FA2E /* UIImage+ImageNamed.m */; };
 		60AD5B991C25D8AE00A3FA2E /* d_2_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 60AD5B981C25D8AE00A3FA2E /* d_2_0.jpg */; };
+		60BB5F181CFE44FE00B5C53A /* helpArrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F0C1CFE44FE00B5C53A /* helpArrange.png */; };
+		60BB5F191CFE44FE00B5C53A /* helpArrange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F0D1CFE44FE00B5C53A /* helpArrange@2x.png */; };
+		60BB5F1A1CFE44FE00B5C53A /* helpDescription.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F0E1CFE44FE00B5C53A /* helpDescription.png */; };
+		60BB5F1B1CFE44FE00B5C53A /* helpDescription@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F0F1CFE44FE00B5C53A /* helpDescription@2x.png */; };
+		60BB5F1C1CFE44FE00B5C53A /* helpEnvironment.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F101CFE44FE00B5C53A /* helpEnvironment.png */; };
+		60BB5F1D1CFE44FE00B5C53A /* helpEnvironment@2x.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F111CFE44FE00B5C53A /* helpEnvironment@2x.PNG */; };
+		60BB5F1E1CFE44FE00B5C53A /* helpRegister.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F121CFE44FE00B5C53A /* helpRegister.png */; };
+		60BB5F1F1CFE44FE00B5C53A /* helpRegister@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F131CFE44FE00B5C53A /* helpRegister@2x.png */; };
+		60BB5F201CFE44FE00B5C53A /* helpReport.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F141CFE44FE00B5C53A /* helpReport.png */; };
+		60BB5F211CFE44FE00B5C53A /* helpReport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F151CFE44FE00B5C53A /* helpReport@2x.png */; };
+		60BB5F221CFE44FE00B5C53A /* helpWhy.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F161CFE44FE00B5C53A /* helpWhy.png */; };
+		60BB5F231CFE44FE00B5C53A /* helpWhy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60BB5F171CFE44FE00B5C53A /* helpWhy@2x.png */; };
+		60BB5F261CFE458C00B5C53A /* FTINQuickGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BB5F251CFE458C00B5C53A /* FTINQuickGuideViewController.m */; };
 		60C24E1C1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */; };
 		60C24E1F1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C24E1E1A2C5A5C008A04E1 /* FTINActivityScoreViewController.m */; };
 		60C24E211A2C5E05008A04E1 /* ScoreReportTemplate.html in Resources */ = {isa = PBXBuildFile; fileRef = 60C24E201A2C5E05008A04E1 /* ScoreReportTemplate.html */; };
@@ -806,6 +819,20 @@
 		60AD5B951C25D61C00A3FA2E /* UIImage+ImageNamed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageNamed.h"; sourceTree = "<group>"; };
 		60AD5B961C25D61C00A3FA2E /* UIImage+ImageNamed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageNamed.m"; sourceTree = "<group>"; };
 		60AD5B981C25D8AE00A3FA2E /* d_2_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d_2_0.jpg; sourceTree = "<group>"; };
+		60BB5F0C1CFE44FE00B5C53A /* helpArrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpArrange.png; sourceTree = "<group>"; };
+		60BB5F0D1CFE44FE00B5C53A /* helpArrange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpArrange@2x.png"; sourceTree = "<group>"; };
+		60BB5F0E1CFE44FE00B5C53A /* helpDescription.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpDescription.png; sourceTree = "<group>"; };
+		60BB5F0F1CFE44FE00B5C53A /* helpDescription@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpDescription@2x.png"; sourceTree = "<group>"; };
+		60BB5F101CFE44FE00B5C53A /* helpEnvironment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpEnvironment.png; sourceTree = "<group>"; };
+		60BB5F111CFE44FE00B5C53A /* helpEnvironment@2x.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpEnvironment@2x.PNG"; sourceTree = "<group>"; };
+		60BB5F121CFE44FE00B5C53A /* helpRegister.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpRegister.png; sourceTree = "<group>"; };
+		60BB5F131CFE44FE00B5C53A /* helpRegister@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpRegister@2x.png"; sourceTree = "<group>"; };
+		60BB5F141CFE44FE00B5C53A /* helpReport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpReport.png; sourceTree = "<group>"; };
+		60BB5F151CFE44FE00B5C53A /* helpReport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpReport@2x.png"; sourceTree = "<group>"; };
+		60BB5F161CFE44FE00B5C53A /* helpWhy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpWhy.png; sourceTree = "<group>"; };
+		60BB5F171CFE44FE00B5C53A /* helpWhy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helpWhy@2x.png"; sourceTree = "<group>"; };
+		60BB5F241CFE458C00B5C53A /* FTINQuickGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINQuickGuideViewController.h; sourceTree = "<group>"; };
+		60BB5F251CFE458C00B5C53A /* FTINQuickGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINQuickGuideViewController.m; sourceTree = "<group>"; };
 		60C24E1A1A2C5537008A04E1 /* FTINActivityTypeReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityTypeReportViewController.h; sourceTree = "<group>"; };
 		60C24E1B1A2C5537008A04E1 /* FTINActivityTypeReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTINActivityTypeReportViewController.m; sourceTree = "<group>"; };
 		60C24E1D1A2C5A5C008A04E1 /* FTINActivityScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTINActivityScoreViewController.h; sourceTree = "<group>"; };
@@ -1000,8 +1027,9 @@
 		255F799E194295E000C94AB3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				603D10571CD59A790003F50F /* menu.png */,
+				60BB5F0B1CFE44FE00B5C53A /* Help */,
 				255F799F194295E000C94AB3 /* Activites */,
+				603D10571CD59A790003F50F /* menu.png */,
 				6078F6F51C6BE61A00CA3302 /* toastfailure@2x.png */,
 				6078F6F61C6BE61A00CA3302 /* toastfailure@3x.png */,
 				6078F6F71C6BE61A00CA3302 /* toastjump@2x.png */,
@@ -1100,6 +1128,8 @@
 				60207A9F1A799C2700B63FEE /* FTINBaseViewController.m */,
 				60207AA11A799C7500B63FEE /* FTINBaseTableViewController.h */,
 				60207AA21A799C7500B63FEE /* FTINBaseTableViewController.m */,
+				60BB5F241CFE458C00B5C53A /* FTINQuickGuideViewController.h */,
+				60BB5F251CFE458C00B5C53A /* FTINQuickGuideViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1615,6 +1645,25 @@
 			path = Audio;
 			sourceTree = "<group>";
 		};
+		60BB5F0B1CFE44FE00B5C53A /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				60BB5F0C1CFE44FE00B5C53A /* helpArrange.png */,
+				60BB5F0D1CFE44FE00B5C53A /* helpArrange@2x.png */,
+				60BB5F0E1CFE44FE00B5C53A /* helpDescription.png */,
+				60BB5F0F1CFE44FE00B5C53A /* helpDescription@2x.png */,
+				60BB5F101CFE44FE00B5C53A /* helpEnvironment.png */,
+				60BB5F111CFE44FE00B5C53A /* helpEnvironment@2x.PNG */,
+				60BB5F121CFE44FE00B5C53A /* helpRegister.png */,
+				60BB5F131CFE44FE00B5C53A /* helpRegister@2x.png */,
+				60BB5F141CFE44FE00B5C53A /* helpReport.png */,
+				60BB5F151CFE44FE00B5C53A /* helpReport@2x.png */,
+				60BB5F161CFE44FE00B5C53A /* helpWhy.png */,
+				60BB5F171CFE44FE00B5C53A /* helpWhy@2x.png */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		60F47CAE1C2A1125008C03F1 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1744,6 +1793,7 @@
 				60AD5B921C25D49900A3FA2E /* d_6_0.jpg in Resources */,
 				60161B081B87F28600C3DACE /* a_7_1_1.jpg in Resources */,
 				2563580F1941473000E5762A /* mainActivity.json in Resources */,
+				60BB5F1B1CFE44FE00B5C53A /* helpDescription@2x.png in Resources */,
 				60848A7F1C6E488E006FABBA /* e_living_correct@3x.jpg in Resources */,
 				60161ADC1B87F28600C3DACE /* a_4_2_1.jpg in Resources */,
 				60AD5B991C25D8AE00A3FA2E /* d_2_0.jpg in Resources */,
@@ -1752,10 +1802,13 @@
 				253823BF195630430016991A /* FTINActivityReportViewController.xib in Resources */,
 				60C49FFD1A81419400D8013E /* cardback.png in Resources */,
 				2594252919EB646B0052642C /* a_7_2.json in Resources */,
+				60BB5F211CFE44FE00B5C53A /* helpReport@2x.png in Resources */,
+				60BB5F181CFE44FE00B5C53A /* helpArrange.png in Resources */,
 				60161B001B87F28600C3DACE /* a_7_0_0.jpg in Resources */,
 				603D10561CD595EE0003F50F /* menu@3x.png in Resources */,
 				60161B221B87F28600C3DACE /* a_8_1_5.jpg in Resources */,
 				60207AA81A79A5BF00B63FEE /* cardback@2x.png in Resources */,
+				60BB5F1C1CFE44FE00B5C53A /* helpEnvironment.png in Resources */,
 				60161B071B87F28600C3DACE /* a_7_1_0.jpg in Resources */,
 				60F47CD41C2A1125008C03F1 /* o_toy@3x.png in Resources */,
 				60161AE61B87F28600C3DACE /* a_5_1_2.jpg in Resources */,
@@ -1788,6 +1841,7 @@
 				60161B231B87F28600C3DACE /* a_8_1_6.jpg in Resources */,
 				25603361194DD6C700AE9C26 /* FTINQuestionCardViewController.xib in Resources */,
 				60194C521A4794240066BE11 /* Images.xcassets in Resources */,
+				60BB5F1E1CFE44FE00B5C53A /* helpRegister.png in Resources */,
 				60161AC91B87F28600C3DACE /* a_2_2_1.jpg in Resources */,
 				60F47CD51C2A1125008C03F1 /* o_tree@3x.png in Resources */,
 				60161AD71B87F28600C3DACE /* a_4_1_0.jpg in Resources */,
@@ -1800,6 +1854,7 @@
 				60AD5B8F1C25D49900A3FA2E /* d_4_0.jpg in Resources */,
 				60161AD91B87F28600C3DACE /* a_4_1_2.jpg in Resources */,
 				251F9C9D1943F32400A65131 /* d_4_1.json in Resources */,
+				60BB5F1D1CFE44FE00B5C53A /* helpEnvironment@2x.PNG in Resources */,
 				60AC53DD1B3F60B600CCEEF6 /* success_level.m4a in Resources */,
 				60161AED1B87F28600C3DACE /* a_5_2_4.jpg in Resources */,
 				60161ADD1B87F28600C3DACE /* a_4_2_2.jpg in Resources */,
@@ -1827,6 +1882,7 @@
 				60AD5B941C25D49900A3FA2E /* d_6_2.jpg in Resources */,
 				60161AEE1B87F28600C3DACE /* a_6_0_0.jpg in Resources */,
 				60161ACC1B87F28600C3DACE /* a_3_0_2.jpg in Resources */,
+				60BB5F201CFE44FE00B5C53A /* helpReport.png in Resources */,
 				60AD5B911C25D49900A3FA2E /* d_4_2.jpg in Resources */,
 				60161B2B1B87F28600C3DACE /* a_8_2_6.jpg in Resources */,
 				25644CE01936B071006C4E06 /* InfoPlist.strings in Resources */,
@@ -1837,6 +1893,8 @@
 				6078F6FC1C6BE61A00CA3302 /* toastfailure@3x.png in Resources */,
 				60207A981A7998FA00B63FEE /* swirl.png in Resources */,
 				60161AFB1B87F28600C3DACE /* a_6_2_1.jpg in Resources */,
+				60BB5F221CFE44FE00B5C53A /* helpWhy.png in Resources */,
+				60BB5F1F1CFE44FE00B5C53A /* helpRegister@2x.png in Resources */,
 				60848A801C6E488E006FABBA /* e_room_correct@3x.jpg in Resources */,
 				25FF3342194A52B70080DC6F /* a_3_2.json in Resources */,
 				60F9408C1C6BE0B500705D68 /* toastfailure.png in Resources */,
@@ -1859,6 +1917,7 @@
 				60161ADB1B87F28600C3DACE /* a_4_2_0.jpg in Resources */,
 				250B9F63197C476F00E3BA86 /* WhyGameActivityReportTemplate.html in Resources */,
 				60161AD31B87F28600C3DACE /* a_4_0_0.jpg in Resources */,
+				60BB5F1A1CFE44FE00B5C53A /* helpDescription.png in Resources */,
 				60161AE01B87F28600C3DACE /* a_5_0_1.jpg in Resources */,
 				60161AF61B87F28600C3DACE /* a_6_1_2.jpg in Resources */,
 				60207A9A1A79994000B63FEE /* bg.png in Resources */,
@@ -1905,6 +1964,7 @@
 				60161B131B87F28600C3DACE /* a_7_2_5.jpg in Resources */,
 				6078F6FB1C6BE61A00CA3302 /* toastfailure@2x.png in Resources */,
 				251F9CA31943F3AE00A65131 /* d_6_0.json in Resources */,
+				60BB5F191CFE44FE00B5C53A /* helpArrange@2x.png in Resources */,
 				25603364194DF8DB00AE9C26 /* help@2x.png in Resources */,
 				2563580119413D0E00E5762A /* FTINDescriptionActivityViewController.xib in Resources */,
 				2594252B19EB646B0052642C /* a_8_2.json in Resources */,
@@ -1952,6 +2012,7 @@
 				60F47CD71C2A1125008C03F1 /* o_wardrobe2@3x.png in Resources */,
 				25FF3332194A523B0080DC6F /* a_4_1.json in Resources */,
 				60F47CC81C2A1125008C03F1 /* o_blanket@3x.png in Resources */,
+				60BB5F231CFE44FE00B5C53A /* helpWhy@2x.png in Resources */,
 				60161B111B87F28600C3DACE /* a_7_2_3.jpg in Resources */,
 				60F47CD61C2A1125008C03F1 /* o_tv@3x.png in Resources */,
 				256357F719413CAE00E5762A /* FTINPatientViewController.xib in Resources */,
@@ -2062,6 +2123,7 @@
 				256357EC19413CAE00E5762A /* FTINDescriptiveSkillChoiceViewController.m in Sources */,
 				256357F219413CAE00E5762A /* FTINPatientTransitionsObserver.m in Sources */,
 				253823B8195616840016991A /* FTINActivityReportViewController.m in Sources */,
+				60BB5F261CFE458C00B5C53A /* FTINQuickGuideViewController.m in Sources */,
 				25CDAEB6194389D7003E1314 /* FTINActitivitiesFactory.m in Sources */,
 				2563580019413D0E00E5762A /* FTINDescriptionActivityViewController.m in Sources */,
 				253823AF195602350016991A /* FTINTemplateUtils.m in Sources */,
@@ -2283,11 +2345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IntervencaoNarrativa.app/IntervencaoNarrativa";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntervencaoNarrativa/IntervencaoNarrativa-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2306,11 +2364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/IntervencaoNarrativa.app/IntervencaoNarrativa";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntervencaoNarrativa/IntervencaoNarrativa-Prefix.pch";
 				INFOPLIST_FILE = "IntervencaoNarrativaTests/IntervencaoNarrativaTests-Info.plist";
