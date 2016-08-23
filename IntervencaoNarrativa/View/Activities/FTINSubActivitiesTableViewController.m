@@ -111,6 +111,12 @@
 	[self.parentPopover presentPopoverFromBarButtonItem:button permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
+- (void)presentAsPopoverFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated
+{
+	[self parentPopover];
+	[self.parentPopover presentPopoverFromRect:rect inView:view permittedArrowDirections:UIPopoverArrowDirectionAny animated:animated];
+}
+
 - (void)dismissPopoverAnimated:(BOOL)animated
 {
 	[self.parentPopover dismissPopoverAnimated:YES];

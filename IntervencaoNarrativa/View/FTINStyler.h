@@ -18,5 +18,6 @@
 + (UIColor *)buttonColor;
 + (UIColor *)errorColor;
 + (UIColor *)correctnessColor;
++ (UIColor *)navigationTintColor;
 
 @end

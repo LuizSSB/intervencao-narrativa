@@ -15,7 +15,7 @@
 
 NSString * const FTINSegueReport = @"Report";
 
-NSInteger const FTINActivityResultViewControllerSectionCount = 2;
+NSInteger const FTINActivityResultViewControllerSectionCount = 1;
 typedef enum : NSUInteger {
     FTINActivityResultViewControllerSectionReports = 0,
     FTINActivityResultViewControllerSectionActions

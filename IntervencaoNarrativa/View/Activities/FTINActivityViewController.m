@@ -10,6 +10,7 @@
 #import "FTINSubActivityDetails.h"
 #import "FTINSubActivityContent.h"
 #import "FTINActivityInstructionViewController.h"
+#import "FTINStyler.h"
 
 #import "SubActivity+Complete.h"
 
@@ -21,6 +22,7 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 
 - (void)pause:(id)sender;
 - (void)showInstructions:(id)sender;
+- (void)showActivities:(id)sender;
 - (void)setupNavigationItemBarButtons:(BOOL)animated;
 - (void)setActivityTypeLabelUp;
 - (void)setCompletionOverlayUp:(BOOL)animated;
@@ -53,6 +55,8 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	self.navigationItem.titleView = self.titleView;
 	
 	self.navigationItem.hidesBackButton = YES;
 	self.navigationItem.leftItemsSupplementBackButton = NO;
@@ -124,7 +128,6 @@ NSInteger const FTINAlertTagActivityCancel = 1;
     self = [super init];
     if (self) {
         _subActivity = subactivity;
-		self.title = _subActivity.content.title;
 		self.delegate = delegate;
     }
     return self;
@@ -201,6 +204,33 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	return _nextBarButton;
 }
 
+@synthesize titleView = _titleView;
+- (UIView *)titleView
+{
+	if(!_titleView)
+	{
+		UILabel *title = [[UILabel alloc] init];
+		title.text = _subActivity.content.title;
+		title.textColor = [FTINStyler navigationTintColor];
+		title.font = [UIFont boldSystemFontOfSize:title.font.pointSize];
+		[title sizeToFit];
+		
+		UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu"]];
+		icon.frame = CGRectMake(0, 0, title.frame.size.height, title.frame.size.height);
+		
+		CGRect titleFrame = title.frame;
+		titleFrame.origin.x = icon.frame.size.width + 8.f;
+		title.frame = titleFrame;
+		
+		UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, titleFrame.origin.x + titleFrame.size.width, title.frame.size.height)];
+		[button addSubview:icon];
+		[button addSubview:title];
+		[button addTarget:self action:@selector(showActivities:) forControlEvents:UIControlEventTouchUpInside];
+		_titleView = button;
+	}
+	return _titleView;
+}
+
 - (void)cancelActivity:(id)sender
 {
 	UIAlertView *alertView = [UIAlertView alertWithConfirmation:@"leave_activity".localizedString delegate:self];
@@ -218,6 +248,11 @@ NSInteger const FTINAlertTagActivityCancel = 1;
 	UIViewController *viewController = [[FTINActivityInstructionViewController alloc] initWithActivityType:self.subActivity.type];
 	viewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 	[self presentViewController:viewController animated:YES completion:nil];
+}
+
+- (void)showActivities:(id)sender
+{
+	[self.delegate activityViewControllerMustShowActivityList:self];
 }
 
 - (void)goToNextActivity:(id)sender
