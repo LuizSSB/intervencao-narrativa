@@ -3,33 +3,33 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
+      "filename" : "launchportrait.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "launchportrait.png",
       "scale" : "1x"
     },
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "launtlandscape.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "launchlandscape.png",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
+      "filename" : "launchportrait@2x.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "launchportrait@2x.png",
       "scale" : "2x"
     },
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
+      "filename" : "launtlandscape@2x.png",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "launtlandscape@2x.png",
       "scale" : "2x"
     }
   ],
