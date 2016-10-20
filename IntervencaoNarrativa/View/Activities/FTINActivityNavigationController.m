@@ -32,7 +32,6 @@ NSInteger const FTINAlertViewTagLoopActivities = 3;
 + (UIColor *)defaultViewControllerBackground;
 + (UIViewController *)createUselessRootViewController;
 
-- (void)showActivities:(UIBarButtonItem *)sender;
 - (void)goToNextSubActivity;
 - (void)goToSubActivity:(FTINSubActivityDetails *)subactivity animated:(BOOL)animated;
 
@@ -86,7 +85,6 @@ NSInteger const FTINAlertViewTagLoopActivities = 3;
 }
 
 @synthesize activitiesViewController = _activitiesViewController;
-
 - (FTINSubActivitiesTableViewController *)activitiesViewController
 {
 	if(!_activitiesViewController)
@@ -161,11 +159,6 @@ NSInteger const FTINAlertViewTagLoopActivities = 3;
 	}
 }
 
-- (void)showActivities:(UIBarButtonItem *)sender
-{
-	[self.activitiesViewController presentAsPopoverFromBarButtonItem:sender animated:YES];
-}
-
 - (void)loadAndPresentFomViewController:(UIViewController *)parentViewController
 {
 	_parentViewController = parentViewController;
@@ -199,10 +192,9 @@ NSInteger const FTINAlertViewTagLoopActivities = 3;
 	[_controller pauseInSubActivity:viewController.subActivity];
 }
 
-- (NSArray *)activityViewControllerAdditionalRightBarButtonItems:(FTINActivityViewController *)viewController
+- (void)activityViewControllerMustShowActivityList:(FTINActivityViewController *)viewController
 {
-	UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithTitle:@"activities".localizedString style:UIBarButtonItemStyleBordered target:self action:@selector(showActivities:)];
-	return @[barButton];
+	[self.activitiesViewController presentAsPopoverFromRect:self.navigationBar.topItem.titleView.frame inView:self.navigationBar animated:YES];
 }
 
 #pragma mark - Activity Flow Controller Delegate

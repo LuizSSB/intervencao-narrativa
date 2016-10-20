@@ -20,6 +20,8 @@
 
 - (void)activityViewControllerPaused:(FTINActivityViewController *)viewController;
 
+- (void)activityViewControllerMustShowActivityList:(FTINActivityViewController *)viewController;
+
 @optional
 
 - (NSArray *)activityViewControllerAdditionalRightBarButtonItems:(FTINActivityViewController *)viewController;
@@ -40,6 +42,7 @@
 @property (nonatomic, readonly) UIBarButtonItem *instructionsBarButton;
 @property (nonatomic, readonly) UIToolbar *actionToolbar;
 @property (nonatomic, readonly) UIBarButtonItem *nextBarButton;
+@property (nonatomic, readonly) UIView *titleView;
 
 - (void)cancelActivity:(id)sender;
 - (void)goToNextActivity:(id)sender;

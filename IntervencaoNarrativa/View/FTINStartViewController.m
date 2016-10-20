@@ -13,6 +13,7 @@
 NSString * const FTINSegueNewPatient = @"NewPatient";
 
 @interface FTINStartViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *versionLabel;
 @end
 
 @implementation FTINStartViewController
@@ -22,6 +23,7 @@ NSString * const FTINSegueNewPatient = @"NewPatient";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	self.versionLabel.text = [@"Version " stringByAppendingString:[NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"]];
 }
 
 - (void)didReceiveMemoryWarning
