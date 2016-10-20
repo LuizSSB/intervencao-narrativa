@@ -538,7 +538,7 @@
 		256357FF19413D0E00E5762A /* FTINDescriptionActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTINDescriptionActivityViewController.xib; sourceTree = "<group>"; };
 		2563580B1941473000E5762A /* mainActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mainActivity.json; sourceTree = "<group>"; };
 		2563580E1941473000E5762A /* d_4_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d_4_2.json; sourceTree = "<group>"; };
-		25644CD01936B070006C4E06 /* IntervencaoNarrativa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IntervencaoNarrativa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		25644CD01936B070006C4E06 /* Aprendendo a Narrar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aprendendo a Narrar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25644CD31936B070006C4E06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		25644CD51936B070006C4E06 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		25644CD71936B070006C4E06 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1292,7 +1292,7 @@
 		25644CD11936B070006C4E06 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				25644CD01936B070006C4E06 /* IntervencaoNarrativa.app */,
+				25644CD01936B070006C4E06 /* Aprendendo a Narrar.app */,
 				25644CF91936B071006C4E06 /* IntervencaoNarrativaTests.xctest */,
 			);
 			name = Products;
@@ -1714,7 +1714,7 @@
 			);
 			name = IntervencaoNarrativa;
 			productName = IntervencaoNarrativa;
-			productReference = 25644CD01936B070006C4E06 /* IntervencaoNarrativa.app */;
+			productReference = 25644CD01936B070006C4E06 /* Aprendendo a Narrar.app */;
 			productType = "com.apple.product-type.application";
 		};
 		25644CF81936B071006C4E06 /* IntervencaoNarrativaTests */ = {
@@ -1746,7 +1746,7 @@
 				ORGANIZATIONNAME = "Luiz Soares dos Santos Baglie";
 				TargetAttributes = {
 					25644CCF1936B070006C4E06 = {
-						DevelopmentTeam = J9VJVS8233;
+						DevelopmentTeam = B8MYQFH822;
 					};
 					25644CF81936B071006C4E06 = {
 						TestTargetID = 25644CCF1936B070006C4E06;
@@ -2311,14 +2311,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Thiago B De Castro (TF44Q369KF)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntervencaoNarrativa/IntervencaoNarrativa-Prefix.pch";
 				INFOPLIST_FILE = "IntervencaoNarrativa/IntervencaoNarrativa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.finaltap.intervencao.narrativa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a213fae6-f14a-4a96-acfa-529b15a2930c";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.luizssb.intervencaonarrativa;
+				PRODUCT_NAME = "Aprendendo a Narrar";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2329,14 +2330,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Thiago B De Castro (J9VJVS8233)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IntervencaoNarrativa/IntervencaoNarrativa-Prefix.pch";
 				INFOPLIST_FILE = "IntervencaoNarrativa/IntervencaoNarrativa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.finaltap.intervencao.narrativa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "430fd318-46b2-4841-bf22-78367bcbacbe";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.luizssb.intervencaonarrativa;
+				PRODUCT_NAME = "Aprendendo a Narrar";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

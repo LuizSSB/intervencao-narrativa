@@ -41,7 +41,7 @@
 	for (NSInteger idx = 0; idx < 6; ++idx) {
 		frame.origin.x = idx *frame.size.width;
 		
-		NSString *imgName = [NSString stringWithFormat:@"guide_img_%d", idx].localizedString;
+		NSString *imgName = [NSString stringWithFormat:@"guide_img_%ld", (long)idx].localizedString;
 		UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage lssb_imageNamed:imgName]];
 		imageView.contentMode = UIViewContentModeScaleAspectFit;
 		imageView.frame = frame;
@@ -70,8 +70,8 @@
 - (void)setPage:(NSInteger)page
 {
 	self.pageControl.currentPage = page;
-	NSString *newTitle = [@"guide_title_" stringByAppendingFormat:@"%d", page].localizedString;
-	NSString *newText = [@"guide_text_" stringByAppendingFormat:@"%d", page].localizedString;
+	NSString *newTitle = [@"guide_title_" stringByAppendingFormat:@"%ld", (long)page].localizedString;
+	NSString *newText = [@"guide_text_" stringByAppendingFormat:@"%ld", (long)page].localizedString;
 	NSAttributedString *attributedNewText = [self stylizeText:newText];
 	
 	[UIView animateWithDuration:FTINDefaultAnimationDuration/2. animations:^{
