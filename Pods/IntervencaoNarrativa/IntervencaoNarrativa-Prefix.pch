@@ -1,0 +1,57 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+// Frameworks
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
+// Macros and constants
+#import "ErrorInfo.h"
+#import "Macros.h"
+#import "FTINNotifications.h"
+
+// Classes
+#import "ToastController.h"
+#import "FTINStyler.h"
+#import "FTINBaseTableViewController.h"
+#import "FTINBaseViewController.h"
+
+// UIKit Categories
+#import "UIView+Border.h"
+#import "UIView+SearchSubview.h"
+#import "UITableView+ScrollToBottom.h"
+#import "UIAlertView+DefaultAlerts.h"
+#import "UIViewController+Visibility.h"
+#import "UIDevice+SystemVersion.h"
+#import "UIApplication+TopMostViewController.h"
+#import "UIView+PutOnScreen.h"
+#import "UIView+AsImage.h"
+#import "UIColor+FromHex.h"
+#import "UIImage+ImageNamed.h"
+
+// Foundation Categories
+#import "NSNumber+TimeDescription.h"
+#import "NSFileManager+Utils.h"
+#import "NSObject+Properties.h"
+#import "NSThread+AsyncBlock.h"
+#import "NSString+ReplaceStrings.h"
+#import "NSString+LocalizedString.h"
+#import "NSError+AlertOnError.h"
+#import "NSError+LSSB_CreateError.h"
+#import "NSDate+FormattedDate.h"
+#import "NSArray+Shuffling.h"
+#import "NSNumber+Formats.h"
+
+#endif
